@@ -127,11 +127,9 @@ GEM
     nio4r (2.5.8)
     nokogiri (1.13.4-x86_64-darwin)
       racc (~> 1.4)
-<<<<<<< HEAD
     parallel (1.22.1)
-=======
     orm_adapter (0.5.0)
->>>>>>> update:set devise and change i18n to zh-tws
+    parallel (1.22.1)
     paranoia (2.6.0)
       activerecord (>= 5.1, < 7.1)
     parser (3.1.2.0)
@@ -231,12 +229,10 @@ GEM
     turbolinks-source (5.2.0)
     tzinfo (2.0.4)
       concurrent-ruby (~> 1.0)
-<<<<<<< HEAD
     unicode-display_width (2.1.0)
-=======
     warden (1.2.9)
       rack (>= 2.0.9)
->>>>>>> update:set devise and change i18n to zh-tws
+    unicode-display_width (2.1.0)
     web-console (4.2.0)
       actionview (>= 6.0.0)
       activemodel (>= 6.0.0)
