@@ -14,6 +14,7 @@ gem 'jbuilder', '~> 2.7'
 # gem 'bcrypt', '~> 3.1.7'
 # gem 'image_processing', '~> 1.2'
 
+gem 'rubocop', '~> 1.28', require: false
 gem 'bootsnap', '>= 1.4.4', require: false
 gem 'friendly_id', '~> 5.4'
 gem 'pundit', '~> 2.2'
@@ -26,7 +27,7 @@ end
 
 group :development do
   gem 'web-console', '>= 4.1.0'
-  gem 'rack-mini-profiler', '~> 2.0'
+  # gem 'rack-mini-profiler', '~> 2.0'
   gem 'listen', '~> 3.3'
   gem 'spring'
 end
@@ -42,4 +43,13 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem "tailwindcss-rails", "~> 2.0"
 
 gem "foreman", "~> 0.87.2"
+
+gem 'devise'
+
+gem 'devise-i18n'
+
+gem 'omniauth'
+gem 'omniauth-github'
+gem 'omniauth-google-oauth2'
+gem "omniauth-rails_csrf_protection"
 
