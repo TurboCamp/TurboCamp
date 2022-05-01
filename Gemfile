@@ -62,13 +62,10 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem "tailwindcss-rails", "~> 2.0"
 
 gem "foreman", "~> 0.87.2"
-
+gem 'devise-i18n-views'
 gem 'devise'
-
-gem 'devise-i18n'
-
 gem 'omniauth'
 gem 'omniauth-github'
 gem 'omniauth-google-oauth2'
-gem "omniauth-rails_csrf_protection"
+gem "omniauth-rails_csrf_protection" 
 
