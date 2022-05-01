@@ -10,7 +10,7 @@
       <% @messages.each do |message|%>
         <li>
           <%= link_to message.title, message_path(message.id)%>
-          <%= message.body%>
+          <%= message.content%>
         </li>
 
       <% end %>

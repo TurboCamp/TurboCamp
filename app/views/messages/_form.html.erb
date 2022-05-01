@@ -9,8 +9,8 @@
 
   <div>
     <%= form.label :body %><br>
-    <%= form.text_area :body %><br>
-    <% message.errors.full_messages_for(:body).each do |message| %>
+    <%= form.rich_text_area :content %><br>
+    <% message.errors.full_messages_for(:content).each do |message| %>
       <div><%= message %></div>
     <% end %>
   </div>
