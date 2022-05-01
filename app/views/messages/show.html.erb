@@ -9,4 +9,20 @@
     <li><%= link_to "Edit", edit_message_path(@message), method: :get, action: "edit"%></li>
     <li><%= link_to "Destroy", message_path(@message), method: :delete, data: { confirm: "Are you sure?"}%></li>
   </ul>
+  <h2>Comments</h2>
+    <%= render @message.comments %>
+  <h2>Add a comment:</h2>
+  <%= form_with model: [ @message, @message.comments.build ] do |form| %>
+  <p>
+    <%= form.label :commenter %><br>
+    <%= form.text_field :commenter %>
+  </p>
+  <p>
+    <%= form.label :content %><br>
+    <%= form.rich_text_area :content %>
+  </p>
+  <p>
+    <%= form.submit %>
+  </p>
+  <% end %>
 </article>
