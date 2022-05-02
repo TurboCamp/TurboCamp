@@ -57,7 +57,8 @@ Rails.application.configure do
   # This option may cause significant delays in view rendering with a large
   # number of complex assets.
   config.assets.debug = true
-
+  config.action_mailer.delivery_method = :smtp   
+  config.action_mailer.smtp_settings = {address: 'smtp.mailgun.org',port: 587,domain: ENV["MAILGUN_DOMAIN"],user_name: ENV["MAILGUN_USERNAME"],password: ENV["MAILGUN_PASSWORD"],authentication: 'plain',enable_starttls_auto: true }
   # Suppress logger output for asset requests.
   config.assets.quiet = true
 

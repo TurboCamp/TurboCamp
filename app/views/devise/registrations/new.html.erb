@@ -1,12 +1,13 @@
 
 
-<%= render "/home/navbar"%>
 <section class="flex justify-center py-40">
   
   <div class="wrap w-full max-w-xs">
      
     <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), html: {class:"bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4"}) do |f| %>
        <%= devise_error_messages! %>
+      <div><%= f.label :nickname ,"稱呼",class:"block text-gray-700 text-sm font-bold mb-2"%></div>
+      <div><%= f.text_field :nickname , class:"shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"%></div>
       <div><%= f.label :email ,class:"block text-gray-700 text-sm font-bold mb-2"%></div>
       <div><%= f.email_field :email , class:"shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"%></div>
 
