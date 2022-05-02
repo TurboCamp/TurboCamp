@@ -1,9 +1,15 @@
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
+  has_many :projects
+  has_many :user_projects
+  has_many :own_projects , through: :user_projects , source: :project
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable,
          :confirmable , :omniauthable, omniauth_providers: [:google_oauth2 , :github]
+
+  scope :manager, -> { where(role: 'admin') }
+  scope :teammate, -> { where(role: 'user') }
 
    def self.create_from_provider_data(provider_data)
     where(email: provider_data.info.email).first_or_create do |user|
@@ -14,5 +20,7 @@ class User < ApplicationRecord
       user.uid = provider_data.uid
     end
   end
+
+
   
 end

@@ -12,13 +12,15 @@
   </head>
 
   <body>
-    <main class="container px-5 mx-auto mt-28">
-    <div class="flex flex-col">
-      <%= render 'shared/flash' if flash %>
-      <p class="notice"><%= notice %></p>
-      <p class="alert"><%= alert %></p>
-        <%= yield %>
-    </div>
+
+    <header>
+      <%= render "/home/navbar"%>
+    </header>
+    <main class="p-20">
+      <%= render "/shared/flash" if flash %>
+      <%= yield %>
     </main>
+
+
   </body>
 </html>

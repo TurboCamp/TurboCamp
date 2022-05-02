@@ -10,4 +10,7 @@ Rails.application.routes.draw do
   end
   
   root "home#index"
+
+  resources :projects 
+  get "/myproject/:id" , to: "project#index" , as:"myproject"
 end
