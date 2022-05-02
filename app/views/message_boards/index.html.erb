@@ -8,11 +8,12 @@
   <div class="body">
     <ul>
       <% @messages.each do |message|%>
-        <li>
-          <%= link_to message.title, message_path(message.id)%>
-          <%= message.content%>
-        </li>
-
+        <% if message.public? %>
+          <li>
+            <%= link_to message.title, message_path(message.id)%>
+            <%= message.content%>
+          </li>
+        <% end %>
       <% end %>
     </ul>
   </div>

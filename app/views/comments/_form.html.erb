@@ -1,0 +1,17 @@
+  <%= form_with model: [ @message, @message.comments.build ] do |form| %>
+  <p>
+    <%= form.label :commenter %><br>
+    <%= form.text_field :commenter %>
+  </p>
+  <p>
+    <%= form.label :content %><br>
+    <%= form.rich_text_area :content %>
+  </p>
+  <div>
+  <%= form.label :status %><br>
+  <%= form.select :status, ['public', 'draft'], selected: 'public' %>
+  </div>
+  <p>
+    <%= form.submit %>
+  </p>
+  <% end %>
