@@ -1,0 +1,31 @@
+<%= form_with(model: schedule, class: "contents") do |form| %>
+
+  <div class="my-5">
+    <%= form.label :title, '事件' %>
+    <%= form.text_field :title, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+  </div>
+
+  <div class="my-5">
+    <%= form.label :calendar_id %>
+    <%= form.number_field :calendar_id, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+  </div>
+
+  <div class="my-5">
+    <%= form.label :start, '起始時間' %>
+    <%= form.datetime_select :start, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+  </div>
+
+  <div class="my-5">
+    <%= form.label :end, '起始時間' %>
+    <%= form.datetime_select :end, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+  </div>
+
+  <div class="my-5">
+    <%= form.label :location, '地點' %>
+    <%= form.text_field :location, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+  </div>
+
+  <div class="inline">
+    <%= form.submit '新增', class: "rounded-lg py-3 px-5 bg-blue-600 text-white inline-block font-medium cursor-pointer" %>
+  </div>
+<% end %>
