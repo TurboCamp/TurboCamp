@@ -1,0 +1,47 @@
+<% message.errors.full_messages_for(:title).each do |message| %>
+  <div><%= message %></div>
+<% end %>
+
+<%= form_with model: message do |form| %>
+<form class="space-y-8 divide-y divide-gray-200">
+  <div class="space-y-8 divide-y divide-gray-200">
+    <div>
+      <div>
+        <h3 class="text-lg leading-6 font-medium text-gray-900">Message</h3>
+      </div>
+      <div class="mt-6 grid grid-cols-1 gap-y-6 gap-x-4 sm:grid-cols-6">
+        <div class="sm:col-span-4">
+            <%= form.label :title, class: "block text-sm font-medium text-gray-700" %>
+          <div class="mt-1 flex rounded-md shadow-sm">
+            <%= form.text_field :title, class:"flex-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full min-w-0 rounded-none rounded-r-md sm:text-sm border-gray-300" %>
+          </div>
+        </div>
+
+        <div class="sm:col-span-6">
+          <%= form.label :content, class:"block text-sm font-medium text-gray-700" %>
+          <div class="mt-1">
+            <%= form.rich_text_area :content, class:"flex-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full min-w-0 rounded-none rounded-r-md sm:text-sm border-gray-300" %>
+          </div>
+        </div>
+        <div class="sm:col-span-6">
+          <%= form.label :status, class:"block text-sm font-medium text-gray-700" %>
+          <div class="mt-1">
+            <div class="flex">
+              <div class="mb-3 xl:w-96">
+                <%= form.select :status, ['public', 'draft'], selected: 'public' ,class: "flex-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full min-w-0 rounded-none rounded-r-md sm:text-sm border-gray-300"%>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="pt-5">
+    <div class="flex justify-end">
+      <button type="button" class="inline-block px-6 py-2.5 bg-red-600 text-white font-medium text-xs leading-tight uppercase rounded-full shadow-md hover:bg-red-700 hover:shadow-lg focus:bg-red-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-red-800 active:shadow-lg transition duration-150 ease-in-out"><%=link_to "Cancel",message_boards_path%></button>
+      <%= form.submit class:"inline-block px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded-full shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out"%>
+    </div>
+  </div>
+</form>
+<% end %>
