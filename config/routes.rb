@@ -10,7 +10,8 @@ Rails.application.routes.draw do
   end
   
   root "home#index"
+  root to: "home#index"
+  resources :personals ,only: [:index]
+  resources :projects , expect:[:index]  
 
-  resources :projects 
-  get "/myproject/:id" , to: "project#index" , as:"myproject"
 end
