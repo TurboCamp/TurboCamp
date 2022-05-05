@@ -73,15 +73,6 @@ ActiveRecord::Schema.define(version: 2022_05_05_025543) do
     t.string "status"
   end
 
-  create_table "schedules", force: :cascade do |t|
-    t.string "title"
-    t.integer "calendar_id"
-    t.datetime "start"
-    t.datetime "end"
-    t.string "location"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
 
   create_table "personals", force: :cascade do |t|
     t.bigint "user_id", null: false
@@ -106,6 +97,16 @@ ActiveRecord::Schema.define(version: 2022_05_05_025543) do
     t.string "slug"
     t.index ["slug"], name: "index_projects_on_slug", unique: true
     t.index ["user_id"], name: "index_projects_on_user_id"
+  end
+
+  create_table "schedules", force: :cascade do |t|
+    t.string "title"
+    t.integer "calendar_id"
+    t.datetime "start"
+    t.datetime "end"
+    t.string "location"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "users", force: :cascade do |t|
