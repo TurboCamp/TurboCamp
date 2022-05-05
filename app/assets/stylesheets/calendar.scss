@@ -1,0 +1,12 @@
+.tui-full-calendar-weekday-schedule {
+    background-color: #fa0 !important;
+}
+.field_with_errors{
+    display: flex;
+    input[type="text"],[type="number"] {
+        border: 2px #f00 solid;
+    }
+    label{
+        color: #f00;
+    }
+}
