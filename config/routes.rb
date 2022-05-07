@@ -12,7 +12,6 @@ Rails.application.routes.draw do
   resources :buckets
 
   root "home#index"
-  root to: "home#index"
   resources :personals ,only: [:index]
   resources :projects , expect:[:index]  
 
