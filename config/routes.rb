@@ -1,9 +1,9 @@
 Rails.application.routes.draw do
-<<<<<<< HEAD
+
   resources :todo_lists do
     resources :todo_items
   end
-<<<<<<< HEAD
+
   
   namespace :todo_list do
     resources :todo_items
@@ -11,13 +11,7 @@ Rails.application.routes.draw do
   match "/404", to: "application#not_found", via: :all
 
 
-=======
-  namespace :todo_list do
-    resources :todo_items
-  end
->>>>>>> 8a4fb9a (To dos (#58))
-=======
->>>>>>> 18d8128 (Revert "To dos (#58)")
+
   resources :schedules
   devise_for :users , controllers: { omniauth_callbacks: "users/omniauth_callbacks" }
 
@@ -31,7 +25,6 @@ Rails.application.routes.draw do
   resources :buckets
 
   root "home#index"
-<<<<<<< HEAD
 
   resources :personals ,only: [:index] do 
     member do 
@@ -54,10 +47,8 @@ Rails.application.routes.draw do
   end
 
 
-=======
-  root to: "home#index"
   resources :personals ,only: [:index]
   resources :projects , expect:[:index]  
->>>>>>> 18d8128 (Revert "To dos (#58)")
+
 
 end
