@@ -1,24 +1,14 @@
-# README
+# TurboCamp
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+![TurboCamp](assets/images/LOGO.png)
 
-Things you may want to cover:
+TurboCamp是一個仿效BaseCamp的專案管理系統，主要的功能有
 
-* Ruby version
+1. todo
 
-* System dependencies
+2. schedule
 
-* Configuration
+3. message board
 
-* Database creation
+4. docs&files
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
