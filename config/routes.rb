@@ -10,7 +10,6 @@ Rails.application.routes.draw do
   end
   
   root "home#index"
-  root to: "home#index"
   resources :personals ,only: [:index]
   resources :projects , expect:[:index]  
 
