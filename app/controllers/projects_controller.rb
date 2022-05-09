@@ -1,9 +1,8 @@
 class ProjectsController < ApplicationController
     layout 'project'
     before_action :authenticate_user!
-    def index 
+    before_action :find_my_project , only:[:show ]
 
-    end 
     def new 
         @project = Project.new
     end
@@ -17,7 +16,9 @@ class ProjectsController < ApplicationController
             render :new 
         end
     end 
+
     def show 
+        @chat_room = @project.chat_room
     end 
     def edit 
     end 
@@ -28,6 +29,13 @@ class ProjectsController < ApplicationController
 
     private 
     def project_clean 
-        params.require(:project).permit(:title , :description , :nickname , :update_at  )
+        params.require(:project).permit(:title , :description , :nickname , :updated_at )
     end
+
+    def find_my_project
+        @project = Project.friendly.find(params[:id])
+    end
+
+   
+    
 end

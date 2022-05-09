@@ -1,5 +1,9 @@
 class User < ApplicationRecord
+
+
   include Slugable
+  
+  
   has_many :projects
   has_many :personals
   has_many :own_projects , through: :personals , source: :project
@@ -19,11 +23,9 @@ class User < ApplicationRecord
       user.uid = provider_data.uid
     end
   end
-  
   def normalize_friendly_id(value)
     value.to_s.parameterize(preserve_case: true)
   end
-
-
+  
   
 end

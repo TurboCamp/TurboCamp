@@ -1,0 +1,19 @@
+<h2><%= @chat_room.project.title %>專案的聊天室</h2>
+<br>
+
+
+<ul id="content">
+    <% @contents.each do |content|%>
+        <li>
+            <%= content.text %>
+        </li>
+    <% end %>
+</ul>
+
+<%= form_with(model: @content , data:{controller:"remove"}) do |f| %>
+<div>
+    <%= f.text_field :text , placeholder: '請輸入訊息'%>
+</div>
+    <%= f.hidden_field :chat_room_id , value: params[:id] %>
+    <button><%= f.submit '送出' , data:{action:"click->remove#remove_value"} %></button>
+<% end %>
