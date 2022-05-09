@@ -10,8 +10,11 @@ Rails.application.routes.draw do
   end
   
   root "home#index"
-  root to: "home#index"
   resources :personals ,only: [:index]
-  resources :projects , expect:[:index]  
+  resources :projects , except:[:index]
+
+  resources :chat_rooms , only:[:show ]
+  resources :contents , only:[:create]
+  
 
 end
