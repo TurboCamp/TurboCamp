@@ -4,10 +4,10 @@ class ProjectsController < ApplicationController
     before_action :find_my_project , only:[:show ]
 
     def new 
-        @project = Project.new
+        @project = current_user.projects.new
     end
     def create 
-        @project = Project.new(project_clean)
+        @project = current_user.projects.new(project_clean)
         @project.user_id = current_user.id
         @project.manage = "manager"
         if @project.save 
@@ -18,6 +18,7 @@ class ProjectsController < ApplicationController
     end 
 
     def show 
+        # authorize :project
         @chat_room = @project.chat_room
     end 
     def edit 
@@ -29,11 +30,11 @@ class ProjectsController < ApplicationController
 
     private 
     def project_clean 
-        params.require(:project).permit(:title , :description , :nickname , :updated_at )
+        params.require(:project).permit(:title , :description , :nickname , :updated_at , :manage)
     end
 
     def find_my_project
-        @project = Project.friendly.find(params[:id])
+        @project = current_user.projects.friendly.find(params[:id])
     end
 
    
