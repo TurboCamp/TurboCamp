@@ -1,10 +1,15 @@
 Rails.application.routes.draw do
+<<<<<<< HEAD
   resources :todo_lists do
     resources :todo_items
   end
   namespace :todo_list do
     resources :todo_items
   end
+=======
+  match "/404", to: "application#not_found", via: :all
+
+>>>>>>> fix the other account can see the porject with URL
   resources :schedules
   devise_for :users , controllers: { omniauth_callbacks: "users/omniauth_callbacks" }
 
