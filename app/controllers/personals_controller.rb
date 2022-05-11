@@ -1,7 +1,7 @@
 class PersonalsController < ApplicationController
     layout'project'
     before_action :authenticate_user! 
-    before_action :findmyproject , only: %i[show edit update destroy]
+    # before_action :findmyproject , only: %i[show edit update destroy]
     def index
         if user_signed_in? 
             @projects = current_user.projects.all 

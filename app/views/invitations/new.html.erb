@@ -1,0 +1,7 @@
+<h2>邀請成員</h2>
+
+<%= form_with(model: @invitation , url:project_invitations_path , method: :post) do |f| %>
+    <%= f.email_field :email , palaceholder:'請輸入電子信箱'%>
+    <%= f.hidden_field :invite_project_id ,value:params[:id]%>   
+<%= f.submit '寄送邀請信' %>
+<% end %>

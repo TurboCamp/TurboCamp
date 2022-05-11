@@ -6,13 +6,14 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
 
   def new_user_with_letter
+
     invitation = Invitation.where(token: params[:token]).first
     if invitation
       @invitation_token = invitation.token
-      @user = User.new(email: invitation.recipient_email)
+      @user = User.new(email: invitation.email)
       render :new
     else
-      redirect_to expired_token_path
+      redirect_to root_path , notice:'此連結無效'
     end
   end
 
@@ -20,7 +21,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
     @user = User.new(user_params)
     if @user.save
       session[:user_id] = @user.id
-      InviteMailer.send_invite_letter_to(@user).deliver_now
+      join_project(@user)
       redirect_to personals_path, notice:'你已成功加入'
     else
       render :new , notice:'請重新點選網址登入'
@@ -29,10 +30,16 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   private 
 
-  def join_project
-    invitation = Invitation.where(token: params[:token]).first
+
+
+  def join_project(user)
+    invitation = Invitation.where(token: params[:invitation_token]).first
     if invitation 
-      @user.projects.update(Project.find(params[:invite_project_id]))
+      project = Project.friendly.find(invitation.invite_project_id)
+      user.projects.concat(project)
+      clear_token
+    end
+  end
   # GET /resource/sign_up
   # def new
   #   super

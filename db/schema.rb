@@ -83,10 +83,10 @@ ActiveRecord::Schema.define(version: 2022_05_11_015323) do
     t.string "invite_project_id"
     t.string "email"
     t.string "token"
-    t.bigint "users_id", null: false
+    t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["users_id"], name: "index_invitations_on_users_id"
+    t.index ["user_id"], name: "index_invitations_on_user_id"
   end
 
   create_table "messages", force: :cascade do |t|
@@ -159,7 +159,7 @@ ActiveRecord::Schema.define(version: 2022_05_11_015323) do
   add_foreign_key "chat_rooms", "projects"
   add_foreign_key "comments", "messages"
   add_foreign_key "contents", "chat_rooms"
-  add_foreign_key "invitations", "users", column: "users_id"
+  add_foreign_key "invitations", "users"
   add_foreign_key "personals", "projects"
   add_foreign_key "personals", "users"
   add_foreign_key "projects", "users"

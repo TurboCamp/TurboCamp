@@ -1,8 +1,9 @@
 class InviteMailer < ApplicationMailer
-    def send_invite_letter_to(user )
-        @user = user 
-        @token = token
-        mail to:[@user ,@token], subject:'TurboCamp 成員邀請'
+    default from: ENV['MAILGUN_USERNAME']
+    def send_invite_letter_to(invitation , project)
+        @invitation = invitation
+        @project = project
+        mail(to: @invitation.email, subject: "邀請加入TurboCamp")
     end
 
 end

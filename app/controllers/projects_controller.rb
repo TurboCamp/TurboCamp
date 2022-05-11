@@ -10,7 +10,7 @@ class ProjectsController < ApplicationController
         
         @project = current_user.projects.new(project_clean)
         @project.manage = "manager"
-
+        @project.user_id = current_user.id
         if @project.save
             redirect_to personals_path 
         else
@@ -46,7 +46,7 @@ class ProjectsController < ApplicationController
     #     params.require(:user).permit(:email , :provider , :uid , :role , :slug)
     # end
     def project_clean 
-        params.require(:project).permit(:title , :description , :nickname , :updated_at , :manage, :useremail)
+        params.require(:project).permit(:title , :description , :nickname , :updated_at , :manage, :useremail )
     end
 
     def find_my_project

@@ -1,3 +1,5 @@
 親愛的用戶您好：
-<%= @user.projects.title%>發給您邀請，
+<%= @project.title%>發給您邀請，
 請點選或複製下方網址，以加入成為團隊成員。
+<%= button_to '加入我們'  , sign_up_with_letter_url(@invitation.token) %>
+
