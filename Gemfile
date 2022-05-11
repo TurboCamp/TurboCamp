@@ -14,7 +14,7 @@ gem 'local_time', '~> 1.0', '>= 1.0.3'
 # Use Redis adapter to run Action Cable in production
 gem 'redis', '~> 4.0'
 # gem 'bcrypt', '~> 3.1.7'
-
+gem 'net-smtp'
 # Use Active Storage variant
 gem 'image_processing', '~> 1.2'
 
@@ -23,6 +23,7 @@ gem 'bootsnap', '>= 1.4.4', require: false
 gem 'friendly_id', '~> 5.4'
 gem 'pundit', '~> 2.2'
 gem 'paranoia', '~> 2.6'
+
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem "dotenv-rails", "~> 2.7"
@@ -34,6 +35,7 @@ group :development do
   # gem 'rack-mini-profiler', '~> 2.0'
   gem 'listen', '~> 3.3'
   gem 'spring'
+  gem 'pry-rails'
 end
 
 group :test do

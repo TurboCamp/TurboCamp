@@ -7,10 +7,11 @@ class ProjectsController < ApplicationController
         @project = current_user.projects.new
     end
     def create 
+        
         @project = current_user.projects.new(project_clean)
-        @project.user_id = current_user.id
         @project.manage = "manager"
-        if @project.save 
+
+        if @project.save
             redirect_to personals_path 
         else
             render :new 
@@ -27,10 +28,25 @@ class ProjectsController < ApplicationController
     end 
     def destroy
     end 
+    def invite
+        @project = current_user.projects.friendly.find(params[:id])
+        
+    end
+    def join_team
+        @project = current_user.projects.friendly.find(params[:id])
+        @project.update(useremail:params[:project][:useremail])
+        render html: 
+        @token =  params[:authenticity_token] 
+        # InviteMailer.send_invite_letter_to(@usermail , @token).deliver_now
+    end
 
     private 
+
+    # def user_clean 
+    #     params.require(:user).permit(:email , :provider , :uid , :role , :slug)
+    # end
     def project_clean 
-        params.require(:project).permit(:title , :description , :nickname , :updated_at , :manage)
+        params.require(:project).permit(:title , :description , :nickname , :updated_at , :manage, :useremail)
     end
 
     def find_my_project

@@ -1,0 +1,7 @@
+<h2>邀請成員</h2>
+
+<%= form_with(model: @project , url:join_team_project_path , method: :post) do |f| %>
+    <%= f.label :useremail , '電子信箱'%>
+    <%= f.email_field :useremail %>
+<%= f.submit '寄送邀請信' %>
+<% end %>

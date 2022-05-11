@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_05_09_073132) do
+ActiveRecord::Schema.define(version: 2022_05_11_015323) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -58,6 +58,7 @@ ActiveRecord::Schema.define(version: 2022_05_09_073132) do
     t.bigint "project_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "slug"
     t.index ["project_id"], name: "index_chat_rooms_on_project_id"
   end
 
@@ -76,6 +77,16 @@ ActiveRecord::Schema.define(version: 2022_05_09_073132) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["chat_room_id"], name: "index_contents_on_chat_room_id"
+  end
+
+  create_table "invitations", force: :cascade do |t|
+    t.string "invite_project_id"
+    t.string "email"
+    t.string "token"
+    t.bigint "users_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["users_id"], name: "index_invitations_on_users_id"
   end
 
   create_table "messages", force: :cascade do |t|
@@ -148,6 +159,7 @@ ActiveRecord::Schema.define(version: 2022_05_09_073132) do
   add_foreign_key "chat_rooms", "projects"
   add_foreign_key "comments", "messages"
   add_foreign_key "contents", "chat_rooms"
+  add_foreign_key "invitations", "users", column: "users_id"
   add_foreign_key "personals", "projects"
   add_foreign_key "personals", "users"
   add_foreign_key "projects", "users"

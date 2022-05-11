@@ -7,6 +7,7 @@ class User < ApplicationRecord
   has_many :projects
   has_many :personals
   has_many :own_projects , through: :personals , source: :project
+  
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable,
           :omniauthable, omniauth_providers: [:google_oauth2 , :github]

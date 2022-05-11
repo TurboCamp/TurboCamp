@@ -4,6 +4,35 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # before_action :configure_sign_up_params, only: [:create]
   # before_action :configure_account_update_params, only: [:update]
 
+
+  def new_user_with_letter
+    invitation = Invitation.where(token: params[:token]).first
+    if invitation
+      @invitation_token = invitation.token
+      @user = User.new(email: invitation.recipient_email)
+      render :new
+    else
+      redirect_to expired_token_path
+    end
+  end
+
+  def create
+    @user = User.new(user_params)
+    if @user.save
+      session[:user_id] = @user.id
+      InviteMailer.send_invite_letter_to(@user).deliver_now
+      redirect_to personals_path, notice:'你已成功加入'
+    else
+      render :new , notice:'請重新點選網址登入'
+    end
+  end
+
+  private 
+
+  def join_project
+    invitation = Invitation.where(token: params[:token]).first
+    if invitation 
+      @user.projects.update(Project.find(params[:invite_project_id]))
   # GET /resource/sign_up
   # def new
   #   super
