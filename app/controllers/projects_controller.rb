@@ -19,7 +19,6 @@ class ProjectsController < ApplicationController
     end 
 
     def show 
-        # authorize :project
         @chat_room = @project.chat_room
     end 
     def edit 
@@ -32,13 +31,13 @@ class ProjectsController < ApplicationController
         @project = current_user.projects.friendly.find(params[:id])
         
     end
-    def join_team
-        @project = current_user.projects.friendly.find(params[:id])
-        @project.update(useremail:params[:project][:useremail])
-        render html: 
-        @token =  params[:authenticity_token] 
-        # InviteMailer.send_invite_letter_to(@usermail , @token).deliver_now
-    end
+    # def join_team
+    #     @project = current_user.projects.friendly.find(params[:id])
+    #     @project.update(useremail:params[:project][:useremail])
+    #     render html: 
+    #     @token =  params[:authenticity_token] 
+    #     # InviteMailer.send_invite_letter_to(@usermail , @token).deliver_now
+    # end
 
     private 
 
