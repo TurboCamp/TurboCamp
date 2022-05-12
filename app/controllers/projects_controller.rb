@@ -32,19 +32,10 @@ class ProjectsController < ApplicationController
         @project = current_user.projects.friendly.find(params[:id])
         
     end
-    # def join_team
-    #     @project = current_user.projects.friendly.find(params[:id])
-    #     @project.update(useremail:params[:project][:useremail])
-    #     render html: 
-    #     @token =  params[:authenticity_token] 
-    #     # InviteMailer.send_invite_letter_to(@usermail , @token).deliver_now
-    # end
-
+  
     private 
 
-    # def user_clean 
-    #     params.require(:user).permit(:email , :provider , :uid , :role , :slug)
-    # end
+   
     def project_clean 
         params.require(:project).permit(:title , :description , :nickname , :updated_at , :manage, :useremail )
     end
@@ -53,6 +44,4 @@ class ProjectsController < ApplicationController
         @project = current_user.projects.friendly.find(params[:id])
     end
 
-   
-    
 end

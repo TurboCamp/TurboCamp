@@ -12,7 +12,7 @@ class InvitationsController < ApplicationController
         @invitation.update(invite_project_id:params[:project_id])
         # render html:params[:project_id]
         # render html: @project.friendly_id
-        # InviteMailer.send_invite_letter_to(@invitation , @project).deliver_now
+        InviteMailer.send_invite_letter_to(@invitation , @project).deliver_now
         redirect_to personals_path , notice:"成功邀請 #{@invitation.email}"
       else
         @invitation = Invitation.new

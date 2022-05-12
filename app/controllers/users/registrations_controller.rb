@@ -22,29 +22,23 @@ class Users::RegistrationsController < Devise::RegistrationsController
   def create
     @user = User.new(user_params)
     if @user.save
-    #   session[:user_id] = @user.id
-    #   invitation = Invitation.where(token: params[:invitation_token]).first
-    #   if invitation
-      project = Project.friendly.find(params[:invite_project_id])
-      render html: project.title
-    #   project.users << user
-    #   Invitation.clear_token
-    #   end
-    #   redirect_to personals_path , notice:'你已成功登入'
-    # else
-    #   render :new , notice:'註冊失敗'
+      session[:user_id] = @user.id
+      join_project(@user)
+      redirect_to personals_path , notice:'你已成功登入'
+    else
+      render :new , notice:'註冊失敗'
     end
   end
 
-  # private
+  private
 
-  # def join_project(user)
-  #   invitation = Invitation.where(token: params[:invitation_token]).first
-  #   if invitation
-  #     project = Project.friendly.find(params[:invite_project_id])
-  #     project.users << user
-  #     Invitation.clear_token
-  #   end
-  # end
+  def join_project(user)
+    invitation = Invitation.where(token: params[:invitation_token]).first
+    if invitation
+      project = Project.friendly.find(invitation.invite_project_id)
+      project.users.create(user:user)
+      Invitation.clear_token
+    end
+  end
   
 end
