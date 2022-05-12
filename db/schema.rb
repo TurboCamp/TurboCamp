@@ -13,6 +13,7 @@ ActiveRecord::Schema.define(version: 2022_05_13_073326) do
 
 
 
+
 ActiveRecord::Schema.define(version: 2022_05_13_064651) do
 
 
@@ -131,6 +132,22 @@ ActiveRecord::Schema.define(version: 2022_05_13_064651) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "todo_items", force: :cascade do |t|
+    t.text "description", null: false
+    t.boolean "completed"
+    t.datetime "completed_at"
+    t.bigint "todo_list_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["todo_list_id"], name: "index_todo_items_on_todo_list_id"
+  end
+
+  create_table "todo_lists", force: :cascade do |t|
+    t.string "title"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -164,6 +181,7 @@ ActiveRecord::Schema.define(version: 2022_05_13_064651) do
 <<<<<<< HEAD
   add_foreign_key "projects", "users"
 <<<<<<< HEAD
+<<<<<<< HEAD
   add_foreign_key "todo_items", "todo_lists"
 <<<<<<< HEAD
 =======
@@ -172,4 +190,7 @@ ActiveRecord::Schema.define(version: 2022_05_13_064651) do
 >>>>>>> 8a4fb9a (To dos (#58))
 =======
 >>>>>>> 18d8128 (Revert "To dos (#58)")
+=======
+  add_foreign_key "todo_items", "todo_lists"
+>>>>>>> 6a1003d (新增TodoList)
 end
