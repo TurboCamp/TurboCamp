@@ -4,15 +4,16 @@ class ProjectsController < ApplicationController
     before_action :find_my_project , only:[:show ]
 
     def new 
-        @project = current_user.projects.new
+        @project = Project.new
     end
+
     def create 
+        @project = current_user.projects.create(project_clean)
         
-        @project = current_user.projects.new(project_clean)
-        @project.manage = "manager"
-        @project.user_id = current_user.id
+        # render html: params
+        @project.update(manage:"manager")
         if @project.save
-            redirect_to personals_path 
+            redirect_to project_path(@project)
         else
             render :new 
         end

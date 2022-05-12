@@ -1,12 +1,10 @@
-
 <div class="flex justify-evenly">
     <%= link_to "新增專案" , new_project_path , class:"bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full"%>
 </div>
 
 <section class="mt-10 flex">
 <% @projects.each do |project| %>
-
-<%= link_to project_path(project) do  %>
+<%= link_to project_path(project) do %>
 <div class="p-4 flex gap-2 ">
   <div class="border-r border-b border-l border-t border-gray-400  p-4 flex flex-col justify-between leading-normal mr-auto ml-auto shadow-lg">
     <div class="mb-8">

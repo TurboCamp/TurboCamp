@@ -11,7 +11,7 @@ class Invitation < ApplicationRecord
     end
 
     def clear_token
-      self.update_column(:token, nil)
+      self.update(token: nil)
     end
 
 end

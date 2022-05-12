@@ -17,8 +17,8 @@ Rails.application.routes.draw do
   end
   
   root "home#index"
-  resources :personals ,only: [:index]
-  resources :projects , except:[:index] do 
+  resources :personals ,only: [:index , :create]
+  resources :projects , except:[:index ] do 
     resources :invitations, only: [:new, :create]
   end
 
