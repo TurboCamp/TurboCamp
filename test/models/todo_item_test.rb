@@ -1,6 +1,6 @@
 require "test_helper"
 
-class UserProjectTest < ActiveSupport::TestCase
+class TodoItemTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end
