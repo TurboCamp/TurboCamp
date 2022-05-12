@@ -3,7 +3,7 @@ class Project < ApplicationRecord
   after_create :create_chat_room
   include Slugable
   
-  belongs_to :user
+  has_many :users
   has_many :personals
   has_many :teammates , through: :personals , source: :user
   has_one :chat_room
