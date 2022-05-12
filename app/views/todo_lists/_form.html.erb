@@ -1,7 +1,9 @@
-<%= form_with(model: todo_list, class: "contents") do |form| %>
+<div class="container flex flex-wrap">
+
+<%= form_with(model: todo_list) do |form| %>
   <% if todo_list.errors.any? %>
-    <div id="error_explanation" class="bg-red-50 text-red-500 px-3 py-2 font-medium rounded-lg mt-3">
-      <h2><%= pluralize(todo_list.errors.count, "error") %> prohibited this todo_list from being saved:</h2>
+    <div id="error_explanation">
+      <%# <h2><%= pluralize(todo_list.errors.count, "error") %> prohibited this todo_list from being saved:</h2> %>
 
       <ul>
         <% todo_list.errors.each do |error| %>
@@ -10,13 +12,18 @@
       </ul>
     </div>
   <% end %>
+<div class="flex row">
 
-  <div class="my-5">
+  <div class="field">
     <%= form.label :title %>
-    <%= form.text_field :title, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+    <%= form.text_field :title %>
   </div>
 
-  <div class="inline">
-    <%= form.submit class: "rounded-lg py-3 px-5 bg-blue-600 text-white inline-block font-medium cursor-pointer" %>
+  <div class="actions">
+    <button class="px-4 font-bold text-white bg-blue-500 rounded hover:bg-blue-700">
+      <%= form.submit '更新TodoList' %>
+    </button>
   </div>
+</div>
 <% end %>
+</div>

@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+    <div>
+    <h2>Description:</h2>
+    <%= @todo_item.description %>
+    </div>
+
+    <div>
+    <h2>Completed:</h2>
+    <%= @todo_item.completed %>
+    </div>
+
+    <div>
+    <h2>Completed at:</h2>
+    <%= @todo_item.completed_at %>
+    </div>
+
+    <div>
+    <h2>Todo list:</h2>
+    <%= @todo_item.todo_list %>
+    </div>
+
+<div class="flex justify-around">
+<%= link_to '修改', edit_todo_list_todo_item_path(@todo_item.todo_list, @todo_item) %> 
+<br>
+<%= link_to '回去', todo_list_todo_items_path(@todo_item.todo_list) %>
+</div>
