@@ -9,8 +9,8 @@
 # migrations use external dependencies or application code.
 #
 # It's strongly recommended that you check this file into your version control system.
-
 ActiveRecord::Schema.define(version: 2022_05_13_073326) do
+
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -53,6 +53,7 @@ ActiveRecord::Schema.define(version: 2022_05_13_073326) do
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
   end
 
+<<<<<<< HEAD
   create_table "chat_rooms", force: :cascade do |t|
     t.string "title"
     t.bigint "project_id", null: false
@@ -60,6 +61,12 @@ ActiveRecord::Schema.define(version: 2022_05_13_073326) do
     t.datetime "updated_at", precision: 6, null: false
     t.string "slug"
     t.index ["project_id"], name: "index_chat_rooms_on_project_id"
+=======
+  create_table "buckets", force: :cascade do |t|
+    t.string "title"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+>>>>>>> 4e91f95 (add Bucket model)
   end
 
   create_table "comments", force: :cascade do |t|
