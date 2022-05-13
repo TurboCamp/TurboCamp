@@ -8,7 +8,7 @@ class Project < ApplicationRecord
   has_many :users , through: :personals 
   has_one :chat_room
   
-  validates :title , presence: true
+  validates :title , presence: true , uniqueness: true
   validates :description , presence: true , length:{maximum: 50}
   validates :nickname , presence: true
   
