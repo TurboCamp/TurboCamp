@@ -13,8 +13,10 @@ ActiveRecord::Schema.define(version: 2022_05_13_073326) do
 
 
 
-
 ActiveRecord::Schema.define(version: 2022_05_13_064651) do
+
+
+
 
 
 
