@@ -20,11 +20,25 @@ Rails.application.routes.draw do
   end
   
   root "home#index"
-  resources :personals ,only: [:index]
-  resources :projects , except:[:index]
+  resources :personals ,only: [:index] do 
+    member do 
+      post :invite 
+    end 
+  end
+  resources :projects , except:[:index] 
 
   resources :chat_rooms , only:[:show ]
-  resources :contents , only:[:create]
-  
+  resource :contents , only:[:create]
+
+  namespace :api do 
+    namespace :v1 do 
+      resources :projects , only: [] do 
+        member do 
+          post :search
+        end
+      end
+    end
+  end
+   
 
 end

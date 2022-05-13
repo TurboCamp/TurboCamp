@@ -3,9 +3,9 @@ class Project < ApplicationRecord
   after_create :create_chat_room
   include Slugable
   
-  has_many :users
+ 
   has_many :personals
-  has_many :teammate , through: :personals , source: :user
+  has_many :users , through: :personals 
   has_one :chat_room
   
   validates :title , presence: true

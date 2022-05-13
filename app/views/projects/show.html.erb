@@ -1,1 +1,12 @@
-<%= link_to '聊天室' , chat_room_path(@project.chat_room.id) %>
+<div>
+<%= link_to 'CampFire' , chat_room_path(@project.chat_room.id) %>
+</div>
+
+<div id="joinproject" data-controller="member" class="flex" data-id="<%= @project.slug %>">
+    <button  data-action="click->member#join">Add Member</button>
+    <div id="inputbox" class=" hidden" data-action="click->member#join">
+        <input type="text" placeholder="請輸入信箱" class="input">
+        <button class="searchbtn" data-action="click->member#invite">加入成員</button>
+    </div>
+</div>
+

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_05_12_025453) do
+ActiveRecord::Schema.define(version: 2022_05_13_073326) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -58,6 +58,7 @@ ActiveRecord::Schema.define(version: 2022_05_12_025453) do
     t.bigint "project_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "slug"
     t.index ["project_id"], name: "index_chat_rooms_on_project_id"
   end
 
@@ -98,7 +99,6 @@ ActiveRecord::Schema.define(version: 2022_05_12_025453) do
     t.string "nickname"
     t.string "member"
     t.string "useremail"
-    t.bigint "user_id", null: false
     t.datetime "created_at", precision: 3, null: false
     t.datetime "updated_at", precision: 3, null: false
     t.string "title"
@@ -107,7 +107,6 @@ ActiveRecord::Schema.define(version: 2022_05_12_025453) do
     t.string "manage", default: "teammate"
     t.string "slug"
     t.index ["slug"], name: "index_projects_on_slug", unique: true
-    t.index ["user_id"], name: "index_projects_on_user_id"
   end
 
   create_table "schedules", force: :cascade do |t|
@@ -166,6 +165,9 @@ ActiveRecord::Schema.define(version: 2022_05_12_025453) do
   add_foreign_key "contents", "chat_rooms"
   add_foreign_key "personals", "projects"
   add_foreign_key "personals", "users"
+<<<<<<< HEAD
   add_foreign_key "projects", "users"
   add_foreign_key "todo_items", "todo_lists"
+=======
+>>>>>>> set api to invite project member
 end
