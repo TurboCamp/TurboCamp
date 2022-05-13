@@ -53,4 +53,4 @@ gem 'omniauth'
 gem 'omniauth-github'
 gem 'omniauth-google-oauth2'
 gem "omniauth-rails_csrf_protection" 
-
+gem "aws-sdk-s3", require: false
