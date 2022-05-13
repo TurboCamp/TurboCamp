@@ -10,6 +10,7 @@
     "@rails/ujs": "^6.0.0",
     "@rails/webpacker": "5.4.3",
     "stimulus": "^3.0.1",
+    "stimulus_reflex": "3.4.1",
     "trix": "^1.2.0",
     "tui-calendar": "^1.15.3",
     "turbolinks": "^5.2.0",

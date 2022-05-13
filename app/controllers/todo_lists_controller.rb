@@ -28,16 +28,16 @@ class TodoListsController < ApplicationController
 
   def update
       if @todo_list.update(todo_list_params)
-        redirect_to todo_list_url(@todo_list), notice: "Todo list 更新成功"
+        redirect_to todo_list_url(@todo_list), alert: "Todo list 更新成功"
       else
         render :edit
       end
   end
 
-  def destroy
+  def destroy   
     @todo_list.destroy
 
-      redirect_to todo_lists_url, notice: "Todo list 已刪除"
+      redirect_to todo_lists_url
   end
 
   private
@@ -46,6 +46,7 @@ class TodoListsController < ApplicationController
     end
 
     def todo_list_params
-      params.require(:todo_list).permit(:title, todo_items: [:todo_list])
+      params.require(:todo_list).permit(:title, todo_items: [:todo_list],variants_attributes: [ :_destroy ])
+      
     end
 end
