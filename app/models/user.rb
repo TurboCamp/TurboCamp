@@ -4,9 +4,9 @@ class User < ApplicationRecord
   include Slugable
   
   
-  has_many :projects
   has_many :personals
-  has_many :own_projects , through: :personals , source: :project
+  has_many :projects , through: :personals 
+  
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable,
           :omniauthable, omniauth_providers: [:google_oauth2 , :github]
