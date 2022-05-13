@@ -20,6 +20,7 @@ Rails.application.routes.draw do
   end
   
   root "home#index"
+
   resources :personals ,only: [:index] do 
     member do 
       post :invite 
@@ -39,6 +40,7 @@ Rails.application.routes.draw do
       end
     end
   end
-   
+
+
 
 end
