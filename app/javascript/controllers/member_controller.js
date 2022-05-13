@@ -19,10 +19,16 @@ export default class extends Controller {
         url: `/api/v1/projects/${id}/search`,
         data: formData,
         success:(resp) => {
-            console.log(resp); 
             this.element.querySelector("#inputbox").classList.add('hidden')
             data.value = ''
+            console.log(resp);
+            
+        },
+        error:(err) =>{
+            console.log(err);
+            
         }
+
     })
     
   }
