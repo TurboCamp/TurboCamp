@@ -1,0 +1,25 @@
+<article class="relative py-16 bg-white overflow-hidden">
+  <div class="relative px-4 sm:px-6 lg:px-8">
+    <div class="text-lg max-w-prose mx-auto">
+      <h1 class="h1">
+        <span><%=@bucket.title%></span>
+      </h1>
+    </div>
+    <div class="mt-6 prose prose-indigo prose-lg text-gray-500 mx-auto">
+      <p class="p"><%=@bucket.content%></p>
+      <p class="p"><%=image_tag @bucket.attach%></p>
+
+    </div>
+  </div>
+  <div class="relative px-4 sm:px-6 lg:px-8">
+    <button class="button"><%=link_to "Edit", edit_bucket_path(@bucket)%></button>
+    <button class="button"><%=link_to "Destroy", bucket_path(@bucket), method: "delete",data: { confirm: "Are you sure?"}%></button>
+  </div>
+  <div class="relative px-4 sm:px-6 lg:px-8">
+    <%# <h3 class="text-lg leading-6 font-medium text-gray-900">Comments</h3> %>
+    <%# <%= render @document.comments %> 
+    <%# <h3 class="text-lg leading-6 font-medium text-gray-900">Add a comment:</h3> %>
+    <%# <%= render 'comments/form'%> 
+  </div>
+
+</article>

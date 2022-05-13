@@ -58,4 +58,8 @@ gem 'omniauth-google-oauth2'
 gem "omniauth-rails_csrf_protection" 
 
 
+
 gem "stimulus_reflex", "~> 3.4"
+
+gem "aws-sdk-s3", require: false
+

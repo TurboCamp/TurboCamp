@@ -1,0 +1,33 @@
+<%= form_with model: bucket do |form| %>
+  <div class="space-y-8 divide-y divide-gray-200">
+    <div>
+      <div class="message-form-wrap sm:grid-cols-6">
+        <h3 class="h2">New Document</h3>
+      </div>
+      <div class="mt-6 grid grid-cols-1 gap-y-6 gap-x-4 sm:grid-cols-6">
+        <div class="sm:col-span-4">
+            <%= form.label :title, class: "form-label" %>
+          <div class="mt-1 flex rounded-md shadow-sm">
+            <%= form.text_field :title, class:"text-area sm:text-sm border-gray-300" %>
+          </div>
+        </div>
+        <div class="sm:col-span-6">
+          <%= form.label :content, class:"form-label" %>
+          <div class="mt-1">
+            <%= form.rich_text_area :content, class:"text-area sm:text-sm border-gray-300" %>
+          </div>
+          <div class="mt-1">
+          <%= form.file_field :attach, class:"text-area sm:text-sm border-gray-300", multiple:"true" %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="pt-5">
+    <div class="flex justify-end">
+      <button class="button"><%=link_to "Cancel",buckets_path %></button>
+      <%= form.submit class:"button"%>
+    </div>
+  </div>
+<% end %>
