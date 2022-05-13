@@ -23,7 +23,7 @@ gem 'friendly_id', '~> 5.4'
 gem 'pundit', '~> 2.2'
 gem 'paranoia', '~> 2.6'
 gem 'nested_scaffold'
-gem 'fontawesome5-rails'
+gem 'font_awesome5_rails'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
@@ -55,6 +55,7 @@ gem 'omniauth'
 gem 'omniauth-github'
 gem 'omniauth-google-oauth2'
 gem "omniauth-rails_csrf_protection" 
+
 
 gem "aws-sdk-s3", require: false
 gem "stimulus_reflex", "~> 3.4"

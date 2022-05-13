@@ -10,7 +10,6 @@ export default class extends Controller {
   
 
   connect() {
-    console.log(123);
     this.calendar = new Cal(document.getElementById('calendar'), {
       id: "1",
         name: "",

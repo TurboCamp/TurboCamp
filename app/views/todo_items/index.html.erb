@@ -5,21 +5,19 @@
         <th>描述</th>
         <th>是否完成</th>
         <th>完成時間</th>
-        <th>Todo list</th>
         <th></th>
         <th></th>
         <th></th>
     </tr>
 
-    <% @todo_items.each do |form| %>
+    <% @todo_items.each do |todo_item| %>
         <tr>
-            <td><%= form.description %></td>
-            <td><%= form.completed %></td>
-            <td><%= form.completed_at %></td>
-            <td><%= form.todo_list %></td>
-            <td><%= link_to '內容', [form.todo_list, todo_item] %></td>
-            <td><%= link_to '修改', edit_todo_list_todo_item_path(form.todo_list, todo_item) %></td>
-            <td><%= link_to '刪除', [form.todo_list, todo_item], method: :delete, data: { confirm: '確定刪除嗎?' } %></td>
+            <td><%= todo_item.description %></td>
+            <td><%= todo_item.completed %></td>
+            <td><%= todo_item.completed_at %></td>
+
+            <td><%= link_to '修改', edit_todo_list_todo_item_path(todo_item.todo_list, todo_item) %></td>
+            <td><%= link_to '刪除', [todo_item.todo_list, todo_item], method: :delete, data: { confirm: '確定刪除嗎?' } %></td>
         </tr>
     <% end %>
 </table>
@@ -27,3 +25,7 @@
 <br />
 
 <%= link_to '新增Todo item', new_todo_list_todo_item_path(params[:todo_list_id]) %>
+
+<%= link_to '回到todolist', todo_lists_path %>
+
+</div>

@@ -27,7 +27,7 @@
       <%= form_for([@todo_list, @todo_item]) do |form| %>
         <div class="flex items-center justify-between pb-4 input-group">
         <%#= form.fields_for :todo_items do |f| %>
-          <%= form.text_field :description, class:"w-5/6",placeholder:"新增todo" %>
+          <%= form.text_field :description, class:"w-full",placeholder:"新增todo" %>
         <%# end %>
           <div class="pl-8 input-group-add">
           <%= form.submit '新增', class:'bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded' %> 
@@ -51,13 +51,14 @@
           <% else %>
           <li class="flex w-full list-group-item">
             <div class="flex justify-between w-full mb-2 border-2 border-gray-500 border-solid bg-rose-100">
-            <div class="checkbox">
-            </div>
+            
                 <span><%= todo_item.description %></span>
                 <%= link_to '#', class: 'bg-gray-50', data: { reflex: 'click->TodoItem#todo_complete', id: todo_item.id } do %>
-                
                   <i class="fas fa-check"></i>
                 <% end %>
+                <div class="block">
+                <%= link_to '刪除', todo_list_todo_item_path(@todo_list, todo_item.id), method: "delete" %>
+                </div>
             </div>
           </li>
           <% end %>
