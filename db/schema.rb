@@ -9,7 +9,12 @@
 # migrations use external dependencies or application code.
 #
 # It's strongly recommended that you check this file into your version control system.
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 2022_05_14_073902) do
+=======
+
+ActiveRecord::Schema.define(version: 2022_05_14_104328) do
+>>>>>>> 7962212 (add comment with nested form)
 
 
 
@@ -64,11 +69,12 @@ ActiveRecord::Schema.define(version: 2022_05_14_073902) do
 
   create_table "comments", force: :cascade do |t|
     t.string "commenter"
-    t.bigint "message_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "status"
-    t.index ["message_id"], name: "index_comments_on_message_id"
+    t.string "commentable_type"
+    t.bigint "commentable_id"
+    t.index ["commentable_type", "commentable_id"], name: "index_comments_on_commentable"
   end
 
   create_table "messages", force: :cascade do |t|
@@ -154,7 +160,6 @@ ActiveRecord::Schema.define(version: 2022_05_14_073902) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
-  add_foreign_key "comments", "messages"
   add_foreign_key "personals", "projects"
   add_foreign_key "personals", "users"
   add_foreign_key "projects", "users"

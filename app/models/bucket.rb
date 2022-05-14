@@ -1,6 +1,7 @@
 class Bucket < ApplicationRecord
   has_rich_text :content
   has_one_attached :attach 
+  has_many :comments, as: :commentable
 
 
   validates :title, presence: true
