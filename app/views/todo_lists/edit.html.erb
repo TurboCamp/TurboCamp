@@ -1,0 +1,15 @@
+
+<div class="container flex flex-col items-center">
+  <h1>修改 Todo List</h1> 
+  <div>
+      <%= render 'form', todo_list: @todo_list %>
+  </div>
+
+
+
+  <div class="flex pr-2">
+      <%= link_to '回到List表', @todo_list %> <br>
+      <%#= link_to '上一頁', todo_lists_path %>
+  </div>
+</div>
+

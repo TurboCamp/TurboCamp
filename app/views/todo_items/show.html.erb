@@ -1,0 +1,22 @@
+
+    <div>
+        <h2>Description:</h2>
+        <%= @todo_item.description %>
+    </div>
+
+    <div>
+        <h2>完成:</h2>
+        <%= @todo_item.completed %>
+    </div>
+
+    <div>
+        <h2>完成時間:</h2>
+        <%= @todo_item.completed_at %>
+    </div>
+
+<div>
+    <div class="flex justify-around">
+    <%= link_to '修改', edit_todo_list_todo_item_path(@todo_item.todo_list, @todo_item) %> 
+    <br>
+    <%= link_to '回去', todo_lists_path %>
+</div>
