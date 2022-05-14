@@ -12,10 +12,12 @@
 ActiveRecord::Schema.define(version: 2022_05_13_073326) do
 
 
+ActiveRecord::Schema.define(version: 2022_05_13_064651) do
 
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
 
   create_table "action_text_rich_texts", force: :cascade do |t|
     t.string "name", null: false
@@ -95,6 +97,7 @@ ActiveRecord::Schema.define(version: 2022_05_13_073326) do
     t.string "status"
   end
 
+
   create_table "personals", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.bigint "project_id", null: false
@@ -124,22 +127,6 @@ ActiveRecord::Schema.define(version: 2022_05_13_073326) do
     t.datetime "start"
     t.datetime "end"
     t.string "location"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
-  create_table "todo_items", force: :cascade do |t|
-    t.text "description", null: false
-    t.boolean "completed"
-    t.datetime "completed_at"
-    t.bigint "todo_list_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["todo_list_id"], name: "index_todo_items_on_todo_list_id"
-  end
-
-  create_table "todo_lists", force: :cascade do |t|
-    t.string "title"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -176,10 +163,13 @@ ActiveRecord::Schema.define(version: 2022_05_13_073326) do
   add_foreign_key "personals", "users"
 <<<<<<< HEAD
   add_foreign_key "projects", "users"
+<<<<<<< HEAD
   add_foreign_key "todo_items", "todo_lists"
 <<<<<<< HEAD
 =======
 >>>>>>> set api to invite project member
 =======
 >>>>>>> 8a4fb9a (To dos (#58))
+=======
+>>>>>>> 18d8128 (Revert "To dos (#58)")
 end
