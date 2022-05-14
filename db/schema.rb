@@ -9,12 +9,8 @@
 # migrations use external dependencies or application code.
 #
 # It's strongly recommended that you check this file into your version control system.
+
 ActiveRecord::Schema.define(version: 2022_05_13_073326) do
-
-
-
-ActiveRecord::Schema.define(version: 2022_05_13_064651) do
-
 
 
 
@@ -74,7 +70,11 @@ ActiveRecord::Schema.define(version: 2022_05_13_064651) do
     t.string "title"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+<<<<<<< HEAD
 >>>>>>> 4e91f95 (add Bucket model)
+=======
+    t.string "status"
+>>>>>>> 018f568 (add status)
   end
 
   create_table "comments", force: :cascade do |t|
@@ -180,19 +180,6 @@ ActiveRecord::Schema.define(version: 2022_05_13_064651) do
   add_foreign_key "contents", "chat_rooms"
   add_foreign_key "personals", "projects"
   add_foreign_key "personals", "users"
-<<<<<<< HEAD
-  add_foreign_key "projects", "users"
-<<<<<<< HEAD
-<<<<<<< HEAD
   add_foreign_key "todo_items", "todo_lists"
-<<<<<<< HEAD
-=======
->>>>>>> set api to invite project member
-=======
->>>>>>> 8a4fb9a (To dos (#58))
-=======
->>>>>>> 18d8128 (Revert "To dos (#58)")
-=======
-  add_foreign_key "todo_items", "todo_lists"
->>>>>>> 6a1003d (新增TodoList)
+
 end

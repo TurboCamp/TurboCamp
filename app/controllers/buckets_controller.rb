@@ -28,7 +28,7 @@ class BucketsController < ApplicationController
 
   def update
     if @bucket.update(bucket_params)
-      redirect_to buckets_path
+      redirect_to buckets_path, notice: "成功更新"
     else
       render :edit
     end
@@ -39,7 +39,7 @@ class BucketsController < ApplicationController
 
   def destroy
     @bucket.destroy
-    redirect_to buckets_path 
+    redirect_to buckets_path, notice: "成功刪除"
   end
 
 
@@ -48,7 +48,7 @@ class BucketsController < ApplicationController
     @bucket = Bucket.find(params[:id])
   end
   def bucket_params
-    params.require(:bucket).permit(:title, :attach, :content)
+    params.require(:bucket).permit(:title, :attach, :content, :status)
   end
   def create_new_docs
     @bucket = Bucket.new
