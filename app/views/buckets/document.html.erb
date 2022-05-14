@@ -17,6 +17,12 @@
             <%= form.rich_text_area :content, class:"text-area sm:text-sm border-gray-300" %>
           </div>
         </div>
+        <div class="sm:col-span-6">
+          <%= form.label :status, class:"form-label" %>
+          <div class="mt-1">
+            <%= form.select :status, Bucket.all_status, class:"text-area sm:text-sm border-gray-300" %>
+          </div>
+        </div>
       </div>
     </div>
   </div>

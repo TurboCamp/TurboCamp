@@ -9,12 +9,7 @@
 # migrations use external dependencies or application code.
 #
 # It's strongly recommended that you check this file into your version control system.
-
-
-
-ActiveRecord::Schema.define(version: 2022_05_13_064651) do
-
-
+ActiveRecord::Schema.define(version: 2022_05_14_073902) do
 
 
 
@@ -64,6 +59,7 @@ ActiveRecord::Schema.define(version: 2022_05_13_064651) do
     t.string "title"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "status"
   end
 
   create_table "comments", force: :cascade do |t|
