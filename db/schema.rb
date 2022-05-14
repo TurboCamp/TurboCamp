@@ -9,12 +9,7 @@
 # migrations use external dependencies or application code.
 #
 # It's strongly recommended that you check this file into your version control system.
-<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 2022_05_14_073902) do
-=======
-
-ActiveRecord::Schema.define(version: 2022_05_14_104328) do
->>>>>>> 7962212 (add comment with nested form)
 
 
 
