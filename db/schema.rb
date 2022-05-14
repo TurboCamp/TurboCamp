@@ -12,6 +12,8 @@
 ActiveRecord::Schema.define(version: 2022_05_13_073326) do
 
 
+
+
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -175,6 +177,9 @@ ActiveRecord::Schema.define(version: 2022_05_13_073326) do
 <<<<<<< HEAD
   add_foreign_key "projects", "users"
   add_foreign_key "todo_items", "todo_lists"
+<<<<<<< HEAD
 =======
 >>>>>>> set api to invite project member
+=======
+>>>>>>> 8a4fb9a (To dos (#58))
 end

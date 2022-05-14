@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   resources :todo_lists do
     resources :todo_items
   end
+<<<<<<< HEAD
   
   namespace :todo_list do
     resources :todo_items
@@ -9,6 +10,11 @@ Rails.application.routes.draw do
   match "/404", to: "application#not_found", via: :all
 
 
+=======
+  namespace :todo_list do
+    resources :todo_items
+  end
+>>>>>>> 8a4fb9a (To dos (#58))
   resources :schedules
   devise_for :users , controllers: { omniauth_callbacks: "users/omniauth_callbacks" }
 
