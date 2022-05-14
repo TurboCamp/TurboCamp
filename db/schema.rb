@@ -57,7 +57,7 @@ ActiveRecord::Schema.define(version: 2022_05_13_073326) do
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
   end
 
-<<<<<<< HEAD
+
   create_table "chat_rooms", force: :cascade do |t|
     t.string "title"
     t.bigint "project_id", null: false
@@ -65,25 +65,23 @@ ActiveRecord::Schema.define(version: 2022_05_13_073326) do
     t.datetime "updated_at", precision: 6, null: false
     t.string "slug"
     t.index ["project_id"], name: "index_chat_rooms_on_project_id"
-=======
+
   create_table "buckets", force: :cascade do |t|
     t.string "title"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-<<<<<<< HEAD
->>>>>>> 4e91f95 (add Bucket model)
-=======
     t.string "status"
->>>>>>> 018f568 (add status)
+
   end
 
   create_table "comments", force: :cascade do |t|
     t.string "commenter"
-    t.bigint "message_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "status"
-    t.index ["message_id"], name: "index_comments_on_message_id"
+    t.string "commentable_type"
+    t.bigint "commentable_id"
+    t.index ["commentable_type", "commentable_id"], name: "index_comments_on_commentable"
   end
 
   create_table "contents", force: :cascade do |t|
@@ -175,9 +173,11 @@ ActiveRecord::Schema.define(version: 2022_05_13_073326) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+
   add_foreign_key "chat_rooms", "projects"
   add_foreign_key "comments", "messages"
   add_foreign_key "contents", "chat_rooms"
+
   add_foreign_key "personals", "projects"
   add_foreign_key "personals", "users"
   add_foreign_key "todo_items", "todo_lists"

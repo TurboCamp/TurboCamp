@@ -17,11 +17,14 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   # resources :message_boards, only: [:index], as: "message_boards"
 
-  # resources :messages do
-  #   resources :comments
-  # end
+  get 'message_borads', to: 'message_boards#index'
+
+  resources :messages do
+    resources :comments, module: :messages
+  end
   
   resources :buckets do 
+    resources :comments, module: :buckets
     collection do
       get 'document'
       get 'upload'
