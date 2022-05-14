@@ -21,7 +21,12 @@ Rails.application.routes.draw do
   #   resources :comments
   # end
   
-  resources :buckets
+  resources :buckets do 
+    collection do
+      get 'document'
+      get 'upload'
+    end
+  end
 
   root "home#index"
 

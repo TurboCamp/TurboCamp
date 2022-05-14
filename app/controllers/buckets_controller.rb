@@ -1,10 +1,19 @@
 class BucketsController < ApplicationController
+  before_action :find_bucket, only: [:show, :edit, :update, :destroy]
+  before_action :create_new_docs, only: [:document, :upload]
   def index
     @buckets = Bucket.all
   end
+
   def new
-    @bucket = Bucket.new
   end
+
+  def document
+  end
+
+  def upload
+  end
+
   def create
     @bucket = Bucket.new(bucket_params)
     if @bucket.save
@@ -13,28 +22,35 @@ class BucketsController < ApplicationController
       render :new
     end
   end
+
   def edit
-    @bucket = Bucket.find(params[:id])
   end
+
   def update
-    @bucket = Bucket.find(params[:id])
     if @bucket.update(bucket_params)
       redirect_to buckets_path
     else
       render :edit
     end
   end
+
   def show
-    @bucket = Bucket.find(params[:id])
   end
+
   def destroy
-    @bucket = Bucket.find(params[:id])
     @bucket.destroy
     redirect_to buckets_path 
   end
 
+
   private
+  def find_bucket
+    @bucket = Bucket.find(params[:id])
+  end
   def bucket_params
     params.require(:bucket).permit(:title, :attach, :content)
+  end
+  def create_new_docs
+    @bucket = Bucket.new
   end
 end
