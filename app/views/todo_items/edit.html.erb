@@ -1,0 +1,12 @@
+<h1>修改 todo_item</h1>
+
+<div class="container">
+    <div class="row">
+        <%= render 'form' %>
+
+        <%= link_to 'Show', [@todo_item.todo_list, @todo_item] %> 
+        <br>
+        <%= link_to 'Back', todo_list_todo_items_path(@todo_item.todo_list) %>
+    </div>
+
+</div>

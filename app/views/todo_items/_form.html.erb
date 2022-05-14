@@ -1,0 +1,25 @@
+<%= form_with(model: [@todo_item.todo_list, @todo_item]) do |form| %>
+    <% if @todo_item.errors.any? %>
+        <ul>
+        <% @todo_item.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+        <% end %>
+        </ul>
+    <% end %>
+
+    <div class="field">
+        <%= form.label :description %><br />
+        <%= form.text_area :description %>
+    </div>
+    <div class="field">
+        <%= form.label :completed %><br />
+        <%= form.check_box :completed %>
+    </div>
+    <div class="field">
+        <%= form.label :completed_at %><br />
+        <%= form.datetime_select :completed_at %>
+    </div>
+    <div class="actions">
+        <%= form.submit %>
+    </div>
+<% end %>
