@@ -9,6 +9,10 @@
 # migrations use external dependencies or application code.
 #
 # It's strongly recommended that you check this file into your version control system.
+<<<<<<< HEAD
+=======
+
+>>>>>>> 22399e4 (add polymorphic comments in message_board)
 ActiveRecord::Schema.define(version: 2022_05_14_104328) do
 
   # These are extensions that must be enabled in order to support this database
@@ -52,6 +56,7 @@ ActiveRecord::Schema.define(version: 2022_05_14_104328) do
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
   end
 
+<<<<<<< HEAD
 
   create_table "chat_rooms", force: :cascade do |t|
     t.string "title"
@@ -61,12 +66,17 @@ ActiveRecord::Schema.define(version: 2022_05_14_104328) do
     t.string "slug"
     t.index ["project_id"], name: "index_chat_rooms_on_project_id"
 
+=======
+>>>>>>> 22399e4 (add polymorphic comments in message_board)
   create_table "buckets", force: :cascade do |t|
     t.string "title"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "status"
+<<<<<<< HEAD
 
+=======
+>>>>>>> 22399e4 (add polymorphic comments in message_board)
   end
 
   create_table "comments", force: :cascade do |t|
@@ -77,6 +87,7 @@ ActiveRecord::Schema.define(version: 2022_05_14_104328) do
     t.string "commentable_type"
     t.bigint "commentable_id"
     t.index ["commentable_type", "commentable_id"], name: "index_comments_on_commentable"
+<<<<<<< HEAD
   end
 
   create_table "contents", force: :cascade do |t|
@@ -85,6 +96,8 @@ ActiveRecord::Schema.define(version: 2022_05_14_104328) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["chat_room_id"], name: "index_contents_on_chat_room_id"
+=======
+>>>>>>> 22399e4 (add polymorphic comments in message_board)
   end
 
   create_table "messages", force: :cascade do |t|
@@ -168,11 +181,14 @@ ActiveRecord::Schema.define(version: 2022_05_14_104328) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+<<<<<<< HEAD
 
   add_foreign_key "chat_rooms", "projects"
   add_foreign_key "comments", "messages"
   add_foreign_key "contents", "chat_rooms"
 
+=======
+>>>>>>> 22399e4 (add polymorphic comments in message_board)
   add_foreign_key "personals", "projects"
   add_foreign_key "personals", "users"
   add_foreign_key "todo_items", "todo_lists"

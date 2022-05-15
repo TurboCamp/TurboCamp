@@ -15,14 +15,18 @@ Rails.application.routes.draw do
   devise_for :users , controllers: { omniauth_callbacks: "users/omniauth_callbacks" }
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+<<<<<<< HEAD
   # resources :message_boards, only: [:index], as: "message_boards"
 
   get 'message_borads', to: 'message_boards#index'
+=======
+>>>>>>> 22399e4 (add polymorphic comments in message_board)
 
   resources :messages do
     resources :comments, module: :messages
   end
   
+<<<<<<< HEAD
   resources :buckets do 
     resources :comments, module: :buckets
     collection do
@@ -31,6 +35,10 @@ Rails.application.routes.draw do
     end
   end
 
+=======
+
+  
+>>>>>>> 22399e4 (add polymorphic comments in message_board)
   root "home#index"
 
   resources :personals ,only: [:index] do 

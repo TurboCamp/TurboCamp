@@ -1,6 +1,9 @@
 class MessagesController < ApplicationController
+  before_action :find_message, only: [:show, :edit, :update, :destroy]
+  def index
+    @messages = Message.all
+  end
   def show
-    @message = Message.find(params[:id])
   end
   def new
     @message = Message.new
@@ -8,30 +11,34 @@ class MessagesController < ApplicationController
   def create
     @message = Message.new(message_params)
     if @message.save
-      redirect_to message_boards_path
+      redirect_to messages_path
     else
       render :new
     end
   end
   def edit
-    @message = Message.find(params[:id])
   end
   def update
-    @message = Message.find(params[:id])
     if @message.update(message_params)
-      redirect_to message_boards_path
+      redirect_to messages_path, notice: "成功更新"
     else
       render :edit
     end
   end
   def destroy
-    @message = Message.find(params[:id])
     @message.destroy
 
-    redirect_to message_boards_path
+    redirect_to messages_path, notice: "成功刪除"
   end
+
   private
+    def find_message
+      @message = Message.find(params[:id])
+    end
     def message_params
       params.require(:message).permit(:title, :content, :status)
+    end
+    def create_new_message
+      @message = Message.new
     end
 end

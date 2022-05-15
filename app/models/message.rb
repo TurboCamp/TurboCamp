@@ -1,8 +1,10 @@
 class Message < ApplicationRecord
-  # include Visible
+
+  included Visible
+  
   has_rich_text :content
+  has_many :comments, as: :commentable
 
   validates :title, presence: true
-  has_many :comments, as: :commentable
 
 end
