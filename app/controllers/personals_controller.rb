@@ -1,5 +1,5 @@
 class PersonalsController < ApplicationController
-    layout'project'
+    layout 'home'
     before_action :authenticate_user! 
     before_action :findmyproject , only: %i[show edit update destroy]
     def index

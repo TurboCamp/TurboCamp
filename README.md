@@ -1,24 +1,24 @@
-# README
+<div align="center">
+  <img scr="./public/logo.png" width="128px" height="128px"> 
+</div>
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
 
-Things you may want to cover:
+<h1 align="center">Turbocamp</h1>
 
-* Ruby version
 
-* System dependencies
+## About 
+Shout out to Basecamp.
 
-* Configuration
 
-* Database creation
 
-* Database initialization
 
-* How to run the test suite
+## Contributors
 
-* Services (job queues, cache servers, search engines, etc.)
+- WWWWWeiJ
+- Easyfun0
+- AsheAnn
+- Kris Chiang
+- RexChen628
 
-* Deployment instructions
 
-* ...
+

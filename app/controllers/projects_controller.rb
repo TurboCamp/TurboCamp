@@ -1,5 +1,5 @@
 class ProjectsController < ApplicationController
-    layout 'project'
+    layout 'home'
     before_action :authenticate_user!
     def index 
 
