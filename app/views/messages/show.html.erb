@@ -10,16 +10,6 @@
     </div>
   </div>
   <div class="relative px-4 sm:px-6 lg:px-8">
-<<<<<<< HEAD
-    <span><%= link_to "Edit", edit_message_path(@message), method: :get,class:"inline-block px-6 py-2.5 bg-transparent text-blue-600 font-medium text-xl leading-tight uppercase rounded hover:bg-cyan-400 focus:text-blue-700 focus:bg-gray-100 focus:outline-none focus:ring-0 active:bg-gray-200 active:text-blue-800 transition duration-300 ease-in-out"%></span>
-    <span><%= link_to "Destroy", message_path(@message), method: :delete, data: { confirm: "Are you sure?"}, class:"inline-block px-6 py-2.5 bg-transparent text-blue-600 font-medium text-xl leading-tight uppercase rounded hover:bg-cyan-400 focus:text-blue-700 focus:bg-gray-100 focus:outline-none focus:ring-0 active:bg-gray-200 active:text-blue-800 transition duration-300 ease-in-out"%></span>
-  </div>
-  <div class="relative px-4 sm:px-6 lg:px-8">
-    <h3 class="text-lg leading-6 font-medium text-gray-900">Comments</h3>
-    <% render partial: "comments/comments", locals:{commentable: @message}%>
-    <h3 class="text-lg leading-6 font-medium text-gray-900">Add a comment:</h3>
-    <% render partial: "comments/form", locals:{commentable: @message}%>
-=======
     <button class="button"><%=link_to "編輯", edit_message_path(@message)%></button>
     <button class="button"><%=link_to "刪除", message_path(@message), method: "delete",data: { confirm: "Are you sure?"}%></button>
     <button class="button"><%=link_to "返回", messages_path %></button>
@@ -29,7 +19,6 @@
       <%= render partial: "comments/comments", locals:{commentable: @message}%>
     <h3 class="text-lg leading-6 font-medium text-gray-900">Add a comment:</h3>
       <%= render partial: "comments/form", locals:{commentable: @message}%>
->>>>>>> 22399e4 (add polymorphic comments in message_board)
   </div>
 
 </article>

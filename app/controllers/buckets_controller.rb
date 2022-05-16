@@ -19,7 +19,7 @@ class BucketsController < ApplicationController
     if @bucket.save
       redirect_to buckets_path(params[:id])
     else
-      render :new
+      render :upload
     end
   end
 

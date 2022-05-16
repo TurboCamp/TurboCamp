@@ -1,5 +1,4 @@
 class Message < ApplicationRecord
-
   included Visible
   
   has_rich_text :content

@@ -4,7 +4,6 @@ class Bucket < ApplicationRecord
   has_many :comments, as: :commentable
 
 
-  validates :title, presence: true
 
   def self.all_status
     [
