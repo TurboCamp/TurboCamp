@@ -19,9 +19,11 @@ Rails.application.routes.draw do
   end
 
   resource :users do
-    resources :settings, only: [:index]
+    resources :settings, only: [:index] do
+      get :account, :appearance, :language, :upgrade
+    end
   end
-
+  root 'home#index'
   resources :personals, only: [:index] do
     member do
       post :invite
@@ -42,5 +44,5 @@ Rails.application.routes.draw do
     end
   end
 
-  root 'home#index'
+  resources :settings, only: [:index]
 end

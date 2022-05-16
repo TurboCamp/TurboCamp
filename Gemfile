@@ -3,8 +3,6 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '3.1.1'
 
-gem 'jbuilder', '~> 2.7'
-gem 'local_time', '~> 1.0', '>= 1.0.3'
 gem 'pg', '~> 1.1'
 gem 'puma', '~> 5.0'
 gem 'rails', '~> 6.1.5'
@@ -57,5 +55,3 @@ gem 'omniauth'
 gem 'omniauth-github'
 gem 'omniauth-google-oauth2'
 gem 'omniauth-rails_csrf_protection'
-
-gem 'stimulus_reflex', '~> 3.4'
