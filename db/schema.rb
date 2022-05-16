@@ -165,9 +165,5 @@ ActiveRecord::Schema.define(version: 2022_05_13_073326) do
   add_foreign_key "contents", "chat_rooms"
   add_foreign_key "personals", "projects"
   add_foreign_key "personals", "users"
-<<<<<<< HEAD
-  add_foreign_key "projects", "users"
   add_foreign_key "todo_items", "todo_lists"
-=======
->>>>>>> set api to invite project member
 end

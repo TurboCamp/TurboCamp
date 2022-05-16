@@ -11,16 +11,12 @@
   </head>
 
   <header>
-    <%= render 'layouts/navbar' %>
+    <%= render 'home/navbar' %>
   </header>
   <body>
     <main>
-      <%= render 'layouts/aside' %>
       <%= render "/shared/flash" if flash %>
       <%= yield %>
     </main>
-  </body> 
-
+  </body>
 </html>
-
-
