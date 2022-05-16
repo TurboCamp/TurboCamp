@@ -1,0 +1,25 @@
+<article class="relative py-16 bg-white overflow-hidden">
+  <div class="relative px-4 sm:px-6 lg:px-8">
+    <div class="text-lg max-w-prose mx-auto">
+      <h1 class="h1">
+        <span><%=@bucket.title%></span>
+      </h1>
+    </div>
+    <div class="mt-6 prose prose-indigo prose-lg text-gray-500 mx-auto">
+      <p class="p"><%=@bucket.content%></p>
+      <p><%= image_tag @bucket.attach if @bucket.attach.attached?%></p>
+    </div>
+  </div>
+  <div class="relative px-4 sm:px-6 lg:px-8">
+    <button class="button"><%=link_to "編輯", edit_bucket_path(@bucket)%></button>
+    <button class="button"><%=link_to "刪除", bucket_path(@bucket), method: "delete",data: { confirm: "Are you sure?"}%></button>
+    <button class="button"><%=link_to "返回", buckets_path %></button>
+  </div>
+  <div class="relative px-4 sm:px-6 lg:px-8">
+    <h3 class="text-lg leading-6 font-medium text-gray-900">Comments</h3>
+      <%= render partial: "comments/comments", locals:{commentable: @bucket}%>
+    <h3 class="text-lg leading-6 font-medium text-gray-900">Add a comment:</h3>
+      <%= render partial: "comments/form", locals:{commentable: @bucket}%>
+  </div>
+
+</article>

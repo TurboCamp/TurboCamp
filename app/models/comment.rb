@@ -1,6 +1,4 @@
 class Comment < ApplicationRecord
-  include Visible
-
-  belongs_to :message
   has_rich_text :content
+  belongs_to :commentable, polymorphic: true
 end
