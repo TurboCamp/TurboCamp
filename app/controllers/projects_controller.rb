@@ -1,5 +1,5 @@
 class ProjectsController < ApplicationController
-    layout 'project'
+  
     before_action :authenticate_user!
     before_action :find_my_project , only:[:show ]
 

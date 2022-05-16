@@ -12,10 +12,10 @@
 
   <header>
     <%= render 'layouts/navbar' %>
+    <%= render 'layouts/aside' %>
   </header>
   <body>
-    <main>
-      <%= render 'layouts/aside' %>
+    <main class="pl-80 pt-24">
       <%= render "/shared/flash" if flash %>
       <%= yield %>
     </main>
