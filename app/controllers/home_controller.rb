@@ -1,7 +1,7 @@
-class HomeController < ApplicationController 
-    def index
-        if user_signed_in?
-            redirect_to personals_path
-        end
-    end
+class HomeController < ApplicationController
+  layout 'home'
+
+  def index
+    redirect_to personals_path if user_signed_in?
+  end
 end
