@@ -26,9 +26,7 @@ class ApplicationController < ActionController::Base
     else
       'application'
     end
-<<<<<<< HEAD
   end
-=======
     def user_auth
         current_user.personals.where(project_id:@project.id).pluck('role')[0] == 'owner'
     end
@@ -41,5 +39,4 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.permit(:sign_up, keys: [:nickname])
   end
 
->>>>>>> set usersetting page can update mugshot
 end
