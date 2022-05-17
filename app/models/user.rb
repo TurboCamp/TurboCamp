@@ -5,7 +5,8 @@ class User < ApplicationRecord
   
   
   has_many :personals
-  has_many :projects , through: :personals 
+  has_many :projects , through: :personals , dependent: :destroy
+  has_one_attached :avatar
   
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable,
@@ -21,6 +22,7 @@ class User < ApplicationRecord
       # user.name = provider_data.info.last_name
       user.provider = provider_data.provider
       user.uid = provider_data.uid
+      user.imageurl = provider_data.info.image
     end
   end
   def normalize_friendly_id(value)
