@@ -5,22 +5,21 @@ class ProjectPolicy < ApplicationPolicy
         false
     end 
     def new? 
-
+        create?
     end 
     def create? 
-        # manager || teammate
+       owner || teammate
     end 
     def edit? 
-
+        update?
     end
     def show?
-        # manager || teammate 
-
+         owner || teammate 
     end
     def update? 
-
+        owner
     end
     def destroy? 
-        manager
+       owner
     end
 end

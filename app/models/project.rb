@@ -5,8 +5,8 @@ class Project < ApplicationRecord
   
  
   has_many :personals
-  has_many :users , through: :personals 
-  has_one :chat_room
+  has_many :users , through: :personals  , dependent: :destroy
+  has_one :chat_room , dependent: :destroy
   
   validates :title , presence: true , uniqueness: true
   validates :description , presence: true , length:{maximum: 50}

@@ -1,8 +1,8 @@
 class ApplicationController < ActionController::Base
   layout :layout_by_resource
   rescue_from ActiveRecord::RecordNotFound, with: :not_found
-
-  include Pundit::Authorization
+  
+  before_action :configure_permitted_parameters, if: :devise_controller?
 
   def not_found
     render file: "#{Rails.root}/public/404.html",
@@ -26,5 +26,20 @@ class ApplicationController < ActionController::Base
     else
       'application'
     end
+<<<<<<< HEAD
   end
+=======
+    def user_auth
+        current_user.personals.where(project_id:@project.id).pluck('role')[0] == 'owner'
+    end
+
+    
+
+  protected
+
+  def configure_permitted_parameters
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:nickname])
+  end
+
+>>>>>>> set usersetting page can update mugshot
 end

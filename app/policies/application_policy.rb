@@ -53,12 +53,12 @@ class ApplicationPolicy
 
   private 
   
-  def manager 
-    user.projects.manage == 'manager' && user.role == 'user'
+  def owner
+    user.personals.where(project_id:@project).pluck('role')[0] == 'owner'
   end
 
   def teammate 
-    user.projects.manage == 'manager' && user.role == 'user'
+    user.personals.where(project_id:@project).pluck('role')[0] == 'teammate'
   end
 
 end

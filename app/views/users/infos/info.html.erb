@@ -1,0 +1,24 @@
+
+<h2></h2>
+
+<%= form_with(model: @user ,url:users_info_path) do |f| %>
+    <% if @user.avatar.attached? %>
+    <div>
+        <%= image_tag url_for(@user.avatar) %>
+    </div>
+    <% else %>
+        <%= image_tag('default_user.png' , size:'200x200' , class:'rounded-full')%>
+    <% end %>
+    <div>
+        <%= f.label :avatar , '上傳個人頭貼' %>
+        <%= f.file_field :avatar %>
+    </div>
+    <div>
+        <%= f.label :nickname , '暱稱' %>
+        <%= f.text_field :nickname %>
+    </div>
+
+    <%= f.submit '更新個人資料'%>
+   
+<% end %>
+
