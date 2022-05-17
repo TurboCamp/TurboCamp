@@ -30,7 +30,6 @@ Rails.application.routes.draw do
       get 'upload'
     end
   end
-
   root "home#index"
 
   resources :personals ,only: [:index] do 
@@ -55,5 +54,6 @@ Rails.application.routes.draw do
 
   resources :personals ,only: [:index]
   resources :projects , expect:[:index]  
+
 
 end
