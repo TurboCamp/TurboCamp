@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_05_16_062434) do
+ActiveRecord::Schema.define(version: 2022_05_17_062728) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -58,6 +58,8 @@ ActiveRecord::Schema.define(version: 2022_05_16_062434) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "status"
+    t.bigint "project_id"
+    t.index ["project_id"], name: "index_buckets_on_project_id"
   end
 
   create_table "chat_rooms", force: :cascade do |t|
@@ -92,6 +94,8 @@ ActiveRecord::Schema.define(version: 2022_05_16_062434) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "status"
+    t.bigint "project_id"
+    t.index ["project_id"], name: "index_messages_on_project_id"
   end
 
   create_table "personals", force: :cascade do |t|
@@ -122,6 +126,8 @@ ActiveRecord::Schema.define(version: 2022_05_16_062434) do
     t.string "location"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "project_id"
+    t.index ["project_id"], name: "index_schedules_on_project_id"
   end
 
   create_table "todo_items", force: :cascade do |t|
@@ -166,9 +172,12 @@ ActiveRecord::Schema.define(version: 2022_05_16_062434) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "buckets", "projects"
   add_foreign_key "chat_rooms", "projects"
   add_foreign_key "contents", "chat_rooms"
+  add_foreign_key "messages", "projects"
   add_foreign_key "personals", "projects"
   add_foreign_key "personals", "users"
+  add_foreign_key "schedules", "projects"
   add_foreign_key "todo_items", "todo_lists"
 end

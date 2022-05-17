@@ -1,7 +1,6 @@
 class TodoList < ApplicationRecord
-    has_many :todo_items
+    has_many :todo_items , dependent: :destroy
     # accepts_nested_attributes_for :todo_items, reject_if: :all_blank, allow_destroy: true
-
     def percent_complete
     return 0 if total_items == 0
     ( 100 * completed_items.to_f / total_items).round(1)
