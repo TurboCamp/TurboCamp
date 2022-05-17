@@ -1,5 +1,5 @@
 class ChatRoomsController < ApplicationController 
-    
+    before_action :authenticate_user!
     layout'project'
     before_action :authenticate_user!
     

@@ -21,11 +21,8 @@ export default class extends Controller {
         success:(resp) => {
             this.element.querySelector("#inputbox").classList.add('hidden')
             data.value = ''
-            console.log(resp);
-            
-        },
-    })
-    
+            console.log(resp);  
+        }
+    })  
   }
-
 }

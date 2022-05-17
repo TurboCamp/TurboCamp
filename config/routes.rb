@@ -20,7 +20,6 @@ Rails.application.routes.draw do
 
 
   resources :schedules
-  devise_for :users , controllers: { omniauth_callbacks: "users/omniauth_callbacks" }
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 
@@ -38,6 +37,7 @@ Rails.application.routes.draw do
     end
   end
   root "home#index"
+
 
   resources :chat_rooms , only:[:show ]
   resource :contents , only:[:create]

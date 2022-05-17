@@ -1,6 +1,6 @@
 class SchedulesController < ApplicationController
   before_action :set_schedule, only: %i[ show edit update destroy ]
-
+  before_action :authenticate_user!
   def index
     @schedules = Schedule.all
     @schedule = Schedule.new
