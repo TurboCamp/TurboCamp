@@ -5,13 +5,10 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '3.1.1'
 
-<<<<<<< HEAD
-gem 'aws-sdk-s3' , require: false
+gem 'aws-sdk-s3', '~> 1.114', require: false
 gem 'rails', '~> 6.1.5'
-=======
 gem 'jbuilder', '~> 2.7'
 gem 'local_time', '~> 1.0', '>= 1.0.3'
->>>>>>> run rubocop
 gem 'pg', '~> 1.1'
 gem 'puma', '~> 5.0'
 gem 'rails', '~> 6.1.5'
@@ -61,14 +58,11 @@ gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 
 gem 'tailwindcss-rails', '~> 2.0'
 
-gem 'devise'
-gem 'devise-i18n-views'
+gem 'devise-i18n-views', '~> 0.3.7'
 gem 'foreman', '~> 0.87.2'
-gem 'omniauth'
-gem 'omniauth-github'
-gem 'omniauth-google-oauth2'
-gem 'omniauth-rails_csrf_protection'
-
-gem 'aws-sdk-s3', require: false
-
+gem 'devise', '~> 4.8', '>= 4.8.1'
+gem 'omniauth', '~> 2.1'
+gem 'omniauth-github', '~> 2.0'
+gem 'omniauth-google-oauth2', '~> 1.0', '>= 1.0.1'
+gem 'omniauth-rails_csrf_protection', '~> 1.0', '>= 1.0.1'
 gem 'stimulus_reflex', '~> 3.4'
