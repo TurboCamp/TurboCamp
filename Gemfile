@@ -3,6 +3,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '3.1.1'
 
+gem 'aws-sdk-s3' , require: false
 gem 'rails', '~> 6.1.5'
 gem 'pg', '~> 1.1'
 gem 'puma', '~> 5.0'
