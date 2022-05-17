@@ -1,20 +1,20 @@
+# frozen_string_literal: true
+
 class SchedulesController < ApplicationController
-  before_action :set_schedule, only: %i[ show edit update destroy ]
+  before_action :set_schedule, only: %i[show edit update destroy]
   before_action :authenticate_user!
   def index
     @schedules = Schedule.all
     @schedule = Schedule.new
   end
 
-  def show
-  end
+  def show; end
 
   def new
     @schedule = Schedule.new
   end
 
-  def edit
-  end
+  def edit; end
 
   def create
     @schedule = Schedule.new(schedule_params)
@@ -22,7 +22,7 @@ class SchedulesController < ApplicationController
     respond_to do |format|
       # render html: format
       if @schedule.save
-        format.html { redirect_to schedule_url(@schedule), notice: "已新增" }
+        format.html { redirect_to schedule_url(@schedule), notice: '已新增' }
         format.json { render :show, status: :created, location: @schedule }
       else
         format.html { render :new }
@@ -34,7 +34,7 @@ class SchedulesController < ApplicationController
   def update
     respond_to do |format|
       if @schedule.update(schedule_params)
-        
+
         format.json { render :show, status: :ok, location: @schedule }
       else
         format.html { render :edit }
@@ -52,11 +52,12 @@ class SchedulesController < ApplicationController
   end
 
   private
-    def set_schedule
-      @schedule = Schedule.find(params[:id])
-    end
 
-    def schedule_params
-      params.require(:schedule).permit(:title, :calendar_id, :start, :end, :location)
-    end
+  def set_schedule
+    @schedule = Schedule.find(params[:id])
+  end
+
+  def schedule_params
+    params.require(:schedule).permit(:title, :calendar_id, :start, :end, :location)
+  end
 end

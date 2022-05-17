@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class ApplicationController < ActionController::Base
   layout :layout_by_resource
   rescue_from ActiveRecord::RecordNotFound, with: :not_found

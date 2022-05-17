@@ -1,19 +1,18 @@
+# frozen_string_literal: true
+
 class BucketsController < ApplicationController
-  before_action :find_bucket, only: [:show, :edit, :update, :destroy]
-  before_action :create_new_docs, only: [:document, :upload]
+  before_action :find_bucket, only: %i[show edit update destroy]
+  before_action :create_new_docs, only: %i[document upload]
   before_action :authenticate_user!
   def index
     @buckets = Bucket.all
   end
 
-  def new
-  end
+  def new; end
 
-  def document
-  end
+  def document; end
 
-  def upload
-  end
+  def upload; end
 
   def create
     @bucket = Bucket.new(bucket_params)
@@ -24,33 +23,33 @@ class BucketsController < ApplicationController
     end
   end
 
-  def edit
-  end
+  def edit; end
 
   def update
     if @bucket.update(bucket_params)
-      redirect_to buckets_path, notice: "成功更新"
+      redirect_to buckets_path, notice: '成功更新'
     else
       render :edit
     end
   end
 
-  def show
-  end
+  def show; end
 
   def destroy
     @bucket.destroy
-    redirect_to buckets_path, notice: "成功刪除"
+    redirect_to buckets_path, notice: '成功刪除'
   end
 
-
   private
+
   def find_bucket
     @bucket = Bucket.find(params[:id])
   end
+
   def bucket_params
     params.require(:bucket).permit(:title, :attach, :content, :status)
   end
+
   def create_new_docs
     @bucket = Bucket.new
   end

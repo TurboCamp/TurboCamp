@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class ProjectPolicy < ApplicationPolicy
+<<<<<<< HEAD
     def index?
         false
     end 
@@ -23,3 +24,27 @@ class ProjectPolicy < ApplicationPolicy
        owner
     end
 end
+=======
+  def index?
+    false
+  end
+
+  def new?; end
+
+  def create?
+    # manager || teammate
+  end
+
+  def edit?; end
+
+  def show?
+    # manager || teammate
+  end
+
+  def update?; end
+
+  def destroy?
+    manager
+  end
+end
+>>>>>>> run rubocop

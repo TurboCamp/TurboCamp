@@ -51,6 +51,7 @@ class ApplicationPolicy
     attr_reader :user, :scope
   end
 
+<<<<<<< HEAD
   private 
   
   def owner
@@ -59,6 +60,15 @@ class ApplicationPolicy
 
   def teammate 
     user.personals.where(project_id:@project).pluck('role')[0] == 'teammate'
+=======
+  private
+
+  def manager
+    user.projects.manage == 'manager' && user.role == 'user'
   end
 
+  def teammate
+    user.projects.manage == 'manager' && user.role == 'user'
+>>>>>>> run rubocop
+  end
 end
