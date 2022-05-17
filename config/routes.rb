@@ -1,57 +1,51 @@
+# frozen_string_literal: true
+
 Rails.application.routes.draw do
-  
-  resources :personals ,only: [:index]
-  resources :projects , expect:[:index]  
+  match '/404', to: 'application#not_found', via: :all
 
   resources :todo_lists do
     resources :todo_items
   end
 
-  
   namespace :todo_list do
     resources :todo_items
   end
-  match "/404", to: "application#not_found", via: :all
+  
+  devise_for :users , controllers: { omniauth_callbacks: "users/omniauth_callbacks" }
 
+  devise_scope :user  do
+    get 'users/info' , to:'users/infos#info'
+    post 'users/info' , to:'users/infos#setting'
+  end 
 
 
   resources :schedules
-  devise_for :users , controllers: { omniauth_callbacks: "users/omniauth_callbacks" }
-
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
-
-
   resources :messages do
     resources :comments, module: :messages
   end
-  
-  resources :buckets do 
+
+  resources :buckets do
     resources :comments, module: :buckets
     collection do
       get 'document'
       get 'upload'
     end
   end
-  root "home#index"
+  root 'home#index'
 
-  resources :personals ,only: [:index] do 
-    member do 
-      post :invite 
-    end 
-  end
-  resources :projects , except:[:index] 
+  resources :chat_rooms, only: [:show]
+  resource :contents, only: [:create]
 
-  resources :chat_rooms , only:[:show ]
-  resource :contents , only:[:create]
-
-  namespace :api do 
-    namespace :v1 do 
-      resources :projects , only: [] do 
-        member do 
+  namespace :api do
+    namespace :v1 do
+      resources :projects, only: [] do
+        member do
           post :search
         end
       end
     end
   end
 
+  resources :personals, only: [:index]
+  resources :projects, expect: [:index]
 end
