@@ -54,6 +54,4 @@ Rails.application.routes.draw do
 
   resources :personals ,only: [:index]
   resources :projects , expect:[:index]  
-
-
 end
