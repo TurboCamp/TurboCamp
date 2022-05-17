@@ -1,8 +1,13 @@
-class Messages::CommentsController < CommentsController
-  before_action :set_commentable
+# frozen_string_literal: true
 
-  private
+module Messages
+  class CommentsController < CommentsController
+    before_action :set_commentable
+
+    private
+
     def set_commentable
       @commentable = Message.find(params[:message_id])
     end
+  end
 end

@@ -303,8 +303,9 @@ Devise.setup do |config|
   #   include Turbolinks::Controller
   # end
   # ==> Configuration for :registerable
-  config.omniauth :google_oauth2, ENV.fetch('google_client_id',nil), ENV.fetch('google_client_secret',nil)
-  config.omniauth :github, ENV.fetch('github_client_id',nil), ENV.fetch('github_client_secret',nil), scope: 'user,public_repo'
+  config.omniauth :google_oauth2, ENV.fetch('google_client_id', nil), ENV.fetch('google_client_secret', nil)
+  config.omniauth :github, ENV.fetch('github_client_id', nil), ENV.fetch('github_client_secret', nil),
+                  scope: 'user,public_repo'
 
   # When set to false, does not sign a user in automatically after their password is
   # changed. Defaults to true, so a user is signed in automatically after changing a password.

@@ -1,15 +1,14 @@
-module Visible
-  extend ActiveSupport::Concern 
+# frozen_string_literal: true
 
-  VALID_STATUSES = ['public', 'draft']
+module Visible
+  extend ActiveSupport::Concern
+
+  VALID_STATUSES = %w[public draft].freeze
   included do
     validates :status, inclusion: { in: VALID_STATUSES }
   end
-  
 
   def public?
     status == 'public'
   end
-
-
 end

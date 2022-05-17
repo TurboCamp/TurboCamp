@@ -1,15 +1,15 @@
-class ContentsController < ApplicationController 
-    def create 
-        @content = Content.new(content_params)
+# frozen_string_literal: true
 
-      if @content.save
-        ChatRoomChannel.broadcast_to(@content.chat_room , @content)
-      end
-    end 
+class ContentsController < ApplicationController
+  def create
+    @content = Content.new(content_params)
 
-    private 
-    
-    def content_params
-        params.require(:content).permit(:text , :chat_room_id)
-    end
+    ChatRoomChannel.broadcast_to(@content.chat_room, @content) if @content.save
+  end
+
+  private
+
+  def content_params
+    params.require(:content).permit(:text, :chat_room_id)
+  end
 end

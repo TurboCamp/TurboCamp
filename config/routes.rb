@@ -1,12 +1,12 @@
-Rails.application.routes.draw do
+# frozen_string_literal: true
 
-  match "/404", to: "application#not_found", via: :all
+Rails.application.routes.draw do
+  match '/404', to: 'application#not_found', via: :all
 
   resources :todo_lists do
     resources :todo_items
   end
 
-  
   namespace :todo_list do
     resources :todo_items
   end
@@ -20,39 +20,32 @@ Rails.application.routes.draw do
 
 
   resources :schedules
-
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
-
-  resources :message_boards, only: [:index], as: "message_boards"
-
   resources :messages do
     resources :comments, module: :messages
   end
-  
-  resources :buckets do 
+
+  resources :buckets do
     resources :comments, module: :buckets
     collection do
       get 'document'
       get 'upload'
     end
   end
-  root "home#index"
+  root 'home#index'
 
+  resources :chat_rooms, only: [:show]
+  resource :contents, only: [:create]
 
-  resources :chat_rooms , only:[:show ]
-  resource :contents , only:[:create]
-
-  namespace :api do 
-    namespace :v1 do 
-      resources :projects , only: [] do 
-        member do 
+  namespace :api do
+    namespace :v1 do
+      resources :projects, only: [] do
+        member do
           post :search
         end
       end
     end
   end
 
-  resources :personals ,only: [:index]
-  resources :projects , expect:[:index]  
-
+  resources :personals, only: [:index]
+  resources :projects, expect: [:index]
 end

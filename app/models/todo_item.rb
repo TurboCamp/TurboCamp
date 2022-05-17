@@ -1,10 +1,11 @@
+# frozen_string_literal: true
+
 class TodoItem < ApplicationRecord
   belongs_to :todo_list
-  
 
-  scope :completed, -> do
+  scope :completed, lambda {
     where(completed: true)
-  end
+  }
 
   validates :description, presence: true
 end

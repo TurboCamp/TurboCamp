@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 class TodoListsController < ApplicationController
-  before_action :set_todo_list, only: %i[ show edit update destroy ]
+  before_action :set_todo_list, only: %i[show edit update destroy]
   before_action :authenticate_user!
   def index
     @todo_lists = TodoList.all
@@ -13,40 +15,39 @@ class TodoListsController < ApplicationController
     @todo_list = TodoList.new
   end
 
-  def edit
-  end
+  def edit; end
 
   def create
     @todo_list = TodoList.new(todo_list_params)
 
-      if @todo_list.save
-        redirect_to todo_list_url(@todo_list), notice: "Todo list 建立成功" 
-      else
-        render :new
-      end
+    if @todo_list.save
+      redirect_to todo_list_url(@todo_list), notice: 'Todo list 建立成功'
+    else
+      render :new
+    end
   end
 
   def update
-      if @todo_list.update(todo_list_params)
-        redirect_to todo_list_url(@todo_list), alert: "Todo list 更新成功"
-      else
-        render :edit
-      end
+    if @todo_list.update(todo_list_params)
+      redirect_to todo_list_url(@todo_list), alert: 'Todo list 更新成功'
+    else
+      render :edit
+    end
   end
 
-  def destroy   
+  def destroy
     @todo_list.destroy
 
-      redirect_to todo_lists_url
+    redirect_to todo_lists_url
   end
 
   private
-    def set_todo_list
-      @todo_list = TodoList.find(params[:id])
-    end
 
-    def todo_list_params
-      params.require(:todo_list).permit(:title, todo_items: [:todo_list],variants_attributes: [ :_destroy ])
-      
-    end
+  def set_todo_list
+    @todo_list = TodoList.find(params[:id])
+  end
+
+  def todo_list_params
+    params.require(:todo_list).permit(:title, todo_items: [:todo_list], variants_attributes: [:_destroy])
+  end
 end
