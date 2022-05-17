@@ -1,4 +1,4 @@
-<div class="w-72 h-full bg-white  border-r-2 px-1 absolute ">
+<div class="w-72 h-full bg-white border-r-2 px-1 absolute">
   <div class="pt-4 pb-2 px-6">
     <a href="#!">
       <div class="flex items-center">
@@ -12,72 +12,69 @@
     </a>
   </div>
   <ul class="relative">
-    <li class="relative">
-      <%= link_to 'Settings', 
-          users_settings_path, method: :get,
-          class: "flex items-center text-sm py-4 px-6 h-12 
-                  overflow-hidden text-gray-700 text-ellipsis whitespace-nowrap 
-                  rounded hover:text-gray-900 hover:bg-gray-100 transition 
-                  duration-300 ease-in-out" %>
+    <li class="relative ">
+
     </li>
     <hr class="my-3">
     <li class="relative">
-      <%= link_to 'Todos', 
-          todo_lists_path, method: :get,
-          class: "flex items-center text-sm py-4 px-6 h-12 
-                  overflow-hidden text-gray-700 text-ellipsis whitespace-nowrap 
-                  rounded hover:text-gray-900 hover:bg-gray-100 transition 
-                  duration-300 ease-in-out" %>
+      <%= link_to todo_lists_path, method: :get,
+          class: "flex items-center text-sm py-4 px-6 h-12
+                  overflow-hidden text-gray-700 text-ellipsis whitespace-nowrap
+                  hover:text-gray-900 hover:bg-gray-100 transition
+                  duration-300 ease-in-out" do %>
+      <%= fa_icon 'check-circle', type: :far, size: '2x', class: 'pr-3' %>
+      <%= 'Todos' %>
+    <% end %>
     </li>
     <li class="relative">
-      <%= link_to 'Schedule', 
+      <%= link_to 'Schedule',
           schedules_path, method: :get,
-          class: "flex items-center text-sm py-4 px-6 h-12 
-                  overflow-hidden text-gray-700 text-ellipsis whitespace-nowrap 
-                  rounded hover:text-gray-900 hover:bg-gray-100 transition 
+          class: "flex items-center text-sm py-4 px-6 h-12
+                  overflow-hidden text-gray-700 text-ellipsis whitespace-nowrap
+                  hover:text-gray-900 hover:bg-gray-100 transition
                   duration-300 ease-in-out" %>
     </li>
     <li class="relative">
-      <%= link_to 'Campfire', 
+      <%= link_to 'Campfire',
           "#", method: :delete,
-          class: "flex items-center text-sm py-4 px-6 h-12 
-                  overflow-hidden text-gray-700 text-ellipsis whitespace-nowrap 
-                  rounded hover:text-gray-900 hover:bg-gray-100 transition 
+          class: "flex items-center text-sm py-4 px-6 h-12
+                  overflow-hidden text-gray-700 text-ellipsis whitespace-nowrap
+                  hover:text-gray-900 hover:bg-gray-100 transition
                   duration-300 ease-in-out" %>
     </li>
     <li class="relative">
-      <%= link_to 'Message Boards', 
-          "#", method: :get,
-          class: "flex items-center text-sm py-4 px-6 h-12 
-                  overflow-hidden text-gray-700 text-ellipsis whitespace-nowrap 
-                  rounded hover:text-gray-900 hover:bg-gray-100 transition 
+      <%= link_to 'Message Boards',
+          messages_path, method: :get,
+          class: "flex items-center text-sm py-4 px-6 h-12
+                  overflow-hidden text-gray-700 text-ellipsis whitespace-nowrap
+                  hover:text-gray-900 hover:bg-gray-100 transition
                   duration-300 ease-in-out" %>
     </li>
     <li class="relative">
-      <%= link_to 'Docs & Files', 
+      <%= link_to 'Docs & Files',
           "#", method: :delete,
-          class: "flex items-center text-sm py-4 px-6 h-12 
-                  overflow-hidden text-gray-700 text-ellipsis whitespace-nowrap 
-                  rounded hover:text-gray-900 hover:bg-gray-100 transition 
-                  duration-300 ease-in-out" %>
+          class: 'flex items-center text-sm py-4 px-6 h-12
+                  overflow-hidden text-gray-700 text-ellipsis whitespace-nowrap
+                  hover:text-gray-900 hover:bg-gray-100 transition
+                  duration-300 ease-in-out' %>
     </li>
     <li class="relative">
-      <%= link_to 'Githubs', 
-          "#", method: :delete,
-          class: "flex items-center text-sm py-4 px-6 h-12 
-                  overflow-hidden text-gray-700 text-ellipsis whitespace-nowrap 
-                  rounded hover:text-gray-900 hover:bg-gray-100 transition 
-                  duration-300 ease-in-out" %>
+      <%= link_to "#",
+          method: :get,
+          class: 'flex items-center text-sm py-4 px-6 h-12
+                  overflow-hidden text-gray-700 text-ellipsis whitespace-nowrap
+                  hover:text-gray-900 hover:bg-gray-100 transition
+                  duration-300 ease-in-out' do %>
+          <%= fa_icon 'github', type: :fab, size: '2x', class: 'pr-3' %>
+          <%= 'GitHub' %>
+      <% end %>
     </li>
     <li class="relative">
-      <%= link_to 'Logout', 
+      <%= link_to 'Logout',
           destroy_user_session_path, method: :delete,
-          class: "flex items-center text-sm py-4 px-6 h-12 
-                  overflow-hidden text-gray-700 text-ellipsis whitespace-nowrap 
-                  rounded hover:text-gray-900 hover:bg-gray-100 transition 
+          class: "flex items-center text-sm py-4 px-6 h-12
+                  overflow-hidden text-gray-700 text-ellipsis whitespace-nowrap
+                  hover:text-gray-900 hover:bg-gray-100 transition
                   duration-300 ease-in-out" %>
     </li>
 </div>
-
-
-

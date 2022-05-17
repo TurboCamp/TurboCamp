@@ -1,14 +1,14 @@
 <div align="center">
-  <img scr="https://raw.githubusercontent.com/wwwweiJ/TurboCamp/issue19/public/logo.png" width="128px" height="128px"> 
+  <img src="https://github.com/wwwweiJ/TurboCamp/blob/dev/public/logo.png" width="128px" alt="TurboCamp logo"> 
+  <h1>Turbocamp</h1>
+  <p>Shout out to Basecamp.</p>
 </div>
 
 
-<h1 align="center">Turbocamp</h1>
-
-
 ## About 
-Shout out to Basecamp.
+
 TurboCamp是一個仿效BaseCamp的專案管理系統，主要的功能有
+
 1. todo
 2. schedule
 3. message board
@@ -21,9 +21,3 @@ TurboCamp是一個仿效BaseCamp的專案管理系統，主要的功能有
 - AsheAnn
 - Kris Chiang
 - RexChen628
-
-
-
-
-
-
