@@ -31,10 +31,6 @@ class ApplicationController < ActionController::Base
         current_user.personals.where(project_id:@project.id).pluck('role')[0] == 'owner'
     end
 
-    
-
-  protected
-
   def configure_permitted_parameters
     devise_parameter_sanitizer.permit(:sign_up, keys: [:nickname])
   end
