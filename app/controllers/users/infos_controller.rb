@@ -7,8 +7,10 @@ class Users::InfosController < ApplicationController
         end
     end
     def setting
+        @user = current_user
         if @user.update(update_user_info)
-            redirect_to  users_info_path
+            redirect_to  personals_path
+
         end 
     end
     private 
