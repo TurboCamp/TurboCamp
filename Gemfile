@@ -50,7 +50,6 @@ gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 
 gem 'tailwindcss-rails', '~> 2.0'
 
-gem 'aws-sdk-s3', require: false
 gem 'devise'
 gem 'devise-i18n-views'
 gem 'foreman', '~> 0.87.2'
