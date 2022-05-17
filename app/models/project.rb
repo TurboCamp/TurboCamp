@@ -15,7 +15,7 @@ class Project < ApplicationRecord
   has_one :chat_room
   has_one :bucket, dependent: :destroy
   has_many :messages , dependent: :destroy
-  has_one :schedule, , dependent: :destroy
+  has_one :schedule,  dependent: :destroy
   
   validates :title , presence: true , uniqueness: true
   validates :description , presence: true , length:{maximum: 50}
