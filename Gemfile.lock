@@ -293,8 +293,6 @@ GEM
       rack
       rails (>= 5.2)
       redis
-    tailwindcss-rails (2.0.8-x86_64-darwin)
-      railties (>= 6.0.0)
     thor (1.2.1)
     thread-local (1.1.0)
     tilt (2.0.10)
@@ -333,12 +331,12 @@ PLATFORMS
   x86_64-darwin-21
 
 DEPENDENCIES
-  aws-sdk-s3
+  aws-sdk-s3 (~> 1.114)
   bootsnap (>= 1.4.4)
   byebug
   capybara (>= 3.26)
-  devise
-  devise-i18n-views
+  devise (~> 4.8, >= 4.8.1)
+  devise-i18n-views (~> 0.3.7)
   dotenv-rails (~> 2.7)
   font_awesome5_rails
   foreman (~> 0.87.2)
@@ -348,10 +346,10 @@ DEPENDENCIES
   listen (~> 3.3)
   local_time (~> 1.0, >= 1.0.3)
   nested_scaffold
-  omniauth
-  omniauth-github
-  omniauth-google-oauth2
-  omniauth-rails_csrf_protection
+  omniauth (~> 2.1)
+  omniauth-github (~> 2.0)
+  omniauth-google-oauth2 (~> 1.0, >= 1.0.1)
+  omniauth-rails_csrf_protection (~> 1.0, >= 1.0.1)
   paranoia (~> 2.6)
   pg (~> 1.1)
   puma (~> 5.0)
@@ -363,7 +361,6 @@ DEPENDENCIES
   selenium-webdriver (>= 4.0.0.rc1)
   spring
   stimulus_reflex (~> 3.4)
-  tailwindcss-rails (~> 2.0)
   turbolinks (~> 5)
   tzinfo-data
   web-console (>= 4.1.0)
