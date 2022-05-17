@@ -1,4 +1,4 @@
-<div class="w-80 h-full bg-white  border-r-2 px-1 absolute ">
+<div class="w-72 h-full bg-white  border-r-2 px-1 absolute ">
   <div class="pt-4 pb-2 px-6">
     <a href="#!">
       <div class="flex items-center">
@@ -6,33 +6,76 @@
           <img src="https://fakeimg.pl/500x500/" class="rounded-full w-10" alt="Avatar">
         </div>
         <div class="grow ml-3">
-          <p class="text-sm font-semibold text-blue-600">ProjectName</p>
+          <p class="text-sm font-semibold text-blue-600"></p>
         </div>
       </div>
     </a>
   </div>
   <ul class="relative">
     <li class="relative">
-      <a class="flex items-center text-sm py-4 px-6 h-12 overflow-hidden text-gray-700 text-ellipsis whitespace-nowrap rounded hover:text-gray-900 hover:bg-gray-100 transition duration-300 ease-in-out" href="#!" data-mdb-ripple="true" data-mdb-ripple-color="dark">Settings</a>
+      <%= link_to 'Settings', 
+          users_settings_path, method: :get,
+          class: "flex items-center text-sm py-4 px-6 h-12 
+                  overflow-hidden text-gray-700 text-ellipsis whitespace-nowrap 
+                  rounded hover:text-gray-900 hover:bg-gray-100 transition 
+                  duration-300 ease-in-out" %>
     </li>
     <hr class="my-3">
     <li class="relative">
-      <a class="flex items-center text-sm py-4 px-6 h-12 overflow-hidden text-gray-700 text-ellipsis whitespace-nowrap rounded hover:text-gray-900 hover:bg-gray-100 transition duration-300 ease-in-out" href="#!" data-mdb-ripple="true" data-mdb-ripple-color="dark">Todos</a>
+      <%= link_to 'Todos', 
+          todo_lists_path, method: :get,
+          class: "flex items-center text-sm py-4 px-6 h-12 
+                  overflow-hidden text-gray-700 text-ellipsis whitespace-nowrap 
+                  rounded hover:text-gray-900 hover:bg-gray-100 transition 
+                  duration-300 ease-in-out" %>
     </li>
     <li class="relative">
-      <a class="flex items-center text-sm py-4 px-6 h-12 overflow-hidden text-gray-700 text-ellipsis whitespace-nowrap rounded hover:text-gray-900 hover:bg-gray-100 transition duration-300 ease-in-out" href="#!" data-mdb-ripple="true" data-mdb-ripple-color="dark">Schedule</a>
+      <%= link_to 'Schedule', 
+          schedules_path, method: :get,
+          class: "flex items-center text-sm py-4 px-6 h-12 
+                  overflow-hidden text-gray-700 text-ellipsis whitespace-nowrap 
+                  rounded hover:text-gray-900 hover:bg-gray-100 transition 
+                  duration-300 ease-in-out" %>
     </li>
     <li class="relative">
-      <a class="flex items-center text-sm py-4 px-6 h-12 overflow-hidden text-gray-700 text-ellipsis whitespace-nowrap rounded hover:text-gray-900 hover:bg-gray-100 transition duration-300 ease-in-out" href="#!" data-mdb-ripple="true" data-mdb-ripple-color="dark">Campfire</a>
+      <%= link_to 'Campfire', 
+          "#", method: :delete,
+          class: "flex items-center text-sm py-4 px-6 h-12 
+                  overflow-hidden text-gray-700 text-ellipsis whitespace-nowrap 
+                  rounded hover:text-gray-900 hover:bg-gray-100 transition 
+                  duration-300 ease-in-out" %>
     </li>
     <li class="relative">
-      <a class="flex items-center text-sm py-4 px-6 h-12 overflow-hidden text-gray-700 text-ellipsis whitespace-nowrap rounded hover:text-gray-900 hover:bg-gray-100 transition duration-300 ease-in-out" href="#!" data-mdb-ripple="true" data-mdb-ripple-color="dark">Message Board</a>
+      <%= link_to 'Message Boards', 
+          "#", method: :get,
+          class: "flex items-center text-sm py-4 px-6 h-12 
+                  overflow-hidden text-gray-700 text-ellipsis whitespace-nowrap 
+                  rounded hover:text-gray-900 hover:bg-gray-100 transition 
+                  duration-300 ease-in-out" %>
     </li>
     <li class="relative">
-      <a class="flex items-center text-sm py-4 px-6 h-12 overflow-hidden text-gray-700 text-ellipsis whitespace-nowrap rounded hover:text-gray-900 hover:bg-gray-100 transition duration-300 ease-in-out" href="#!" data-mdb-ripple="true" data-mdb-ripple-color="dark">Docs & Files</a>
+      <%= link_to 'Docs & Files', 
+          "#", method: :delete,
+          class: "flex items-center text-sm py-4 px-6 h-12 
+                  overflow-hidden text-gray-700 text-ellipsis whitespace-nowrap 
+                  rounded hover:text-gray-900 hover:bg-gray-100 transition 
+                  duration-300 ease-in-out" %>
     </li>
     <li class="relative">
-      <a class="flex items-center text-sm py-4 px-6 h-12 overflow-hidden text-gray-700 text-ellipsis whitespace-nowrap rounded hover:text-gray-900 hover:bg-gray-100 transition duration-300 ease-in-out" href="#!" data-mdb-ripple="true" data-mdb-ripple-color="dark">Githubs</a>
+      <%= link_to 'Githubs', 
+          "#", method: :delete,
+          class: "flex items-center text-sm py-4 px-6 h-12 
+                  overflow-hidden text-gray-700 text-ellipsis whitespace-nowrap 
+                  rounded hover:text-gray-900 hover:bg-gray-100 transition 
+                  duration-300 ease-in-out" %>
+    </li>
+    <li class="relative">
+      <%= link_to 'Logout', 
+          destroy_user_session_path, method: :delete,
+          class: "flex items-center text-sm py-4 px-6 h-12 
+                  overflow-hidden text-gray-700 text-ellipsis whitespace-nowrap 
+                  rounded hover:text-gray-900 hover:bg-gray-100 transition 
+                  duration-300 ease-in-out" %>
     </li>
 </div>
 
