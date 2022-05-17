@@ -2,7 +2,7 @@
 <%= link_to 'CampFire' , chat_room_path(@project.chat_room.id) %>
 </div>
 
-<div id="joinproject" data-controller="member" class="flex" data-id="<%= @project.slug %>">
+<div data-controller="member" class="flex" data-id="<%= @project.slug %>">
     <button  data-action="click->member#join">Add Member</button>
     <div id="inputbox" class=" hidden" >
         <input type="text" placeholder="請輸入信箱" class="input">

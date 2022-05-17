@@ -1,6 +1,7 @@
 class BucketsController < ApplicationController
   before_action :find_bucket, only: [:show, :edit, :update, :destroy]
   before_action :create_new_docs, only: [:document, :upload]
+  before_action :authenticate_user!
   def index
     @buckets = Bucket.all
   end
