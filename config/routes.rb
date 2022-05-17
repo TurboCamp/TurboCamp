@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-
+  
+  resources :personals ,only: [:index]
+  resources :projects , expect:[:index]  
 
   resources :todo_lists do
     resources :todo_items
@@ -52,6 +54,4 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :personals ,only: [:index]
-  resources :projects , expect:[:index]  
 end
