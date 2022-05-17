@@ -1,0 +1,30 @@
+<section class="w-full">
+<div class="border-gray-400 shadow-xl p-8 flex justify-center w-auto">
+    <%= form_with(model: @project , class:"w-full max-w-lg ") do |form| %>
+        <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+            <div>
+                <%= form.label :title , "標題"  , class:"block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2 text-lg"%>
+                <%= form.text_field :title , class:"appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"%>
+            </div>
+        </div>
+        <div class="w-full md:w-1/2 px-3">
+            <div>
+                <%= form.label :description , "描述" , class:"block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2 text-lg"%>
+                <%= form.text_area :description , class:"appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"%>
+            </div>
+        </div>
+        <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+            <div>
+                <%= form.label :nickname , "暱稱" , class:"block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2 text-lg"%>
+                <%= form.text_field :nickname , class:"appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"%>
+            </div>
+        </div>
+        <div class="mt-5 text-center">
+            <%= form.submit "更新" ,class:"bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow"%>
+        </div>
+    <% end %>
+</div>
+<div>
+    <%= link_to '刪除專案' , project_path(@project) , method: :delete %>
+</div>
+</section>
