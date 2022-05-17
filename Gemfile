@@ -11,7 +11,6 @@ gem 'jbuilder', '~> 2.7'
 gem 'local_time', '~> 1.0', '>= 1.0.3'
 gem 'pg', '~> 1.1'
 gem 'puma', '~> 5.0'
-gem 'rails', '~> 6.1.5'
 gem 'sass-rails', '>= 6'
 gem 'turbolinks', '~> 5'
 gem 'webpacker', '~> 5.0'
@@ -55,8 +54,6 @@ group :test do
 end
 
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
-
-gem 'tailwindcss-rails', '~> 2.0'
 
 gem 'devise-i18n-views', '~> 0.3.7'
 gem 'foreman', '~> 0.87.2'
