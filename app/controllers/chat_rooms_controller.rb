@@ -3,7 +3,6 @@
 class ChatRoomsController < ApplicationController
   before_action :authenticate_user!
   layout 'project'
-  before_action :authenticate_user!
 
   def show
     if user_signed_in?
