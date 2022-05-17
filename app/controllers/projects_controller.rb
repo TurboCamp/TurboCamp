@@ -65,7 +65,6 @@ class ProjectsController < ApplicationController
 =======
   def create
     @project = current_user.projects.create(project_clean)
-    @project.manage = 'manager'
     if @project.save
       redirect_to project_path(@project)
     else
@@ -73,10 +72,7 @@ class ProjectsController < ApplicationController
     end
   end
 
-  def show
-    # authorize :project
-    @chat_room = @project.chat_room
-  end
+  def show; end
 
   def edit; end
 
