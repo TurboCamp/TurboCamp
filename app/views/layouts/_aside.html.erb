@@ -1,5 +1,5 @@
 <div class="w-72 h-full bg-white border-r-2 px-1 absolute">
-  <div class="pt-4 pb-2 px-6">
+  <div class="py-6 px-5">
     <a href="#!">
       <div class="flex items-center">
         <div class="shrink-0">
@@ -13,67 +13,28 @@
   </div>
   <ul class="relative">
     <li class="relative ">
-
+      <%= sidebar_link_with_icon(users_info_path, :get, icons('cog', :fas, '2x', 'pr-6','Settings')) %>
     </li>
     <hr class="my-3">
     <li class="relative">
-      <%= link_to todo_lists_path, method: :get,
-          class: "flex items-center text-sm py-4 px-6 h-12
-                  overflow-hidden text-gray-700 text-ellipsis whitespace-nowrap
-                  hover:text-gray-900 hover:bg-gray-100 transition
-                  duration-300 ease-in-out" do %>
-      <%= fa_icon 'check-circle', type: :far, size: '2x', class: 'pr-3' %>
-      <%= 'Todos' %>
-    <% end %>
+      <%= sidebar_link_with_icon(todo_lists_path, :get, icons('check-circle', :far, '2x', 'pr-5', 'Todos')) %>
     </li>
     <li class="relative">
-      <%= link_to 'Schedule',
-          schedules_path, method: :get,
-          class: "flex items-center text-sm py-4 px-6 h-12
-                  overflow-hidden text-gray-700 text-ellipsis whitespace-nowrap
-                  hover:text-gray-900 hover:bg-gray-100 transition
-                  duration-300 ease-in-out" %>
+      <%= sidebar_link_with_icon(schedules_path, :get, icons('calendar-alt', :far, '2x', 'pr-6', 'Schedule')) %>
     </li>
     <li class="relative">
-      <%= link_to 'Campfire',
-          "#", 
-          class: "flex items-center text-sm py-4 px-6 h-12
-                  overflow-hidden text-gray-700 text-ellipsis whitespace-nowrap
-                  hover:text-gray-900 hover:bg-gray-100 transition
-                  duration-300 ease-in-out" %>
+      <%= sidebar_link_with_icon('#', icons('bullhorn', :fas, '2x', 'pr-5', 'Camfire')) %>
     </li>
     <li class="relative">
-      <%= link_to 'Message Boards',
-          messages_path, method: :get,
-          class: "flex items-center text-sm py-4 px-6 h-12
-                  overflow-hidden text-gray-700 text-ellipsis whitespace-nowrap
-                  hover:text-gray-900 hover:bg-gray-100 transition
-                  duration-300 ease-in-out" %>
+      <%= sidebar_link_with_icon('#', icons('comment', :far, '2x', 'pr-6', 'Message Boards')) %>
     </li>
     <li class="relative">
-      <%= link_to 'Docs & Files',
-          "#", 
-          class: 'flex items-center text-sm py-4 px-6 h-12
-                  overflow-hidden text-gray-700 text-ellipsis whitespace-nowrap
-                  hover:text-gray-900 hover:bg-gray-100 transition
-                  duration-300 ease-in-out' %>
+      <%= sidebar_link_with_icon('#', icons('cloud-upload-alt', :fas, '2x', 'pr-4', 'Docs & Files')) %>
     </li>
     <li class="relative">
-      <%= link_to "#",
-          class: 'flex items-center text-sm py-4 px-6 h-12
-                  overflow-hidden text-gray-700 text-ellipsis whitespace-nowrap
-                  hover:text-gray-900 hover:bg-gray-100 transition
-                  duration-300 ease-in-out' do %>
-          <%= fa_icon 'github', type: :fab, size: '2x', class: 'pr-3' %>
-          <%= 'GitHub' %>
-      <% end %>
+      <%= sidebar_link_with_icon('#', :get, icons('github', :fab, '2x', 'pr-6', 'GitHub')) %>
     </li>
     <li class="relative">
-      <%= link_to 'Logout',
-          destroy_user_session_path, method: :delete,
-          class: "flex items-center text-sm py-4 px-6 h-12
-                  overflow-hidden text-gray-700 text-ellipsis whitespace-nowrap
-                  hover:text-gray-900 hover:bg-gray-100 transition
-                  duration-300 ease-in-out" %>
+      <%= sidebar_link_with_icon(destroy_user_session_path, :delete, icons('power-off', :fas, '2x', 'pr-5', 'Logout')) %>
     </li>
 </div>

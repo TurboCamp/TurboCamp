@@ -1,19 +1,27 @@
 # frozen_string_literal: true
 
 module ApplicationHelper
-  def link_to_with_icon(url, method, num, string)
+  def sidebar_link_with_icon(url, method = nil, name)
     link_to url,
-            method: method,
+            method:,
             class: 'flex items-center text-sm py-4 px-6 h-12
              overflow-hidden text-gray-700 text-ellipsis whitespace-nowrap
              hover:text-gray-900 hover:bg-gray-100  transition
              duration-300 ease-in-out' do
-      num
-      string
+      name
     end
   end
 
-  def icons(icon_name, type, size)
-    fa_icon icon_name, type:, size:, class: 'pr-3'
+  def icons(icon_name, type, size, icon_css, text = nil)
+    icon = fa_icon icon_name, type:, size:, class: icon_css
+    title = content_tag :p, text, class: 'text-lg font-medium'
+    icon + title
+  end
+
+  def link_with_icon(url, method, name)
+    link_to url,
+            method: method do
+      name
+    end
   end
 end

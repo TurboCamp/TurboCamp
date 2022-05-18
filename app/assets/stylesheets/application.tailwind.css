@@ -80,4 +80,7 @@
 	.fileupload:focus {
 		@apply text-gray-700 bg-white;
 	}
+  .fa5-text {
+    @apply text-xl
+  }
 }
