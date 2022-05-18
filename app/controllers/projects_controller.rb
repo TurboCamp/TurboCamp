@@ -4,10 +4,6 @@ class ProjectsController < ApplicationController
     before_action :authenticate_user!
     before_action :find_my_project , only:[:show ,:edit , :update , :destroy ]
 
-  def new
-    @project = Project.new
-  end
-
     def new 
         @project = Project.new
     end
@@ -23,6 +19,7 @@ class ProjectsController < ApplicationController
 
     def show 
         @chat_room = @project.chat_room
+        
     end 
     def edit 
     end 

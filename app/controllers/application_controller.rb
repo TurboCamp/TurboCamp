@@ -20,6 +20,15 @@ class ApplicationController < ActionController::Base
     root_path
   end
 
+  def user_auth
+    current_user.personals.where(project_id:@project.id).pluck('role')[0] == 'owner'
+  end
+
+  def current_project 
+    Project.find_by(project_id:params[:project_id])
+  end
+
+
   protected
 
   def layout_by_resource
@@ -29,10 +38,7 @@ class ApplicationController < ActionController::Base
       'application'
     end
   end
-    def user_auth
-        current_user.personals.where(project_id:@project.id).pluck('role')[0] == 'owner'
-    end
-
+    
   def configure_permitted_parameters
     devise_parameter_sanitizer.permit(:sign_up, keys: [:nickname])
   end

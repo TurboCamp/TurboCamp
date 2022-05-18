@@ -8,11 +8,9 @@ class Project < ApplicationRecord
 #  與user多對多關聯
   has_many :personals
   has_many :users , through: :personals  , dependent: :destroy
-  has_one :chat_room , dependent: :destroy
-  has_many :users , through: :personals 
 
 # 在project內部功能
-  has_one :chat_room
+  has_one :chat_room, dependent: :destroy
   has_one :bucket, dependent: :destroy
   has_many :messages , dependent: :destroy
   has_one :schedule,  dependent: :destroy

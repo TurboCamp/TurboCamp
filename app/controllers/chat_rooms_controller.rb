@@ -6,7 +6,6 @@ class ChatRoomsController < ApplicationController
 
   def show
     if user_signed_in?
-
       @chat_room = ChatRoom.find(params[:id])
       @contents = @chat_room.contents
       @content = Content.new

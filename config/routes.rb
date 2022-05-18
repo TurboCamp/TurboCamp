@@ -18,7 +18,6 @@ Rails.application.routes.draw do
     post 'users/info' , to:'users/infos#setting'
   end 
 
-
   resources :schedules
   resources :messages do
     resources :comments, module: :messages
