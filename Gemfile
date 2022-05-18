@@ -28,6 +28,7 @@ gem 'image_processing', '~> 1.2'
 
 gem 'bootsnap', '>= 1.4.4', require: false
 gem 'font_awesome5_rails'
+gem 'font-awesome-sass', '~> 6.1.1'
 gem 'friendly_id', '~> 5.4'
 gem 'nested_scaffold'
 gem 'paranoia', '~> 2.6'
