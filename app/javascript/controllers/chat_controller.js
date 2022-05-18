@@ -10,12 +10,16 @@
 import { Controller } from "stimulus"
 
 export default class extends Controller {
-  
+  static targets = ['contentbox']
   remove_value() {
     setTimeout(()=>{
       this.element.querySelector("#content_text").value = ""
       this.element.querySelector("input[name='commit']").disabled = false
-      },150)
+      this.contentboxTarget.scrollTop = this.contentboxTarget.scrollHeight
+      },150) 
+    }
+    connect(){
+      this.contentboxTarget.scrollTop = this.contentboxTarget.scrollHeight
     }
   }
 
