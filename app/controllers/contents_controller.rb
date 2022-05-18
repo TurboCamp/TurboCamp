@@ -7,13 +7,14 @@ class ContentsController < ApplicationController
     @content = @chat_room.contents.new(content_params)
     # render html:@chat_room.id
     if @content.save
-      ActionCable.server.broadcast "ChatRoomChannel_#{@chat_room.id}" , {message: @content.text}
+      ActionCable.server.broadcast "ChatRoomChannel_#{@chat_room.id}" , { send_by:@content.user,message: @content.text }
+      # ChatRoomChannel.broadcast_to(@chat_room , @content)
     end
   end
 
   private
 
   def content_params
-    params.require(:content).permit(:text ).merge(user:current_user.nickname)
+    params.require(:content).permit(:text).merge(user:current_user.nickname)
   end
 end

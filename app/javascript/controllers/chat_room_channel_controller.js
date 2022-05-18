@@ -1,26 +1,3 @@
-// import consumer from "../channels/consumer"
-// import {}
-
-// let url = window.location.href 
-// let room_id = parseInt(url.substring(url.search("chat_rooms/") + 11))
-// if (url.indexOf("chat_rooms/") != -1 ){
-//   consumer.subscriptions.create({"channel":"ChatRoomChannel", "chat_room_id":room_id},{
-//     connected() {
-//     },
-//     disconnected() {
-//       // Called when the subscription has been terminated by the server
-//     },
-//     received(data) {
-//       const message = `<div class="w-max ml-auto">
-//       <span class="text-xs block">${data.user}</span>
-//       <div class=" px-3 py-2 bg-gray-200 opacity-3 rounded-lg w-max">
-//       ${data.text} </div></div>`
-//       document.querySelector("#content").insertAdjacentHTML("beforeend" , message)
-
-//     }
-//   }
-// )
-// }
 
 import consumer from '../channels/consumer'
 import { Controller } from 'stimulus'
@@ -29,13 +6,22 @@ export default class extends Controller {
   connect() {
     this.contentboxTarget.scrollTop = this.contentboxTarget.scrollHeight
     if (this.contentboxTarget) {
-      const chat_room_id = this.element.dataset.ChatId
+      let chat_room_id = this.element.dataset.id
+      console.log(chat_room_id)
       consumer.subscriptions.create(
-        { 'channel': 'ChatRoomChannel', 'chat_room_id': chat_room_id },
-        {
-          // 接收廣播的資訊讓所有訂閱者能夠同時收到資訊且更改
+        { "channel": "ChatRoomChannel", "chat_room_id": chat_room_id },
+        { // 接收廣播的資訊讓所有訂閱者能夠同時收到資訊且更改
+          connected(){
+            console.log(123);
+            
+          },
           received(data) {
            console.log(data)
+           const message = `<div class="w-max ml-auto">
+          <span class="text-xs block">${data.send_by}</span>
+          <div class=" px-3 py-2 bg-gray-200 opacity-3 rounded-lg w-max">
+          ${data.message} </div></div>`
+          document.querySelector("#content").insertAdjacentHTML("beforeend" , message)
           },
         }
       )
