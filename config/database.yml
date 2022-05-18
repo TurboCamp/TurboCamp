@@ -86,3 +86,5 @@ production:
   database: <%=ENV["PG_DATABASE"] %>
   username: <%=ENV["PG_USERNAME"] %>
   password: <%= ENV['TURBOCAMP_DATABASE_PASSWORD'] %>
+  Host: <%=ENV["PG_HOST"] %>
+  Port: <%=ENV["PG_PORT"] %>
