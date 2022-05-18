@@ -24,7 +24,7 @@ Rails.application.routes.draw do
 
   resources :personals, only: [:index]
 
-  resources :projects, expect: [:index] do 
+  resources :projects, except: [:index] do 
     resources :buckets do
       resources :comments, module: :buckets
       collection do
@@ -32,8 +32,10 @@ Rails.application.routes.draw do
         get 'upload'
       end
     end
-    resources :chat_rooms, only: [:show]
-    resource :contents, only: [:create]
+    resource :chat_room , only: [:show] do 
+      resources :contents, only: [:create]
+    end
+    
     resources :schedules
     resources :messages do
       resources :comments, module: :messages
@@ -43,4 +45,6 @@ Rails.application.routes.draw do
       resources :todo_items
     end
   end
+
+  
 end

@@ -18,12 +18,12 @@ class ProjectsController < ApplicationController
     end 
 
     def show 
-        @chat_room = @project.chat_room
+        # render html:params
     end 
     def edit 
     end 
     def update 
-        if user_auth
+        if owner?
             if @project.update(project_clean)
                 redirect_to project_path(@project) , notice:'專案更新成功'
             else 
@@ -35,7 +35,7 @@ class ProjectsController < ApplicationController
     end 
 
     def destroy
-        if user_auth
+        if owner?
             @project.destroy
             redirect_to personals_path , notice:'已刪除專案'
         else
