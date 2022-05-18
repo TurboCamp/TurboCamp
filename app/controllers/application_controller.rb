@@ -24,11 +24,6 @@ class ApplicationController < ActionController::Base
     current_user.personals.where(project_id:@project.id).pluck('role')[0] == 'owner'
   end
 
-  def current_project 
-    Project.find_by(project_id:params[:project_id])
-  end
-
-
   protected
 
   def layout_by_resource

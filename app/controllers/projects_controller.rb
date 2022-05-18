@@ -19,7 +19,6 @@ class ProjectsController < ApplicationController
 
     def show 
         @chat_room = @project.chat_room
-        
     end 
     def edit 
     end 

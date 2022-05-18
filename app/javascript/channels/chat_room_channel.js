@@ -16,7 +16,12 @@ if (url.indexOf("chat_rooms/") != -1 ){
       console.log(data);
       
 
-      const ii = `<li>${data.text}</li>`
+      const ii = `<div class="w-max ml-auto">
+      <span class="text-xs block">${data.user}</span>
+      <div class=" px-3 py-2 bg-gray-400 opacity-3 rounded-lg w-max">
+      ${data.text} 
+  </div>
+  </div>`
       document.querySelector("#content").insertAdjacentHTML("beforeend" , ii)
 
     }

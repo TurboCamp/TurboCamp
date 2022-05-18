@@ -1,19 +1,37 @@
 <h2><%= @chat_room.project.title %>專案的聊天室</h2>
 <br>
-
-
-<ul id="content">
+<section class="h-96 overflow-auto scroll-top">
+    <div id="content" class="m-4">
     <% @contents.each do |content|%>
-        <li>
-            <%= content.text %>
-        </li>
+    <div class="mt-5">
+        <% if content.user != current_user.nickname %>
+        <div class="w-max">
+            <span class="text-xs"><%= content.user %></span>
+            <div class="px-3 py-2 bg-gray-200 opacity-3 rounded-lg w-max">
+                <%= content.text %>
+            </div>
+        </div>
+            
+        <% else %>
+            <div class="w-max ml-auto">
+                <span class="text-xs block"><%= content.user %></span>
+                <div class=" px-3 py-2 bg-gray-400 opacity-3 rounded-lg w-max">
+                <%= content.text %>
+            </div>
+            </div>
+        <% end %>
+    </div>
+        
     <% end %>
-</ul>
-
+</div>
+</section>
 <%= form_with(model: @content , data:{controller:"remove"}) do |f| %>
 <div>
     <%= f.text_field :text , placeholder: '請輸入訊息'%>
 </div>
+    <%= f.hidden_field :user , value: current_user.nickname %>
     <%= f.hidden_field :chat_room_id , value: params[:id] %>
     <button><%= f.submit '送出' , data:{action:"click->remove#remove_value"} %></button>
 <% end %>
+
+
