@@ -1,6 +1,7 @@
 <h2><%= @chat_room.project.title %>專案的聊天室</h2>
 <br>
-<section class="h-96 overflow-auto scroll-top">
+<section data-controller="chat">
+    <section class="h-96 overflow-auto" data-chat-target="contentbox" >
     <div id="content" class="m-4">
     <% @contents.each do |content|%>
     <div class="mt-5">
@@ -25,13 +26,15 @@
     <% end %>
 </div>
 </section>
-<%= form_with(model: @content , data:{controller:"remove"}) do |f| %>
+<%= form_with(model: @content  ) do |f| %>
 <div>
     <%= f.text_field :text , placeholder: '請輸入訊息'%>
 </div>
     <%= f.hidden_field :user , value: current_user.nickname %>
     <%= f.hidden_field :chat_room_id , value: params[:id] %>
-    <button><%= f.submit '送出' , data:{action:"click->remove#remove_value"} %></button>
+    <button><%= f.submit '送出' , data:{action:"click->chat#remove_value"} %></button>
 <% end %>
+</section>
+
 
 
