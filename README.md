@@ -4,15 +4,32 @@
   <p>Shout out to Basecamp.</p>
 </div>
 
-
 ## About 
 
-TurboCamp是一個仿效BaseCamp的專案管理系統，主要的功能有
+TurboCamp是向DHH大師作品BaseCamp致敬的專案管理網站.
 
-1. todo
-2. schedule
-3. message board
-4. docs&files
+TurboCamp主要功能如下：
+
+新增屬於自己團隊的專屬專案
+團隊內即時溝通
+用行事曆管理當前專案的行程進度
+將檔案上傳供團隊成員取用
+
+Technologies 
+
+Frontend: HTML / CSS（ SCSS 、 TailWind ） / JavaScript（ Stimulusjs ）
+Backend: Ruby(3.1.1) / Ruby on Rails(6.1.5.1) 
+Database: PostgreSQL
+Deployment: Heroku
+Capistrano Version Control: Git / GitHub
+Third-Party Login: Github、Google
+Other Technologies: AWS S3
+
+專案規劃
+
+Website Structure： Miro
+Web Design：Visily
+Progress Planning: BaseCamp
 
 ## Contributors
 
