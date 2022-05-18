@@ -32,4 +32,12 @@ module ApplicationHelper
       string
     end
   end
+
+  def theme_button(url, method = nil, string)
+    link_to url,
+            method:,
+            class: 'bg-theo hover:bg-orange-500 text-white font-bold py-3 px-5 rounded-md' do
+      string
+    end
+  end
 end

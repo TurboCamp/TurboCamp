@@ -20,17 +20,18 @@ module.exports = {
     colors: {
       transparent: 'transparent',
       current: 'currentColor',
-
       black: colors.black,
       white: colors.white,
       gray: colors.coolGray,
       red: colors.red,
+      orange: colors.orange,
       yellow: colors.amber,
       green: colors.emerald,
       blue: colors.blue,
       indigo: colors.indigo,
       purple: colors.violet,
       pink: colors.pink,
+      'theo': '#FFB619',
     },
     spacing: {
       px: '1px',
