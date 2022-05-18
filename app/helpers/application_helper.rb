@@ -24,4 +24,12 @@ module ApplicationHelper
       name
     end
   end
+
+  def project_name(string = nil)
+    if @project.present?
+      @project.title
+    else
+      string
+    end
+  end
 end
