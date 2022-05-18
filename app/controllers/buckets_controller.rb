@@ -5,7 +5,7 @@ class BucketsController < ApplicationController
   before_action :create_new_docs, only: %i[document upload]
   before_action :authenticate_user!
   def index
-    @buckets = current_project.buckets.all
+    @buckets = Bucket.all
   end
 
   def document; end
@@ -13,7 +13,7 @@ class BucketsController < ApplicationController
   def upload; end
 
   def create
-    @bucket = current_project.buckets.new(bucket_params)
+    @bucket = Bucket.new(bucket_params)
     if @bucket.save
       redirect_to buckets_path(params[:id])
     else
@@ -41,7 +41,7 @@ class BucketsController < ApplicationController
   private
 
   def find_bucket
-    @bucket = current_project.buckets.find(params[:id])
+    @bucket = Bucket.find(params[:id])
   end
 
   def bucket_params
