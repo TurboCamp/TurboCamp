@@ -15,7 +15,7 @@
                 <% else %>
                     <div class="w-max ml-auto">
                         <span class="text-xs block"><%= content.user %></span>
-                        <div class=" px-3 py-2 bg-gray-400 opacity-3 rounded-lg w-max">
+                        <div class=" px-3 py-2 bg-gray-200 opacity-3 rounded-lg w-max">
                         <%= content.text %>
                     </div>
                     </div>
@@ -23,15 +23,15 @@
             </div> 
             <% end %>
         </div>
+        </section>
         <%= form_with(model: @content, class:'flex' ) do |f| %>
             <div class="w-full">
                 <%= f.text_field :text , placeholder: '請輸入訊息', class:'w-11/12 border-sky-500 border rounded-lg	'%>
             </div>
                 <%= f.hidden_field :user , value: current_user.nickname %>
                 <%= f.hidden_field :chat_room_id , value: params[:id] %>
-                <%= f.submit '送出' , data:{action:"click->chat#remove_value"} , class:'rounded-lg bg-gray-500 px-2 py-0.5 text-sm'%>
+                <%= f.submit '送出' , data:{action:"click->chat#remove_value"} , class:'rounded-lg bg-blue-300 px-2 py-0.5 text-sm'%>
             <% end %>
-    </section>
 </section>
 
 
