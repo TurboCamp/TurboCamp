@@ -1,5 +1,5 @@
 <div>
-<%= link_to 'CampFire' , chat_room_path(@project.chat_room.id) %>
+<%= link_to 'CampFire' , project_chat_room_path(@project) %>
 </div>
 
 <div data-controller="member" class="flex" data-id="<%= @project.slug %>">

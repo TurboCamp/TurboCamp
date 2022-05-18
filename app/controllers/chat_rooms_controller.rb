@@ -2,11 +2,12 @@
 
 class ChatRoomsController < ApplicationController
   before_action :authenticate_user!
-  layout 'project'
 
   def show
     if user_signed_in?
-      @chat_room = ChatRoom.find(params[:id])
+      @project = Project.friendly.find(params[:project_id])
+      @chat_room = @project.chat_room
+      # render html: @project.title
       @contents = @chat_room.contents
       @content = Content.new
     else

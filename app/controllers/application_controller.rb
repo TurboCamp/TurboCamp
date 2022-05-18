@@ -2,7 +2,7 @@
 
 class ApplicationController < ActionController::Base
   layout :layout_by_resource
-  rescue_from ActiveRecord::RecordNotFound, with: :not_found
+  # rescue_from ActiveRecord::RecordNotFound, with: :not_found
   
   before_action :configure_permitted_parameters, if: :devise_controller?
 
@@ -20,7 +20,7 @@ class ApplicationController < ActionController::Base
     root_path
   end
 
-  def user_auth
+  def owner?
     current_user.personals.where(project_id:@project.id).pluck('role')[0] == 'owner'
   end
 

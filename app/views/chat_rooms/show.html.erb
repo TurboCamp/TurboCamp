@@ -1,5 +1,5 @@
 <section class="max-w-3xl mr-auto ml-auto border-gray-500 border p-3 rounded-lg shadow-lg" data-controller="chat"> 
-    <h2 class="text-xl font-semibold"><%= @chat_room.project.title %>專案的聊天室</h2>
+    <h2 class="text-xl font-semibold"><%= @project.title %>專案的聊天室</h2>
     <br>
     <section class="h-96 overflow-auto " data-chat-target="contentbox" >
         <div id="content" class="m-4">
@@ -24,12 +24,11 @@
             <% end %>
         </div>
         </section>
-        <%= form_with(model: @content, class:'flex' ) do |f| %>
+        <%= form_with(model: @content , url:project_chat_room_contents_path(@project), class:'flex' ) do |f| %>
             <div class="w-full">
                 <%= f.text_field :text , placeholder: '請輸入訊息', class:'w-11/12 border-sky-500 border rounded-lg	'%>
             </div>
-                <%= f.hidden_field :user , value: current_user.nickname %>
-                <%= f.hidden_field :chat_room_id , value: params[:id] %>
+                
                 <%= f.submit '送出' , data:{action:"click->chat#remove_value"} , class:'rounded-lg bg-blue-300 px-2 py-0.5 text-sm'%>
             <% end %>
 </section>
