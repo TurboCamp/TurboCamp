@@ -17,10 +17,10 @@
     </li>
     <hr class="my-3">
     <li class="relative">
-      <%= sidebar_link_with_icon(todo_lists_path, :get, icons('check-circle', :far, '2x', 'pr-5', 'Todos')) %>
+      <%= sidebar_link_with_icon('#', :get, icons('check-circle', :far, '2x', 'pr-5', 'Todos')) %>
     </li>
     <li class="relative">
-      <%= sidebar_link_with_icon(schedules_path, :get, icons('calendar-alt', :far, '2x', 'pr-6', 'Schedule')) %>
+      <%= sidebar_link_with_icon('#', :get, icons('calendar-alt', :far, '2x', 'pr-6', 'Schedule')) %>
     </li>
     <li class="relative">
       <%= sidebar_link_with_icon('#', icons('bullhorn', :fas, '2x', 'pr-5', 'Camfire')) %>
@@ -33,8 +33,5 @@
     </li>
     <li class="relative">
       <%= sidebar_link_with_icon('#', :get, icons('github', :fab, '2x', 'pr-6', 'GitHub')) %>
-    </li>
-    <li class="relative">
-      <%= sidebar_link_with_icon(destroy_user_session_path, :delete, icons('power-off', :fas, '2x', 'pr-5', 'Logout')) %>
     </li>
 </div>

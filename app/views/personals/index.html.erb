@@ -51,18 +51,9 @@
            <% if user.imageurl != nil %>
             <%= image_tag(url_for(user.imageurl) , size:'25x25' , class:'rounded-full') %>
           <% else %>
-<<<<<<< HEAD
-            <% if user.imageurl != nil %>
-              <%= image_tag(url_for(user.imageurl) , size:'25x25' , class:'rounded-full') %>
-            <% else %>
-              <%= image_tag('default_user', size:'25x25' , class:'rounded-full') %>
-            <% end %>
-          <% end %>
-=======
             <%= image_tag('default_user', size:'25x25' , class:'rounded-full') %>
             <% end %>
         <% end %>
->>>>>>> eb0fb19 (style: add link with icon helper)
         </div>
         <% end %>
         <p class="text-gray-600"><%= local_time(project.updated_at ,"%Y/%m/%d %H:%M") %></p>
