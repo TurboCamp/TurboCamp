@@ -25,14 +25,6 @@ module ApplicationHelper
     end
   end
 
-  def project_name(string = nil)
-    if @project.present?
-      @project.title
-    else
-      string
-    end
-  end
-
   def theme_button(url, method = nil, string)
     link_to url,
             method:,
