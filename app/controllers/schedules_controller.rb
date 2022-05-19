@@ -2,16 +2,11 @@
 
 class SchedulesController < ApplicationController
   before_action :set_schedule, only: %i[show edit update destroy]
-  before_action :set_project, only: %i[create update destroy]
+  before_action :set_project, only: %i[index create update destroy]
   before_action :authenticate_user!
 
   def index
-    if user_signed_in?
-      @project = projects.friendly.find(params[:id])
-      @schedule = Schedule.new
-    else
-      render :new
-    end
+      @schedule = project.new
   end
 
   def show; end
@@ -60,7 +55,7 @@ class SchedulesController < ApplicationController
   private
 
   def set_project
-    @project = Project.friendly.find(params[:project_id])
+    @project = Project.friendly.find(params[:id])
   end
 
   def set_schedule
