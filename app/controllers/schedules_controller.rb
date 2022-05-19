@@ -2,11 +2,16 @@
 
 class SchedulesController < ApplicationController
   before_action :set_schedule, only: %i[show edit update destroy]
+  before_action :set_project, only: %i[create update destroy]
   before_action :authenticate_user!
 
   def index
-    @schedules = Schedule.all
-    @schedule = Schedule.new
+    if user_signed_in?
+      @project = projects.friendly.find(params[:id])
+      @schedule = Schedule.new
+    else
+      render :new
+    end
   end
 
   def show; end
@@ -18,7 +23,8 @@ class SchedulesController < ApplicationController
   def edit; end
 
   def create
-    @schedule = Schedule.new(schedule_params)
+    
+    @schedule = @project.schedule.new(schedule_params)
 
     respond_to do |format|
       if @schedule.save
@@ -33,7 +39,7 @@ class SchedulesController < ApplicationController
 
   def update
     respond_to do |format|
-      if @schedule.update(schedule_params)
+      if @project.schedule.update(schedule_params)
 
         format.json { render :show, status: :ok, location: @schedule }
       else
@@ -44,7 +50,7 @@ class SchedulesController < ApplicationController
   end
 
   def destroy
-    @schedule.destroy
+    @prohect.schedule.destroy
 
     respond_to do |format|
       format.json { head :no_content }
@@ -52,6 +58,10 @@ class SchedulesController < ApplicationController
   end
 
   private
+
+  def set_project
+    @project = Project.friendly.find(params[:project_id])
+  end
 
   def set_schedule
     @schedule = Schedule.find(params[:id])
