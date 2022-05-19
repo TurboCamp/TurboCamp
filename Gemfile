@@ -15,22 +15,15 @@ gem 'sass-rails', '>= 6'
 gem 'turbolinks', '~> 5'
 gem 'webpacker', '~> 5.0'
 
-# Use Redis adapter to run Action Cable in production
-
 gem 'redis', '~> 4.0'
-
-# Use Redis adapter to run Action Cable in production
-# gem 'redis', '~> 4.0'
 # gem 'bcrypt', '~> 3.1.7'
 
-# Use Active Storage variant
 gem 'image_processing', '~> 1.2'
 
 gem 'bootsnap', '>= 1.4.4', require: false
 gem 'font_awesome5_rails'
 gem 'font-awesome-sass', '~> 6.1.1'
 gem 'friendly_id', '~> 5.4'
-gem 'nested_scaffold'
 gem 'paranoia', '~> 2.6'
 gem 'pundit', '~> 2.2'
 gem 'rubocop', '~> 1.28', require: false
