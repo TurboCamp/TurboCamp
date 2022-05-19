@@ -51,13 +51,6 @@ class ApplicationPolicy
     attr_reader :user, :scope
   end
 
-  private 
   
-  def owner
-    user.personals.where(project_id:@project).pluck('role')[0] == 'owner'
-  end
-
-  def teammate 
-    user.personals.where(project_id:@project).pluck('role')[0] == 'teammate'
-  end
+  
 end
