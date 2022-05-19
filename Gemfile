@@ -31,6 +31,9 @@ end
 
 group :development do
   gem 'foreman', '~> 0.87.2'
+end
+
+group :development do
   gem 'listen', '~> 3.3'
   gem 'spring'
   gem 'web-console', '>= 4.1.0'
