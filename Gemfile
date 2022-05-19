@@ -56,6 +56,6 @@ gem 'omniauth-github', '~> 2.0'
 gem 'omniauth-google-oauth2', '~> 1.0', '>= 1.0.1'
 gem 'omniauth-rails_csrf_protection', '~> 1.0', '>= 1.0.1'
 gem 'stimulus_reflex', '~> 3.4'
-gem 'net-smtp', require: false
-gem 'net-imap'
-gem 'net-pop'
+gem 'net-smtp', '~> 0.3.1', require: false
+gem 'net-imap', '~> 0.2.1'
+gem 'net-pop', '~> 0.1.1'
