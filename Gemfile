@@ -15,10 +15,7 @@ gem 'sass-rails', '>= 6'
 gem 'turbolinks', '~> 5'
 gem 'webpacker', '~> 5.0'
 gem 'redis', '~> 4.0'
-# gem 'bcrypt', '~> 3.1.7'
-
 gem 'image_processing', '~> 1.2'
-
 gem 'bootsnap', '>= 1.4.4', require: false
 gem 'font_awesome5_rails'
 gem 'font-awesome-sass', '~> 6.1.1'
@@ -30,12 +27,11 @@ gem 'rubocop', '~> 1.28', require: false
 group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
   gem 'dotenv-rails', '~> 2.7'
-  # gem 'factory_bot_rails', '~> 6.2'
+  gem 'foreman', '~> 0.87.2'
 end
 
 group :development do
   gem 'web-console', '>= 4.1.0'
-  # gem 'rack-mini-profiler', '~> 2.0'
   gem 'listen', '~> 3.3'
   gem 'spring'
 end
@@ -49,7 +45,6 @@ end
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 
 gem 'devise-i18n-views', '~> 0.3.7'
-gem 'foreman', '~> 0.87.2'
 gem 'devise', '~> 4.8', '>= 4.8.1'
 gem 'omniauth', '~> 2.1'
 gem 'omniauth-github', '~> 2.0'
