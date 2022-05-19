@@ -24,7 +24,7 @@ class ApplicationController < ActionController::Base
     current_user.personals.where(project_id:@project.id).pluck('role')[0] == 'owner'
   end
 
-  protected
+  private
 
   def layout_by_resource
     if devise_controller?
