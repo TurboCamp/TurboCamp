@@ -12,7 +12,6 @@
   <div class="relative px-4 sm:px-6 lg:px-8">
     <button class="button"><%=link_to "編輯", edit_message_path(@message)%></button>
     <button class="button"><%=link_to "刪除", message_path(@message), method: "delete",data: { confirm: "Are you sure?"}%></button>
-    <button class="button"><%=link_to "返回", project_messages_path(@project) %></button>
   </div>
   <div class="relative px-4 sm:px-6 lg:px-8">
     <h3 class="text-lg leading-6 font-medium text-gray-900">Comments</h3>
