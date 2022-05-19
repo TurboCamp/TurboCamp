@@ -1,8 +1,9 @@
 # frozen_string_literal: true
 
 class ProjectsController < ApplicationController
-  before_action :authenticate_user!
-  before_action :find_my_project, only: %i[show edit update destroy]
+    include Pundit::Authorization
+    before_action :authenticate_user!
+    before_action :find_my_project , only:[:show ,:edit , :update , :destroy ]
 
   def new
     @project = Project.new
@@ -19,31 +20,24 @@ class ProjectsController < ApplicationController
       end
   end 
 
-  def edit; end
+  def show;end 
+  def edit; end 
 
-  def update
-    if owner?
-      if @project.update(project_clean)
-        redirect_to project_path(@project), notice: '專案更新成功'
-      else
-        render :edit
-      end
-    else
-      redirect_to project_path(@project), notice: '尚無權限'
+  def update 
+    authorize @project, policy_class: ProjectPolicy
+    if @project.update(project_clean)
+        redirect_to project_path(@project) , notice:'專案更新成功'
+    else 
+        render :edit 
     end
+  end 
 
-
-    def show 
-    end 
-
-    def destroy
-        if owner?
-            @project.destroy
-            redirect_to personals_path , notice:'已刪除專案'
-        else
-            redirect_to project_path(@project) , notice:'尚無權限'
-        end
-    end
+  def destroy
+    authorize @project, policy_class: ProjectPolicy
+    @project.destroy
+    redirect_to personals_path , notice:'已刪除專案'
+  end 
+  
   private
 
   def project_clean
