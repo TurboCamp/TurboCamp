@@ -12,7 +12,7 @@ class Project < ApplicationRecord
 # 在project內部功能
   has_one :chat_room , dependent: :destroy
   has_one :bucket, dependent: :destroy
-  has_many :messages , dependent: :destroy
+  # has_many :messages , dependent: :destroy
   has_one :schedule,  dependent: :destroy
   
   validates :title , presence: true , uniqueness: true

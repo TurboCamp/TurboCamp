@@ -21,6 +21,9 @@ Rails.application.routes.draw do
       end
     end
   end
+  resources :messages do
+    resources :comments, module: :messages
+  end
 
   resources :personals, only: [:index]
 
