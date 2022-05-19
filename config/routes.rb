@@ -1,8 +1,6 @@
 # frozen_string_literal: true
 
-Rails.application.routes.draw do
-  match '/404', to: 'application#not_found', via: :all
-  
+Rails.application.routes.draw do  
   devise_for :users , controllers: { omniauth_callbacks: "users/omniauth_callbacks" }
 
   devise_scope :user  do
@@ -37,7 +35,7 @@ Rails.application.routes.draw do
     end
     
     resources :schedules
-    resources :messages do
+    resources :messages ,shallow: true do
       resources :comments, module: :messages
     end
     

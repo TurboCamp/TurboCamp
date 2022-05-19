@@ -9,5 +9,8 @@
         <button class="searchbtn" data-action="click->member#invite">加入成員</button>
     </div>
 </div>
+<div>
+<%= link_to 'Messages' , project_messages_path(@project)%>
+</div>
 
 <%= link_to 'Edit Project' , edit_project_path(@project)  %>

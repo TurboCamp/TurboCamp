@@ -10,11 +10,7 @@ export default class extends Controller {
       console.log(chat_room_id)
       consumer.subscriptions.create(
         { "channel": "ChatRoomChannel", "chat_room_id": chat_room_id },
-        { // 接收廣播的資訊讓所有訂閱者能夠同時收到資訊且更改
-          connected(){
-            console.log(123);
-            
-          },
+        { 
           received(data) {
            console.log(data)
            const message = `<div class="w-max ml-auto">

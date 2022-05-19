@@ -14,10 +14,10 @@ class Project < ApplicationRecord
   has_one :bucket, dependent: :destroy
   has_many :messages , dependent: :destroy
   has_one :schedule,  dependent: :destroy
+  has_one_attached :avatar
   
   validates :title , presence: true , uniqueness: true
   validates :description , presence: true , length:{maximum: 50}
-  validates :nickname , presence: true
   
   def normalize_friendly_id(value)
     value.to_s.parameterize(preserve_case: true)

@@ -1,4 +1,5 @@
 class Users::InfosController < ApplicationController 
+    before_action :authenticate_user!
     def info 
         if user_signed_in?
             @user = current_user
