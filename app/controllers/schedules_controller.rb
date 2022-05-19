@@ -20,7 +20,6 @@ class SchedulesController < ApplicationController
     @schedule = Schedule.new(schedule_params)
 
     respond_to do |format|
-      # render html: format
       if @schedule.save
         format.html { redirect_to schedule_url(@schedule), notice: '已新增' }
         format.json { render :show, status: :created, location: @schedule }
