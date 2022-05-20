@@ -40,9 +40,9 @@ Rails.application.routes.draw do
     end
     
     resources :schedules
-    resources :messages do
-      resources :comments, module: :messages
-    end
+    # resources :messages do
+    #   resources :comments, module: :messages
+    # end
     
     resources :todo_lists do
       resources :todo_items
