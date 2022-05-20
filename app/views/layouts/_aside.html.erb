@@ -23,13 +23,13 @@
       <%= sidebar_link_with_icon '#', :get, icons('calendar-alt', :far, 'lg', 'pr-6', 'Schedule') %>
     </li>
     <li class="relative">
-      <%= sidebar_link_with_icon '#', icons('bullhorn', :fas, 'lg', 'pr-5', 'Camfire') %>
+      <%= sidebar_link_with_icon project_chat_room_path(@project) , icons('bullhorn', :fas, 'lg', 'pr-5', 'Camfire') %>
     </li>
     <li class="relative">
-      <%= sidebar_link_with_icon '#', icons('comment', :far, 'lg', 'pr-6', 'Message Boards') %>
+      <%= sidebar_link_with_icon project_messages_path(@project), icons('comment', :far, 'lg', 'pr-6', 'Message Boards') %>
     </li>
     <li class="relative">
-      <%= sidebar_link_with_icon '#', icons('cloud-upload-alt', :fas, 'lg', 'pr-4', 'Docs & Files') %>
+      <%= sidebar_link_with_icon project_buckets_path(@project), icons('cloud-upload-alt', :fas, 'lg', 'pr-4', 'Docs & Files') %>
     </li>
     <li class="relative">
       <%= sidebar_link_with_icon '#', :get, icons('github', :fab, 'lg', 'pr-6', 'GitHub') %>
