@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class MessagesController < ApplicationController
-  before_action :find_project , only: %i[index create destroy]
+  before_action :find_project , only: %i[index new create destroy]
   before_action :find_message, only: %i[show edit update destroy]
   before_action :authenticate_user!
   
