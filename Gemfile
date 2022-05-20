@@ -18,10 +18,8 @@ gem 'redis', '~> 4.0'
 # gem 'bcrypt', '~> 3.1.7'
 
 gem 'image_processing', '~> 1.2'
-
 gem 'bootsnap', '>= 1.4.4', require: false
-gem 'font_awesome5_rails'
-gem 'font-awesome-sass', '~> 6.1.1'
+gem 'font_awesome5_rails', '~> 1.5'
 gem 'friendly_id', '~> 5.4'
 gem 'paranoia', '~> 2.6'
 gem 'pundit', '~> 2.2'

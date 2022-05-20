@@ -4,10 +4,7 @@ module ApplicationHelper
   def sidebar_link_with_icon(url, method = nil, name)
     link_to url,
             method:,
-            class: 'flex items-center text-sm py-4 px-6 h-12
-             overflow-hidden text-gray-700 text-ellipsis whitespace-nowrap
-             hover:text-gray-900 hover:bg-gray-100  transition
-             duration-300 ease-in-out' do
+            class: 'sidebarlink' do
       name
     end
   end
