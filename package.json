@@ -9,6 +9,7 @@
     "@rails/activestorage": "^6.0.0",
     "@rails/ujs": "^6.0.0",
     "@rails/webpacker": "5.4.3",
+    "@tailwindcss/forms": "^0.5.2",
     "autoprefixer": "9",
     "local-time": "^2.1.0",
     "postcss": "7",
@@ -23,6 +24,8 @@
   },
   "version": "0.1.0",
   "devDependencies": {
+    "@tailwindcss/aspect-ratio": "^0.4.0",
+    "@tailwindcss/typography": "^0.5.2",
     "webpack-dev-server": "^3"
   }
 }

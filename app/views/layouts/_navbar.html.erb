@@ -1,10 +1,10 @@
-<nav class="bg-white border-gray-200 drop-shadow-sm border-b-2 w-5/6 h-17 absolute left-72 px-2 py-3 rounded ">
+<nav class="bg-white border-theme-100 filter drop-shadow-sm border-b-2 w-full h-17 px-2 py-3">
   <div class="flex flex-row justify-between items-center h-7 my-2">
     <div class="items-start pl-3">
     </div>  
     <div class="flex flex-row items-center">
-      <%= link_with_icon(personals_path, :get, icons('th', :fas, 'lg', 'pr-5')) %>
-      <%= link_with_icon(destroy_user_session_path, :delete, icons('power-off', :fas, 'lg', 'pr-5')) %>
+      <%= link_to icons('th', :fas, 'lg', 'pr-5'), personals_path, method: :get %>
+      <%= link_to icons('sign-out-alt', :fas, 'lg', 'pr-5'), destroy_user_session_path, method: :delete %>
     </div>
   </div>
 </nav>

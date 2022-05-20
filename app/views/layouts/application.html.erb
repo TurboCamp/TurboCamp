@@ -8,16 +8,20 @@
     <%= stylesheet_pack_tag 'application', media: 'all' %>
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= favicon_link_tag 'logo_outline.ico' %>
   </head>
-
-  <header>
-    <%= render 'layouts/navbar' %>
-    <%= render 'layouts/aside' %>
-  </header>
   <body>
-    <main class="pt-24 pl-80">
-      <%= render "/shared/flash" if flash %>
-      <%= yield %>
-    </main>
+    <div class="flex justify-start">
+      <div class="sidebar-container">
+        <%= render 'layouts/aside' %>
+      </div>
+      <div class="w-screen">
+        <%= render 'layouts/navbar' %>
+        <%= render "/shared/flash" if flash %>
+        <section class="mx-auto py-20 pt-24">
+          <%= yield %>
+        </section>
+      </div>
+    </div>
   </body> 
 </html>

@@ -8,7 +8,7 @@ module.exports = {
     "./app/javascript/**/*.vue",
   ],
   presets: [],
-  darkMode: false, // or 'media' or 'class'
+  darkMode: 'class', // or 'media' or 'class'
   theme: {
     screens: {
       sm: '640px',
@@ -31,7 +31,15 @@ module.exports = {
       indigo: colors.indigo,
       purple: colors.violet,
       pink: colors.pink,
-      'theo': '#FFB619',
+      theme: {
+        0: '#14191B',
+        25: '#52686E',
+        50: '#F7F6F3',
+        75: '#f5f5f5',
+        100: '#ebe9e8',
+        150: '#FFC12C',
+        200: '#F3780A',
+      },
     },
     spacing: {
       px: '1px',
