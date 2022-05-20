@@ -35,12 +35,17 @@ class MessagesController < ApplicationController
 
   def destroy
 <<<<<<< HEAD
+<<<<<<< HEAD
     @message.destroy if @message
     redirect_to project_messages_path(@project), notice: '成功刪除'
 =======
     @message.destroy
     redirect_to messages_path, notice: '成功刪除'
 >>>>>>> fix message index show and add message routes with shallo
+=======
+    @message.destroy if @message
+    redirect_to project_messages_path, notice: '成功刪除'
+>>>>>>> message can edit but delete can not redirect
   end
 
   private
