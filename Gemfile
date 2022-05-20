@@ -23,6 +23,7 @@ gem 'friendly_id', '~> 5.4'
 gem 'paranoia', '~> 2.6'
 gem 'pundit', '~> 2.2'
 gem 'rubocop', '~> 1.28', require: false
+gem 'carrierwave', '~> 2.1'
 
 group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]

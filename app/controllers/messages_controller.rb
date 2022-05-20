@@ -2,8 +2,10 @@
 
 class MessagesController < ApplicationController
   before_action :find_project , only: %i[index new create destroy]
-  before_action :find_message, only: %i[show edit update destroy]
+  before_action :find_location, only: %i[show edit update destroy]
   before_action :authenticate_user!
+  
+  
   def index
     @messages = @project.messages
   end
@@ -27,7 +29,7 @@ class MessagesController < ApplicationController
 
   def update
     if @message.update(message_params)
-      redirect_to message_path, notice: '成功更新'
+      redirect_to project_message_path(@project ,@message), notice: '成功更新'
     else
       render :edit
     end
@@ -35,13 +37,14 @@ class MessagesController < ApplicationController
 
   def destroy
     @message.destroy if @message
-    redirect_to project_messages_path, notice: '成功刪除'
+    redirect_to project_messages_path(@project), notice: '成功刪除'
   end
 
   private
 
-  def find_message
-    @message = Message.find(params[:id])
+  def find_location
+    @project = current_user.projects.find(params[:project_id])
+    @message = @project.messages.find(params[:id])
   end
   
   def find_project 

@@ -1,6 +1,6 @@
 <h1>Edit Message</h1>
 
-<%= form_with(model:@message , class:'space-y-8 divide-y divide-gray-200') do |form| %>
+<%= form_with(model:@message ,url:project_message_path(@project , @message),  class:'space-y-8 divide-y divide-gray-200') do |form| %>
   <div class="space-y-8 divide-y divide-gray-200">
     <div>
       <div>
