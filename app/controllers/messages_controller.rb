@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class MessagesController < ApplicationController
-  before_action :find_project , only: %i[index create]
+  before_action :find_project , only: %i[index create destroy]
   before_action :find_message, only: %i[show edit update destroy]
   before_action :authenticate_user!
   def index
@@ -27,15 +27,15 @@ class MessagesController < ApplicationController
 
   def update
     if @message.update(message_params)
-      redirect_to messages_path, notice: '成功更新'
+      redirect_to message_path, notice: '成功更新'
     else
       render :edit
     end
   end
 
   def destroy
-    @message.destroy
-    redirect_to messages_path, notice: '成功刪除'
+    @message.destroy if @message
+    redirect_to project_messages_path, notice: '成功刪除'
   end
 
   private

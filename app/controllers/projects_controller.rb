@@ -35,7 +35,7 @@ class ProjectsController < ApplicationController
   def destroy
     authorize @project, policy_class: ProjectPolicy
     @project.destroy
-    redirect_to personals_path , notice:'已刪除專案'
+    redirect_to personal_path , notice:'已刪除專案'
   end 
 
   private

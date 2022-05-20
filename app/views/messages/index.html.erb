@@ -15,7 +15,7 @@
     </div>
     <% @messages.each do |message|%>
       <%= link_to message_path(message) do %>
-        <div class="mt-6 pt-10 grid gap-16 lg:grid-cols-2 lg:gap-x-5 lg:gap-y-12">
+        <div class="mt-6 pt-10 grid gap-16 lg:grid-cols-2 lg:gap-x-5 lg:gap-y-12 border border-black rounded-lg p-4">
           <div>
             <div class="mt-2 block">
               <h2 class="text-xl font-semibold text-gray-900"><%= message.title%> </h2>
