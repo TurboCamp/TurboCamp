@@ -37,7 +37,7 @@ class ProjectsController < ApplicationController
     @project.destroy
     redirect_to personals_path , notice:'已刪除專案'
   end 
-  
+
   private
 
   def project_clean

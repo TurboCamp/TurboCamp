@@ -1,6 +1,9 @@
 <div>
 <%= link_to 'CampFire' , project_chat_room_path(@project) %>
 </div>
+<div>
+<%= link_to 'bucket' , project_buckets_path(@project)%>
+</div>
 
 <div data-controller="member" class="flex" data-id="<%= @project.slug %>">
     <button  data-action="click->member#join">Add Member</button>
