@@ -2,9 +2,7 @@
 
 module ApplicationHelper
   def sidebar_link_with_icon(url, method = nil, name)
-    link_to url,
-            method:,
-            class: 'sidebarlink' do
+    link_to url, method:, class: 'sidebar-link' do
       name
     end
   end
@@ -16,16 +14,13 @@ module ApplicationHelper
   end
 
   def link_with_icon(url, method, name)
-    link_to url,
-            method: method do
+    link_to url, method: method do
       name
     end
   end
 
   def theme_button(url, method = nil, string)
-    link_to url,
-            method:,
-            class: 'bg-theo hover:bg-orange-500 text-white font-bold py-3 px-5 rounded-md' do
+    link_to url, method:, class: 'theme-fill-btn' do
       string
     end
   end

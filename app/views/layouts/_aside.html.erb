@@ -1,11 +1,11 @@
-<div class="w-72 h-full bg-white border-r-2 px-1 absolute">
+<div class="w-72 h-screen bg-theme-50 px-1">
   <div class="py-6 px-5">
     <a href="#!">
       <div class="flex items-center">
-        <div class="shrink-0">
+        <div class="flex-shrink-0">
           <img src="https://fakeimg.pl/500x500/" class="rounded-full w-10" alt="Avatar">
         </div>
-        <div class="grow ml-3">
+        <div class="flex-grow pl-5">
           <h2 class="self-center text-xl font-semibold whitespace-nowrap"><%= @project&.title %></h2>
         </div>
       </div>
@@ -23,7 +23,7 @@
       <%= sidebar_link_with_icon '#', :get, icons('calendar-alt', :far, 'lg', 'pr-6', 'Schedule') %>
     </li>
     <li class="relative">
-      <%= sidebar_link_with_icon '#', icons('bullhorn', :fas, 'lg', 'pr-5', 'Camfire') %>
+      <%= sidebar_link_with_icon project_chat_room_path(@project), icons('bullhorn', :fas, 'lg', 'pr-5', 'Camfire') %>
     </li>
     <li class="relative">
       <%= sidebar_link_with_icon '#', icons('comment', :far, 'lg', 'pr-6', 'Message Boards') %>
@@ -34,4 +34,5 @@
     <li class="relative">
       <%= sidebar_link_with_icon '#', :get, icons('github', :fab, 'lg', 'pr-6', 'GitHub') %>
     </li>
+  </ul>
 </div>

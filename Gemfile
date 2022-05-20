@@ -30,10 +30,10 @@ group :development, :test do
 end
 
 group :development do
-  gem 'web-console', '>= 4.1.0'
-  gem 'listen', '~> 3.3'
   gem 'foreman', '~> 0.87.2'
+  gem 'listen', '~> 3.3'
   gem 'spring'
+  gem 'web-console', '>= 4.1.0'
 end
 
 group :test do
@@ -42,14 +42,14 @@ group :test do
   gem 'webdrivers'
 end
 
-gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 gem 'devise', '~> 4.8', '>= 4.8.1'
 gem 'devise-i18n-views', '~> 0.3.7'
+gem 'net-imap', '~> 0.2.1'
+gem 'net-pop', '~> 0.1.1'
+gem 'net-smtp', '~> 0.3.1', require: false
 gem 'omniauth', '~> 2.1'
 gem 'omniauth-github', '~> 2.0'
 gem 'omniauth-google-oauth2', '~> 1.0', '>= 1.0.1'
 gem 'omniauth-rails_csrf_protection', '~> 1.0', '>= 1.0.1'
 gem 'stimulus_reflex', '~> 3.4'
-gem 'net-smtp', '~> 0.3.1', require: false
-gem 'net-imap', '~> 0.2.1'
-gem 'net-pop', '~> 0.1.1'
+gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
