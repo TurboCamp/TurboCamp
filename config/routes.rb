@@ -38,7 +38,7 @@ Rails.application.routes.draw do
     end
     
     resources :schedules
-    resources :messages ,shallow: true do
+    resources :messages  do
       resources :comments, module: :messages
     end
     
