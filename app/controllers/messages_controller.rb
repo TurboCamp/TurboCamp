@@ -1,8 +1,13 @@
 # frozen_string_literal: true
 
 class MessagesController < ApplicationController
+<<<<<<< HEAD
   before_action :find_project , only: %i[index new create] 
   before_action :find_location, only: %i[show edit update destroy ]
+=======
+  before_action :find_project , only: %i[index new create destroy]
+  before_action :find_message, only: %i[show edit update destroy]
+>>>>>>> add sidebar link
   before_action :authenticate_user!
   def index
     @messages = @project.messages
