@@ -10,7 +10,7 @@
     </div>
   </div>
   <div class="relative px-4 sm:px-6 lg:px-8">
-    <button class="button"><%=link_to "編輯", edit_project_message_path(@project, @message)%></button>
-    <button class="button"><%=link_to "刪除", project_message_path(@project ,@message), method: "delete",data: { confirm: "確定刪除?"}%></button>
+    <%=link_to "編輯", edit_project_message_path(@project, @message) , class:'button' %>
+    <%=link_to "刪除", project_message_path(@project ,@message), method: "delete",data: { confirm: "確定刪除?"} , class:'button'%>
   </div>
 </article>
