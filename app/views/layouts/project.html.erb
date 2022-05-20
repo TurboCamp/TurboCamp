@@ -5,16 +5,14 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-<<<<<<< HEAD
     <%= stylesheet_pack_tag 'application', media: 'all' %>
-=======
     <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
->>>>>>> eb0fb19 (style: add link with icon helper)
+    <%# <link rel="stylesheet" type="text/css" href="trix.css">
+    <script type="text/javascript" src="trix.js"></script> %>
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
     <%= favicon_link_tag 'logo_outline.ico' %>
   </head>
-
   <body>
     <header>
         <%= render "/projects/navbar" %>
