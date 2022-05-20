@@ -1,7 +1,6 @@
 <h1>Edit Message</h1>
 
-<%= form_with(model:@message , url:edit_project_message_path(@message)) do |form| %>
-<form class="space-y-8 divide-y divide-gray-200">
+<%= form_with(model:@message , class:'space-y-8 divide-y divide-gray-200') do |form| %>
   <div class="space-y-8 divide-y divide-gray-200">
     <div>
       <div>
@@ -37,9 +36,8 @@
 
   <div class="pt-5">
     <div class="flex justify-end">
-      <button class="inline-block px-6 py-2.5 bg-red-600 text-white font-medium text-xs leading-tight uppercase rounded-full shadow-md hover:bg-red-700 hover:shadow-lg focus:bg-red-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-red-800 active:shadow-lg transition duration-150 ease-in-out"><%=link_to "返回", messages_path %></button>
+      <%# <button class="inline-block px-6 py-2.5 bg-red-600 text-white font-medium text-xs leading-tight uppercase rounded-full shadow-md hover:bg-red-700 hover:shadow-lg focus:bg-red-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-red-800 active:shadow-lg transition duration-150 ease-in-out"><%=link_to "返回", messages_path %>
       <%= form.submit class:"inline-block px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded-full shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out"%>
     </div>
   </div>
-</form>
 <% end %>

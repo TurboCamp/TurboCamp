@@ -23,7 +23,7 @@ Rails.application.routes.draw do
     resources :comments, module: :messages
   end
 
-  resources :personal, only: [:index]
+  resource :personal, only: [:show] 
 
   resources :projects, except: [:index] do 
     resources :buckets do
