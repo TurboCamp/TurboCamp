@@ -1,8 +1,5 @@
 class Project < ApplicationRecord
-
   after_create :create_chat_room
-  after_create :create_schedule
-
   include Slugable
   
 #  與user多對多關聯
@@ -11,8 +8,8 @@ class Project < ApplicationRecord
 
 # 在project內部功能
   has_one :chat_room , dependent: :destroy
-  has_one :bucket, dependent: :destroy
-  # has_many :messages , dependent: :destroy
+  has_many :buckets, dependent: :destroy
+  has_many :messages , dependent: :destroy
   has_one :schedule,  dependent: :destroy
   has_one_attached :avatar
   
