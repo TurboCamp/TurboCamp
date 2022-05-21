@@ -16,12 +16,11 @@ export default class extends Controller {
     formData.append('email' , data.value)
     Rails.ajax({
         type: "post",
-        url: `/api/v1/projects/${id}/search`,
+        url: `/api/v1/projects/${id}/invite_member`,
         data: formData,
         success:(resp) => {
             this.element.querySelector("#inputbox").classList.add('hidden')
             data.value = ''
-            console.log(resp);  
         }
     })  
   }

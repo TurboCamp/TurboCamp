@@ -3,7 +3,7 @@
 module Api
   module V1
     class ProjectsController < Api::V1::BaseController
-      def search
+      def invite_member
         user = User.where(email: params[:email]).first
         message = '請重新邀請'
         unless user.nil?

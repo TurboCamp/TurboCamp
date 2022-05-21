@@ -13,7 +13,7 @@
   </div>
   <ul class="relative">
     <li class="relative ">
-      <%= sidebar_link_with_icon users_info_path, :get, icons('cog', :fas, 'lg', 'pr-6','Settings') %>
+      <%= sidebar_link_with_icon users_info_path(current_user), :get, icons('cog', :fas, 'lg', 'pr-6','Settings') %>
     </li>
     <hr class="my-3">
     <li class="relative">
