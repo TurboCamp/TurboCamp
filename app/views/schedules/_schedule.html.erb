@@ -1,32 +1,32 @@
 <div id="<%= schedule %>">
-  <p class="my-5">
-    <strong class="block mb-1 font-medium">事件:</strong>
-    <%= schedule.title %>
-  </p>
+    <p class="my-5">
+      <strong class="block mb-1 font-medium">事件:</strong>
+      <%= schedule.title %>
+    </p>
 
-  <p class="my-5">
-    <strong class="block mb-1 font-medium">Calendar:</strong>
-    <%= schedule.calendar_id %>
-  </p>
+    <p class="my-5">
+      <strong class="block mb-1 font-medium">Calendar:</strong>
+      <%= schedule.calendar_id %>
+    </p>
 
-  <p class="my-5">
-    <strong class="block mb-1 font-medium">起始時間:</strong>
-    <%= schedule.start %>
-  </p>
+    <p class="my-5">
+      <strong class="block mb-1 font-medium">起始時間:</strong>
+      <%= schedule.start %>
+    </p>
 
-  <p class="my-5">
-    <strong class="block mb-1 font-medium">結束時間:</strong>
-    <%= schedule.end %>
-  </p>
+    <p class="my-5">
+      <strong class="block mb-1 font-medium">結束時間:</strong>
+      <%= schedule.end %>
+    </p>
 
-  <p class="my-5">
-    <strong class="block mb-1 font-medium">地點:</strong>
-    <%= schedule.location %>
-  </p>
+    <p class="my-5">
+      <strong class="block mb-1 font-medium">地點:</strong>
+      <%= schedule.location %>
+    </p>
 
-  <% if action_name != "show" %>
-    <%= link_to "Show this schedule", schedule, class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
-    <%= link_to 'Edit this schedule', edit_schedule_path(schedule), class: "rounded-lg py-3 ml-2 px-5 bg-gray-100 inline-block font-medium" %>
-    <hr class="mt-6">
-  <% end %>
-</div>
+    <% if action_name != "show" %>
+      <%= link_to "Show this schedule", schedule, class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+      <%= link_to 'Edit this schedule', edit_schedule_path(schedule), class: "rounded-lg py-3 ml-2 px-5 bg-gray-100 inline-block font-medium" %>
+      <hr class="mt-6">
+    <% end %>
+  </div>
