@@ -4,7 +4,9 @@ class CommentsController < ApplicationController
   def create
     @comment = @commentable.comments.new(comment_params)
     @comment.save
-    redirect_to @commentable, notice: '留言成功'
+    @comment.update(commenter:current_user.nickname)
+    redirect_to polymorphic_path([@project , @commentable])
+
   end
 
   private

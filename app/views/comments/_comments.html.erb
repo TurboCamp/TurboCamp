@@ -1,4 +1,6 @@
   <% commentable.comments.each do |comment| %>
-    <div><%= comment.content %></div>
+    <div class='border-b border-gray-300 mt-2 rounded-lg'>
+    <%= comment.commenter %>：
+    <%= comment.content %></div>
   <% end %>
 

@@ -7,7 +7,8 @@ module Messages
     private
 
     def set_commentable
-      @commentable = Message.find(params[:message_id])
+      @project = current_user.projects.friendly.find(params[:project_id])
+      @commentable = @project.messages.friendly.find(params[:message_id])
     end
   end
 end
