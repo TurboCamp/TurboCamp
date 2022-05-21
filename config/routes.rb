@@ -14,7 +14,7 @@ Rails.application.routes.draw do
     namespace :v1 do
       resources :projects, only: [] do
         member do
-          post :search
+          post :invite_member
         end
       end
     end

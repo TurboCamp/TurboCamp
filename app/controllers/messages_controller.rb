@@ -43,8 +43,8 @@ class MessagesController < ApplicationController
   private
 
   def find_location
-    @project = current_user.projects.find(params[:project_id])
-    @message = @project.messages.find(params[:id])
+    @project = current_user.projects.friendly.find(params[:project_id])
+    @message = @project.messages.friendly.find(params[:id])
   end
   
   def find_project 
