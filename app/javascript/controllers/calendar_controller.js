@@ -70,7 +70,7 @@ export default class extends Controller {
 
       Rails.ajax({
         type: 'post',
-        url: '/schedules',
+        url: `project/${project_id}/schedules`,
         data: formData
       })
     })
