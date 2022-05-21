@@ -1,9 +1,9 @@
-<div class="w-72 h-full bg-theme-50 px-1 ">
-  <div class="py-6 px-5">
+<div class="h-full px-1 w-72 bg-theme-50 ">
+  <div class="px-5 py-6">
     <a href="#!">
       <div class="flex items-center">
         <div class="flex-shrink-0">
-          <img src="https://fakeimg.pl/500x500/" class="rounded-full w-10" alt="Avatar">
+          <img src="https://fakeimg.pl/500x500/" class="w-10 rounded-full" alt="Avatar">
         </div>
         <div class="flex-grow pl-5">
           <h2 class="self-center text-xl font-semibold whitespace-nowrap"><%= @project&.title %></h2>
@@ -20,7 +20,7 @@
       <%= sidebar_link_with_icon '#', :get, icons('check-circle', :far, 'lg', 'pr-5', 'Todos') %>
     </li>
     <li class="relative">
-      <%= sidebar_link_with_icon '#', :get, icons('calendar-alt', :far, 'lg', 'pr-6', 'Schedule') %>
+      <%= sidebar_link_with_icon project_schedules_path(@project), :get, icons('calendar-alt', :far, 'lg', 'pr-6', 'Schedule') %>
     </li>
     <li class="relative">
       <%= sidebar_link_with_icon project_chat_room_path(@project), icons('bullhorn', :fas, 'lg', 'pr-5', 'Campfire') %>
