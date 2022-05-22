@@ -5,37 +5,18 @@
         <div id="content" class="m-4">
             <% @contents.each do |content|%>
             <div class="mt-5">
-                <% if content.user != current_user.nickname %>
                 <div class="w-max">
                     <span class="text-xs"><%= content.user %></span>
                     <div class="px-3 py-2 bg-gray-200 opacity-3 rounded-lg w-max">
                         <%= content.text %>
-                        <%= image_tag(content.image) if content.image %>
+                        <%= image_tag(content.image_url , size:'100x100') if content.image %>
                     </div>
                 </div>
-                <% else %>
-                    <div class="w-max ml-auto">
-                        <span class="text-xs block"><%= content.user %></span>
-                        <div class=" px-3 py-2 bg-gray-200 opacity-3 rounded-lg w-max">
-                        <%= content.text %>
-                        <%= image_tag(content.image) if content.image %>
-                    </div>
-                    </div>
-                <% end %>
             </div> 
             <% end %>
         </div>
         </section>
-        <%= form_with(model: @content , url:project_chat_room_contents_path(@project), class:'flex') do |f| %>
-            <div>
-                <%= f.file_field :image %>
-            </div>
-            <div class="w-full">
-                <%= f.text_field :text , placeholder: '請輸入訊息', class:'w-11/12 border-sky-500 border rounded-lg	'%>
-            </div>
-                
-                <%= f.submit '送出' , data:{action:"click->chat-room-channel#remove_value"} , class:'rounded-lg bg-blue-300 px-2 py-0.5 text-sm'%>
-            <% end %>
+       <%= render 'form' %>
 </section>
 
 
