@@ -16,7 +16,7 @@ export default class extends Controller {
            const image = `<div class="w-max mt-5">
            <span class="text-xs block">${data.send_by}</span>
            <div class=" px-3 py-2 bg-gray-200 opacity-3 rounded-lg w-max">
-           ${data.message}<img src="${data.image}" width="150" height="150"></div></div>`
+           ${data.message}<a href="${data.image}"><img src="${data.image}" width="150" height="150"></a></div></div>`
            const message = `<div class="w-max mt-5">
           <span class="text-xs block">${data.send_by}</span>
           <div class=" px-3 py-2 bg-gray-200 opacity-3 rounded-lg w-max">
