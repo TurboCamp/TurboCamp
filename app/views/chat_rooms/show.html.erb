@@ -4,12 +4,12 @@
     <section class="h-96 overflow-auto " data-chat-room-channel-target="contentbox" >
         <div id="content" class="m-4">
             <% @contents.each do |content|%>
-            <div class="mt-5">
+            <div class="mt-5" data-chat-room-channel-target="textarea">
                 <div class="w-max">
-                    <span class="text-xs"><%= content.user %></span>
-                    <div class="px-3 py-2 bg-gray-200 opacity-3 rounded-lg w-max">
+                    <span class="text-xs" data-chat-room-channel-target="nickname"><%= content.user %></span>
+                    <div class="px-3 py-2 bg-gray-200 opacity-3 rounded-lg w-max" >
                         <%= content.text %>
-                        <%= image_tag(content.image_url , size:'100x100') if content.image %>
+                        <%= image_tag(content.image_url , size:'150x150') if content.image %>
                     </div>
                 </div>
             </div> 

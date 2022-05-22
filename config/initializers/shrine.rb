@@ -4,14 +4,14 @@ require "shrine/storage/s3"
 
 s3_options = { 
   bucket: ENV["S3_BUCKET"], # required 
-  access_key_id: ENV["S3_ACCESSKEY"],
-  secret_access_key: ENV["S3_KEYID"],
+  access_key_id: ENV["S3_KEYID"],
+  secret_access_key: ENV["S3_ACCESSKEY"],
   region: ENV["S3_REGION"],
 }
 
-Shrine.storages = {
-  cache: Shrine::Storage::FileSystem.new("public", prefix: "uploads/cache"), # temporary
-  store: Shrine::Storage::FileSystem.new("public", prefix: "uploads"),       # permanent
+s3 = Shrine.storages = { 
+  cache: Shrine::Storage::S3.new(prefix: "cache", **s3_options),
+  store: Shrine::Storage::S3.new(prefix: "store",**s3_options),
 }
 
 Shrine.plugin :activerecord           # loads Active Record integration

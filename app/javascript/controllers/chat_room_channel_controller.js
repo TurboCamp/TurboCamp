@@ -1,23 +1,31 @@
 
 import consumer from '../channels/consumer'
 import { Controller } from 'stimulus'
+
 export default class extends Controller {
-  static targets = ['contentbox']
+  static targets = ['contentbox' , 'textarea']
   connect() {
     this.contentboxTarget.scrollTop = this.contentboxTarget.scrollHeight
     if (this.contentboxTarget) {
       let chat_room_id = this.element.dataset.id
-      console.log(chat_room_id)
       consumer.subscriptions.create(
         { "channel": "ChatRoomChannel", "chat_room_id": chat_room_id },
         { 
           received(data) {
            console.log(data)
-           const message = `<div class="w-max">
+           const image = `<div class="w-max mt-5">
+           <span class="text-xs block">${data.send_by}</span>
+           <div class=" px-3 py-2 bg-gray-200 opacity-3 rounded-lg w-max">
+           ${data.message}<img src="${data.image}" width="150" height="150"></div></div>`
+           const message = `<div class="w-max mt-5">
           <span class="text-xs block">${data.send_by}</span>
           <div class=" px-3 py-2 bg-gray-200 opacity-3 rounded-lg w-max">
-          ${data.message} </div></div>`
-          document.querySelector("#content").insertAdjacentHTML("beforeend" , message)
+          ${data.message}</div></div>`
+          if (data.image == null){
+            document.querySelector("#content").insertAdjacentHTML("beforeend" , message)
+          }else{
+            document.querySelector("#content").insertAdjacentHTML("beforeend" , image)
+          }
           },
         }
       )
