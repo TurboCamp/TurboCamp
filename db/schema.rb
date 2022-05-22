@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_05_20_110851) do
+ActiveRecord::Schema.define(version: 2022_05_22_031356) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -87,6 +87,7 @@ ActiveRecord::Schema.define(version: 2022_05_20_110851) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "user"
+    t.text "image_data"
     t.index ["chat_room_id"], name: "index_contents_on_chat_room_id"
   end
 
@@ -177,7 +178,7 @@ ActiveRecord::Schema.define(version: 2022_05_20_110851) do
     t.string "role", default: "user"
     t.string "nickname"
     t.string "slug"
-    t.string "imageurl"
+    t.string "imageurl", default: "app/assets/images/default_user.png"
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true

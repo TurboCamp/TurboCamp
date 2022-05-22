@@ -10,6 +10,7 @@
                     <span class="text-xs"><%= content.user %></span>
                     <div class="px-3 py-2 bg-gray-200 opacity-3 rounded-lg w-max">
                         <%= content.text %>
+                        <%= image_tag(content.image) if content.image %>
                     </div>
                 </div>
                 <% else %>
@@ -17,6 +18,7 @@
                         <span class="text-xs block"><%= content.user %></span>
                         <div class=" px-3 py-2 bg-gray-200 opacity-3 rounded-lg w-max">
                         <%= content.text %>
+                        <%= image_tag(content.image) if content.image %>
                     </div>
                     </div>
                 <% end %>
@@ -24,7 +26,10 @@
             <% end %>
         </div>
         </section>
-        <%= form_with(model: @content , url:project_chat_room_contents_path(@project), class:'flex' ) do |f| %>
+        <%= form_with(model: @content , url:project_chat_room_contents_path(@project), class:'flex') do |f| %>
+            <div>
+                <%= f.file_field :image %>
+            </div>
             <div class="w-full">
                 <%= f.text_field :text , placeholder: '請輸入訊息', class:'w-11/12 border-sky-500 border rounded-lg	'%>
             </div>
