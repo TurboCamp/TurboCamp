@@ -17,7 +17,7 @@
     <div class="grid grid-cols-1 sm:grid-cols-2  
                 lg:grid-cols-3 gap-5 grid-flow-row relative ">
     <% @messages.each do |message| %>
-      <%= link_to message_path(message), class: 'flex items-center justify-center bg-white rounded-lg relative 
+      <%= link_to project_message_path(@project ,  message), class: 'flex items-center justify-center bg-white rounded-lg relative 
                                                 border-2 border-gray-400 drop-shadow-md md:flex-row md:max-w-xl hover:bg-gray-100 
                                                 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700' do  %>
         <div class="block justify-between p-4 leading-normal">
