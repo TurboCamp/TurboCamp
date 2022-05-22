@@ -15,6 +15,6 @@ class ContentsController < ApplicationController
   private
 
   def content_params
-    params.require(:content).permit(:text).merge(user:current_user.nickname)
+    params.require(:content).permit(:text , :image).merge(user:current_user.nickname)
   end
 end
