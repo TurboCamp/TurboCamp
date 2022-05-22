@@ -42,4 +42,5 @@ Rails.application.routes.draw do
       resources :todo_items
     end
   end
+  mount Shrine.download_endpoint => "/attachments"
 end
