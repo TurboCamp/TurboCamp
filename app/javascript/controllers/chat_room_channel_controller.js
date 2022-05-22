@@ -13,7 +13,7 @@ export default class extends Controller {
         { 
           received(data) {
            console.log(data)
-           const message = `<div class="w-max ml-auto">
+           const message = `<div class="w-max">
           <span class="text-xs block">${data.send_by}</span>
           <div class=" px-3 py-2 bg-gray-200 opacity-3 rounded-lg w-max">
           ${data.message} </div></div>`
