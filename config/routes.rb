@@ -19,10 +19,6 @@ Rails.application.routes.draw do
       end
     end
   end
-  resources :messages do
-    resources :comments, module: :messages
-  end
-
   resource :personal, only: [:show] 
 
   resources :projects, except: [:index] do 
