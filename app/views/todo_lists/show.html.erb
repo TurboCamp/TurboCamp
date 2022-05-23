@@ -9,7 +9,7 @@
         <span class="m-0 text-4xl text-indigo-800"><%= @todo_list.title %></span>
         <p class="text-orange-700">
           <small>
-            <% @todo_list.percent_complete %>Todo完成(<%= @todo_list.completed_items %>/<%= @todo_list.total_items %>)
+            <%= @todo_list.percent_complete %>%Todo完成(<%= @todo_list.completed_items %>/<%= @todo_list.total_items %>)
           </small>
         </p>
     </div>
@@ -55,7 +55,7 @@
                   <i class="fas fa-check"></i>
                 <% end %>
                 <div class="block">
-                <%= link_to '刪除', project_todo_list_todo_item_path(@project, @todo_list ), method: "delete" %>
+                <%= link_to '刪除', project_todo_list_todo_item_path(@project, @todo_list, todo_item.id ), method: "delete" %>
                 </div>
             </div>
           </li>
