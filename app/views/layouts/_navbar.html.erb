@@ -1,9 +1,6 @@
 <nav class=" bg-white border-theme-100 filter drop-shadow-sm border-b-2 w-full h-17 p-3 z-50">
   <div class="flex flex-row justify-end items-center h-7 my-2">
     <div class="flex flex-row items-center">
-<<<<<<< HEAD
-      <%= link_to icons('th', :fas, 'lg', 'pr-5'), personal_path, method: :get %>
-=======
       <%= link_to users_info_path, method: :get do %>
       <% if current_user.avatar.attached? %>
       <div class="pr-5">
@@ -13,8 +10,7 @@
       <% end %>
       <% end %>
       </div>
-      <%= link_to icons('th', :fas, 'lg', 'pr-5'), personals_path, method: :get %>
->>>>>>> 8d4ca4c (style: add user avatar in navbar)
+      <%= link_to icons('th', :fas, 'lg', 'pr-5'), personal_path, method: :get %>
       <%= link_to icons('house-user', :fas, 'lg', 'pr-5'), project_path(@project) %>
       <%= link_to icons('sign-out-alt', :fas, 'lg', 'pr-5'), destroy_user_session_path, method: :delete %>
       <div>
