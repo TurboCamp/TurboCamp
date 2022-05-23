@@ -16,8 +16,8 @@
           <p class="mb-3 font-normal text-gray-700 dark:text-gray-400"><%= project.description %></p>
           <div>
           <% project.users.each do |user| %>
-            <% if user.avatar.attached? %>
-              <%= image_tag(user.avatar.variant(resize_to_limit: [40, 40]) , size:'40x40' , class:'rounded-full' )%>
+            <% if user.avatar %>
+              <%= image_tag(user.avatar_url, size:'40x40' , class:'rounded-full' )%>
             <% else %>
               <% if user.imageurl == nil%>
                 <%= image_tag('default_user' , size:'40x40' , class:'rounded-full')%>
