@@ -29,9 +29,9 @@ export default class extends Controller {
     this.deleteCalendarSchedule()
   }
   getCalendarData() {
-    let url = '/schedules.json'
+    let url = './schedules.json'
     fetch(url)
-    .then(Response => Response.json())
+    .then(response => response.json())
     .then(response=>response.forEach(schedule => {
         this.calendar.createSchedules([
           {
@@ -96,7 +96,7 @@ export default class extends Controller {
 
       Rails.ajax({
         type: 'patch',
-        url: '/schedules/' + schedule.id,
+        url: 'project_id/schedules/' + schedule.id,
         data: formUpdate
       })
     })
@@ -111,7 +111,7 @@ export default class extends Controller {
 
       Rails.ajax({
         type: 'delete',
-        url: '/schedules/' + schedule.id,
+        url: 'project_id/schedules/' + schedule.id,
       })
     })
   }

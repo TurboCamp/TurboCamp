@@ -11,7 +11,7 @@ class Project < ApplicationRecord
   has_many :buckets, dependent: :destroy
   has_many :messages , dependent: :destroy
   has_one :schedule,  dependent: :destroy
-  has_one_attached :avatar
+  has_many :todo_lists, dependent: :destroy
   
   validates :title , presence: true , uniqueness: true
   validates :description , presence: true , length:{maximum: 50}

@@ -1,7 +1,7 @@
 <div class="flex flex-col w-11/12 p-1 bg-gray-100 border-red-900">
   <div class="flex flex-row justify-between w-full h-auto">
     <div class="flex items-center col">
-      <%= link_to todo_lists_path, class: 'bg-gray-500 hover:bg-blue-700 text-white font-bold py-2 px-4 pt-2 rounded' do %>
+      <%= link_to project_todo_lists_path, class: 'bg-gray-500 hover:bg-blue-700 text-white font-bold py-2 px-4 pt-2 rounded' do %>
         <i class="fas fa-chevron-circle-left"></i>
       <% end %>
     </div>
@@ -14,7 +14,7 @@
         </p>
     </div>
     <button class="px-4 font-bold text-white bg-blue-500 rounded hover:bg-blue-700">
-      <%= link_to '修改', edit_todo_list_path(@todo_list) %>
+      <%= link_to '修改', edit_project_todo_list_path(@todo_list) %>
     </button>
   </div>
   <div class="card-todos">
@@ -24,11 +24,9 @@
         <%# <div style="width: 15%" class="flex flex-col justify-center text-center text-white bg-orange-500 shadow-none whitespace-nowrap"></div>
         <div style="width: 25%" class="flex flex-col justify-center text-center text-white shadow-none whitespace-nowrap bg-amber-500"></div> %>
       </div>
-      <%= form_for([@todo_list, @todo_item]) do |form| %>
+      <%= form_for([@project, @todo_list, @todo_item]) do |form| %>
         <div class="flex items-center justify-between pb-4 input-group">
-        <%#= form.fields_for :todo_items do |f| %>
           <%= form.text_field :description, class:"w-full",placeholder:"新增todo" %>
-        <%# end %>
           <div class="pl-8 input-group-add">
           <%= form.submit '新增', class:'bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded' %> 
           </div>
@@ -57,7 +55,7 @@
                   <i class="fas fa-check"></i>
                 <% end %>
                 <div class="block">
-                <%= link_to '刪除', todo_list_todo_item_path(@todo_list, todo_item.id), method: "delete" %>
+                <%= link_to '刪除', project_todo_list_todo_item_path(@project, @todo_list ), method: "delete" %>
                 </div>
             </div>
           </li>
