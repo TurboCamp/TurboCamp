@@ -23,7 +23,7 @@ class TodoListsController < ApplicationController
   def edit; end
 
   def create
-    @todo_list = @project.todo_list.new(todo_list_params)
+    @todo_list = @project.todo_lists.new(todo_list_params)
 
     if @todo_list.save
       redirect_to [@project, @todo_list], notice: 'Todo list 建立成功'
@@ -58,6 +58,6 @@ class TodoListsController < ApplicationController
   end
 
   def todo_list_params
-    params.require(:todo_list).permit(:title, todo_items: [:todo_list], variants_attributes: [:_destroy])
+    params.require(:todo_list).permit(:title, todo_items: [:todo_list])
   end
 end
