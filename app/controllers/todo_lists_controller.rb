@@ -50,7 +50,6 @@ class TodoListsController < ApplicationController
 
   def set_project
     @project = current_user.projects.friendly.find(params[:project_id])
-    # @todo_list = @project.todo_lists.friendly.find(params[:id])
   end
 
   def set_todo_list
