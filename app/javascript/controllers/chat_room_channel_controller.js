@@ -32,10 +32,10 @@ export default class extends Controller {
   }
   remove_value() {
     setTimeout(()=>{
+      this.contentboxTarget.scrollTop = this.contentboxTarget.scrollHeight
       this.message_inputTarget.value = ""
       this.submit_btnTarget.disabled = false
       this.file_uploadTarget.value = ''
-      this.contentboxTarget.scrollTop = this.contentboxTarget.scrollHeight
       },150) 
     }
 }
