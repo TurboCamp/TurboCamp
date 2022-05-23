@@ -37,7 +37,7 @@ class TodoItemsController < ApplicationController
 
   def destroy
     @todo_item.destroy
-    redirect_to todo_list_path[@project, @todo_list], notice: 'Todo_item 已刪除'
+    redirect_to [@project, @todo_item.todo_list], notice: 'Todo_item 已刪除'
   end
 
   private
