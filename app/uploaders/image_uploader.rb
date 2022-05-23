@@ -1,7 +1,14 @@
+require "image_processing/mini_magick"
+
 class ImageUploader < Shrine 
-  plugin :download_endpoint, prefix: "images"
-  Attacher.validate do
-      validate_mime_type %w[image/jpeg image/png image/webp]
-      validate_max_size 5*1024*1024
+  Attacher.derivatives do |original|
+    magick = ImageProcessing::MiniMagick.source(original)
+ 
+    { 
+      large:  magick.resize_to_limit!(800, 800),
+      medium: magick.resize_to_limit!(150, 150),
+      small:  magick.resize_to_limit!(30, 30),
+    }
+    validate_mime_type %w[image/jpeg image/png image/webp]
   end
 end

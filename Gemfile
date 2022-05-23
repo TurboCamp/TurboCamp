@@ -23,6 +23,7 @@ gem 'rubocop', '~> 1.28', require: false
 gem 'sass-rails', '>= 6'
 gem 'turbolinks', '~> 5'
 gem 'webpacker', '~> 5.0'
+gem 'shrine', '~> 3.4'
 
 group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]

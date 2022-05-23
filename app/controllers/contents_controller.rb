@@ -5,10 +5,8 @@ class ContentsController < ApplicationController
     @project = Project.friendly.find(params[:project_id])
     @chat_room = @project.chat_room
     @content = @chat_room.contents.new(content_params)
-    # render html:@chat_room.id
     if @content.save
       ActionCable.server.broadcast "ChatRoomChannel_#{@chat_room.id}" , { send_by:@content.user,message: @content.text , image: @content.image_url}
-      # ChatRoomChannel.broadcast_to(@chat_room , @content)
     end
   end
 
