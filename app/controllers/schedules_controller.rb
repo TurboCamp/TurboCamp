@@ -38,7 +38,7 @@ class SchedulesController < ApplicationController
 
       if @schedule.update(schedule_params)
         format.html { redirect_to project_schedule_path [@project],notice: '已更新' }
-        format.json { render :show, status: :ok, location: [@project, @schedule] }
+        format.json { render :show, status: :ok, location: [@project] }
       else
         format.html { render :edit }
         format.json { render json: @schedule.errors, status: 503 }
@@ -60,7 +60,7 @@ class SchedulesController < ApplicationController
   private
 
   def set_project
-    @project = Project.friendly.find(params[:project_id])
+    @project = current_user.projects.friendly.find(params[:project_id])
   end
 
   def set_schedule
