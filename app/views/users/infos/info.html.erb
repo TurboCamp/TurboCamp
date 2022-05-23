@@ -7,7 +7,7 @@
         <%= image_tag(url_for(@user.avatar), size:'200x200' , class:'rounded-full') %>
     </div>
     <% else %>
-        <%= image_tag('default_user.png' , size:'200x200' , class:'rounded-full')%>
+        <%= image_tag('default_user' , size:'200x200' , class:'rounded-full')%>
     <% end %>
     <div>
         <%= f.label :avatar , '上傳個人頭貼' %>

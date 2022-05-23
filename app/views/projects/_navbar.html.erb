@@ -1,8 +1,8 @@
-<nav class="flex justify-between fixed h-12 w-full shadow-lg z-30">
+<nav class="fixed z-30 flex justify-between w-full h-12 shadow-lg">
     <div class="flex items-center ml-7">
-        <h1><%= image_tag("logo.png" , class:"h-6") %></h1>
+        <h1><%= image_tag("logo" , class:"h-6") %></h1>
     </div>
-    <div class="items-center flex flex-nowrap gap-8 font-bold">
+    <div class="flex items-center gap-8 font-bold flex-nowrap">
         <%= link_to 'Home' , personal_path %>
         <%= link_to 'Line Up' , "#" %>
         <%= link_to 'Camp Fire' , "#" %>
