@@ -17,7 +17,7 @@
     </li>
     <hr class="my-3">
     <li class="relative">
-      <%= sidebar_link_with_icon '#', :get, icons('check-circle', :far, 'lg', 'pr-5', 'Todos') %>
+      <%= sidebar_link_with_icon project_todo_lists_path(@project), :get, icons('check-circle', :far, 'lg', 'pr-5', 'Todos') %>
     </li>
     <li class="relative">
       <%= sidebar_link_with_icon project_schedules_path(@project), :get, icons('calendar-alt', :far, 'lg', 'pr-6', 'Schedule') %>
