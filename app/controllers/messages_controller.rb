@@ -37,10 +37,8 @@ class MessagesController < ApplicationController
   end
 
   def destroy
-
     @message.destroy if @message
     redirect_to project_messages_path(@project), notice: '成功刪除'
-
   end
 
   private

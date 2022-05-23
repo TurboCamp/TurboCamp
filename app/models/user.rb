@@ -2,6 +2,7 @@
 
 class User < ApplicationRecord
   include Slugable
+  include AvatarUploader::Attachment(:avatar)
 
   has_many :personals
   has_many :projects , through: :personals , dependent: :destroy
@@ -10,9 +11,6 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable,
          :omniauthable, omniauth_providers: %i[google_oauth2 github]
-
-  scope :manager, -> { where(role: 'admin') }
-  scope :teammate, -> { where(role: 'user') }
 
   def self.create_from_provider_data(provider_data)
     where(email: provider_data.info.email).first_or_create do |user|
