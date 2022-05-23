@@ -12,13 +12,13 @@
   </head>
   <body>
     <div class="flex justify-start">
-      <div class="sidebar-container">
+      <div class="min-h-screen">
         <%= render 'layouts/aside' %>
       </div>
       <div class="w-screen">
         <%= render 'layouts/navbar' %>
         <%= render "/shared/flash" if flash %>
-        <section class="mx-auto py-20 pt-24">
+        <section class="m-auto p-20 pt-10">
           <%= yield %>
         </section>
       </div>
