@@ -1,13 +1,13 @@
 
-<h3 class="text-lg leading-6 font-medium text-gray-900">New Message</h3>
+<h3 class="text-lg font-medium leading-6 text-gray-900">New Message</h3>
 
 <%= form_with(model: @message , url:project_messages_path) do |form| %>
   <div class="space-y-8 divide-y divide-gray-200">
     <div>
-      <div class="mt-6 grid grid-cols-1 gap-y-6 gap-x-4 sm:grid-cols-6">
+      <div class="grid grid-cols-1 mt-6 gap-y-6 gap-x-4 sm:grid-cols-6">
         <div class="sm:col-span-4">
             <%= form.label :title, class: "block text-sm font-medium text-gray-700" %>
-          <div class="mt-1 flex rounded-md shadow-sm">
+          <div class="flex mt-1 rounded-md shadow-sm">
             <%= form.text_field :title, class:"flex-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full min-w-0 rounded-none rounded-r-md sm:text-sm border-gray-300" %>
           </div>
         </div>
@@ -34,5 +34,8 @@
 
   <div class="pt-5">
     <div class="flex justify-end">
-
+      <%=link_to "返回", project_messages_path , class:'inline-block px-6 py-2.5 bg-red-600 text-white font-medium text-xs leading-tight uppercase rounded-full shadow-md hover:bg-red-700 hover:shadow-lg focus:bg-red-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-red-800 active:shadow-lg transition duration-150 ease-in-out'%>
+      <%= form.submit '新增' , class:"inline-block px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded-full shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out"%>
+    </div>
+  </div>
 <% end %>

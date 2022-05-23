@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+    <%= stylesheet_pack_tag 'application', media: 'all' %>
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
     <%= favicon_link_tag 'logo_outline.ico' %>
@@ -14,7 +15,7 @@
     <%= render 'navbar' %>
   </header>
   <body>
-    <main class="relative m-auto p-24 pt-7">
+    <main class="relative p-24 m-auto pt-7">
       <%= render "/shared/flash" if flash %>
       <%= yield %>
     </main>
