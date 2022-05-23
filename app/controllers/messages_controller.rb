@@ -34,8 +34,13 @@ class MessagesController < ApplicationController
   end
 
   def destroy
+<<<<<<< HEAD
     @message.destroy if @message
     redirect_to project_messages_path(@project), notice: '成功刪除'
+=======
+    @message.destroy
+    redirect_to messages_path, notice: '成功刪除'
+>>>>>>> fix message index show and add message routes with shallo
   end
 
   private
@@ -43,6 +48,10 @@ class MessagesController < ApplicationController
   def find_location
     @project = current_user.projects.friendly.find(params[:project_id])
     @message = @project.messages.friendly.find(params[:id])
+  end
+  
+  def find_project 
+    @project = current_user.projects.friendly.find(params[:project_id])
   end
   
   def find_project 
