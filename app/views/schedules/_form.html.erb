@@ -1,4 +1,4 @@
-<%= form_with(model: schedule, class: "contents") do |form| %>
+<%= form_with(model: [@project, schedule] , class: "contents") do |form| %>
 
   <div class="my-5">
     <%= form.label :title, '事件' %>
@@ -12,12 +12,12 @@
 
   <div class="my-5">
     <%= form.label :start, '起始時間' %>
-    <%= form.datetime_select :start, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+    <%= form.text_field :start, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full", data: {controller: "flatpickr"} %>
   </div>
 
   <div class="my-5">
-    <%= form.label :end, '起始時間' %>
-    <%= form.datetime_select :end, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+    <%= form.label :end, '結束時間' %>
+    <%= form.text_field :end, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full", data: {controller: "flatpickr"} %>
   </div>
 
   <div class="my-5">

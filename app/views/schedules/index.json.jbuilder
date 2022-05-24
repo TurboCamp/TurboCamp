@@ -1,3 +1,3 @@
 # frozen_string_literal: true
 
-json.array! @schedules, partial: 'schedules/schedule', as: :schedule
+json.array! @schedules, partial: 'project_id/schedules/schedule', as: :schedule
