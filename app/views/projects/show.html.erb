@@ -1,51 +1,51 @@
 <div class="max-h-screen">
-  <div class="m-auto w-full">
-    <h1 class="text-7xl justify-center m-auto font-semibold"><%= @project.title %></h1>
+  <div class="w-full m-auto">
+    <h1 class="justify-center m-auto font-semibold text-7xl"><%= @project.title %></h1>
     <div data-controller="member" class="flex" data-id="<%= @project.slug %>">
         <button  data-action="click->member#join">Add Member</button>
-        <div id="inputbox" class=" hidden" >
+        <div id="inputbox" class="hidden " >
             <input type="text" placeholder="請輸入信箱" class="input">
             <button class="searchbtn" data-action="click->member#invite">加入成員</button>
         </div>
     </div>
     <%= link_to 'Edit Project' , edit_project_path(@project)  %>
-    <div class="p-6 m-auto h-5 border-t border-black"></div>
+    <div class="h-5 p-6 m-auto border-t border-black"></div>
   </div>
-  <div class="container m-auto p-6 ">
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 grid-flow-row relative ">
+  <div class="container p-6 m-auto ">
+    <div class="relative grid grid-flow-row grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3 ">
       <%= link_to '#', class: 'card' do %>
-        <div class="block justify-between p-4 leading-normal">
+        <div class="justify-between block p-4 leading-normal">
           <div class="pt-24">
           </div>
           <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Todos</h5>
         </div>
       <% end %>
       <%= link_to '#', class: 'card' do %>
-        <div class="block justify-between p-4 leading-normal">
+        <div class="justify-between block p-4 leading-normal">
           <div class="pt-24"> </div>
           <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Schedule</h5>
         </div>
       <% end %>
       <%= link_to project_chat_room_path(@project), class: 'card' do %>
-        <div class="block justify-between p-4 leading-normal">
+        <div class="justify-between block p-4 leading-normal">
           <div class="pt-24"> </div>
           <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Camfire</h5>
         </div>
       <% end %>
       <%= link_to '#', class: 'card' do %>
-        <div class="block justify-between p-4 leading-normal">
+        <div class="justify-between block p-4 leading-normal">
           <div class="pt-24"> </div>
           <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Message Boards</h5>
         </div>
       <% end %>
       <%= link_to '#', class: 'card' do %>
-        <div class="block justify-between p-4 leading-normal">
+        <div class="justify-between block p-4 leading-normal">
           <div class="pt-24"> </div>
           <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Docs & Files</h5>
         </div>
       <% end %>
       <%= link_to '#', class: 'card' do %>
-        <div class="block justify-between p-4 leading-normal">
+        <div class="justify-between block p-4 leading-normal">
           <div class="pt-24"> </div>
           <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">GitHub</h5>
         </div>

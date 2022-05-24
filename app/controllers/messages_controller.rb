@@ -2,6 +2,7 @@
 
 class MessagesController < ApplicationController
   before_action :find_project , only: %i[index new create destroy] 
+
   before_action :find_location, only: %i[show edit update destroy ]
   before_action :authenticate_user!
   
