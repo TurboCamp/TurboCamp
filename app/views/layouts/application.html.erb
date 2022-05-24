@@ -16,7 +16,7 @@
   <body>
     <div class="flex justify-start">
       <div class="min-h-screen">
-        <%#= render 'layouts/aside' %>
+        <%= render 'layouts/aside' if @project%>
       </div>
       <div class="w-screen">
         <%= render 'layouts/navbar' %>
