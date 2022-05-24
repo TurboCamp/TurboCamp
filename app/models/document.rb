@@ -1,3 +1,4 @@
 class Document < ApplicationRecord
-  include DocumentUpload::Attachment(:document)
+  belongs_to :bucket
+  include DocumentUploader::Attachment(:document)
 end
