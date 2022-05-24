@@ -53,12 +53,19 @@ ActiveRecord::Schema.define(version: 2022_05_23_123302) do
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
   end
 
+  create_table "attachments", force: :cascade do |t|
+    t.text "document_data"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "buckets", force: :cascade do |t|
     t.string "title"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "status"
     t.bigint "project_id"
+    t.text "document_data"
     t.index ["project_id"], name: "index_buckets_on_project_id"
   end
 
