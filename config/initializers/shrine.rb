@@ -21,3 +21,4 @@ Shrine.plugin :validation
 Shrine.plugin :validation_helpers
 Shrine.plugin :download_endpoint , prefix: "/attachments"
 Shrine.plugin :derivatives
+Shrine.plugin :determine_mime_type

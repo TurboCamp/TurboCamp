@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class ContentsController < ApplicationController
+  before_action :authenticate_user!
   def create
     @project = Project.friendly.find(params[:project_id])
     @chat_room = @project.chat_room

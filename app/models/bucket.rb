@@ -1,10 +1,10 @@
 # frozen_string_literal: true
 
 class Bucket < ApplicationRecord
-  include DocumentUploader::Attachment(:document)
   has_rich_text :content
   has_many :comments, as: :commentable, dependent: :destroy
   belongs_to :project
+  has_many :documents , dependent: :destroy
 
   def self.all_status
     [

@@ -1,6 +1,6 @@
 require "image_processing/mini_magick"
 
-class AvatarUploader < Shrine 
+class AvatarUploader < ApplicationUploader
   Attacher.derivatives do |original|
     magick = ImageProcessing::MiniMagick.source(original)
  

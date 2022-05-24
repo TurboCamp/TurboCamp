@@ -65,7 +65,6 @@ ActiveRecord::Schema.define(version: 2022_05_23_123302) do
     t.datetime "updated_at", precision: 6, null: false
     t.string "status"
     t.bigint "project_id"
-    t.text "document_data"
     t.index ["project_id"], name: "index_buckets_on_project_id"
   end
 
@@ -96,6 +95,14 @@ ActiveRecord::Schema.define(version: 2022_05_23_123302) do
     t.string "user"
     t.text "image_data"
     t.index ["chat_room_id"], name: "index_contents_on_chat_room_id"
+  end
+
+  create_table "documents", force: :cascade do |t|
+    t.text "document_data"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.bigint "bucket_id"
+    t.index ["bucket_id"], name: "index_documents_on_bucket_id"
   end
 
   create_table "friendly_id_slugs", force: :cascade do |t|
@@ -205,6 +212,7 @@ ActiveRecord::Schema.define(version: 2022_05_23_123302) do
   add_foreign_key "buckets", "projects"
   add_foreign_key "chat_rooms", "projects"
   add_foreign_key "contents", "chat_rooms"
+  add_foreign_key "documents", "buckets"
   add_foreign_key "messages", "projects"
   add_foreign_key "personals", "projects"
   add_foreign_key "personals", "users"

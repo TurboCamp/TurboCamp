@@ -4,15 +4,22 @@
       <h2 class="h2">
         <%=@project.title%>的檔案夾
       </h2>
+      <div>
+        <%= render 'form' %>
+      </div>
     </div>
     <div class="mt-6 prose prose-indigo prose-lg text-gray-500 mx-auto">
-      <%#= image_tag @bucket.attach if @bucket.attach.attached?%>
-    </div>
-    <div>
-      <%= form_with(model: @bucket url:document_project_bucket_path(@project)) do |f|%>
-        <%= f.file_field :document %>
-        <%= f.submit '上傳' %>
+    <div class="flex gap-3">
+      <% @documents.each do |doc| %>
+          <%if doc.document.mime_type.include? 'image' %>
+            <%= image_tag(doc.document_url , size:'150x150' )%>
+            <a href="<%=doc.document.download_url%>" download="">
+              <i class="fas fa-cloud-download-alt"></i>
+            </a>
+          <% end %>  
       <% end %>
+    </div>
+      
     </div>
   </div>
 

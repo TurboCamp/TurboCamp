@@ -6,15 +6,8 @@ class BucketsController < ApplicationController
   
   def show 
     @bucket = @project.bucket
-  end
-
-  def document 
-    @bucket = @project.bucket.new(bucket_params)
-    if @bucket.save 
-      redirect_to project_bucket_path(@project) , notice:'上傳檔案成功'
-    else
-      render :show , alert:'上傳失敗'
-    end
+    @documents = @bucket.documents
+    @document = Document.new
   end
 
   private 

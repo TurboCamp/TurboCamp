@@ -1,0 +1,4 @@
+<%= form_with(model: @document , url:project_bucket_documents_path(@project)) do |f| %>
+  <%= f.file_field :document %>
+  <%= f.submit %>
+<% end %>
