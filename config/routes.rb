@@ -22,12 +22,9 @@ Rails.application.routes.draw do
   resource :personal, only: [:show] 
 
   resources :projects, except: [:index] do 
-    resources :buckets do
+    resource :bucket , only:[:show ] do
       resources :comments, module: :buckets
-      collection do
-        get 'document'
-        get 'upload'
-      end
+      resource :document , only: [:create]
     end
     resource :chat_room , only: [:show] do 
       resources :contents, only: [:create]
