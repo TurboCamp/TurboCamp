@@ -40,6 +40,7 @@ class TodoItemsController < ApplicationController
     redirect_to [@project, @todo_item.todo_list], notice: 'Todo_item 已刪除'
   end
 
+
   private
 
   def set_project
