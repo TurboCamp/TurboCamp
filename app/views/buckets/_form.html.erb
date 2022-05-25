@@ -1,6 +1,4 @@
-<%= form_with(model: @document , url:project_bucket_documents_path(@project) , data:{upload_file_target:"upload_form"} ,class:'hidden') do |f| %>
-  <div>
+<%= form_with(model: @document , url:project_bucket_documents_path(@project) , data:{upload_file_target:"upload_form"} ,class:'hidden flex max-w-max border border-gray-400 p-4 rounded-lg mt-4  items-center absolute top-48 bg-white z-10') do |f| %>
     <%= f.file_field :document %>
-    <%= f.submit '上傳' , data:{action:"click->upload_file#submit" , disable_with:"上傳檔案...."} %>
-  </div>
+    <%= f.submit '上傳' , data:{action:"click->upload_file#submit" , disable_with:"上傳檔案...."} , class:"p-2 rounded-md"%>
 <% end %>

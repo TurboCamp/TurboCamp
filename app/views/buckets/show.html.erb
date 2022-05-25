@@ -1,14 +1,12 @@
-<article class="relative py-16 bg-white overflow-hidden flex justify-center">
-  <div class="relative px-4 sm:px-6 lg:px-8">
-    <div class="text-lg max-w-prose mx-auto">
-      <h2 class="h2">
+<h2 class="h2">
         Doc & Files
-      </h2>
-      <div class="mt-6" data-controller="upload-file">
-        <button class="m-0 p-1.5 bg-gray-300 text-center rounded-sm" data-action="click->upload-file#upload">上傳檔案</button>
-        <%= render 'form' %>
-      </div>
-    </div>
+</h2>
+<div class="mt-6" data-controller="upload-file">
+  <button class="m-0 p-1.5 bg-gray-300 text-center rounded-sm relative" data-action="click->upload-file#upload">上傳檔案</button>
+  <%= render 'form' %>
+</div>
+<article class="mt-4 rounded-lg border border-gray-300 relative py-8 bg-white overflow-hidden flex justify-center">
+  <div class="relative px-4 sm:px-6 lg:px-8">
     <div class="mt-6 prose prose-indigo prose-lg text-gray-500 mx-auto flex gap-4 flex-wrap">
       <% @documents.each do |doc| %>
         <div class="border border-gray-300 rounded-lg p-6 max-w-max mr-0 flex relative w-72 h-64">
