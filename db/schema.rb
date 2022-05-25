@@ -168,6 +168,7 @@ ActiveRecord::Schema.define(version: 2022_05_24_103909) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "project_id"
+    t.integer "position"
     t.index ["project_id"], name: "index_todo_lists_on_project_id"
   end
 

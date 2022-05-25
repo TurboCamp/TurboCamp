@@ -5,8 +5,7 @@ class TodoListsController < ApplicationController
   before_action :set_project
   before_action :authenticate_user!
   def index
-    @todo_lists = @project.todo_lists
-    
+    @todo_lists = @project.todo_lists.order(position: :asc)
   end
 
   def show
@@ -44,6 +43,13 @@ class TodoListsController < ApplicationController
     @todo_list.destroy
 
     redirect_to todo_lists_url
+  end
+
+  def sort
+    todo_list = current_user.todo_lists.find(params[:id])
+    todo_list.insert_at(params[:new_index].to_i)
+
+    render json: { message: "ok"}
   end
 
   private
