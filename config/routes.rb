@@ -39,5 +39,5 @@ Rails.application.routes.draw do
       resources :todo_items
     end
   end
-  mount DocumentUploader.download_endpoint => "/documents"
+  mount DocumentUploader.download_endpoint => "/documents" ,host: "https://turbocamp.tw"
 end

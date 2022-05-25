@@ -6,7 +6,7 @@ class DocumentUploader < Shrine
   Attacher.validate do
     puts get.mime_type
     validate_max_size 5*1024*1024, message: "is too large (max is 5 MB)"
-    validate_mime_type_inclusion %w[image/jpeg image/png image/gif]
+    validate_mime_type_inclusion %w[image/jpeg image/png image/gif application/pdf]
   end
 
   Attacher.derivatives do |original|

@@ -4,22 +4,23 @@
       <h2 class="h2">
         Doc & Files
       </h2>
-      <div class="mt-5">
+      <div class="mt-5" data-controller="upload_file">
         <%= render 'form' %>
       </div>
     </div>
-    <div class="mt-6 prose prose-indigo prose-lg text-gray-500 mx-auto">
-    <div class="flex gap-3 border border-gray-300 rounded-lg p-6 max-w-max">
+    <div class="mt-6 prose prose-indigo prose-lg text-gray-500 mx-auto flex gap-4">
       <% @documents.each do |doc| %>
+        <div class="border border-gray-300 rounded-lg p-6 max-w-max mr-0 flex">
           <%if doc.document.mime_type.include? 'image' %>
             <%= image_tag(doc.document_url , size:'150x150' )%>
-            <a href="<%=doc.document.download_url%>" download="">
-              <i class="fas fa-cloud-download-alt"></i>
-            </a>
-          <% end %>  
+          <% else %>
             <%= link_to doc.document.metadata["filename"], doc.document.download_url , download:"", class: "inline-block other-file" unless doc.document.mime_type.include? "image"%>
+          <% end %>  
+            <a href="<%=doc.document.download_url%>" download="" class='absolute  -bottom-0.5'>
+              <i class="fas fa-cloud-download-alt text-2xl"></i>
+            </a>
+        </div> 
       <% end %>
-    </div> 
     </div>
   </div>
 
