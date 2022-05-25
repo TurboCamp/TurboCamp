@@ -1,21 +1,21 @@
-@import "tailwindcss/base";
-@import "tailwindcss/components";
-@import "tailwindcss/utilities";
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
 
 .sidebar-link {
-      @apply flex items-center text-sm py-4 pl-10 h-12 hover:text-gray-900 hover:bg-theme-100 rounded transition overflow-hidden text-gray-700 overflow-ellipsis whitespace-nowrap duration-300 ease-in-out;
+  @apply flex items-center text-sm py-2 pl-8 h-10 text-gray-500 hover:text-gray-900 hover:bg-theme-100 rounded transition overflow-hidden overflow-ellipsis whitespace-nowrap duration-300 ease-in-out;
 }
 
 .theme-fill-btn {
-      @apply bg-theme-150 hover:bg-theme-200 text-white font-bold py-3 px-5 rounded-md;
+  @apply bg-theme-150 hover:bg-theme-200 text-white font-bold py-3 px-5 rounded-md;
 }
 
 .userhover {
-      @apply hover:text-gray-900 hover:bg-theme-100 rounded transition overflow-hidden text-gray-700 overflow-ellipsis whitespace-nowrap duration-300 ease-in-out;
+  @apply hover:text-gray-900 hover:bg-theme-100 rounded transition overflow-hidden text-gray-700 overflow-ellipsis whitespace-nowrap duration-300 ease-in-out;
 }
 
 .card {
-      @apply flex items-center justify-center bg-white rounded-lg relative border-2 border-gray-400 drop-shadow-md md:flex-row md:max-w-xl hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700;
+  @apply flex items-center justify-center bg-white rounded-lg relative border-2 border-gray-400 drop-shadow-md md:flex-row md:max-w-xl hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700;
 }
 
 @layer components {
