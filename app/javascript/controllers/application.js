@@ -1,5 +1,4 @@
 import { Application } from "@hotwired/stimulus"
-import "stylesheets/application";
 
 const application = Application.start()
 

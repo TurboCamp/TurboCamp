@@ -10,8 +10,8 @@
           <% end %>
         <% end %>
       </div>
-      <%= link_to icons('th', :fas, 'lg', 'pr-5'), personal_path, method: :get %>
-      <%= link_to icons('house-user', :fas, 'lg', 'pr-5'), project_path(@project) if @project%>
+      <%= link_to icons('th', :fas, 'lg', 'pr-5'), projects_path, method: :get%>
+      <%= link_to icons('house-user', :fas, 'lg', 'pr-5'), project_path(@project) if @project %>
       <%= link_to icons('sign-out-alt', :fas, 'lg', 'pr-5'), destroy_user_session_path, method: :delete %>
     </div>
   </div>
