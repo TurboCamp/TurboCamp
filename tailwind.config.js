@@ -31,6 +31,9 @@ module.exports = {
       indigo: colors.indigo,
       purple: colors.violet,
       pink: colors.pink,
+      home_gray: {
+        100: '#F9F6F1'
+      },
       theme: {
         0: '#14191B',
         25: '#52686E',

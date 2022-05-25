@@ -1,27 +1,31 @@
 import { Controller } from "@hotwired/stimulus"
-import 'tui-time-picker/dist/tui-time-picker.css';
-import "tui-calendar/dist/tui-calendar.css";
 import Cal from 'tui-calendar';
 import Rails from '@rails/ujs'
 
 export default class extends Controller {
-  static targets = ["output"]
   
-  
-
   connect() {
     this.calendar = new Cal(document.getElementById('calendar'), {
       id: "1",
-        name: "",
+        name: "schedule",
         defaultView: 'month',
         color: '#fa0',
           bgColor: '#ff0',
           dragBgColor: '#fa0',
           borderColor: '#fa0',
-        milestone: true,   
+        // milestone: true,   
         scheduleView: true,  
         useCreationPopup: true,
-        useDetailPopup: true,
+      useDetailPopup: true,
+      isAllDay: false,
+      template: {
+        // allday: function(schedule) {
+        //   return getTimeTemplate(schedule, true);
+        // },
+        alldayTitle: function() {
+            return '<span class="tui-full-calendar-left-content">one</span>';
+        },
+      }
     })
     this.getCalendarData()
     this.createCalendarSchedule()
@@ -31,21 +35,20 @@ export default class extends Controller {
   getCalendarData() {
     let url = './schedules.json'
     fetch(url)
-    .then(response => response.json())
-    .then(response=>response.forEach(schedule => {
+      .then(response => response.json())
+      .then(response => response.forEach(schedule => {
         this.calendar.createSchedules([
           {
             id: schedule.id,
-            calendarId: '1',
             title: schedule.title,
-            category: 'time',
-            dueDateClass: schedule.dueDateClass,
             location: schedule.location,
+            category: 'time',
+            dueDateClass: schedule.dataDataClass,
             start: schedule.start,
             end: schedule.end
           }
-      ])
-    }))
+        ])
+      }))
   }
 
   // 在日曆上新增行程
@@ -70,7 +73,7 @@ export default class extends Controller {
 
       Rails.ajax({
         type: 'post',
-        url: `project/${project_id}/schedules`,
+        url: './schedules',
         data: formData
       })
     })
@@ -92,11 +95,14 @@ export default class extends Controller {
       if (changes.title) {
         formUpdate.append('[schedule]title', changes.title)
       }
+      if (changes.location) {
+        formUpdate.append('[schedule]location', changes.location)
+      }
       calendar.updateSchedule(schedule.id, schedule.calendarId, changes)
 
       Rails.ajax({
         type: 'patch',
-        url: 'project_id/schedules/' + schedule.id,
+        url: './schedules/' + schedule.id,
         data: formUpdate
       })
     })
@@ -111,7 +117,7 @@ export default class extends Controller {
 
       Rails.ajax({
         type: 'delete',
-        url: 'project_id/schedules/' + schedule.id,
+        url: './schedules/' + schedule.id,
       })
     })
   }
