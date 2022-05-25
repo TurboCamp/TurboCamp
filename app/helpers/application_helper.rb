@@ -13,12 +13,6 @@ module ApplicationHelper
     icon + title
   end
 
-  def link_with_icon(url, method, name)
-    link_to url, method: method do
-      name
-    end
-  end
-
   def theme_button(url, method = nil, string)
     link_to url, method:, class: 'theme-fill-btn' do
       string

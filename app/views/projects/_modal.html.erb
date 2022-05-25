@@ -1,0 +1,33 @@
+<div data-modal-target="container" class="bg-theme-0 bg-opacity-60 overflow-y-auto overflow-x-hidden animated fadeIn fixed inset-0 flex items-center justify-center z-50 w-full md:inset-0 md:h-full">
+  <div class="relative p-4 max-h-screen w-full max-w-lg h-full md:h-auto">
+      <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
+          <div class="flex justify-between items-center p-5 rounded-t border-b dark:border-gray-600">
+              <h3 class="text-xl font-medium text-gray-900 dark:text-white">
+                  New Project 
+              </h3>
+              <div>
+              <%= link_to icons('times', :fas, 'lg', 'pr-3 text-gray-500 hover:text-theme-200'), personal_path %>
+              </div>
+          </div>
+          <div class="border-gray-400 m-auto p-8 flex w-auto">
+              <%= form_with(model: @project , class:"w-full max-w-lg ") do |form| %>
+                  <div class="w-full px-3 mb-6 md:mb-0">
+                      <div>
+                          <%= form.label :title , "Title"  , class:"block tracking-wide text-gray-700 text-xs font-bold mb-2 text-lg"%>
+                          <%= form.text_field :title , class:"block w-full bg-gray-50 text-gray-700 border border-gray-100 rounded py-3 px-4 mb-3 leading-tight"%>
+                      </div>
+                  </div>
+                  <div class="w-full px-3">
+                      <div>
+                          <%= form.label :description , "Content" , class:"block tracking-wide text-gray-700 text-xs font-bold mb-2 text-lg"%>
+                          <%= form.text_area :description , class:"block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-100 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white ", placeholder: "Your content..." %>
+                      </div>
+                  </div>
+                  <div class="flex justify-end mt-5 pl-1">
+                      <%= form.submit "Create" ,class:"theme-fill-btn"%>
+                  </div>
+              <% end %>
+          </div>
+      </div>
+  </div>
+</div>

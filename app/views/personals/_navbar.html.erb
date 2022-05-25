@@ -2,8 +2,8 @@
     <div class="flex items-center ml-7">
       <h2 class="text-2xl font-semibold">Luanchboard</h2>
     </div>
-    <div class="flex items-center flex-nowrap h-7">
-      <%= link_with_icon(destroy_user_session_path, :delete, icons('sign-out-alt', :fas, 'lg', 'mr-4')) %>
+    <div class="items-center flex flex-nowrap h-7">
+      <%= link_to icons('sign-out-alt', :fas, 'lg', 'pl-1'), destroy_user_session_path, method: :delete %>
     </div>
 </nav>
 
