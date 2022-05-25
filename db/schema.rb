@@ -180,6 +180,8 @@ ActiveRecord::Schema.define(version: 2022_05_23_123302) do
     t.string "title"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "project_id"
+    t.index ["project_id"], name: "index_todo_lists_on_project_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -218,4 +220,5 @@ ActiveRecord::Schema.define(version: 2022_05_23_123302) do
   add_foreign_key "personals", "users"
   add_foreign_key "schedules", "projects"
   add_foreign_key "todo_items", "todo_lists"
+  add_foreign_key "todo_lists", "projects"
 end

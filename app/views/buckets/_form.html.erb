@@ -1,4 +1,7 @@
-<%= form_with(model: @document , url:project_bucket_documents_path(@project)) do |f| %>
-  <%= f.file_field :document %>
-  <%= f.submit %>
+<%= form_with(model: @document , url:project_bucket_documents_path(@project) , data:{controller:'upload_file'}) do |f| %>
+  <div>
+    <%= f.label :document , "上傳檔案" %>
+    <%= f.file_field :document %>
+  </div>
+  <%= f.submit '上傳'%>
 <% end %>
