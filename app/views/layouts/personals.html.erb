@@ -11,13 +11,16 @@
     <%= favicon_link_tag 'logo_outline.ico' %>
   </head>
 
-  <header>
-    <%= render 'navbar' %>
-  </header>
   <body>
-    <main class="relative p-24 m-auto pt-7">
+    <header>
+      <%= render 'personals/navbar' %>
+    </header>
+    <main class="relative m-auto p-24 pt-7">
       <%= render "/shared/flash" if flash %>
       <%= yield %>
     </main>
+    <div class="w-full max-h-screen max-w-lg h-full" data-controller="modal">
+      <%= render 'shared/modal' %>
+    </div>
   </body> 
 </html>
