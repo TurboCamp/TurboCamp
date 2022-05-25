@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class BucketsController < ApplicationController
-  before_action :current_project, only: %i[show ]
+  before_action :current_project, only: %i[show]
   before_action :authenticate_user!
   
   def show 
@@ -11,10 +11,6 @@ class BucketsController < ApplicationController
   end
 
   private 
-
-  def bucket_params
-    params.require(:bucket).permit(:title , :status ,:document)
-  end
 
   def current_project 
     @project = current_user.projects.friendly.find(params[:project_id])

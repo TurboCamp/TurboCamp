@@ -1,6 +1,6 @@
-<%= form_with(model: @document , url:project_bucket_documents_path(@project)) do |f| %>
+<%= form_with(model: @document , url:project_bucket_documents_path(@project) , data:{upload_file_target:"upload_form"} ,class:'hidden') do |f| %>
   <div>
     <%= f.file_field :document %>
-    <%= f.submit '上傳'%>
+    <%= f.submit '上傳' , data:{action:"click->upload_file#submit" , disable_with:"上傳檔案...."} %>
   </div>
 <% end %>
