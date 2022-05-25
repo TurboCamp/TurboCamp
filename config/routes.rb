@@ -24,7 +24,7 @@ Rails.application.routes.draw do
   resources :projects, except: [:index] do 
     resource :bucket , only:[:show ] do
       resources :comments, module: :buckets
-      resources :documents , only: [:create]
+      resources :documents , only: [:create , :destroy]
     end
     resource :chat_room , only: [:show] do 
       resources :contents, only: [:create]
