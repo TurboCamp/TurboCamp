@@ -10,7 +10,7 @@ class Users::InfosController < ApplicationController
     def setting
         @user = current_user
         if @user.update(update_user_info)
-            redirect_to  personal_path
+            redirect_to  projects_path
 
         end 
     end
