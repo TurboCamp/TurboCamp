@@ -1,22 +1,20 @@
 <div>
-  <div class="m-auto w-full">
-    <h1 class="text-7xl justify-center m-auto font-semibold"><%= @project.title %></h1>
-    <div data-controller="member" class="flex justify-between" data-id="<%= @project.slug %>">
-        <%= link_to 'Edit Project' , edit_project_path(@project), class:"rounded-lg py-3 px-5 bg-yellow-400 text-white block font-medium text-base"  %>
-        <button  data-action="click->member#join" class="rounded-lg py-3 px-5 bg-yellow-500 text-white block font-medium text-base">Add Member</button>
-        <div id="inputbox" class=" hidden" >
-            <input type="text" placeholder="請輸入信箱" class="input mt-2 mb-6 border rounded-lg text-gray-700 focus:outline-none focus:border-green-500">
-            <button class="searchbtn" data-action="click->member#invite">加入成員</button>
-        </div>
+  <div class="m-auto w-full flex justify-between">
+    <h1 class="text-7xl font-semibold"><%= @project.title %></h1>
+    <div data-controller="member" class="flex" data-id="<%= @project.slug %>">
+      <button  data-action="click->member#join">Add Member</button>
+      <div id="inputbox" class=" hidden" >
+          <input type="text" placeholder="請輸入信箱" class="input">
+          <button class="searchbtn" data-action="click->member#invite">加入成員</button>
+      </div>
     </div>
-    <div class="flex mt-5">
-      
+    <div class="flex items-center">
+    <%= link_to 'Edit Project' , edit_project_path(@project), class: 'theme-fill-btn', data: { turbo_frame: 'modal' }  %>
     </div>
-    
-    <div class="p-6 m-auto h-5 border-t border-black"></div>
   </div>
-  <div class="container p-6 m-auto ">
-    <div class="relative grid grid-flow-row grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3 ">
+  <div class="p-6 m-auto h-5 border-t border-black"></div>
+  <div class="container m-auto p-6 ">
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 grid-flow-row relative ">
       <%= link_to '#', class: 'card' do %>
         <div class="justify-between block p-4 leading-normal">
           <div class="pt-24">

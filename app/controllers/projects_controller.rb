@@ -20,7 +20,7 @@ class ProjectsController < ApplicationController
     if @project.save
       redirect_to project_path(@project)
     else
-      render :new
+      render :new, status: :unprocessable_entity
     end
   end
 
@@ -33,7 +33,7 @@ class ProjectsController < ApplicationController
     if @project.update(project_clean)
       redirect_to project_path(@project), notice: '專案更新成功'
     else
-      render :edit
+      render :edit, status: :unprocessable_entity
     end
   end
 
