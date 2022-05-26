@@ -1,3 +1,41 @@
+<section>
+  <div class="m-auto w-11/12">
+    <div class="flex justify-end pt-11 pb-3">
+      <%= link_to 'NEW', new_project_path, class: 'theme-fill-btn' %>
+    </div>
+    <div class="p-6 m-auto h-5 border-t border-black"></div>
+  </div>
+  <div class="container m-auto p-6">
+    <div class="grid grid-cols-1 sm:grid-cols-2  
+                lg:grid-cols-3 gap-5 grid-flow-row relative ">
+    <% current_user.projects.each do |project| %>
+      <%= link_to project_path(project), class: 'card' do  %>
+        <div class="block justify-between p-4 leading-normal">
+          <div class="pt-16"></div>
+          <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white"><%= project.title%></h5>
+          <p class="mb-3 font-normal text-gray-700 dark:text-gray-400"><%= project.description %></p>
+          <div class="flex">
+          <div class="w-10 h-10 rounded-full overflow-hidden">
+          <% project.users.each do |user| %>
+            <% if user.avatar %>
+              <%= image_tag(user.avatar_url, size:'40x40' , class:'w-full h-full' )%>
+            <% else %>
+              <% if user.imageurl == nil%>
+                <%= image_tag('default_user' , size:'40x40' , class:'w-full h-full')%>
+              <% else %>
+                <%= image_tag(user.imageurl , size:'40x40' , class:'w-full h-full')%>
+              <% end %>
+            <% end %>
+          <% end %>
+          </div>
+        </div>
+        </div>
+      <% end %>
+    <% end %>
+    </div>
+  </div>
+</section>
+
 <div data-controller="modal" class="bg-theme-0 bg-opacity-60 overflow-y-auto overflow-x-hidden animated fadeIn fixed inset-0 flex items-center justify-center z-50 w-full md:inset-0 md:h-full">
   <div class="relative p-4 max-h-screen w-full max-w-lg h-full md:h-auto">
     <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
@@ -6,7 +44,7 @@
             New Project 
         </h3>
         <div>
-        <%= button_tag icons('times', :fas, 'lg', 'pr-3 text-gray-500 hover:text-theme-200'), data: { action: "modal#close" }, type: "button" %>
+        <%= link_to icons('times', :fas, 'lg', 'pr-3 text-gray-500 hover:text-theme-200'), personal_path %>
         </div>
       </div>
       <%= render 'form' %>
