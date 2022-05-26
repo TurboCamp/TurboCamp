@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_05_23_123302) do
+ActiveRecord::Schema.define(version: 2022_05_24_103909) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -51,12 +51,6 @@ ActiveRecord::Schema.define(version: 2022_05_23_123302) do
     t.bigint "blob_id", null: false
     t.string "variation_digest", null: false
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
-  end
-
-  create_table "attachments", force: :cascade do |t|
-    t.text "document_data"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "buckets", force: :cascade do |t|
@@ -124,13 +118,6 @@ ActiveRecord::Schema.define(version: 2022_05_23_123302) do
     t.bigint "project_id"
     t.string "slug"
     t.index ["project_id"], name: "index_messages_on_project_id"
-  end
-
-  create_table "orders", force: :cascade do |t|
-    t.string "slug"
-    t.string "email"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "personals", force: :cascade do |t|
@@ -201,7 +188,7 @@ ActiveRecord::Schema.define(version: 2022_05_23_123302) do
     t.string "role", default: "user"
     t.string "nickname"
     t.string "slug"
-    t.string "imageurl", default: "app/assets/images/default_user.png"
+    t.string "imageurl"
     t.text "avatar_data"
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
     t.index ["email"], name: "index_users_on_email", unique: true
