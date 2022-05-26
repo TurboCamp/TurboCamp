@@ -1,0 +1,31 @@
+<div class="w-64 h-full bg-theme-50 px-1 fixed">
+  <div class="py-6 px-5">
+    <a href="#!">
+      <div class="flex items-center">
+        <div class="flex-shrink-0">
+          <img src="https://fakeimg.pl/500x500/" class="w-10 rounded-full" alt="Avatar">
+        </div>
+        <div class="flex-grow pl-5">
+          <h2 class="self-center text-xl font-semibold whitespace-nowrap"><%= @project&.title %></h2>
+        </div>
+      </div>
+    </a>
+  </div>
+  <ul class="relative">
+    <li class="relative">
+      <%= sidebar_link_with_icon '#',  icons('check-circle', :far, 'lg', 'pr-5', 'Todos') %>
+    </li>
+    <li class="relative">
+      <%= sidebar_link_with_icon '#',  icons('calendar-alt', :far, 'lg', 'pr-6', 'Schedule') %>
+    </li>
+    <li class="relative">
+      <%= sidebar_link_with_icon '#', icons('bullhorn', :fas, 'lg', 'pr-5', 'Campfire') %>
+    </li>
+    <li class="relative">
+      <%= sidebar_link_with_icon '#', icons('comment', :far, 'lg', 'pr-6', 'Message Boards') %>
+    </li>
+    <li class="relative">
+      <%= sidebar_link_with_icon '#', icons('cloud-upload-alt', :fas, 'lg', 'pr-4', 'Docs & Files') %>
+    </li>
+  </ul>
+</div>
