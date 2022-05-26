@@ -1,24 +1,18 @@
-<h2>更新個人資訊</h2>
-
-<%= form_with(model: @user ,url:users_info_path , method: :post) do |f| %>
-    <% if @user.avatar %>
-    <div class="w-48 h-48 rounded-full overflow-x-hidden overflow-y-hidden ">
-        <%= image_tag(@user.avatar_url , size:'200x200' , class:'w-full h-full') %>
-   
-    <% else %>
-        <%= image_tag('default_user' , size:'200x200' , class:'w-full h-full')%>
-    <% end %>
+<%= turbo_frame_tag 'modal' do %>
+<div data-controller="modal" class="bg-theme-0 bg-opacity-60 overflow-y-auto overflow-x-hidden animated fadeIn fixed inset-0 flex items-center justify-center z-50 w-full md:inset-0 md:h-full">
+  <div class="relative p-4 max-h-screen w-full max-w-lg h-full md:h-auto">
+    <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
+      <div class="flex justify-between items-center p-5 rounded-t border-b dark:border-gray-600">
+        <h3 class="text-xl font-medium text-gray-900 dark:text-white">
+          Accouont 
+        </h3>
+        <div>
+        <%= button_tag icons('times', :fas, 'lg', 'pr-3 text-gray-500 hover:text-theme-200'), data: { action: "modal#close" }, type: "button" %>
+        </div>
+      </div>
+      <%= render 'form' %>
     </div>
-    <div class="mt-10">
-        <%= f.label :avatar , '上傳個人頭貼' %>
-        <%= f.file_field :avatar %>
-    </div>
-    <div class="mt-7">
-        <%= f.label :nickname , '暱稱' %>
-        <%= f.text_field :nickname %>
-    </div>
-
-    <%= f.submit '更新個人資料'%>
-   
+  </div>
+</div>
 <% end %>
 
