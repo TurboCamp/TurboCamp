@@ -1,18 +1,11 @@
-<div>
+<div class="mt-12">
   <div class="m-auto w-full flex justify-between">
     <h1 class="text-7xl font-semibold"><%= @project.title %></h1>
-    <div data-controller="member" class="flex" data-id="<%= @project.slug %>">
-      <button  data-action="click->member#join">Add Member</button>
-      <div id="inputbox" class=" hidden" >
-          <input type="text" placeholder="請輸入信箱" class="input">
-          <button class="searchbtn" data-action="click->member#invite">加入成員</button>
-      </div>
-    </div>
     <div class="flex items-center">
     <%= link_to 'Edit Project' , edit_project_path(@project), class: 'theme-fill-btn', data: { turbo_frame: 'modal' }  %>
     </div>
   </div>
-  <div class="p-6 m-auto h-5 border-t border-black"></div>
+  <div class="p-8 m-auto h-5 border-t border-black"></div>
   <div class="container m-auto p-6 ">
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 grid-flow-row relative ">
       <%= link_to '#', class: 'card' do %>
@@ -46,6 +39,13 @@
           <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Docs & Files</h5>
         </div>
       <% end %>
+    </div>
+  </div>
+  <div data-controller="member" class="block m-auto" data-id="<%= @project.slug %>">
+    <button  data-action="click->member#join" class="px-2 theme-fill-btn">Add Member</button>
+    <div id="inputbox" class="hidden px-2 " >
+      <input type="text" placeholder="請輸入信箱" class="input">
+      <button class="searchbtn theme-fill-btn" data-action="click->member#invite">加入成員</button>
     </div>
   </div>
 </div>

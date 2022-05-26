@@ -11,19 +11,19 @@
         </div>
       </div>
       <%= form_with(model: @project , class:"w-full max-w-lg", local: true, data: { turbo: false }) do |form| %>
-        <div class="w-full px-3 mb-6 md:mb-0">
+        <div class="w-full px-6 py-4">
             <div>
                 <%= form.label :title , "標題"  , class:"block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2 text-lg"%>
                 <%= form.text_field :title , class:"appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"%>
             </div>
         </div>
-        <div class="w-full px-3">
+        <div class="w-full px-6 py-4">
             <div>
                 <%= form.label :description , "描述" , class:"block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2 text-lg"%>
                 <%= form.text_area :description , class:"appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"%>
             </div>
         </div>
-        <div class="w-full px-3 mb-6 md:mb-0">
+        <div class="w-full px-6 py-4">
             <div>
                 <%= form.label :nickname , "暱稱" , class:"block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2 text-lg"%>
                 <%= form.text_field :nickname , class:"appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"%>

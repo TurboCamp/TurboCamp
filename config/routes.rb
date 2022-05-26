@@ -19,6 +19,7 @@ Rails.application.routes.draw do
       end
     end
   end
+  resource :personal, only: [:show]
 
   resources :projects, except: [:index] do
     resource :bucket, only: [:show] do
