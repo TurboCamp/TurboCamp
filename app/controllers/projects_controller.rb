@@ -5,10 +5,6 @@ class ProjectsController < ApplicationController
   before_action :authenticate_user!
   before_action :find_my_project, only: %i[show edit update destroy]
 
-  def index
-    render layout: 'personals'
-  end
-
   def new
     @project = Project.new
     render layout: 'personals'
@@ -40,7 +36,7 @@ class ProjectsController < ApplicationController
   def destroy
     authorize @project, policy_class: ProjectPolicy
     @project.destroy
-    redirect_to projects_path, notice: '已刪除專案'
+    redirect_to personal_path, notice: '已刪除專案'
   end
 
   private
