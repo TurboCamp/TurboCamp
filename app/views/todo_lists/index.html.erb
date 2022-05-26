@@ -7,9 +7,9 @@
     <div class="flex items-center px-4 py-4 sm:px-6">
       <div class="min-w-0 flex-1 flex items-center">
         <div class="min-w-0 flex-1 px-4 md:grid md:grid-cols-1 md:gap-4">
-          <div>
+          <div data-controller="sortable">
             <% @todo_lists.each do |todo_list| %>
-              <div class="flex flex-col p-6 mr-2 mt-2 bg-white rounded-lg shadow-lg">
+              <div class="flex flex-col p-6 mr-2 mt-2 bg-white rounded-lg shadow-lg" data-id="<%= todo_list.id %>">
                 <h5 class="mb-2 text-xl font-medium leading-tight text-gray-900">
                   <li class="bg-white shadow overflow-hidden px-4 py-4 sm:px-6 sm:rounded-md ">
                     <td><%= link_to todo_list.title, project_todo_list_path(@project ,todo_list) %></td>

@@ -13,6 +13,8 @@ class Project < ApplicationRecord
   has_many :messages , dependent: :destroy
   has_many :schedules,  dependent: :destroy
   has_many :todo_lists, dependent: :destroy
+  has_many :todo_lists, -> { order(position: :asc) }
+
   
   validates :title , presence: true , uniqueness: true
   validates :description , presence: true , length:{maximum: 50}

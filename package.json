@@ -14,6 +14,7 @@
     "flatpickr": "^4.6.13",
     "local-time": "^2.1.0",
     "postcss": "7",
+    "sortablejs": "^1.15.0",
     "stimulus": "^3.0.1",
     "stimulus_reflex": "3.4.1",
     "tailwindcss": "npm:@tailwindcss/postcss7-compat",

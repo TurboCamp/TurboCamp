@@ -46,6 +46,13 @@ class TodoListsController < ApplicationController
     redirect_to todo_lists_url
   end
 
+  def sort
+    todo_list = @project.todo_lists.find(params[:id])
+    todo_list.insert_at(params[:new_index].to_i)
+
+    render json: { message: "ok"}
+  end
+
   private
 
   def set_project
