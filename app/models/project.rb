@@ -1,6 +1,7 @@
 class Project < ApplicationRecord
   after_create :create_chat_room
   after_create :create_bucket
+  include ImageUploader::Attachment(:image)
   include Slugable
   
 #  與user多對多關聯
