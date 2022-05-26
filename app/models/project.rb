@@ -5,6 +5,7 @@ class Project < ApplicationRecord
   
 #  與user多對多關聯
   has_many :personals
+  has_many :users, through: :todo_lists
   has_many :users , through: :personals  , dependent: :destroy
 
 # 在project內部功能

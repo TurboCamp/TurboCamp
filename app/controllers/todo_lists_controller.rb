@@ -46,7 +46,8 @@ class TodoListsController < ApplicationController
   end
 
   def sort
-    todo_list = current_user.todo_lists.find(params[:id])
+
+    todo_list = @project.todo_lists.find(params[:id])
     todo_list.insert_at(params[:new_index].to_i)
 
     render json: { message: "ok"}

@@ -4,10 +4,12 @@ class User < ApplicationRecord
   include Slugable
   include AvatarUploader::Attachment(:avatar)
 
+  belongs_to :project
+
   has_many :personals
   has_many :projects , through: :personals , dependent: :destroy
-  has_many :todo_lists, through: :projects
-  has_many :todo_items, through: :todo_lists
+  # has_many :todo_lists, through: :projects
+  # has_many :todo_items, through: :todo_lists
   has_one_attached :avatar
   
   devise :database_authenticatable, :registerable,
