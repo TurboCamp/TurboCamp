@@ -10,7 +10,7 @@ class Project < ApplicationRecord
   has_one :chat_room , dependent: :destroy
   has_many :buckets, dependent: :destroy
   has_many :messages , dependent: :destroy
-  has_one :schedule,  dependent: :destroy
+  has_many :schedules,  dependent: :destroy
   has_many :todo_lists, dependent: :destroy
   
   validates :title , presence: true , uniqueness: true

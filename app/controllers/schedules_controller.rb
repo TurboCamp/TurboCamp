@@ -7,7 +7,7 @@ class SchedulesController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @schedules = @project.schedule
+    @schedules = @project.schedules
   end
 
   def show; end
@@ -19,7 +19,7 @@ class SchedulesController < ApplicationController
   def edit; end
 
   def create
-    @schedule = @project.build_schedule(schedule_params)
+    @schedule = @project.schedules.new(schedule_params)
 
     respond_to do |format|
       if @schedule.save
@@ -37,7 +37,7 @@ class SchedulesController < ApplicationController
     respond_to do |format|
 
       if @schedule.update(schedule_params)
-        format.html { redirect_to project_schedule_path [@project],notice: '已更新' }
+        format.html { redirect_to project_schedules_path [@project],notice: '已更新' }
         format.json { render :show, status: :ok, location: [@project] }
       else
         format.html { render :edit }
