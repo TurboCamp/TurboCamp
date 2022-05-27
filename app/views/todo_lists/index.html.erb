@@ -1,30 +1,32 @@
-<div class="flex flex-row justify-between">
-      <span class="text-4xl text-indigo-800">Todo Lists</span>
-      <%= link_to '新增Todo', new_project_todo_list_path, class:"bg-yellow-400 items-center pt-2 px-4 rounded-md font-semibold" %>
-</div>
-<div class="mt-5 bg-white shadow overflow-hidden sm:rounded-md">
-  <ul role="list" class="divide-y divide-gray-200">
-    <div class="flex items-center px-4 py-4 sm:px-6">
-      <div class="min-w-0 flex-1 flex items-center">
-        <div class="min-w-0 flex-1 px-4 md:grid md:grid-cols-1 md:gap-4">
-          <div>
-            <% @todo_lists.each do |todo_list| %>
-              <div class="flex flex-col p-6 mr-2 mt-2 bg-white rounded-lg shadow-lg">
-                <h5 class="mb-2 text-xl font-medium leading-tight text-gray-900">
-                  <li class="bg-white shadow overflow-hidden px-4 py-4 sm:px-6 sm:rounded-md ">
-                    <td><%= link_to todo_list.title, project_todo_list_path(@project ,todo_list) %></td>
-                    <% todo_list.todo_items.each do |todo_item| %>
-                      <div class="card">
-                          <%= todo_item.description %>
-                      </div>
-                    <% end %>
-                  </li>
-                </h5>
-              </div>
-            <% end %>
+<div class="p-28">
+  <div class="flex flex-row justify-between">
+        <span class="text-4xl text-indigo-800">Todo Lists</span>
+        <%= link_to '新增Todo', new_project_todo_list_path, class:"bg-yellow-400 items-center pt-2 px-4 rounded-md font-semibold" %>
+  </div>
+  <div class="mt-5 bg-white shadow overflow-hidden sm:rounded-md">
+    <ul role="list" class="divide-y divide-gray-200">
+      <div class="flex items-center px-4 py-4 sm:px-6">
+        <div class="min-w-0 flex-1 flex items-center">
+          <div class="min-w-0 flex-1 px-4 md:grid md:grid-cols-1 md:gap-4">
+            <div>
+              <% @todo_lists.each do |todo_list| %>
+                <div class="flex flex-col p-6 mr-2 mt-2 bg-white rounded-lg shadow-lg">
+                  <h5 class="mb-2 text-xl font-medium leading-tight text-gray-900">
+                    <li class="bg-white shadow overflow-hidden px-4 py-4 sm:px-6 sm:rounded-md ">
+                      <td><%= link_to todo_list.title, project_todo_list_path(@project ,todo_list) %></td>
+                      <% todo_list.todo_items.each do |todo_item| %>
+                        <div class="card">
+                            <%= todo_item.description %>
+                        </div>
+                      <% end %>
+                    </li>
+                  </h5>
+                </div>
+              <% end %>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-  </ul>
+    </ul>
+  </div>
 </div>

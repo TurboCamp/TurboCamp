@@ -1,12 +1,14 @@
- <%= form_with(model: @content , url:project_chat_room_contents_path(@project), class:'flex') do |f| %>
-  <div>
-          <%= f.hidden_field :image, value: @content.cached_image_data %>
-          <%= f.file_field :image  , data:{chat_room_channel_target:'file_upload'}%>
-  </div>
-          
-  <div class="w-full">
-          <%= f.text_field :text , placeholder: '請輸入訊息', class:'w-11/12 border-sky-500 border rounded-lg' , data:{chat_room_channel_target:'message_input'}%>
-  </div>
-          
-  <%= f.submit '送出' , data:{action:"click->chat-room-channel#remove_value" , chat_room_channel_target:'submit_btn'} , class:'rounded-lg bg-blue-300 px-2 py-0.5 text-sm'%>
-<% end %>
+<div class="w-full px-4 py-1 mb-4 flex justify-between items-center ">
+    <div class="w-full min-w-0 h-10 bg-theme-100 border-sky-500 border rounded-xl flex-grow-1 flex-shrink-1" >
+    <%= form_with(model: @content , url:project_chat_room_contents_path(@project), class:'flex') do |f| %>
+      <%= f.text_field :text , placeholder: '請輸入訊息', class:'p-2 w-full h-10 bg-theme-100 border-sky-500 border rounded-xl' , data:{chat_room_channel_target:'message_input'}%>
+    </div>
+    <div class="p-2">
+      <%= f.file_field :image  , data:{chat_room_channel_target:'file_upload'}%> 
+      <%= f.hidden_field :image, value: @content.cached_image_data %>
+    </div>
+    <div class="pr-4">
+      <%= f.submit '送出' , data:{action:"click->chat-room-channel#remove_value" , chat_room_channel_target:'submit_btn'} , class:'chat-fill-btn'%>
+    </div>
+  <% end %>
+</div>

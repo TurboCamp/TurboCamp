@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>TurboCamp</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= stylesheet_pack_tag 'application', media: 'all' %>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= favicon_link_tag 'logo_outline.ico' %>
+    <link rel="stylesheet" type="text/css" href="https://uicdn.toast.com/tui-calendar/latest/tui-calendar.css" />
+    <link rel="stylesheet" type="text/css" href="https://uicdn.toast.com/tui.date-picker/latest/tui-date-picker.css" />
+    <link rel="stylesheet" type="text/css" href="https://uicdn.toast.com/tui.time-picker/latest/tui-time-picker.css" />
+  </head>
+  <body>
+    <div class="flex justify-start">
+      <div class="absolute top-0 left-0 z-50 overflow-hidden">
+        <%= render 'layouts/aside'  %>
+      </div>
+      <div class="flex flex-col ml-64 w-screen h-screen overflow-hidden">
+        <%= render 'navbar' %>
+        <%= render '/shared/flash' if flash %>
+        <section class="overflow-x-hidden max-h-full">
+          <%= yield %>
+        </section>
+        <%= render 'form' %>
+      </div>
+    </div>
+  </body> 
+</html>
