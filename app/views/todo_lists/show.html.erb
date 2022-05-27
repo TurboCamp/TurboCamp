@@ -44,21 +44,20 @@
       <ul class="w-full list-group divide-y divide-gray-200">
         <% @todo_list.todo_items.each do |todo_item| %>
         <% if todo_item.completed? %>
-          <li class="w-full list-group-item ">
-            <div class="flex justify-between mb-2 bg-gray-100 border-2 border-gray-500 border-solid">
+          <li class="w-full list-group-item">
+            <div class="flex justify-evenly hover:bg-gray-50 w-full mb-2 border-2 border-yellow-400 rounded-lg border-double">
                 <span class="cursor-default">
                 <%= todo_item.description %></span>
-                <%= link_to '#', class:'bg-red-100 border-red-400', data: { reflex: 'click->TodoItem#todo_incomplete', id: todo_item.id } do %>
+                <%= link_to '#', class:'bg-white', data: { reflex: 'click->TodoItem#todo_incomplete', id: todo_item.id } do %>
                   <i class="fas fa-undo"></i>
                 <% end %>
             </div>
           </li>
           <% else %>
           <li class="flex w-full list-group-item">
-            <div class="flex justify-between w-full mb-2 border-2 border-gray-500 border-solid bg-rose-100">
-            
+            <div class="flex justify-around  hover:bg-gray-50 w-full mb-2 border-2 border-yellow-400 rounded-lg border-double">
                 <span><%= todo_item.description %></span>
-                <%= link_to '#', class: 'bg-gray-50', data: { reflex: 'click->TodoItem#todo_complete', id: todo_item.id } do %>
+                <%= link_to '#', class: 'bg-white', data: { reflex: 'click->TodoItem#todo_complete', id: todo_item.id } do %>
                   <i class="fas fa-check"></i>
                 <% end %>
                 <div class="block">
