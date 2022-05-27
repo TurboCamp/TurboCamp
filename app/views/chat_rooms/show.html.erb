@@ -1,8 +1,8 @@
-<section class="max-w-3xl mr-auto ml-auto border-gray-500 border p-3 rounded-lg shadow-lg" data-controller="chat-room-channel" data-id="<%= @project.chat_room.id %>" > 
+<div class="m-auto w-full border-gray-200 border-2 p-24 rounded-lg" data-controller="chat-room-channel" data-id="<%= @project.chat_room.id %>" > 
     <h2 class="text-xl font-semibold"><%= @project.title %>專案的聊天室</h2>
     <br>
-    <section class="h-96 overflow-auto " data-chat-room-channel-target="contentbox" >
-        <div id="content" class="m-4">
+    <section class="h-full max-h-screen overflow-auto " data-chat-room-channel-target="contentbox" >
+        <div id="content" class="m-5">
             <% @contents.each do |content|%>
             <div class="mt-5" data-chat-room-channel-target="textarea">
                 <div class="w-max">
@@ -17,9 +17,11 @@
             </div> 
             <% end %>
         </div>
-        </section>
-       <%= render 'form' %>
-</section>
+    </section>
+    <div>
+    <%= render 'form' %>
+    </div>
+</div>
 
 
 
