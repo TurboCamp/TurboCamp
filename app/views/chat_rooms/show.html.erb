@@ -1,29 +1,26 @@
-<div class="m-auto w-full border-gray-200 border-2 p-24 rounded-lg" data-controller="chat-room-channel" data-id="<%= @project.chat_room.id %>" > 
-    <h2 class="text-xl font-semibold"><%= @project.title %>專案的聊天室</h2>
-    <br>
-    <section class="h-full max-h-screen overflow-auto " data-chat-room-channel-target="contentbox" >
-        <div id="content" class="m-5">
-            <% @contents.each do |content|%>
-            <div class="mt-5" data-chat-room-channel-target="textarea">
-                <div class="w-max">
-                    <span class="text-xs" data-chat-room-channel-target="nickname"><%= content.user %></span>
-                    <div class="px-3 py-2 bg-gray-200 opacity-3 rounded-lg w-max" >
-                        <%= content.text %>
-                        <%= link_to content.image_url do %>
-                            <%= image_tag(content.image_url , size:'150x150') if content.image %>
-                        <% end %>
-                    </div>
-                </div>
-            </div> 
-            <% end %>
-        </div>
-    </section>
-    <div>
-    <%= render 'form' %>
-    </div>
+<div class="block w-full rounded-lg" data-controller="chat-room-channel" data-id="<%= @project.chat_room.id %>" > 
+  <section class="h-full mt-2 min-h-screen overflow-auto " data-chat-room-channel-target="contentbox" >
+      <div id="content">
+          <% @contents.each do |content|%>
+          <div class="px-12 py-3 my-2 hover:bg-theme-100 hover:opacity-75 flex justify-start items-start" data-chat-room-channel-target="textarea">
+            <div class="h-14 w-14 rounded-full overflow-hidden">
+              <% if current_user.avatar %>
+                <%= image_tag(url_for(current_user.avatar_url), size:'32x32' , class:'w-full h-full') %>
+              <% else %>
+                <%= image_tag('default_user' , size:'32x32' , class:'w-full h-full')%>
+              <% end %>
+            </div>
+            <div class="ml-5 pt-1 w-full">
+              <span class="text-2xl font-mono mb-2 text-theme-200" data-chat-room-channel-target="nickname"><%= content.user %></span>
+              <div class="text-xl max-w-full w-full mx-2">
+                <%= content.text %>
+                <%= link_to content.image_url do %>
+                    <%= image_tag(content.image_url , size:'150x150') if content.image %>
+                <% end %>
+              </div>
+            </div>
+          </div> 
+          <% end %>
+      </div>
+  </section>
 </div>
-
-
-
-
-
