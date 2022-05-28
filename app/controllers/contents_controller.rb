@@ -7,7 +7,7 @@ class ContentsController < ApplicationController
     @chat_room = @project.chat_room
     @content = @chat_room.contents.new(content_params)
     if @content.save
-      ActionCable.server.broadcast "ChatRoomChannel_#{@chat_room.id}" , { send_by:@content.user,message: @content.text , image: @content.image_url, avatar: @content.avatar }
+      ActionCable.server.broadcast "ChatRoomChannel_#{@chat_room.id}" , { send_by:@content.user , message: @content.text , image: @content.image_url, avatar: @content.avatar }
     end
   end
 
