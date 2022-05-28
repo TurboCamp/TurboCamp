@@ -1,0 +1,14 @@
+<div class="chat_room " data-chat-room-channel-target="textarea">
+  <div class="avatar">
+      <%= image_tag(content.avatar, size:'20x20' , class:'w-full h-full') %>
+  </div>
+  <div class="content_box ">
+    <span class="speaker " data-chat-room-channel-target="nickname"><%= content.user %></span>
+    <div class="content_text">
+      <%= content.text %>
+      <%= link_to content.image_url do %>
+          <%= image_tag(url_for(content.image_url) , size:'150x150') if content.image %>
+      <% end %>
+    </div>
+  </div>
+</div> 

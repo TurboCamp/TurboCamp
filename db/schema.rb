@@ -87,7 +87,7 @@ ActiveRecord::Schema.define(version: 2022_05_28_034127) do
     t.datetime "updated_at", precision: 6, null: false
     t.string "user"
     t.text "image_data"
-    t.text "avatar"
+    t.text "avatar", default: "default_user"
     t.index ["chat_room_id"], name: "index_contents_on_chat_room_id"
   end
 

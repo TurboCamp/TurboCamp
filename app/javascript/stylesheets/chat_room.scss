@@ -1,0 +1,17 @@
+
+.chat_room {
+  @apply px-12 py-3 my-2 hover:bg-theme-100 hover:opacity-75 flex justify-start items-start;
+  .avatar{
+    @apply h-14 w-14 rounded-full overflow-hidden;
+  };
+  .content_box {
+    @apply ml-5 pt-1 w-full;
+    .speaker{
+      @apply text-2xl font-mono mb-2 text-theme-200
+    };
+    .content_text{
+      @apply text-xl max-w-full w-full mx-2
+    }
+
+  }
+}
