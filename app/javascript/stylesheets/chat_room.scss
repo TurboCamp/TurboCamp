@@ -1,6 +1,10 @@
+.all_chat{
+  height: calc(100% - 3.5rem);
+  
+}
 
 .chat_room {
-  @apply px-12 py-3 my-2 hover:bg-theme-100 hover:opacity-75 flex justify-start items-start;
+  @apply px-8 py-3 my-2 hover:bg-theme-100 hover:opacity-75 flex justify-start items-start;
   .avatar{
     @apply h-14 w-14 rounded-full overflow-hidden;
   };

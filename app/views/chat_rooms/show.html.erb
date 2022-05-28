@@ -1,9 +1,8 @@
-<div class="block w-full rounded-lg" data-controller="chat-room-channel" data-id="<%= @project.chat_room.id %>" > 
-  <section class="h-full mt-2 min-h-screen overflow-auto " data-chat-room-channel-target="contentbox" >
-      <div id="content">
-          <% @contents.each do |content|%>
-            <%= render "chat_message" , content: %>
-          <% end %>
-      </div>
-  </section>
+<div class="rounded-lg h-full" data-controller="chat-room-channel" data-id="<%= @project.chat_room.id %>"> 
+  <div id="content" class="overflow-y-scroll all_chat" data-chat-room-channel-target="contentbox">
+    <% @contents.each do |content|%>
+      <%= render "chat_message" , content: %>
+    <% end %>
+  </div>
+  <%= render 'form' %>
 </div>
