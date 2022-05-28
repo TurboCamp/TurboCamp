@@ -23,7 +23,6 @@ Rails.application.routes.draw do
 
   resources :projects, except: [:index] do
     resource :bucket, only: [:show] do
-      resources :comments, module: :buckets
       resources :documents, only: %i[create destroy]
     end
     resource :chat_room, only: [:show] do
@@ -32,7 +31,7 @@ Rails.application.routes.draw do
 
     resources :schedules
     resources :messages do
-      resources :comments, module: :messages
+      resources :comments , only: [:create]
     end
 
     resources :todo_lists do
