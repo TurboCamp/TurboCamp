@@ -16,7 +16,7 @@ class CommentsController < ApplicationController
 
   def set_message 
     @project = current_user.projects.friendly.find(params[:project_id])
-    @message = @project.messages.find(params[:id])
+    @message = @project.messages.friendly.find(params[:message_id])
   end
 
   def comment_params
