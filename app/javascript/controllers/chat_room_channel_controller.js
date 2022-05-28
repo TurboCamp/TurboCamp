@@ -14,10 +14,11 @@ export default class extends Controller {
             const image = `
             <div class="chat_room" data-chat-room-channel-target="textarea">
               <div class="avatar">
-                <img src="${data.avatar}" , size='20x20' , class='w-full h-full'>
+                <img src="${data.avatar}" , class='w-full h-full'>
               </div>
               <div class="content_box">
                 <span class="speaker">${data.send_by}</span>
+                <span class="text-xs text-gray-400">${data.time}</span>
                 <div class="content_text">${data.message}
                 <a href="${data.image}">
                   <img src="${data.image}" width="150" height="150">
@@ -29,10 +30,11 @@ export default class extends Controller {
             const message = `
             <div class="chat_room"  data-chat-room-channel-target="textarea">
               <div class="avatar">
-                <img src="${data.avatar}" , size='20x20' , class='w-full h-full'>
+                <img src="${data.avatar}" , class='w-full h-full'>
               </div>
               <div class="content_box">
                 <span class="speaker">${data.send_by}</span>
+                <span class="text-xs text-gray-400">${data.time}</span>
                 <div class="content_text">${data.message}
               </div>
             </div>
