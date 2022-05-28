@@ -12,17 +12,29 @@ export default class extends Controller {
         { "channel": "ChatRoomChannel", "chat_room_id": chat_room_id },{ 
           received(data) {
             console.log(data);
-            
             const image = `
-            <div class="ml-5 pt-1 w-full">
-            <span class="text-2xl font-mono mb-2 text-theme-200">${data.send_by}</span>
-            <div class="text-xl max-w-full w-full mx-2">
+            <div class="chat_room" data-chat-room-channel-target="textarea">
+              <div class="avatar">
+                <img src="${data.avatar} , size:'20x20' , class='w-full h-full' %>
+              </div>
+              <div class="content_box">
+                <span class="speaker">${data.send_by}</span>
+              </div>
+              <div class="content_text">
             ${data.message}<a href="${data.image}"><img src="${data.image}" width="150" height="150"></a></div></div>`
+
+            const message = `
+            <div class="chat_room"  data-chat-room-channel-target="textarea">
+              <div class="avatar">
+                <img src="${data.avatar}" , size='20x20' , class='w-full h-full'>
+              </div>
+              <div class="content_box">
+                <span class="speaker">${data.send_by}</span>
+                <div class="content_text">${data.message}
+              </div>
+            </div>
+            </div>`
             
-            const message = `<div class="ml-5 pt-1 w-full">
-            <span class="text-2xl font-mono mb-2 text-theme-200">${data.send_by}</span>
-            <div class="text-xl max-w-full w-full mx-2">
-            ${data.message}</div></div>`
             if (data.image == null){
               document.querySelector("#content").insertAdjacentHTML("beforeend" , message)
             }else{

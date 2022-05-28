@@ -2,24 +2,7 @@
   <section class="h-full mt-2 min-h-screen overflow-auto " data-chat-room-channel-target="contentbox" >
       <div id="content">
           <% @contents.each do |content|%>
-          <div class="px-12 py-3 my-2 hover:bg-theme-100 hover:opacity-75 flex justify-start items-start" data-chat-room-channel-target="textarea">
-            <div class="h-14 w-14 rounded-full overflow-hidden">
-              <% if content.avatar %>
-                <%= image_tag(content.avatar, size:'32x32' , class:'w-full h-full') %>
-              <% else %>
-                <%= image_tag('default_user' , size:'32x32' , class:'w-full h-full')%>
-              <% end %>
-            </div>
-            <div class="ml-5 pt-1 w-full">
-              <span class="text-2xl font-mono mb-2 text-theme-200" data-chat-room-channel-target="nickname"><%= content.user %></span>
-              <div class="text-xl max-w-full w-full mx-2">
-                <%= content.text %>
-                <%= link_to content.image_url do %>
-                    <%= image_tag(content.image_url , size:'150x150') if content.image %>
-                <% end %>
-              </div>
-            </div>
-          </div> 
+            <%= render "chat_message" , content: %>
           <% end %>
       </div>
   </section>
