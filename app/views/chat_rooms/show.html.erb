@@ -4,8 +4,8 @@
           <% @contents.each do |content|%>
           <div class="px-12 py-3 my-2 hover:bg-theme-100 hover:opacity-75 flex justify-start items-start" data-chat-room-channel-target="textarea">
             <div class="h-14 w-14 rounded-full overflow-hidden">
-              <% if current_user.avatar %>
-                <%= image_tag(url_for(current_user.avatar_url), size:'32x32' , class:'w-full h-full') %>
+              <% if content.avatar %>
+                <%= image_tag(content.avatar, size:'32x32' , class:'w-full h-full') %>
               <% else %>
                 <%= image_tag('default_user' , size:'32x32' , class:'w-full h-full')%>
               <% end %>
@@ -23,5 +23,4 @@
           <% end %>
       </div>
   </section>
-  <%= render 'form' %>
 </div>

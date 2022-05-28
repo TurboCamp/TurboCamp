@@ -11,8 +11,9 @@ export default class extends Controller {
       consumer.subscriptions.create(
         { "channel": "ChatRoomChannel", "chat_room_id": chat_room_id },{ 
           received(data) {
-            const image = `
+            console.log(data);
             
+            const image = `
             <div class="ml-5 pt-1 w-full">
             <span class="text-2xl font-mono mb-2 text-theme-200">${data.send_by}</span>
             <div class="text-xl max-w-full w-full mx-2">
