@@ -1,7 +1,7 @@
 <div class="rounded-lg h-full" data-controller="chat-room-channel" data-id="<%= @project.chat_room.id %>"> 
   <div id="content" class="overflow-y-scroll all_chat" data-chat-room-channel-target="contentbox">
     <% @contents.each do |content|%>
-      <%= render "message" , content: %>
+      <%= render "chat_rooms/content" , content: %>
     <% end %>
   </div>
   <%= render 'form' %>

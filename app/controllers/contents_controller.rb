@@ -7,9 +7,9 @@ class ContentsController < ApplicationController
     @chat_room = @project.chat_room
     @content = @chat_room.contents.new(content_params)
     @content.user = current_user
-    @content.save
-    
-    SendMessageJob.perform_later(@content , @chat_room)
+    if @content.save
+      SendMessageJob.perform_later(@content , @chat_room)
+    end
   end
 
   private
