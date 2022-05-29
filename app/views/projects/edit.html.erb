@@ -62,6 +62,15 @@
         </div>
       </div>
       <%= form_with(model: @project , class:"w-full max-w-lg") do |form| %>
+        <div>
+          <div class="flex flex-wrap justify-center mb-3">
+              <div class="rounded-full w-40 h-40 overflow-x-hidden overflow-y-hidden mb-2">
+                <%= form.label :image do %>
+                  <%= image_tag( @project.image_url || "book" ,data: { preview_target: "output" } , class:" hover:text-black hover:opacity-60 cursor-pointer ") %>
+                <% end %>  
+                <%= form.file_field :image ,class:'w-full hidden',data: {preview_target: "input", action:"change->preview#readURL"}%>
+              </div>
+        </div>
         <div class="w-full px-6 py-4">
             <div>
                 <%= form.label :title , "標題"  , class:"block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2 text-lg"%>
