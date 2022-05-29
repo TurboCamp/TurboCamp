@@ -6,6 +6,7 @@ class User < ApplicationRecord
 
   has_many :personals
   has_many :projects , through: :personals , dependent: :destroy
+  has_many :contents 
   
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable,
