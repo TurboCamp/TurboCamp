@@ -1,5 +1,5 @@
-<div class="w-full h-10 px-4 py-1 mb-4 flex justify-between items-center ">
-    <div class="w-full min-w-0 h-10 bg-theme-100 border-sky-500 border rounded-xl" >
+<div class="w-full h-12 px-4 py-2 mb-4 mt-1 flex justify-between items-center ">
+    <div class="w-full min-w-0 h-10 bg-theme-100 border-sky-500 border rounded-xl flex-grow-1 flex-shrink-1" >
     <%= form_with(model: @content , url:project_chat_room_contents_path(@project), class:'flex') do |f| %>
       <%= f.text_field :text , placeholder: '請輸入訊息', class:'p-2 w-full h-10 bg-theme-100 border-sky-500 border rounded-xl' , data:{chat_room_channel_target:'message_input'}%>
     </div>
