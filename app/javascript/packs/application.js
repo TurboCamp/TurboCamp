@@ -8,10 +8,8 @@ import Turbolinks from "turbolinks"
 import * as ActiveStorage from "@rails/activestorage"
 import "channels"
 import "stylesheets";
-import LocalTime from "local-time"
 
 Turbolinks.start()
-LocalTime.start()
 Rails.start()
 ActiveStorage.start()
 
