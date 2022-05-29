@@ -10,7 +10,9 @@ export default class extends Controller {
       let chat_room_id = this.element.dataset.id
       consumer.subscriptions.create(
         { "channel": "ChatRoomChannel", "chat_room_id": chat_room_id },{ 
+          
           received(data) {
+            console.log(data)
             const image = `
             <div class="chat_room" data-chat-room-channel-target="textarea">
               <div class="avatar">
