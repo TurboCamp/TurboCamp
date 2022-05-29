@@ -43,8 +43,8 @@
         <h3 class="text-xl font-medium text-gray-900 dark:text-white">
           Accouont 
         </h3>
-        <div>
-        <%= link_to icons('times', :fas, 'lg', 'pr-3 text-gray-500 hover:text-theme-200'), personal_path %>
+        <div data-controller="cancel">
+        <button data-action="click->cancel#back"><i class="fas fa-times text-2xl"></i></button>
         </div>
       </div>
       <div class="py-12">
