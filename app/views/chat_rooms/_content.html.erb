@@ -7,9 +7,7 @@
     <span class="text-xs text-gray-400"><%= content.created_at.to_s(:message_at) %></span>
     <div class="content_text">
       <%= content.text %>
-      <%= link_to content.image_url do %>
-          <%= image_tag(url_for(content.image_url) , size:'150x150') if content.image %>
-      <% end %>
+        <%= image_tag(url_for(content.image_url) , size:'150x150') if content.image %>
     </div>
   </div>
 </div> 

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_05_29_074502) do
+ActiveRecord::Schema.define(version: 2022_05_29_113549) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -190,7 +190,7 @@ ActiveRecord::Schema.define(version: 2022_05_29_074502) do
     t.string "role", default: "user"
     t.string "nickname"
     t.string "slug"
-    t.string "imageurl", default: "/app/assets/images/default_user.jpg"
+    t.string "imageurl", default: "default_user"
     t.text "avatar_data"
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
     t.index ["email"], name: "index_users_on_email", unique: true

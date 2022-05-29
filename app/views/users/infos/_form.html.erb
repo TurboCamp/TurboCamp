@@ -12,7 +12,7 @@
       <%= f.label :nickname , '暱稱' , class:"block tracking-wide text-gray-700 text-xs font-bold mb-2 text-lg"%>
       <%= f.text_field :nickname , class:"border p-1 border-gray-300 rounded-md" %>
   </div>
-  <%= f.submit '更新個人資料' ,class:"theme-fill-btn"%>
+  <%= f.submit '更新個人資料' ,class:"theme-fill-btn" , data:{controller:"cancel" , action:"click->cancel#back"} %>
 <% end %>
 </div>
 

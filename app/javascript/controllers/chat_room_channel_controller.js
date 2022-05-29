@@ -11,7 +11,9 @@ export default class extends Controller {
       consumer.subscriptions.create(
         { "channel": "ChatRoomChannel", "chat_room_id": chat_room_id },{ 
           received(data) {
-            document.querySelector("#content").innerHTML += data.text
+            console.log(data);
+            const content = document.querySelector("#content")
+            content.innerHTML += data.textcontain
             this.contentboxTarget.scrollTop = this.contentboxTarget.scrollHeight
           },
         }
