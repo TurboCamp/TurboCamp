@@ -3,7 +3,7 @@
     <div>
         <div class="flex flex-wrap justify-center mb-3">
             <div class="rounded-full w-40 h-40 overflow-x-hidden overflow-y-hidden mb-2">
-                <%= image_tag("book" ,data: { preview_target: "output" } , class:"w-full h-full")%>
+                <%= image_tag( @project.image_url || "book" ,data: { preview_target: "output" } , class:"w-full h-full")%>
             </div>
             <%= form.file_field :image ,class:'w-full',data: {preview_target: "input", action:"change->preview#readURL"}%>
     </div>
