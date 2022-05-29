@@ -10,43 +10,8 @@ export default class extends Controller {
       let chat_room_id = this.element.dataset.id
       consumer.subscriptions.create(
         { "channel": "ChatRoomChannel", "chat_room_id": chat_room_id },{ 
-          
           received(data) {
-            console.log(data)
-            const image = `
-            <div class="chat_room" data-chat-room-channel-target="textarea">
-              <div class="avatar">
-                <img src="${data.avatar}" , class='w-full h-full'>
-              </div>
-              <div class="content_box">
-                <span class="speaker">${data.send_by}</span>
-                <span class="text-xs text-gray-400">${data.time}</span>
-                <div class="content_text">${data.message}
-                <a href="${data.image}">
-                  <img src="${data.image}" width="150" height="150">
-                </a>
-                </div>
-              </div>
-            </div>`
-
-            const message = `
-            <div class="chat_room"  data-chat-room-channel-target="textarea">
-              <div class="avatar">
-                <img src="${data.avatar}" , class='w-full h-full'>
-              </div>
-              <div class="content_box">
-                <span class="speaker">${data.send_by}</span>
-                <span class="text-xs text-gray-400">${data.time}</span>
-                <div class="content_text">${data.message}
-              </div>
-            </div>
-            </div>`
-            
-            if (data.image == null){
-              document.querySelector("#content").insertAdjacentHTML("beforeend" , message)
-            }else{
-              document.querySelector("#content").insertAdjacentHTML("beforeend" , image)
-            }
+            document.querySelector("#content").innerHTML += data.text
             this.contentboxTarget.scrollTop = this.contentboxTarget.scrollHeight
           },
         }
