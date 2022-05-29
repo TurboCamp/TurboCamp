@@ -15,11 +15,11 @@
 }
 
 .dropdown {
-  @apply relative w-full p-4 items-center hover:bg-theme-200 hover:text-white rounded-sm text-xl font-mono;
+  @apply relative w-full pl-6 py-4 items-center hover:bg-theme-200 hover:text-white rounded-md text-xl font-mono;
 }
 
 .dropdown-content {
-  @apply fixed top-28 right-28 z-50 w-36 rounded-sm min-w-max bg-theme-150 flex flex-wrap text-theme-0;
+  @apply fixed top-24 right-20 z-50 rounded-md bg-theme-150 flex flex-wrap text-theme-0;
 }
 
 .dropdown-icon {

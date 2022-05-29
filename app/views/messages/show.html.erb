@@ -1,34 +1,37 @@
-<div class="p-24 mx-24 relative bg-white overflow-hidden">
-  <div data-controller="dropdown">
-    <button type="button" data-action="click->dropdown#toggle" class="fixed top-32 right-32"><%= icons 'ellipsis-h', :fas, 'xl', 'dropdown-icon'%></button>
-    <div data-dropdown-target="toggle" class="dropdown-content" 
-        data-transition-enter-active="transition ease-in-out duration-300"
-        data-transition-enter-from="transform opacity-0 scale-95"
-        data-transition-enter-to="transform opacity-100 scale-100"
-        data-transition-leave-active="transition ease-in-out duration-300"
-        data-transition-leave-from="transform opacity-100 scale-100"
-        data-transition-leave-to="transform opacity-0 scale-95">
-      <div class="w-full flex justify-end items-center py-2 px-1">
-        <button type="submit" data-action="click->dropdown#close" class="p-2"><%= icons('times', :fas, 'lg', 'p-2') %></button>
+<div class="p-28 h-full min-w-0 overflow-x-hidden max-h-screen relative">
+  <div class="w-4/5 max-w-screen-lg m-auto ">
+    <div data-controller="dropdown">
+      <button type="button" data-action="click->dropdown#toggle" class="fixed top-28 right-24 z-10"><%= icons 'ellipsis-h', :fas, 'xl', 'dropdown-icon'%></button>
+      <div data-dropdown-target="toggle" class="dropdown-content" 
+          data-transition-enter-active="transition ease-in-out"
+          data-transition-enter-from="transform translate-x-32 opacity-0 scale-x-0"
+          data-transition-enter-to="transform translate-x-0 opacity-100 scale-x-100"
+          data-transition-leave-active="transition ease-in-out"
+          data-transition-leave-from="transform translate-x-0 opacity-100 scale-x-100"
+          data-transition-leave-to="transform translate-x-32 opacity-0 scale-x-0">
+        <div class="w-full flex justify-end items-center py-2 px-1">
+          <button type="submit" data-action="click->dropdown#close" class="p-3"><%= icons('times', :fas, 'lg', 'p-2') %></button>
+        </div>
+        <%=link_to "編輯", edit_project_message_path(@project, @message), class: 'dropdown mt-2' %>
+        <%=link_to "刪除", project_message_path(@project ,@message), method: "delete", data: { confirm: "確定刪除?"}, class: 'dropdown' %>
+        <%=link_to "返回", project_messages_path(@project), class: 'dropdown' %>
       </div>
-      <%=link_to "編輯", edit_project_message_path(@project, @message), class: 'dropdown mt-4' %>
-      <%=link_to "刪除", project_message_path(@project ,@message), method: "delete", data: { confirm: "確定刪除?"}, class: 'dropdown' %>
     </div>
-  </div>
-  <div class="relative px-4 py-5 sm:px-6 lg:px-8">
-    <div class="text-lg max-w-prose mx-auto">
-      <h1 class="text-7xl h1">
-        <%=@message.title%>
-      </h1>
+    <div class="w-full relative px-4 py-5 mx-auto justify-items-center">
+      <div class="text-center pb-5">
+        <h1 class="text-7xl">
+          <%= @message.title %>
+        </h1>
+      </div>
+      <div class="text-xl font-normal py-14 text-gray-600">
+        <p><%= @message.content %></p>
+      </div>
     </div>
-    <div class="mt-14 prose prose-indigo prose-lg text-gray-500 mx-auto">
-      <p class="p"><%=@message.content%></p>
+    <div class="relative px-4 py-4">
+      <h3 class="text-lg leading-6 font-medium text-gray-900">Comments</h3>
+         <%= render partial: "comments/comments", locals:{commentable: @message }%>
+      <h3 class="text-lg leading-6 font-medium text-gray-900">Add a comment:</h3>
+        <%= render partial: "comments/form", locals:{commentable: @message } %>
     </div>
-  </div>
-  <div class="relative px-4 sm:px-6 lg:px-8">
-    <h3 class="text-lg leading-6 font-medium text-gray-900">Comments</h3>
-       <%= render partial: "comments/comments", locals:{commentable: @message }%>
-    <h3 class="text-lg leading-6 font-medium text-gray-900">Add a comment:</h3>
-      <%= render partial: "comments/form", locals:{commentable: @message } %>
   </div>
 </div>

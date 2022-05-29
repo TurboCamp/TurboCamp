@@ -1,6 +1,12 @@
   <% commentable.comments.each do |comment| %>
-    <div class='border-b border-gray-300 mt-2 rounded-lg'>
-    <%= comment.commenter %>：
-    <%= comment.content %></div>
+    <%= image_tag(comment.avatar) %>
+    <div class='border-b border-gray-300 py-2'>
+      <div class="text-2xl font-semibold">
+        <%= comment.commenter %>
+      </div>
+      <div class="text-xl py-2">
+        <%= comment.content %>
+      </div>
+    </div>
   <% end %>
 
