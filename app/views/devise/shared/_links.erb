@@ -14,6 +14,18 @@
 
 <%- if devise_mapping.omniauthable? %>
   <%- resource_class.omniauth_providers.each do |provider| %>
-  <%= link_to t('.sign_in_with_provider', :provider => provider.to_s.titleize, :default => "Sign in with #{provider.to_s.titleize}"), omniauth_authorize_path(resource_name, provider), class:"text-center inline-block px-7 py-3 bg-blue-600 text-white font-medium text-sm leading-snug uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out w-full mb-2" , method: :post%><br />
+    <% if provider.to_s.titleize == "Google Oauth2" %>
+      <div>
+        <%= link_to omniauth_authorize_path(resource_name, provider), class:"text-center inline-block px-7 py-3 bg-blue-600 text-white font-medium text-sm leading-snug uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out w-full mb-2 flex justify-center align-center" , method: :post do %>
+            <i class="fab fa-google text-2xl"></i>
+        <% end %>
+      </div>
+    <% else %>
+      <div>
+        <%= link_to  omniauth_authorize_path(resource_name, provider), class:"text-center inline-block px-7 py-3 bg-blue-600 text-white font-medium text-sm leading-snug uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out w-full mb-2 flex justify-center" , method: :post do%>
+          <i class="fab fa-github text-2xl"></i>
+        <% end %>
+      </div>
+    <% end %>
   <% end -%>
 <% end -%>
