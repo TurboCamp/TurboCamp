@@ -1,0 +1,17 @@
+<div class="bg-theme-0 bg-opacity-60 overflow-y-auto overflow-x-hidden animated fadeIn fixed inset-0 flex items-center justify-center z-50 w-full md:inset-0 md:h-full">
+  <div class="relative p-4 max-h-screen w-full max-w-xl h-full md:h-auto">
+    <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
+      <div class="flex justify-between items-center p-5 rounded-t border-b dark:border-gray-600">
+        <h3 class="text-xl font-medium text-gray-900 dark:text-white">
+          Accouont 
+        </h3>
+        <div data-controller="cancel">
+        <button data-action="click->cancel#back"><i class="fas fa-times text-2xl"></i></button>
+        </div>
+      </div>
+      <div class="py-12">
+      <%= render 'form' %>
+      </div>
+    </div>
+  </div>
+</div>
