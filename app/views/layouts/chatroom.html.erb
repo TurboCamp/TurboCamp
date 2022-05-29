@@ -21,9 +21,7 @@
       <div class="ml-64 flex-col flex w-full h-screen overflow-hidden">
         <%= render 'navbar'%>
         <%= render '/shared/flash' if flash %>
-        <section class="flex-grow overflow-scroll">
-          <%= yield %>
-        </section>
+        <%= yield %>
       </div>
     </div>
   </body> 
