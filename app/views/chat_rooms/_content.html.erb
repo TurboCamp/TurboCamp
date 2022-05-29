@@ -7,7 +7,14 @@
     <span class="text-xs text-gray-400"><%= content.created_at.to_s(:message_at) %></span>
     <div class="content_text">
       <%= content.text %>
+      <% if content.image %>
+      <div class="relative">
         <%= image_tag(url_for(content.image_url) , size:'150x150') if content.image %>
+        <a href="<%=content.image.download_url%>" download="" class='absolute bottom-1 left-1'>
+          <i class="fas fa-cloud-download-alt text-2xl"></i>
+        </a>
+      </div>
+      <% end %>
     </div>
   </div>
 </div> 

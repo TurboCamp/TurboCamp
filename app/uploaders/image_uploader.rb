@@ -1,5 +1,6 @@
 
 class ImageUploader < ApplicationUploader
+  plugin :download_endpoint, prefix: "images"
   Attacher.derivatives do |original|
     magick = ImageProcessing::MiniMagick.source(original)
  
