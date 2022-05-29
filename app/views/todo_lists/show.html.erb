@@ -1,6 +1,8 @@
-<div class="flex flex-col w-11/12 bg-gray-100 border-red-900 p-28">
-  <div class="flex flex-row justify-between w-full h-auto">
-    <div class="flex items-center col">
+<div class="h-auto p-2 overflow-hidden bg-white shadow sm:rounded-lg">
+  <%# todo-item-card-head-start %>
+  <div class="flex justify-between px-4 py-5 align-middle sm:px-6">
+    <div>
+    <%# back icon %>
       <%= link_to project_todo_lists_path, class: 'bg-gray-500 hover:bg-blue-700 text-white font-bold py-2 px-4 pt-2 rounded' do %>
         <i class="fas fa-chevron-circle-left"></i>
       <% end %>
@@ -27,7 +29,11 @@
   <%# todo-item-card-complete-percentage-end %>
   <%# todo-item-card-add-new-item-start %>
   <%= form_for([@project, @todo_list, @todo_item]) do |form| %>
-    <div class="flex flex-row px-4 py-5 space-y-6 align-baseline bg-white  sm:p-6">
+<<<<<<< HEAD
+    <div class="flex flex-row px-4 py-5 space-y-6 align-baseline bg-white sm:p-6">
+=======
+    <div class="flex flex-row px-4 py-5 space-y-6 align-baseline bg-white sm:p-6">
+>>>>>>> Fix todo畫面2
       <div class="flex-grow m-4">
         <%= form.text_field :description, class:"shadow-sm focus:ring-yellow-500 focus:border-yellow-500 mt-1 block w-full h-10 sm:text-sm border border-gray-300 rounded-md",placeholder:"新增todo" %>
       </div>
@@ -42,25 +48,23 @@
       <ul class="w-full divide-y divide-gray-200 list-group">
         <% @todo_list.todo_items.each do |todo_item| %>
         <% if todo_item.completed? %>
-          <li class="w-full list-group-item">
-            <div class="flex justify-evenly hover:bg-gray-50 w-full mb-2 border-2 border-yellow-400 rounded-lg border-double">
-                <span class="cursor-default">
+          <li class="w-full list-group-item ">
+            <div class="flex items-center justify-between w-full mb-2 border-2 border-gray-400 h-14 hover:bg-gray-50">
+                <span class="ml-4 cursor-default ">
                 <%= todo_item.description %></span>
-                <%= link_to '#', class:'bg-white', data: { reflex: 'click->TodoItem#todo_incomplete', id: todo_item.id } do %>
+                <%= link_to '#', class:'bg-white mr-2 border-2 p-2 hover:bg-orange-700', data: { reflex: 'click->TodoItem#todo_incomplete', id: todo_item.id } do %>
                   <i class="fas fa-undo"></i>
                 <% end %>
             </div>
           </li>
           <% else %>
           <li class="flex w-full list-group-item">
-            <div class="flex justify-around  hover:bg-gray-50 w-full mb-2 border-2 border-yellow-400 rounded-lg border-double">
-                <span><%= todo_item.description %></span>
-                <%= link_to '#', class: 'bg-white', data: { reflex: 'click->TodoItem#todo_complete', id: todo_item.id } do %>
+            <div class="flex items-center justify-between w-full mb-2 border-2 border-gray-400 h-14 hover:bg-gray-50">
+                <span class="ml-4"><%= todo_item.description %></span>
+                <%= link_to '#', class: 'm-auto bg-white mr-2 border-2 p-2 hover:bg-orange-700', data: { reflex: 'click->TodoItem#todo_complete', id: todo_item.id } do %>
                   <i class="fas fa-check"></i>
                 <% end %>
-                <div class="block">
-                <%= link_to '刪除', project_todo_list_todo_item_path(@project, @todo_list, todo_item.id ), method: "delete" %>
-                </div>
+                <%= link_to '刪除', project_todo_list_todo_item_path(@project, @todo_list, todo_item.id ), method: "delete", class:'mr-2 border-2 p-2 hover:bg-orange-700' %>
             </div>
           </li>
           <% end %>
