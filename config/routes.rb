@@ -40,4 +40,5 @@ Rails.application.routes.draw do
   end
 
   mount DocumentUploader.download_endpoint => '/documents', host: 'https://turbocamp.tw'
+  mount ImageUploader.download_endpoint => '/images', host: 'https://turbocamp.tw'
 end
