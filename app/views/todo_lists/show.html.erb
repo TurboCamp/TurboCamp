@@ -1,5 +1,7 @@
-<div class="h-auto p-2 overflow-hidden bg-white shadow sm:rounded-lg">
+<div class="flex flex-col h-auto p-28">
   <%# todo-item-card-head-start %>
+  <div class="p-4 border-2">
+  
   <div class="flex justify-between px-4 py-5 align-middle sm:px-6">
     <div>
     <%# back icon %>
@@ -29,11 +31,7 @@
   <%# todo-item-card-complete-percentage-end %>
   <%# todo-item-card-add-new-item-start %>
   <%= form_for([@project, @todo_list, @todo_item]) do |form| %>
-<<<<<<< HEAD
     <div class="flex flex-row px-4 py-5 space-y-6 align-baseline bg-white sm:p-6">
-=======
-    <div class="flex flex-row px-4 py-5 space-y-6 align-baseline bg-white sm:p-6">
->>>>>>> Fix todo畫面2
       <div class="flex-grow m-4">
         <%= form.text_field :description, class:"shadow-sm focus:ring-yellow-500 focus:border-yellow-500 mt-1 block w-full h-10 sm:text-sm border border-gray-300 rounded-md",placeholder:"新增todo" %>
       </div>
@@ -71,5 +69,6 @@
         <% end %>
       </ul>
     </div>
+  </div>
   <%# todo-item-card-body-end %>
 </div>
