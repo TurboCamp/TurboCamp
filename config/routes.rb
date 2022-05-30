@@ -19,6 +19,7 @@ Rails.application.routes.draw do
       end
     end
   end
+
   resource :personal, only: [:show]
 
   resources :projects, except: [:index] do
@@ -31,7 +32,7 @@ Rails.application.routes.draw do
 
     resources :schedules
     resources :messages do
-      resources :comments , only: [:create]
+      resources :comments , only: %i[create destroy edit]
     end
 
     resources :todo_lists do

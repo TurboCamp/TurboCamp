@@ -1,12 +1,8 @@
-<div class="p-28 w-full">
-
-
+<div class="px-28 py-10 h-screen min-w-0 overflow-x-hidden max-h-screen">
   <div class="flex items-center justify-between mb-10">
     <h1 class="text-4xl font-bold">行事曆</h1>
     <%= link_to '新增行程', new_project_schedule_path, class: "rounded-lg py-3 px-5 bg-orange-600 text-white block font-medium" %>
   </div>
-  
-
   <div data-controller="calendar" id="calendar" data-schedule="<%= @schedules.to_json %>">
   </div>
 </div>

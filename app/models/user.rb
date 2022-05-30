@@ -5,9 +5,10 @@ class User < ApplicationRecord
   include AvatarUploader::Attachment(:avatar)
 
   has_many :personals
-  has_many :projects , through: :personals , dependent: :destroy
-  has_many :contents 
-  
+  has_many :projects, through: :personals, dependent: :destroy
+  has_many :contents
+  has_many :comments
+
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable,
          :omniauthable, omniauth_providers: %i[google_oauth2 github]

@@ -3,7 +3,11 @@
 }
 
 .theme-fill-btn {
-  @apply bg-theme-150 text-theme-0 hover:bg-theme-200 hover:text-white font-bold py-3 px-5 rounded-md;
+  @apply bg-theme-150 text-theme-0 border-theme-150 border hover:bg-theme-200 hover:text-white hover:border-theme-200 font-bold py-3 px-5 rounded-md;
+}
+
+.theme-outline-btn {
+  @apply bg-white text-theme-150 border-theme-150 border hover:bg-theme-200 hover:text-white hover:border-theme-200 font-bold py-3 px-5 rounded-md;
 }
 
 .chat-fill-btn {
@@ -32,6 +36,10 @@
 
 .card {
   @apply flex items-center justify-center bg-white rounded-lg relative border-2 border-gray-400 drop-shadow-md md:flex-row md:max-w-xl hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700;
+}
+
+.mb-card {
+  @apply h-64 overflow-hidden flex items-start justify-center bg-white rounded-lg relative border-2 border-gray-400 drop-shadow-md md:flex-row md:max-w-xl hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700;
 }
 
 @layer components {

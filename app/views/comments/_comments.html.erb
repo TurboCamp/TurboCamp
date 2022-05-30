@@ -1,11 +1,23 @@
   <% commentable.comments.each do |comment| %>
-    <%= image_tag(comment.avatar) %>
-    <div class='border-b border-gray-300 py-2'>
-      <div class="text-2xl font-semibold">
-        <%= comment.commenter %>
+    <div class="px-4 pb-3 my-2 pt-8 w-full border-t border-gray-300 flex justify-start items-start">
+      <div class="h-14 w-14 rounded-full overflow-hidden">
+        <% if current_user.avatar %>
+          <%= image_tag(url_for(current_user.avatar_url), size:'32x32' , class:'w-full h-full') %>
+        <% else %>
+          <%= image_tag('default_user' , size:'32x32' , class:'w-full h-full')%>
+        <% end %>
       </div>
-      <div class="text-xl py-2">
-        <%= comment.content %>
+      <div class='pl-4 py-2 w-5/6'>
+        <div class="text-2xl font-semibold">
+          <%= comment.commenter %>
+        </div>
+        <div class="text-xl py-2">
+          <%= comment.content %>
+        </div>
+      </div>
+      <div class="pl-12">
+        <%= link_to '刪除', project_message_comment_path(@project, @message, comment.id), method: 'delete' %>
+        <%= link_to '修改', edit_project_message_comment_path(@project, @message, comment.id)%>
       </div>
     </div>
   <% end %>
