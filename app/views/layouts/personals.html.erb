@@ -10,13 +10,10 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
     <%= favicon_link_tag 'logo_outline.ico' %>
   </head>
-
   <body>
-    <header>
-      <%= render 'personals/navbar' %>
-    </header>
-    <main id="personal" class="relative m-auto p-24 pt-7">
+    <main id ="personal" class="relative flex flex-col m-auto h-screen overflow-hidden">
       <%= render "/shared/flash" if flash %>
+      <%= render 'personals/navbar' %>
       <%= yield %>
     </main>
   </body> 

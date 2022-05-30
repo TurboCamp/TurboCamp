@@ -1,51 +1,54 @@
-<div class="p-20 h-full min-w-0 overflow-hidden max-h-screen">
-  <div class="m-auto w-full flex justify-between">
-    <h1 class="text-5xl mb-3 font-semibold"><%= @project.title %></h1>
+<div class="h-full min-w-0 overflow-x-hidden max-h-screen">
+  <div class="h-64 overflow-hidden relative ">
+    <%= image_tag 'abs04', size: '32x32', class: 'w-full absolute -inset-y-64 bg-cover' %>
   </div>
-  
-  <div class="p-8 m-auto h-5 border-t border-black">
-    
-  </div>
-  <div class="container m-auto p-6 ">
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 grid-flow-row relative ">
-      <%= link_to project_todo_lists_path(@project), class: 'card' do %>
-        <div class="justify-between block p-4 leading-normal">
-          <div class="pt-24">
-          </div>
-          <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Todos</h5>
-        </div>
-      <% end %>
-      <%= link_to project_schedules_path(@project), class: 'card' do %>
-        <div class="justify-between block p-4 leading-normal">
-          <div class="pt-24"> </div>
-          <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Schedule</h5>
-        </div>
-      <% end %>
-      <%= link_to project_chat_room_path(@project), class: 'card' do %>
-        <div class="justify-between block p-4 leading-normal">
-          <div class="pt-24"> </div>
-          <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Camfire</h5>
-        </div>
-      <% end %>
-      <%= link_to project_messages_path(@project) , class: 'card' do %>
-        <div class="justify-between block p-4 leading-normal">
-          <div class="pt-24"> </div>
-          <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Message Boards</h5>
-        </div>
-      <% end %>
-      <%= link_to project_bucket_path(@project) , class: 'card' do %>
-        <div class="justify-between block p-4 leading-normal">
-          <div class="pt-24"> </div>
-          <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Docs & Files</h5>
-        </div>
-      <% end %>
+  <div class="p-20">
+    <div class=" m-auto w-full flex justify-between">
+      <h1 class="text-5xl mb-3 font-semibold"><%= @project.title %></h1>
     </div>
-  </div>
-  <div data-controller="member" class="block m-auto" data-id="<%= @project.slug %>">
-      <button  data-action="click->member#join" class="px-2 theme-fill-btn">Add Member</button>
-      <div id="inputbox" class="hidden px-2">
-        <input type="text" placeholder="請輸入信箱" class="input">
-        <button class="searchbtn theme-fill-btn" data-action="click->member#invite">加入成員</button>
+    <div class="p-8 m-auto h-5 border-t border-black">
+    </div>
+    <div class="container m-auto p-6 ">
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 grid-flow-row relative ">
+        <%= link_to project_todo_lists_path(@project), class: 'card' do %>
+          <div class="justify-between block p-4 leading-normal">
+            <div class="pt-24">
+            </div>
+            <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Todos</h5>
+          </div>
+        <% end %>
+        <%= link_to project_schedules_path(@project), class: 'card' do %>
+          <div class="justify-between block p-4 leading-normal">
+            <div class="pt-24"> </div>
+            <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Schedule</h5>
+          </div>
+        <% end %>
+        <%= link_to project_chat_room_path(@project), class: 'card' do %>
+          <div class="justify-between block p-4 leading-normal">
+            <div class="pt-24"> </div>
+            <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Camfire</h5>
+          </div>
+        <% end %>
+        <%= link_to project_messages_path(@project) , class: 'card' do %>
+          <div class="justify-between block p-4 leading-normal">
+            <div class="pt-24"> </div>
+            <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Message Boards</h5>
+          </div>
+        <% end %>
+        <%= link_to project_bucket_path(@project) , class: 'card' do %>
+          <div class="justify-between block p-4 leading-normal">
+            <div class="pt-24"> </div>
+            <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Docs & Files</h5>
+          </div>
+        <% end %>
       </div>
     </div>
+  </div>
+  <div data-controller="member" class="flex m-auto" data-id="<%= @project.slug %>">
+    <button  data-action="click->member#join" class="px-2 theme-fill-btn">Add Member</button>
+    <div id="inputbox" class="hidden px-2">
+      <input type="text" placeholder="請輸入信箱" class="input">
+      <button class="searchbtn theme-fill-btn" data-action="click->member#invite">加入成員</button>
+    </div>
+  </div>
 </div>

@@ -3,7 +3,9 @@
 class PersonalsController < ApplicationController
   before_action :authenticate_user!
   layout 'personals'
+
   def show
-      @projects = current_user.projects
+    @user = current_user
+    @projects = @user.projects
   end
 end
