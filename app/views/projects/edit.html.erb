@@ -1,4 +1,4 @@
-<div class="mt-12">
+<div class="p-28 h-full min-w-0 overflow-hidden max-h-screen">
   <div class="m-auto w-full flex justify-between">
     <h1 class="text-7xl font-semibold"><%= @project.title %></h1>
     <div class="flex items-center">
@@ -41,13 +41,6 @@
       <% end %>
     </div>
   </div>
-  <div data-controller="member" class="block m-auto" data-id="<%= @project.slug %>">
-    <button  data-action="click->member#join" class="px-2 theme-fill-btn">Add Member</button>
-    <div id="inputbox" class="hidden px-2 " >
-      <input type="text" placeholder="請輸入信箱" class="input">
-      <button class="searchbtn theme-fill-btn" data-action="click->member#invite">加入成員</button>
-    </div>
-  </div>
 </div>
 
 <div data-controller="modal" class="bg-theme-0 bg-opacity-60 overflow-y-auto overflow-x-hidden animated fadeIn fixed inset-0 flex items-center justify-center z-50 w-full md:inset-0 md:h-full">
@@ -88,6 +81,13 @@
           <%= link_to '刪除專案' , project_path(@project) , method: :delete, class: 'theme-fill-btn' %>
         </div>
       <% end %>
+        <div data-controller="member" class="block m-auto" data-id="<%= @project.slug %>">
+          <button  data-action="click->member#join" class="px-2 theme-fill-btn">Add Member</button>
+          <div id="inputbox" class="hidden px-2 " >
+            <input type="text" placeholder="請輸入信箱" class="input">
+            <button class="searchbtn theme-fill-btn" data-action="click->member#invite">加入成員</button>
+          </div>
+        </div>
       </div>
     </div>
   </div>

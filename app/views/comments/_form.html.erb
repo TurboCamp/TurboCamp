@@ -1,8 +1,8 @@
 <%= form_for([commentable, Comment.new] , url:project_message_comments_path(@project , @message)) do |form| %>
-  <div>
-    <%= form.rich_text_area :content %>
+  <div class="border-2 border-theme-100 rounded-md p-2">
+    <%= form.rich_text_area :content, class: 'border-white h-48 m-2 hove:bg-theme-100' %>
   </div>
-  <div>
-    <%= form.submit class:"button"%>
+  <div class="py-4 float-right">
+    <%= form.submit '新增留言', class: 'theme-fill-btn'%>
   </div>
 <% end %>
