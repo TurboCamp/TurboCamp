@@ -1,26 +1,49 @@
-<section class="p-28 h-full min-w-0 overflow-hidden max-h-screen">
-  <div class="m-auto w-11/12">
-    <div class="flex justify-end pt-11 pb-3">
-      <%= link_to 'NEW', new_project_path , data:{remote:true} , class: 'theme-fill-btn' %>
-    </div>
-    <div class="p-6 m-auto h-5 border-t border-black"></div>
-  </div>
-  <div class="container m-auto p-6">
-    <div class="grid grid-cols-1 sm:grid-cols-2  
-                lg:grid-cols-3 gap-5 grid-flow-row relative ">
-    <% @projects.each do |project| %>
-      <%= link_to project_path(project), class: 'card' do  %>
-        <div class="block justify-between p-4 leading-normal">
-          <div class="pt-16"></div>
-          <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white"><%= project.title%></h5>
-          <p class="mb-3 font-normal text-gray-700 dark:text-gray-400"><%= project.description %></p>
-          <div class="flex">
-          <% project.users.each do |user| %>
-          <div class="w-10 h-10 rounded-full overflow-hidden">
-              <%= image_tag(user.avatar_url || user.imageurl , size:'40x40' , class:'w-full h-full' )%>
-          </div>
-          <% end %>
+<section class="px-48 pt-8 h-full min-w-0 overflow-x-hidden max-h-screen bg-theme-50">
+  <div class="m-auto container mb-8">
+    <div class="flex justify-start pt-11 pb-3 px-4">
+      <div class="flex items-center px-4">
+        <div class="h-36 w-36 border-4 border-gray-300 overflow-hidden rounded-full">
+          <%= image_tag(@user.avatar_url || @user.imageurl , size:'32x32' , class:'w-full h-full')%>
         </div>
+        <div class="font-semibold text-6xl pl-8">
+          <%= @user.nickname %>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container m-auto rounded-md p-6 px-12 bg-white filter drop-shadow-xl ">
+    <div class="py-4 mb-8 flex justify-between items-center">
+      <div class="block">
+        <h3 class="font-semibold text-5xl pb-4">Projects</h3>
+        <span class="font-light text-gray-500 pl-0.5">Projects you're in <%= @projects.count %> projects.</span>
+      </div>
+      <div class="pt-0.5 pr-0.5">
+        <%= link_to icons('plus', :fas, 'xl', 'dropdown-icon'), new_project_path, data:{ remote:true } %>
+      </div>
+    </div>
+    <div class="grid grid-cols-1 sm:grid-cols-2  
+                lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-5 grid-flow-row relative ">
+    <% @projects.each do |project| %>
+      <%= link_to project_path(project), class: 'card bg-white border-0' do  %>
+        <div class="flex flex-col items-center align-middle w-full pb-4">
+          <div class="w-full relative overflow-hidden filter blur-0 hover:blur-lg">
+            <span class="w-full h-full absolute bottom-0 opacity-0 rounded-md text-white bg-theme-0 transition transform -translate-y-28 hover:rounded-md hover:opacity-70 hover:translate-y-0  ">
+              <div class="flex flex-col p-5">
+                <div class="flex flex-wrap h-1/4">
+                <% project.users.each do |user| %>
+                  <div class="w-10 h-10 rounded-full overflow-hidden">
+                    <%= image_tag(user.avatar_url || user.imageurl , size:'40x40' , class:'w-full h-full' )%>
+                  </div>
+                <% end %>
+                </div>
+                <div class="py-4 min-h-full overflow-hidden">
+                <%= project.description %>
+                </div>
+              </div>
+            </span>
+            <%= image_tag 'abs04', size: '32x32', class: 'w-full h-full bg-theme-75 rounded-md' %>
+          </div>
+          <h5 class="py-3  text-2xl font-bold tracking-tight text-gray-900 dark:text-white"><%= project.title %></h5>
         </div>
       <% end %>
     <% end %>

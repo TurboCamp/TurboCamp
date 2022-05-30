@@ -2,7 +2,6 @@
 
 class Bucket < ApplicationRecord
   has_rich_text :content
-  has_many :comments, as: :commentable, dependent: :destroy
   belongs_to :project
   has_many :documents , dependent: :destroy
 

@@ -1,6 +1,6 @@
-<nav class="flex justify-between border-gray-200 filter drop-shadow-sm border-b-2 h-13 p-2 my-1 w-full ">
+<nav class="flex justify-between items-center border-gray-300 filter drop-shadow-md border-b h-13 p-2 w-full">
   <div class="flex items-center ml-7">
-    <h2 class="text-2xl font-semibold">Luanchboard</h2>
+    <%= image_tag 'turbocamp_a', class: 'h-9' %>
   </div>
   <div class="items-center flex flex-nowrap h-7">
     <%= link_to icons('sign-out-alt', :fas, 'lg', 'pr-4'), destroy_user_session_path, method: :delete %>
