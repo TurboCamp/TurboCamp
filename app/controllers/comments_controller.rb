@@ -6,8 +6,8 @@ class CommentsController < ApplicationController
 
   def create
     @comment = @message.comments.new(comment_params)
+    @comment.user = current_user
     @comment.save
-    @comment.update(commenter: current_user.nickname)
     redirect_back fallback_location: root_path
   end
 

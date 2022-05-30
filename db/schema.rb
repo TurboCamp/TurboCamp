@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_05_29_174708) do
+ActiveRecord::Schema.define(version: 2022_05_30_042159) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -72,14 +72,13 @@ ActiveRecord::Schema.define(version: 2022_05_29_174708) do
   end
 
   create_table "comments", force: :cascade do |t|
-    t.string "commenter"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "status"
     t.bigint "message_id"
-    t.text "avatar", default: "default_user"
-    t.text "image_data"
+    t.bigint "user_id"
     t.index ["message_id"], name: "index_comments_on_message_id"
+    t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
   create_table "contents", force: :cascade do |t|
@@ -205,6 +204,7 @@ ActiveRecord::Schema.define(version: 2022_05_29_174708) do
   add_foreign_key "buckets", "projects"
   add_foreign_key "chat_rooms", "projects"
   add_foreign_key "comments", "messages"
+  add_foreign_key "comments", "users"
   add_foreign_key "contents", "chat_rooms"
   add_foreign_key "contents", "users"
   add_foreign_key "documents", "buckets"

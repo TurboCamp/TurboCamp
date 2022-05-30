@@ -2,11 +2,12 @@ import { Controller } from '@hotwired/stimulus'
 import { useTransition } from 'stimulus-use'
 
 export default class extends Controller {
-  static targets = ['toggle']
-  
+  static targets = ['toggle', 'close']
+
   connect() {
     useTransition(this, {
       element: this.toggleTarget,
+      transitioned: false,
     })
   }
 
@@ -14,7 +15,7 @@ export default class extends Controller {
     this.toggleTransition()
   }
 
-  close() {
+  close(e) {
     this.leave()
   }
 }
