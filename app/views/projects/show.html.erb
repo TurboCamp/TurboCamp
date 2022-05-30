@@ -4,13 +4,7 @@
   </div>
   
   <div class="p-8 m-auto h-5 border-t border-black">
-    <div data-controller="member" class="block m-auto" data-id="<%= @project.slug %>">
-      <button  data-action="click->member#join" class="px-2 theme-fill-btn">Add Member</button>
-      <div id="inputbox" class="hidden px-2">
-        <input type="text" placeholder="請輸入信箱" class="input">
-        <button class="searchbtn theme-fill-btn" data-action="click->member#invite">加入成員</button>
-      </div>
-    </div>
+    
   </div>
   <div class="container m-auto p-6 ">
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 grid-flow-row relative ">
@@ -47,4 +41,11 @@
       <% end %>
     </div>
   </div>
+  <div data-controller="member" class="block m-auto" data-id="<%= @project.slug %>">
+      <button  data-action="click->member#join" class="px-2 theme-fill-btn">Add Member</button>
+      <div id="inputbox" class="hidden px-2">
+        <input type="text" placeholder="請輸入信箱" class="input">
+        <button class="searchbtn theme-fill-btn" data-action="click->member#invite">加入成員</button>
+      </div>
+    </div>
 </div>
