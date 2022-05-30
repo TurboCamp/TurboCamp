@@ -2,7 +2,7 @@
   <div class="flex flex-row justify-end items-center h-7 my-2">
     <div class="flex flex-row items-center">
       <div class="mr-4 w-7 h-7 rounded-full overflow-x-hidden overflow-y-hidden">
-        <%= link_to users_info_path(current_user), method: :get do %>
+        <%= link_to users_info_path(current_user), data:{remote: true}, method: :get do %>
           <%= image_tag(current_user.avatar_url || current_user.imageurl, size:'32x32' , class:'w-full h-full') %>
         <% end %>
       </div>
