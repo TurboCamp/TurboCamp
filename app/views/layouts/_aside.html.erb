@@ -28,7 +28,10 @@
       <%= sidebar_link_with_icon project_bucket_path(@project), icons('cloud-upload-alt', :fas, 'lg', 'pr-4', 'Docs & Files') %>
     </li>
   </ul>
-    <div class="absolute bottom-4">
-        <%= sidebar_link_with_icon edit_project_path(@project), icons('cog', :fas, 'lg', 'pr-4', 'Project Edit') %>
+    <div class="absolute bottom-4 inset-x-1">
+        <%= link_to  edit_project_path(@project) , data:{remote:true} , class:" sidebar-link text-lg font-medium flex align-middle" do %>
+        <i class="fas fa-cogs text-xl sidebar-link align-middle mr-4"></i>
+        Project Edit
+        <% end %>
     </div>
 </div>
