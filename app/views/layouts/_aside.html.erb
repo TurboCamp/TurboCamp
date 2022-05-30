@@ -29,9 +29,11 @@
     </li>
   </ul>
     <div class="absolute bottom-4 inset-x-1">
-        <%= link_to  edit_project_path(@project) , data:{remote:true} , class:" sidebar-link text-lg font-medium flex align-middle" do %>
+      <% if @project.personals.where(project_id:@project.id).pluck('role')[0] == 'owner' %>
+        <%= link_to  edit_project_path(@project) , data:{remote:true} , class:" sidebar-link text-lg font-medium flex align-middle" do  %>
         <i class="fas fa-cogs text-xl sidebar-link align-middle mr-4"></i>
         Project Edit
         <% end %>
+      <% end %>
     </div>
 </div>
