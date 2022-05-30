@@ -3,7 +3,7 @@ import { Controller } from "stimulus"
 
 export default class extends Controller {
     
-  back(){
+  cancel(){
     this.element.remove()
   }
 }
