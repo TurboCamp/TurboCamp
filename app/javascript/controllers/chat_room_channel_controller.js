@@ -1,14 +1,14 @@
-
-import consumer from '../channels/consumer'
+import { createConsumer } from '@rails/actioncable'
+// import consumer from '../channels/consumer'
 import { Controller } from 'stimulus'
 
 export default class extends Controller {
   static targets = ['contentbox' , 'textarea' , 'file_upload' , 'message_input' , 'submit_btn']
-  connect() {
+  initialize() {
     this.contentboxTarget.scrollTop = this.contentboxTarget.scrollHeight
     if (this.contentboxTarget) {
       let chat_room_id = this.element.dataset.id
-      consumer.subscriptions.create(
+      createConsumer().subscriptions.create(
         { "channel": "ChatRoomChannel", "chat_room_id": chat_room_id },{ 
           received(data) {
             console.log(data);
