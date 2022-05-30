@@ -22,7 +22,9 @@
       <div class="ml-64 flex-col flex w-full h-screen overflow-hidden">
         <%= render 'layouts/navbar' %>
         <%= render "/shared/flash" if flash %>
-        <%= yield %>
+        <section id="section" class="min-w-0 overflow-x-hidden max-h-screen">
+          <%= yield %>
+        </section>
       </div>
     </div>
   </body> 
