@@ -13,7 +13,7 @@ class Users::InfosController < ApplicationController
 
   def setting
     @user = current_user
-    redirect_to(:back) if @user.update(update_user_info)
+    redirect_to personal_path if @user.update(update_user_info)
   end
 
   private
