@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 class Bucket < ApplicationRecord
-  has_rich_text :content
   belongs_to :project
   has_many :documents , dependent: :destroy
 
