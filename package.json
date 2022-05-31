@@ -17,6 +17,7 @@
     "local-time": "^2.1.0",
     "postcss": "7",
     "stimulus": "^3.0.1",
+    "stimulus-notification": "^2.0.0",
     "stimulus-use": "^0.50.0",
     "stimulus_reflex": "3.4.1",
     "tailwindcss": "npm:@tailwindcss/postcss7-compat",

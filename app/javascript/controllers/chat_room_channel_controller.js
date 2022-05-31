@@ -5,26 +5,26 @@ import { Controller } from 'stimulus'
 export default class extends Controller {
   static targets = ['contentbox' , 'textarea' , 'file_upload' , 'message_input' , 'submit_btn']
   initialize() {
-    this.contentboxTarget.scrollTop = this.contentboxTarget.scrollHeight
+    const content = document.querySelector("#content")
+    content.scrollTo(0 , content.scrollHeight)
     if (this.contentboxTarget) {
-      let chat_room_id = this.element.dataset.id
+      const chat_room_id = this.element.dataset.id
       createConsumer().subscriptions.create(
         { "channel": "ChatRoomChannel", "chat_room_id": chat_room_id },{ 
+          connected(){
+            console.log("connected....");
+            
+          },
           received(data) {
             console.log(data);
-            const content = document.querySelector("#content")
             content.innerHTML += data.textcontain
-            content.scrollTo(0 , content.scrollHeight)          
+            document.querySelector("#content_text").value = ""
+            document.querySelector("input[type='submit']").disabled = false
+            document.querySelector("#content_image").value = ''          
+            content.scrollTo(0 , content.scrollHeight)
           },
         }
       )
     }
   }
-  remove_value() {
-    setTimeout(()=>{
-      this.message_inputTarget.value = ""
-      this.submit_btnTarget.disabled = false
-      this.file_uploadTarget.value = ''
-      },150) 
-    }
 }
