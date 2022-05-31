@@ -1,4 +1,5 @@
 module.exports = {
+  whitelistPatterns: [/trix-*/],
   plugins: [
     require('postcss-import'),
     require('postcss-flexbugs-fixes'),
@@ -9,5 +10,6 @@ module.exports = {
       },
       stage: 3
     })
+    
   ]
 }
