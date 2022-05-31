@@ -3,7 +3,7 @@
     <a href="#!">
       <div class="flex items-center">
         <div class="h-14 w-14 overflow-hidden rounded-full">
-          <%= image_tag(@project.image_url || "book" , class:"w-full h-full")%>
+          <%= image_tag(@project.image_url || "abs04" , class:"w-full h-full")%>
         </div>
         <div class="flex-grow pl-5">
           <h2 class="self-center text-xl font-semibold whitespace-nowrap"><%= @project&.title %></h2>
@@ -13,27 +13,30 @@
   </div>
   <ul class="relative">
     <li class="relative">
-      <%= sidebar_link_with_icon project_todo_lists_path(@project),  icons('check-circle', :far, 'lg', 'pr-5', 'Todos') %>
+      <% if policy(@project).update? %>
+        <%= link_to icons('cog', :fas, 'lg', 'pr-5', 'Project Edit'), edit_project_path(@project), class: 'sidebar-link', data: { remote: true } %>
+      <% end %>
     </li>
     <li class="relative">
-      <%= sidebar_link_with_icon project_schedules_path(@project),  icons('calendar-alt', :far, 'lg', 'pr-6', 'Schedule') %>
+      <%= link_to icons('user-plus', :fas, 'lg', 'pr-4', 'Add Members'), '#', class: 'sidebar-link', data: { remote: true } %>
+    </li>
+    <div class="py-4 w-full">
+      <hr>
+    </div>
+    <li class="relative">
+      <%= sidebar_link_with_icon project_todo_lists_path(@project),  icons('check-circle', :far, 'lg', 'pr-4', 'Todos') %>
     </li>
     <li class="relative">
-      <%= sidebar_link_with_icon project_chat_room_path(@project), icons('bullhorn', :fas, 'lg', 'pr-5', 'Camp Fire') %>
+      <%= sidebar_link_with_icon project_schedules_path(@project),  icons('calendar-alt', :far, 'lg', 'pr-5', 'Schedule') %>
     </li>
     <li class="relative">
-      <%= sidebar_link_with_icon project_messages_path(@project), icons('comment', :far, 'lg', 'pr-6', 'Message Boards') %>
+      <%= sidebar_link_with_icon project_chat_room_path(@project), icons('bullhorn', :fas, 'lg', 'pr-4', 'Campfire') %>
+    </li>
+    <li class="relative">
+      <%= sidebar_link_with_icon project_messages_path(@project), icons('comment', :far, 'lg', 'pr-5', 'Message Boards') %>
     </li>
     <li class="relative">
       <%= sidebar_link_with_icon project_bucket_path(@project), icons('cloud-upload-alt', :fas, 'lg', 'pr-4', 'Docs & Files') %>
     </li>
   </ul>
-    <div class="absolute bottom-4 inset-x-1">
-      <% if policy(@project).update? %>
-        <%= link_to  edit_project_path(@project) , data:{remote:true} , class:" sidebar-link text-lg font-medium flex align-middle" do  %>
-        <i class="fas fa-cogs text-xl sidebar-link align-middle mr-4"></i>
-        Project Edit
-        <% end %>
-      <% end %>
-    </div>
 </div>

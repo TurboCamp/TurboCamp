@@ -1,7 +1,4 @@
 <div class="h-full min-w-0 overflow-x-hidden max-h-screen">
-  <div class="h-64 overflow-hidden relative w-screen">
-    <%= image_tag 'abs04', size: '32x32', class: 'w-full absolute -inset-y-64 bg-cover' %>
-  </div>
   <div class="p-20">
     <div class=" m-auto w-full flex justify-between">
       <h1 class="text-5xl mb-3 font-semibold"><%= @project.title %></h1>
@@ -44,7 +41,7 @@
       </div>
     </div>
   </div>
-  <div data-controller="member" class="flex p-4 justify-end m-auto" data-id="<%= @project.slug %>">
+  <div data-controller="member" class="hidden flex p-4 justify-end m-auto" data-id="<%= @project.slug %>">
     <button  data-action="click->member#join" class="px-4 theme-outline-btn">Add Member</button>
     <div id="inputbox" class="hidden px-2">
       <input type="text" placeholder="請輸入信箱" class=" border border-gray-300 input p-2">
