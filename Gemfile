@@ -11,8 +11,6 @@ gem 'font_awesome5_rails', '~> 1.5'
 gem 'friendly_id', '~> 5.4'
 gem 'image_processing', '~> 1.2'
 gem 'jbuilder', '~> 2.7'
-gem 'nested_scaffold'
-gem 'paranoia', '~> 2.6'
 gem 'pg', '~> 1.1'
 gem 'puma', '~> 5.0'
 gem 'pundit', '~> 2.2'
@@ -23,6 +21,7 @@ gem 'sass-rails', '>= 6'
 gem 'shrine', '~> 3.4'
 gem 'turbolinks', '~> 5'
 gem 'webpacker', '~> 5.0'
+gem "acts_as_list", "~> 1.0"
 
 group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
@@ -53,3 +52,4 @@ gem 'omniauth-google-oauth2', '~> 1.0', '>= 1.0.1'
 gem 'omniauth-rails_csrf_protection', '~> 1.0', '>= 1.0.1'
 gem 'stimulus_reflex', '~> 3.4'
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
+
