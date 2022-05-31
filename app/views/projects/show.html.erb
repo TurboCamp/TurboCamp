@@ -9,34 +9,33 @@
   <div class="container m-auto p-6 ">
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 grid-flow-row relative ">
       <%= link_to project_todo_lists_path(@project), class: 'card' do %>
-        <div class="justify-between block p-4 leading-normal">
-          <div class="pt-24">
-          </div>
+        <div class="justify-between block p-8 leading-normal">
           <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Todos</h5>
+          <%= image_tag("icon_check" , class:"relative mx-auto", width:"50", height:"50") %>
         </div>
       <% end %>
       <%= link_to project_schedules_path(@project), class: 'card' do %>
-        <div class="justify-between block p-4 leading-normal">
-          <div class="pt-24"> </div>
+        <div class="justify-between block p-8 leading-normal">
           <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Schedule</h5>
+          <%= image_tag("icon_schedule" , class:"relative mx-auto", width:"50", height:"50") %>
         </div>
       <% end %>
       <%= link_to project_chat_room_path(@project), class: 'card' do %>
-        <div class="justify-between block p-4 leading-normal">
-          <div class="pt-24"> </div>
-          <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Camfire</h5>
+        <div class="justify-between block p-8 leading-normal">
+          <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Campfire</h5>
+          <%= image_tag("icon_communicate" , class:"relative mx-auto", width:"50", height:"50") %>
         </div>
       <% end %>
       <%= link_to project_messages_path(@project) , class: 'card' do %>
-        <div class="justify-between block p-4 leading-normal">
-          <div class="pt-24"> </div>
+        <div class="justify-between block p-8 leading-normal">
           <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Message Boards</h5>
+          <%= image_tag("icon_noticeboard", class:"relative mx-auto", width:"50", height:"50") %>
         </div>
       <% end %>
       <%= link_to project_bucket_path(@project) , class: 'card' do %>
-        <div class="justify-between block p-4 leading-normal">
-          <div class="pt-24"> </div>
+        <div class="justify-between block p-8 leading-normal">
           <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Docs & Files</h5>
+          <%= image_tag("icon_upload" , class:"relative mx-auto", width:"50", height:"50") %>
         </div>
       <% end %>
     </div>
