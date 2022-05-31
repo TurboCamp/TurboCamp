@@ -180,6 +180,8 @@ ActiveRecord::Schema.define(version: 2022_06_01_060156) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "project_id"
+    t.string "status"
+    t.datetime "start"
     t.index ["project_id"], name: "index_todo_lists_on_project_id"
   end
 
