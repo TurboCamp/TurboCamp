@@ -1,6 +1,6 @@
 <div class="w-full h-10 px-4 py-2 mb-4 flex justify-between items-center ">
     <div class="w-full min-w-0 h-10 bg-theme-100 border-sky-500 border rounded-xl flex-grow-1 flex-shrink-1" >
-    <%= form_with(model: @content , url:project_chat_room_contents_path(@project), class:'flex' , method: :post ) do |f| %>
+    <%= form_with(model: @content , url:project_private_chat_contents_path( @project , @private_chat), class:'flex' , method: :post ) do |f| %>
       <%= f.text_field :text , placeholder: '請輸入訊息', class:'p-2 w-full h-10 bg-theme-100 border-sky-500 border rounded-xl' , data:{chat_room_channel_target:'message_input'}%>
     </div>
     <div class="p-2">
@@ -11,7 +11,7 @@
       <%= f.file_field :image  , data:{chat_room_channel_target:'file_upload'} ,class:'hidden' %> 
     </div>
     <div class="pr-4">
-      <%= f.submit 'SEND' , data:{chat_room_channel_target:"submit_btn" , action:"click->chat-room-channel#remove_value" } , class:'chat-fill-btn cursor-pointer' %>
+      <%= f.submit '送出' , data:{chat_room_channel_target:"submit_btn" , action:"click->chat-room-channel#remove_value" } , class:'chat-fill-btn cursor-pointer' %>
     </div>
   <% end %>
 </div>

@@ -29,6 +29,9 @@ Rails.application.routes.draw do
     resource :chat_room, only: [:show] do
       resources :contents, only: [:create]
     end
+    resources :private_chats , only: [:show] do 
+      resources :contents , only: [:create]
+    end
 
     resources :schedules
     resources :messages do

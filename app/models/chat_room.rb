@@ -3,5 +3,5 @@
 class ChatRoom < ApplicationRecord
 
   belongs_to :project
-  has_many :contents, dependent: :destroy
+  has_many :contents, as: :contentable ,dependent: :destroy
 end

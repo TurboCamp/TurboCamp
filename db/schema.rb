@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_06_01_020328) do
+ActiveRecord::Schema.define(version: 2022_06_01_021440) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -83,13 +83,14 @@ ActiveRecord::Schema.define(version: 2022_06_01_020328) do
 
   create_table "contents", force: :cascade do |t|
     t.string "text"
-    t.bigint "chat_room_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.text "image_data"
     t.text "avatar", default: "default_user"
     t.bigint "user_id"
-    t.index ["chat_room_id"], name: "index_contents_on_chat_room_id"
+    t.string "contentable_type"
+    t.bigint "contentable_id"
+    t.index ["contentable_type", "contentable_id"], name: "index_contents_on_contentable"
     t.index ["user_id"], name: "index_contents_on_user_id"
   end
 
@@ -221,7 +222,6 @@ ActiveRecord::Schema.define(version: 2022_06_01_020328) do
   add_foreign_key "chat_rooms", "projects"
   add_foreign_key "comments", "messages"
   add_foreign_key "comments", "users"
-  add_foreign_key "contents", "chat_rooms"
   add_foreign_key "contents", "users"
   add_foreign_key "documents", "buckets"
   add_foreign_key "messages", "projects"
