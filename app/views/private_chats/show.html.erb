@@ -1,0 +1,10 @@
+<div class="overflow-x-hidden max-h-full rounded-lg h-full" data-controller="chat-room-channel" data-id="<%= @project.chat_room.id %>"> 
+  <div id="content" class="" data-chat-room-channel-target="contentbox">
+    <% @contents.each do |content|%>
+      <%= render "chat_rooms/content" , content: %>
+    <% end %>
+  </div>
+</div>
+<div class="pt-2">
+  <%= render 'form' %>
+</div>

@@ -1,10 +1,15 @@
 class SendMessageJob < ApplicationJob
   queue_as :default
 
-  def perform(content , chat_room)
+  def perform(content , chat_room_id , is_Private)
+    if is_Private 
+      @room = PrivateChat.find(chat_room_id)
+    else
+      @room = ChatRoom.find(chat_room_id)
+    end
     textcontain = ApplicationController.render( 
       partial:'chat_rooms/content' ,
       locals: {content: content})
-    ActionCable.server.broadcast "ChatRoomChannel_#{chat_room.id}",{textcontain:textcontain}
+      ChatRoomChannel.broadcast_to @room,{textcontain:textcontain}
   end
 end
