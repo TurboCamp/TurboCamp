@@ -2,5 +2,6 @@
  *= require_tree .
  *= require_self
  */
+@import "trix/dist/trix";
 @import "font_awesome5_webfont";
-@import "./actiontext.scss";
+@import "actiontext.scss"
