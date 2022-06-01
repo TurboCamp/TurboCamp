@@ -1,21 +1,21 @@
 .sidebar-link {
-  @apply flex items-center text-sm py-6 pl-8 h-14 text-gray-500 hover:text-gray-900 hover:bg-theme-100 rounded transition overflow-hidden overflow-ellipsis whitespace-nowrap duration-300 ease-in-out;
+  @apply flex items-center text-sm py-6 pl-8 h-14 text-gray-500 hover:text-gray-900 bg-gradient-to-r hover:from-theme-150 hover:to-theme-200 rounded transition overflow-hidden overflow-ellipsis whitespace-nowrap duration-300 ease-in-out;
 }
 
 .theme-fill-btn {
-  @apply bg-theme-150 text-theme-0 border-theme-150 border hover:bg-theme-200 hover:text-white hover:border-theme-200 font-bold py-3 px-5 rounded-md;
+  @apply bg-theme-150 text-theme-0 border-theme-150 border hover:bg-theme-200 hover:text-white hover:border-theme-200 font-bold py-1 px-3 rounded-md;
 }
 
 .theme-outline-btn {
-  @apply bg-white text-theme-150 border-theme-150 border hover:bg-theme-200 hover:text-white hover:border-theme-200 font-bold py-3 px-5 rounded-md;
+  @apply bg-white text-theme-150 border-theme-150 border hover:bg-theme-200 hover:text-white hover:border-theme-200 font-bold py-1 px-3 rounded-md;
 }
 
 .chat-fill-btn {
-  @apply bg-theme-150 hover:bg-theme-200 text-white font-bold py-3 px-5 rounded-xl;
+  @apply bg-theme-150 hover:bg-theme-200 text-white font-bold py-1 px-3 rounded-xl;
 }
 
 .chat-outline-btn {
-  @apply bg-white text-theme-150 border-theme-150 border-2 hover:bg-theme-200 hover:text-white hover:border-theme-200 font-bold py-2 px-4 rounded-xl;
+  @apply bg-white text-theme-150 border-theme-150 border-2 hover:bg-theme-200 hover:text-white hover:border-theme-200 font-bold py-1 px-3 rounded-xl;
 }
 
 .dropdown {
