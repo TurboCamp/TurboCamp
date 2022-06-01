@@ -1,4 +1,4 @@
-<div class="overflow-x-hidden max-h-full rounded-lg h-full" data-controller="chat-room-channel" data-id="<%= @project.chat_room.id %>"> 
+<div class="overflow-x-hidden max-h-full rounded-lg h-full" data-controller="chat-room-channel"  data-room-id="<%= @chat_room&.id || 0 %>"> 
   <div id="content" class="flex flex-col justify-end min-h-full items-stretch" data-chat-room-channel-target="contentbox">
     <div class="px-8 py-2">
       <div class="h-14 w-14 overflow-hidden rounded-full">

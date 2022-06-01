@@ -10,7 +10,7 @@ class ContentsController < ApplicationController
       @content = @chat_room.contents.new(content_params)
       chat_room_id = params[:private_chat_id]
       is_Private = true 
-    else
+    else 
       @chat_room = @project.chat_room
       @content = @chat_room.contents.new(content_params)
       chat_room_id = @chat_room.id

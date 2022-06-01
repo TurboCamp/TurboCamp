@@ -8,11 +8,14 @@ export default class extends Controller {
     const content = document.querySelector("#content")
     content.scrollTo(0 , content.scrollHeight)
     if (this.hasContentboxTarget) {
-      const chat_room_id = this.element.dataset.id || this.element.dataset.privateId
+      const chat_room_id = this.element.dataset.roomId 
+      const private_chat_id = this.element.dataset.privateId
+
       createConsumer().subscriptions.create(
-        { "channel": "ChatRoomChannel", "chat_room_id": chat_room_id },{ 
+        { "channel": "ChatRoomChannel", chatRoomId: chat_room_id  , privateChatId: private_chat_id},{ 
           connected(){
-            console.log("connected....");
+            console.log(`connect: private-${private_chat_id}`);
+            console.log(`connect: chat-${chat_room_id }`);
             
           },
           received(data) {

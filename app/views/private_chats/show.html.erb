@@ -1,4 +1,4 @@
-<div class="overflow-x-hidden max-h-full rounded-lg h-full" data-controller="chat-room-channel" data-private-id="<%= @private_chat.id %>"> 
+<div class="overflow-x-hidden max-h-full rounded-lg h-full" data-controller="chat-room-channel" data-private-id="<%= @private_chat&.id  %>"> 
   <div id="content" class="" data-chat-room-channel-target="contentbox">
     <% @contents.each do |content|%>
       <%= render "private_chats/content" , content: %>

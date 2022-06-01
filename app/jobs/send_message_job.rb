@@ -3,9 +3,9 @@ class SendMessageJob < ApplicationJob
 
   def perform(content , chat_room_id , is_Private)
     if is_Private 
-      @room = PrivateChat.find(chat_room_id)
+      @room = PrivateChat.find_by(id: chat_room_id)
     else
-      @room = ChatRoom.find(chat_room_id)
+      @room = ChatRoom.find_by(id: chat_room_id)
     end
     textcontain = ApplicationController.render( 
       partial:'chat_rooms/content' ,
