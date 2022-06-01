@@ -1,4 +1,4 @@
-<div class="w-72 h-full bg-theme-50 px-1 fixed">
+<div class="w-72 max-h-full h-full bg-theme-50 px-1">
   <div class="py-6 px-5">
     <a href="#!">
       <div class="flex items-center">
@@ -11,7 +11,7 @@
       </div>
     </a>
   </div>
-  <ul class="relative">
+  <ul class="relative h-full max-h-full ">
     <li class="relative">
       <% if policy(@project).update? %>
         <%= link_to icon_tag('fa-solid fa-gear fa-lg pr-5', 'Project Edit'), edit_project_path(@project), class: 'sidebar-link', data: { remote: true } %>
@@ -19,6 +19,9 @@
     </li>
     <li class="relative">
       <%= link_to icon_tag('fa-solid fa-user-plus pl-1 pr-4', 'Add Members'), '#', class: 'sidebar-link', data: { remote: true } %>
+    </li>
+    <li class="relative">
+      <%= link_to icon_tag('fa-solid fa-user-gear pl-1 pr-4', 'User Setting'), users_info_path(current_user), class: 'sidebar-link', data: { remote: true } %>
     </li>
     <div class="py-4 w-full">
       <hr>
@@ -40,3 +43,14 @@
     </li>
   </ul>
 </div>
+<div class="w-72 h-18 px-7 py-3 bg-theme-100">
+  <div class="flex justify-start items-center">
+    <div class="w-12 h-12 rounded-full overflow-hidden">
+      <%= image_tag(current_user.avatar_url || current_user.imageurl, size:'64x64') %>
+    </div>
+    <div class="pl-4 text-gray-500 text-xl font-medium">
+      <%= current_user.nickname %>
+    </div>
+  </div>
+</div>
+
