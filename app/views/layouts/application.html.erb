@@ -12,14 +12,13 @@
     <link rel="stylesheet" type="text/css" href="https://uicdn.toast.com/tui-calendar/latest/tui-calendar.css" />
     <link rel="stylesheet" type="text/css" href="https://uicdn.toast.com/tui.date-picker/latest/tui-date-picker.css" />
     <link rel="stylesheet" type="text/css" href="https://uicdn.toast.com/tui.time-picker/latest/tui-time-picker.css" />
-    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
   </head>
   <body>
     <div class="flex justify-start">
       <div class="absolute top-0 left-0 z-50 overflow-hidden">
-        <%= render 'layouts/aside'  %>
+        <%= render 'layouts/aside' %>
       </div>
-      <div class="ml-64 flex-col flex w-full h-screen overflow-hidden">
+      <div class="ml-72 flex-col flex w-full h-screen overflow-hidden bg-theme-5">
         <%= render 'layouts/navbar' %>
         <%= render "/shared/flash" if flash %>
         <section id="section" class="min-w-0 overflow-x-hidden max-h-screen">
