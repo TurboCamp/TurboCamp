@@ -13,10 +13,8 @@
   </head>
 
   <body>
-    <header> 
+    <main class="w-screen bg-theme-5">
       <%= render 'home/navbar' %>
-    </header>
-    <main>
       <%= render "/shared/flash" if flash %>
       <%= yield %>
     </main>

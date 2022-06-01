@@ -1,7 +1,7 @@
 <nav class="flex border-theme-100 filter drop-shadow-sm border-b-2 h-15 p-1 bg-theme-5">
   <div class="w-full min-w-0 flex justify-between items-center h-7 my-4 ">
     <div class="relative items-center pl-4">
-      <h2 class="text-xl font-semibold"><%= @project.title %></h2>
+      <h2 class="text-3xl font-semibold text-gray-700"><%= @project.title %>'s Chatroom</h2>
     </div>
     <div class="flex justify-end items-center">
       <%= link_to icons('house-user', :fas, 'lg', 'pr-5'), project_path(@project) if @project%>

@@ -1,6 +1,6 @@
 <section class="px-72 h-full min-w-0 overflow-y-scroll max-h-full bg-theme-50">
   <div class="m-auto container mb-8">
-    <div class="flex justify-start pt-11 pb-3 px-4">
+    <div class="flex justify-start pt-11 pb-3 px-12">
       <div class="flex items-center px-4">
         <div class="h-32 w-32 border-4 border-gray-300 overflow-hidden rounded-full">
           <%= image_tag(@user.avatar_url || @user.imageurl , size:'32x32' , class:'w-full h-full')%>
@@ -11,9 +11,9 @@
       </div>
     </div>
   </div>
-  <div class="container m-auto h-full rounded-md p-6 px-12 bg-white filter drop-shadow-xl ">
+  <div class="container m-auto h-full rounded-md p-6 px-16 bg-theme-5 filter drop-shadow-xl ">
     <div class="py-4 mb-8 flex justify-between items-center">
-      <div class="block">
+      <div class="pb-4">
         <h3 class="font-semibold text-5xl pb-4">Projects</h3>
         <span class="font-light text-gray-500 pl-0.5">Projects you're in <%= @projects.count %> projects.</span>
       </div>
