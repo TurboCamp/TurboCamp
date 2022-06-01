@@ -10,8 +10,9 @@ import "channels"
 import "stylesheets";
 import "@fortawesome/fontawesome-free/css/all"
 import "/app/assets/stylesheets/actiontext.scss"
-import "trix"
-import "@rails/actiontext"
+import "./utilities/color_picker"
+require("trix")
+require("@rails/actiontext")
 
 Turbolinks.start()
 Rails.start()
