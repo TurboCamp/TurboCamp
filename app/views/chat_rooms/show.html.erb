@@ -1,4 +1,5 @@
-<div class="overflow-x-hidden max-h-full rounded-lg h-full" data-controller="chat-room-channel"  data-room-id="<%= @chat_room&.id || 0 %>"> 
+<<<<<<< HEAD
+<div class="overflow-x-hidden flex flex-col-reverse overflow-y-auto  flex-grow max-h-full rounded-lg h-full" data-controller="chat-room-channel"  data-room-id="<%= @chat_room&.id || 0 %>"> 
   <div id="content" class="flex flex-col justify-end min-h-full items-stretch" data-chat-room-channel-target="contentbox">
     <div class="px-8 py-2">
       <div class="h-14 w-14 overflow-hidden rounded-full">
@@ -11,6 +12,13 @@
       <% @contents.each do |content|%>
         <%= render "chat_rooms/content" , content: %>
       <% end %>
+=======
+<div class="flex flex-col-reverse overflow-y-auto  flex-grow max-h-full rounded-lg h-full" data-controller="chat-room-channel" data-room-id="<%= @chat_room&.id || 0 %>"> 
+  <div id="content" class="" data-chat-room-channel-target="contentbox">
+    <% @contents.each do |content|%>
+      <%= render "chat_rooms/content" , content: %>
+    <% end %>
+>>>>>>> 讓聊天室能自動滑動
   </div>
 </div>
 <div class="pt-2">
