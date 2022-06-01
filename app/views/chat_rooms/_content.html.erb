@@ -2,9 +2,11 @@
   <div class="avatar">
       <%= image_tag(content.user.avatar_url || content.user.imageurl , class:'w-full h-full') %>
   </div>
-  <div class="content_box ">
-    <span class="speaker " data-chat-room-channel-target="nickname"><%= content.user.nickname %></span>
-    <span class="text-xs text-gray-400"><%= content.created_at.to_s(:message_at) %></span>
+  <div class="content_box">
+    <div class="flex justify-start items-center">
+      <div class="speaker " data-chat-room-channel-target="nickname"><%= content.user.nickname %></div>
+      <div class="pl-2 text-gray-400"><%= content.created_at.to_s(:message_at) %></div>
+    </div>
     <div class="content_text">
       <%= content.text %>
       <% if content.image %>
