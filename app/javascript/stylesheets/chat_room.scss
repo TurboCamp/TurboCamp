@@ -1,5 +1,5 @@
 .chat_room {
-  @apply px-8 py-3 my-2 hover:bg-theme-100 hover:opacity-75 flex justify-start items-start;
+  @apply px-8 py-3 my-2 hover:bg-theme-100  flex justify-start items-start;
   .avatar{
     @apply h-10 w-10 rounded-full overflow-hidden;
   };
@@ -13,4 +13,10 @@
     }
 
   }
+}
+
+.scroll-content {
+  overflow-anchor: none;
+  overflow-y: scroll;
+  overflow-x: hidden;
 }

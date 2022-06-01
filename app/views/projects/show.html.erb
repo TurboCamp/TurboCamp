@@ -1,5 +1,5 @@
 <div class="px-28 py-10 h-full min-w-0 overflow-x-hidden max-h-screen bg-theme-5">
-  <div class="card-container">
+  <div class="main-container">
     <div class="m-auto w-full flex justify-between">
       <h1 class="text-5xl mb-3 font-semibold text-gray-700"><%= @project.title %></h1>
     </div>
@@ -9,7 +9,7 @@
     <div class="p-4 m-auto mb-4 border-b border-gray-300">
     </div>
   </div>
-  <div class="card-container">
+  <div class="main-container">
     <div class="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 3xl:grid-cols-5 gap-7">
       <%= link_to project_todo_lists_path(@project), class: 'project-card' do %>
         <div class="flex flex-col items-center align-middle w-full p-4 h-full  ">
