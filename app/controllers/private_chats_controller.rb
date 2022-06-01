@@ -1,10 +1,11 @@
 class PrivateChatsController < ApplicationController
   before_action :authenticate_user!
-
+  layout"chatroom"
   def show 
-    @project = current_user.projects.friendly.find(params[:project_id])
     @users = [current_user , User.find(params[:id])]
-    @private_chat = @project.private_chats.find(params[:id])
+    @member_name = User.find(params[:id])
+    @project = current_user.projects.friendly.find(params[:project_id])
+    @private_chat = PrivateChat.find_or_create(@users , params[:project_id]) 
     @contents = @private_chat.contents
     @content = Content.new
   end
