@@ -8,7 +8,7 @@ export default class extends Controller {
     const content = document.querySelector("#content")
     content.scrollTo(0 , content.scrollHeight)
     if (this.contentboxTarget) {
-      const chat_room_id = this.element.dataset.id
+      const chat_room_id = this.element.dataset.id || this.element.dataset.privateId
       createConsumer().subscriptions.create(
         { "channel": "ChatRoomChannel", "chat_room_id": chat_room_id },{ 
           connected(){
