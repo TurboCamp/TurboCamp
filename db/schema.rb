@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_05_30_042159) do
+ActiveRecord::Schema.define(version: 2022_06_01_020328) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -132,6 +132,13 @@ ActiveRecord::Schema.define(version: 2022_05_30_042159) do
     t.index ["user_id"], name: "index_personals_on_user_id"
   end
 
+  create_table "private_chats", force: :cascade do |t|
+    t.bigint "project_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["project_id"], name: "index_private_chats_on_project_id"
+  end
+
   create_table "projects", force: :cascade do |t|
     t.string "nickname"
     t.datetime "created_at", precision: 3, null: false
@@ -174,6 +181,15 @@ ActiveRecord::Schema.define(version: 2022_05_30_042159) do
     t.index ["project_id"], name: "index_todo_lists_on_project_id"
   end
 
+  create_table "user_privates", force: :cascade do |t|
+    t.bigint "private_chat_id", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["private_chat_id"], name: "index_user_privates_on_private_chat_id"
+    t.index ["user_id"], name: "index_user_privates_on_user_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -211,7 +227,10 @@ ActiveRecord::Schema.define(version: 2022_05_30_042159) do
   add_foreign_key "messages", "projects"
   add_foreign_key "personals", "projects"
   add_foreign_key "personals", "users"
+  add_foreign_key "private_chats", "projects"
   add_foreign_key "schedules", "projects"
   add_foreign_key "todo_items", "todo_lists"
   add_foreign_key "todo_lists", "projects"
+  add_foreign_key "user_privates", "private_chats"
+  add_foreign_key "user_privates", "users"
 end
