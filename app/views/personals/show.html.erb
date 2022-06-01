@@ -1,17 +1,17 @@
-<section class="px-48 pt-8 h-full min-w-0 overflow-x-hidden max-h-screen bg-theme-50">
+<section class="px-72 h-full min-w-0 overflow-y-scroll max-h-full bg-theme-50">
   <div class="m-auto container mb-8">
     <div class="flex justify-start pt-11 pb-3 px-4">
       <div class="flex items-center px-4">
-        <div class="h-36 w-36 border-4 border-gray-300 overflow-hidden rounded-full">
+        <div class="h-32 w-32 border-4 border-gray-300 overflow-hidden rounded-full">
           <%= image_tag(@user.avatar_url || @user.imageurl , size:'32x32' , class:'w-full h-full')%>
         </div>
-        <div class="font-semibold text-6xl pl-8">
+        <div class="font-semibold text-4xl pl-8">
           <%= @user.nickname %>
         </div>
       </div>
     </div>
   </div>
-  <div class="container m-auto rounded-md p-6 px-12 bg-white filter drop-shadow-xl ">
+  <div class="container m-auto h-full rounded-md p-6 px-12 bg-white filter drop-shadow-xl ">
     <div class="py-4 mb-8 flex justify-between items-center">
       <div class="block">
         <h3 class="font-semibold text-5xl pb-4">Projects</h3>
@@ -41,7 +41,7 @@
                 </div>
               </div>
             </span>
-            <%= image_tag(project.image_url || 'abs04', size: '32x32', class: 'w-full h-full bg-theme-75 rounded-md') %>
+            <%= image_tag( project.image_url || 'logo_a_0', size: '32x32', class: 'w-full h-full bg-theme-75 rounded-md') %>
           </div>
           <h5 class="py-3  text-2xl font-bold tracking-tight text-gray-900 dark:text-white"><%= project.title %></h5>
         </div>

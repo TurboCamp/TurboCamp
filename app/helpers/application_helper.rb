@@ -13,6 +13,16 @@ module ApplicationHelper
     icon + title
   end
 
+  def icon_tag(icon_string, text = nil)
+    icon = content_tag :i, '', class: icon_string
+    tags = content_tag :div, class: 'text-lg font-medium' do
+      icon
+    end
+
+    title = content_tag :p, text, class: 'text-lg font-medium'
+    tags + title
+  end
+
   def theme_button(url, method = nil, string)
     link_to url, method:, class: 'theme-fill-btn' do
       string

@@ -8,10 +8,12 @@ import Turbolinks from "turbolinks"
 import * as ActiveStorage from "@rails/activestorage"
 import "channels"
 import "stylesheets";
+import "@fortawesome/fontawesome-free/css/all"
 
 Turbolinks.start()
 Rails.start()
 ActiveStorage.start()
+
 
 require('trix')
 require('@rails/actiontext')

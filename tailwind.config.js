@@ -16,6 +16,7 @@ module.exports = {
       lg: '1024px',
       xl: '1280px',
       '2xl': '1536px',
+      '3xl': '1920px',
     },
     colors: {
       transparent: 'transparent',
@@ -36,6 +37,8 @@ module.exports = {
       },
       theme: {
         0: '#14191B',
+        5: '#fefdfb',
+        10: '#f1efe9',
         25: '#52686E',
         50: '#F7F6F3',
         75: '#f5f5f5',
@@ -859,9 +862,9 @@ module.exports = {
     backgroundAttachment: ['responsive'],
     backgroundBlendMode: ['responsive'],
     backgroundClip: ['responsive'],
-    backgroundColor: ['responsive', 'dark', 'group-hover', 'focus-within', 'hover', 'focus'],
+    backgroundColor: ['responsive', 'dark', 'group-hover', 'focus-within', 'hover', 'focus', 'active'],
     backgroundImage: ['responsive'],
-    backgroundOpacity: ['responsive', 'dark', 'group-hover', 'focus-within', 'hover', 'focus'],
+    backgroundOpacity: ['responsive', 'dark', 'group-hover', 'focus-within', 'hover', 'focus', 'active'],
     backgroundPosition: ['responsive'],
     backgroundRepeat: ['responsive'],
     backgroundSize: ['responsive'],

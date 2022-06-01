@@ -1,9 +1,9 @@
-<div class="w-64 h-full bg-theme-50 px-1 fixed">
+<div class="w-72 h-full bg-theme-50 px-1 fixed">
   <div class="py-6 px-5">
     <a href="#!">
       <div class="flex items-center">
         <div class="h-14 w-14 overflow-hidden rounded-full">
-          <%= image_tag(@project.image_url || "abs04" , class:"w-full h-full")%>
+          <%= image_tag(@project.image_url || "logo_a_0" , class:"w-full h-full")%>
         </div>
         <div class="flex-grow pl-5">
           <h2 class="self-center text-xl font-semibold whitespace-nowrap"><%= @project&.title %></h2>
@@ -14,29 +14,29 @@
   <ul class="relative">
     <li class="relative">
       <% if policy(@project).update? %>
-        <%= link_to icons('cog', :fas, 'lg', 'pr-5', 'Project Edit'), edit_project_path(@project), class: 'sidebar-link', data: { remote: true } %>
+        <%= link_to icon_tag('fa-solid fa-gear fa-lg pr-5', 'Project Edit'), edit_project_path(@project), class: 'sidebar-link', data: { remote: true } %>
       <% end %>
     </li>
     <li class="relative">
-      <%= link_to icons('user-plus', :fas, 'lg', 'pr-4', 'Add Members'), '#', class: 'sidebar-link', data: { remote: true } %>
+      <%= link_to icon_tag('fa-solid fa-user-plus pl-1 pr-4', 'Add Members'), '#', class: 'sidebar-link', data: { remote: true } %>
     </li>
     <div class="py-4 w-full">
       <hr>
     </div>
     <li class="relative">
-      <%= sidebar_link_with_icon project_todo_lists_path(@project),  icons('check-circle', :far, 'lg', 'pr-4', 'Todos') %>
+      <%= sidebar_link_with_icon project_todo_lists_path(@project), icon_tag('fa-regular fa-check-circle fa-lg pr-5','Todos') %>
     </li>
     <li class="relative">
-      <%= sidebar_link_with_icon project_schedules_path(@project),  icons('calendar-alt', :far, 'lg', 'pr-5', 'Schedule') %>
+      <%= sidebar_link_with_icon project_schedules_path(@project),  icon_tag('fa-regular fa-calendar-alt fa-lg pr-6', 'Schedule') %>
     </li>
     <li class="relative">
-      <%= sidebar_link_with_icon project_chat_room_path(@project), icons('bullhorn', :fas, 'lg', 'pr-4', 'Campfire') %>
+      <%= sidebar_link_with_icon project_chat_room_path(@project), icon_tag('fa-regular fa-comment fa-lg pr-5', 'Chatroom') %>
     </li>
     <li class="relative">
-      <%= sidebar_link_with_icon project_messages_path(@project), icons('comment', :far, 'lg', 'pr-5', 'Message Boards') %>
+      <%= sidebar_link_with_icon project_messages_path(@project), icon_tag('fa-regular fa-chart-bar fa-lg pr-5', 'Message Boards') %>
     </li>
     <li class="relative">
-      <%= sidebar_link_with_icon project_bucket_path(@project), icons('cloud-upload-alt', :fas, 'lg', 'pr-4', 'Docs & Files') %>
+      <%= sidebar_link_with_icon project_bucket_path(@project), icon_tag('fa-solid fa-cloud-arrow-up fa-lg pr-4', 'Upload') %>
     </li>
   </ul>
 </div>
