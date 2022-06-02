@@ -42,7 +42,7 @@ class ProjectsController < ApplicationController
   private
 
   def project_clean
-    params.require(:project).permit(:title, :description, :nickname, :imageurl, :avatar)
+    params.require(:project).permit(:title, :description, :nickname, :imageurl, :image)
   end
 
   def find_my_project
