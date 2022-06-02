@@ -36,6 +36,9 @@ Rails.application.routes.draw do
     end
 
     resources :todo_lists do
+      member do
+        patch :move
+      end
       resources :todo_items
     end
   end

@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class TodoListsController < ApplicationController
-  before_action :set_todo_list, only: %i[show edit update destroy]
+  before_action :set_todo_list, only: %i[show edit update destroy move]
   before_action :set_project
   before_action :authenticate_user!
   def index
@@ -46,6 +46,13 @@ class TodoListsController < ApplicationController
     redirect_to todo_lists_url
   end
 
+  def move
+    todo_list = @project.todo_lists.find(params[:id])
+    todo_list.insert_at(params[:position].to_i)
+
+    render json: { message: "ok"}
+  end
+
   private
 
   def set_project
@@ -57,6 +64,7 @@ class TodoListsController < ApplicationController
   end
 
   def todo_list_params
-    params.require(:todo_list).permit(:title, todo_items: [:todo_list])
+    params.require(:todo_list).permit(:title, :status, :position, :start , todo_items: [:todo_list])
   end
+
 end

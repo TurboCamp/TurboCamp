@@ -13,7 +13,7 @@ export default class extends Controller {
           bgColor: '#ff0',
           dragBgColor: '#fa0',
           borderColor: '#fa0',
-        // milestone: true,   
+        milestone: true,   
         scheduleView: true,  
         useCreationPopup: true,
       useDetailPopup: true,
