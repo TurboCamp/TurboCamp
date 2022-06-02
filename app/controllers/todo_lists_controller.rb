@@ -43,7 +43,7 @@ class TodoListsController < ApplicationController
   def destroy
     @todo_list.destroy
 
-    redirect_to todo_lists_url
+    redirect_to [@project, @todo_list]
   end
 
   def move
