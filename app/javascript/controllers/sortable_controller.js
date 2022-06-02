@@ -18,9 +18,9 @@ export default class extends Controller {
     if (this.statusValue === 'a') {
       status = 'todos'
     } else if (this.statusValue === 'b') {
-      status = 'pending'
+      status = 'doing'
     } else if (this.statusValue === 'c') {
-      status = 'finish'
+      status = 'done'
     }
 
     const data = new FormData()
