@@ -29,13 +29,13 @@ Rails.application.routes.draw do
     resource :chat_room, only: [:show] do
       resources :contents, only: [:create]
     end
-    resources :private_chats , only: [:show] do 
-      resources :contents , only: [:create]
+    resources :private_chats, only: [:show] do
+      resources :contents, only: [:create]
     end
 
     resources :schedules
     resources :messages do
-      resources :comments , only: %i[create destroy edit]
+      resources :comments, only: %i[create destroy edit]
     end
 
     resources :todo_lists do

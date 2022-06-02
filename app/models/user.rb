@@ -6,8 +6,8 @@ class User < ApplicationRecord
 
   has_many :personals
   has_many :projects, through: :personals, dependent: :destroy
-  has_many :user_privates 
-  has_many :private_chats , through: :user_privates , dependent: :destroy
+  has_many :user_privates
+  has_many :private_chats, through: :user_privates, dependent: :destroy
   has_many :contents
   has_many :comments
 

@@ -80,7 +80,4 @@
   </div>
 </div>
 
-<% (@project.users-[current_user]).each do |user| %>
-  <%= link_to user.nickname , project_private_chat_path(@project , user.id ) , user_id: user.id, private_chat_id: PrivateChat.find_or_create( [current_user , user] , @project.id).id %>
-  
-<% end %>
+

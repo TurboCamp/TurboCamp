@@ -16,17 +16,21 @@
     <link rel="stylesheet" type="text/css" src="trix.css">
     <script type="text/javascript" src="/trix/dist/trix"></script>
   </head>
-  <body>
+  <body id="section">
     <div class="flex justify-start">
-      <div class="absolute top-0 left-0 z-50 w-72 flex flex-col h-screen overflow-hidden">
+      <div class="absolute top-0 left-0 z-50 w-80 flex flex-col h-screen overflow-hidden">
         <%= render 'layouts/aside' %>
       </div>
       <div class="ml-72 flex-col flex w-full h-screen overflow-hidden bg-theme-5">
         <%= render 'layouts/navbar' %>
-        
-        <section id="section" class="min-w-0 overflow-x-hidden max-h-screen">
-          <%= yield %>
-        </section>
+        <div class="flex">
+          <section  class="min-w-0 overflow-x-hidden max-h-screen flex-grow w-full ">
+            <%= yield %>
+          </section>
+          <section class="w-20 border-l-2 border-gray-300 pl-1 h-screen">
+            <%= render 'layouts/friendbar' %>
+          </section>
+        </div>
       </div>
     </div>
   </body> 

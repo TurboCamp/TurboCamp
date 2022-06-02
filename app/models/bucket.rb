@@ -2,7 +2,7 @@
 
 class Bucket < ApplicationRecord
   belongs_to :project
-  has_many :documents , dependent: :destroy
+  has_many :documents, dependent: :destroy
 
   def self.all_status
     [

@@ -6,7 +6,6 @@ class TodoListsController < ApplicationController
   before_action :authenticate_user!
   def index
     @todo_lists = @project.todo_lists
-    
   end
 
   def show

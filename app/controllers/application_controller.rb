@@ -10,21 +10,22 @@ class ApplicationController < ActionController::Base
            status: 404,
            layout: false
   end
-  
+
   def owner?
-    current_user.personals.where(project_id:@project.id).pluck('role')[0] == 'owner'
+    current_user.personals.where(project_id: @project.id).pluck('role')[0] == 'owner'
   end
 
-  private 
-    def configure_permitted_parameters
-      devise_parameter_sanitizer.permit(:sign_up, keys: [:nickname])
+  private
+
+  def configure_permitted_parameters
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:nickname])
+  end
+
+  def layout_by_resource
+    if devise_controller?
+      'home'
+    else
+      'application'
     end
-    
-    def layout_by_resource
-      if devise_controller?
-        'home'
-      else
-        'application'
-      end
-    end
+  end
 end

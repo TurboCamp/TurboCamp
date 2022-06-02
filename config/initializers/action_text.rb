@@ -1,3 +1,5 @@
-Rails.application.config.after_initialize do 
-  ActionText::ContentHelper.allowed_attributes.add "style"
+# frozen_string_literal: true
+
+Rails.application.config.after_initialize do
+  ActionText::ContentHelper.allowed_attributes.add 'style'
 end

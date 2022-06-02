@@ -2,8 +2,8 @@
 
 class Message < ApplicationRecord
   include Visible
-  include Slugable 
-  
+  include Slugable
+
   belongs_to :project
   has_rich_text :content
   has_many :comments, dependent: :destroy

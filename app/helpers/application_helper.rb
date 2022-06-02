@@ -2,8 +2,8 @@
 
 module ApplicationHelper
   def sidebar_link_with_icon(url, method = nil, name)
-    link_to url, method:, class: 'sidebar-link' , data:{"no_turbolink": true} do
-      name 
+    link_to url, method:, class: 'sidebar-link', data: { no_turbolink: true } do
+      name
     end
   end
 

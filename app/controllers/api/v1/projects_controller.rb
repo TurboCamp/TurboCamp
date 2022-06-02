@@ -7,7 +7,7 @@ module Api
         user = User.where(email: params[:email]).first
         message = '請重新邀請'
         unless user.nil?
-            project = Project.friendly.find(params[:id])
+          project = Project.friendly.find(params[:id])
           if project.users.exists?(user.id)
             message = '成員已存在'
           else
