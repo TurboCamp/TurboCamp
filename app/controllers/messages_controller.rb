@@ -1,12 +1,11 @@
 # frozen_string_literal: true
 
 class MessagesController < ApplicationController
-  before_action :find_project , only: %i[index new create destroy] 
+  before_action :find_project, only: %i[index new create destroy]
 
-  before_action :find_location, only: %i[show edit update destroy ]
+  before_action :find_location, only: %i[show edit update destroy]
   before_action :authenticate_user!
-  
-  
+
   def index
     @messages = @project.messages
   end
@@ -30,14 +29,14 @@ class MessagesController < ApplicationController
 
   def update
     if @message.update(message_params)
-      redirect_to project_message_path(@project ,@message), notice: '成功更新'
+      redirect_to project_message_path(@project, @message), notice: '成功更新'
     else
       render :edit
     end
   end
 
   def destroy
-    @message.destroy if @message
+    @message&.destroy
     redirect_to project_messages_path(@project), notice: '成功刪除'
   end
 
@@ -47,12 +46,12 @@ class MessagesController < ApplicationController
     @project = current_user.projects.friendly.find(params[:project_id])
     @message = @project.messages.friendly.find(params[:id])
   end
-  
-  def find_project 
+
+  def find_project
     @project = current_user.projects.friendly.find(params[:project_id])
   end
 
   def message_params
-    params.require(:message).permit(:title, :content, :status , :image)
+    params.require(:message).permit(:title, :content, :status, :image)
   end
 end

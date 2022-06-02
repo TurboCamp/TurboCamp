@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 class SchedulesController < ApplicationController
-
   before_action :set_schedule, only: %i[show edit update destroy]
   before_action :set_project
   before_action :authenticate_user!
@@ -33,11 +32,9 @@ class SchedulesController < ApplicationController
   end
 
   def update
-
     respond_to do |format|
-
       if @schedule.update(schedule_params)
-        format.html { redirect_to project_schedules_path [@project],notice: '已更新' }
+        format.html { redirect_to project_schedules_path [@project], notice: '已更新' }
         format.json { render :show, status: :ok, location: [@project] }
       else
         format.html { render :edit }
@@ -50,9 +47,9 @@ class SchedulesController < ApplicationController
     @schedule.destroy
 
     respond_to do |format|
-      format.html {
-        redirect_to [@project, @schedule],notice: '已刪除'
-      }
+      format.html do
+        redirect_to [@project, @schedule], notice: '已刪除'
+      end
       format.json { head :no_content }
     end
   end
@@ -70,5 +67,4 @@ class SchedulesController < ApplicationController
   def schedule_params
     params.require(:schedule).permit(:title, :calendar_id, :start, :end, :location)
   end
-
 end

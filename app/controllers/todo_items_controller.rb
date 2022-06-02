@@ -2,7 +2,7 @@
 
 class TodoItemsController < ApplicationController
   before_action :set_todo_list
-  before_action :set_project, only: [:create, :destroy]
+  before_action :set_project, only: %i[create destroy]
   before_action :set_todo_item, only: %i[show edit update destroy]
   before_action :authenticate_user!
 

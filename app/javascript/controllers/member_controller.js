@@ -24,4 +24,7 @@ export default class extends Controller {
         }
     })  
   }
+  cancel(){
+    this.element.querySelector("#inputbox").classList.add('hidden')
+  }
 }
