@@ -4,6 +4,7 @@ class User < ApplicationRecord
   include Slugable
   include AvatarUploader::Attachment(:avatar)
 
+  belongs_to :project
   has_many :personals
   has_many :projects, through: :personals, dependent: :destroy
   has_many :user_privates

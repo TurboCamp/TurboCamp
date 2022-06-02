@@ -1,27 +1,20 @@
-<div class="relative h-full max-h-screen min-w-0 py-10 overflow-x-hidden px-28">
-  <div class="main-container">
-    <div class="w-full m-auto">
-      <h1 class="mb-3 text-5xl font-semibold text-gray-700">Todos</h1>
-      <div class="py-4 font-medium text-gray-400">
-        <p>Make lists of work that needs to get done, assign items, set due dates, and discuss.</p>
-      </div>
-      <div class="flex justify-end pb-2">
-         <%= link_to "NEW", new_project_todo_list_path, class:"theme-fill-btn"%>
-      </div>
-    </div>
-    <div class="p-4 m-auto mb-4 border-t border-gray-300">
-    </div>
-    <div class="mt-5 overflow-hidden bg-white shadow sm:rounded-md">
-      <ul role="list" class="divide-y divide-gray-200">
-        <div class="flex items-center px-4 py-4 sm:px-6">
-          <div class="flex items-center flex-1 min-w-0">
-            <div class="flex-1 min-w-0 px-4 md:grid md:grid-cols-1 md:gap-4">
-              <div>
+<div class="p-28">
+  <div class="flex flex-row justify-between">
+        <span class="text-4xl text-indigo-800">Todo Lists</span>
+        <%= link_to '新增Todo', new_project_todo_list_path, class:"bg-yellow-400 items-center pt-2 px-4 rounded-md font-semibold" %>
+  </div>
+  <div class="mt-5 overflow-hidden bg-green-100 shadow">
+  <div class="container grid grid-cols-3 gap-4"  data-sortable-handle-value=".handle" data-sortable-animation-value="100" data-sortable-resource-name-value="todo">
+  
+      <ul class="divide-y divide-gray-200">
+        <div class="w-auto px-4 py-4">
+          <%# <div class="flex items-center"> %>
+            <div >Todos</div>
+            <div class="flex flex-col px-4 text-2xl text-center flex-col-3" data-controller="sortable">
                 <% @todo_lists.each do |todo_list| %>
-                  <div class="flex flex-col p-6 mt-2 mr-2 bg-white rounded-lg shadow-lg">
-                    <h5 class="mb-2 text-xl font-medium leading-tight text-gray-900">
-                      <li class="px-4 py-4 overflow-hidden bg-white shadow sm:px-6 sm:rounded-md ">
-                        <td><%= link_to todo_list.title, project_todo_list_path(@project ,todo_list) %></td>
+                    <h5 class="mb-2 text-xl font-medium leading-tight text-yellow-600" data-id="<%= todo_list.id %>" data-status="a">
+                      <li class="px-4 py-4 overflow-hidden bg-red-200 shadow sm:px-6 sm:rounded-md">
+                        <td><%= link_to todo_list.title, project_todo_list_path(@project ,todo_list),class:'text-gray-600 text-4xl handle' %></td>
                         <% todo_list.todo_items.each do |todo_item| %>
                           <div class="card">
                               <%= todo_item.description %>
@@ -29,13 +22,29 @@
                         <% end %>
                       </li>
                     </h5>
-                  </div>
                 <% end %>
-              </div>
             </div>
-          </div>
+          <%# </div> %>
         </div>
       </ul>
+          <ul id="list">
+      <div class="w-auto px-4 py-4">
+        <div >Pending</div>
+        <div class="flex flex-col px-4 flex-col-3" data-controller="sortable">
+              <h5 data-status="b"></h5>
+        </div>
+      </div>
+          </ul>
+          <ul id="list">
+      <div class="w-auto px-4 py-4">
+        <div >Finish</div>
+        <div class="flex flex-col px-4 flex-col-3" data-controller="sortable">
+            
+              <h5 data-status="c"></h5>
+            
+        </div>
+      </div>
     </div>
+          </ul>
   </div>
 </div>

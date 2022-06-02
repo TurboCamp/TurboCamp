@@ -1,5 +1,14 @@
+#calendar{
+    // width: 1000px;
+}
 .tui-full-calendar-weekday-schedule {
     background-color: #fa0 !important;
+}
+.tui-full-calendar-month-week-item{
+    height: 10% !important;
+}
+.tui-full-calendar-weekday-grid-date-decorator{
+    background: #fa0 !important;
 }
 .field_with_errors{
     display: flex;
