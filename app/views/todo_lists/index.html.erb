@@ -1,15 +1,22 @@
-<div class="p-28">
-  <div class="flex flex-row justify-between">
-        <span class="text-4xl text-orange-400">Todo Lists</span>
-        <%= link_to '新增Todo', new_project_todo_list_path, class:"bg-yellow-400 items-center pt-2 px-4 rounded-md font-semibold" %>
-  </div>
-  <div class="mt-5 overflow-hidden bg-white shadow">
+<div class="relative h-full max-h-screen min-w-0 py-10 overflow-x-hidden px-28">
+<div class="main-container">
+    <div class="w-full m-auto">
+      <h1 class="mb-3 text-5xl font-semibold text-gray-700">Todos</h1>
+      <div class="py-4 font-medium text-gray-400">
+        <p>Make lists of work that needs to get done, assign items, set due dates, and discuss.</p>
+      </div>
+      <div class="flex justify-end pb-2">
+        <%= link_to "NEW", new_project_todo_list_path, class:"theme-fill-btn"%>
+      </div>
+    </div>
+    <div class="p-4 m-auto mb-4 border-t border-gray-300">
+    </div>
   <div class="container grid grid-cols-3 gap-4">
   
       <ul class="divide-y divide-gray-200 todos">
         <div class="w-auto px-4 py-4">
             <div class="text-2xl text-center">Todos</div>
-            <div class="flex flex-col px-4 text-2xl text-center flex-col-3" data-controller="sortable" data-sortable-status-value="a">
+            <div class="flex flex-col text-2xl text-center flex-col-3" data-controller="sortable" data-sortable-status-value="a">
                 <% @todo_lists.each do |todo_list| %>
                   <% if todo_list.status === 'todos' %>
                     <h5 class="mb-2 text-xl font-medium leading-tight text-yellow-600" data-id="<%= todo_list.id %>">
@@ -30,7 +37,7 @@
       <ul id="list pending">
       <div class="w-auto px-4 py-4" >
         <div class="text-2xl text-center text-blue-500">Pending</div>
-        <div class="flex flex-col px-4 text-2xl text-center flex-col-3" data-controller="sortable" data-sortable-status-value="b">
+        <div class="flex flex-col text-2xl text-center flex-col-3" data-controller="sortable" data-sortable-status-value="b">
         <% @todo_lists.each do |todo_list| %>
                   <% if todo_list.status === 'pending' %>
                     <h5 class="mb-2 text-xl font-medium leading-tight text-yellow-600" data-id="<%= todo_list.id %>">
@@ -51,7 +58,7 @@
       <ul id="list finish">
         <div class="w-auto px-4 py-4">
         <div class="text-2xl text-center text-red-500">Finish</div>
-          <div class="flex flex-col px-4 text-2xl text-center flex-col-3" data-controller="sortable" data-sortable-status-value="c">
+          <div class="flex flex-col text-2xl text-center flex-col-3" data-controller="sortable" data-sortable-status-value="c">
           <% @todo_lists.each do |todo_list| %>
                   <% if todo_list.status === 'finish' %>
                     <h5 class="mb-2 text-xl font-medium leading-tight text-yellow-600" data-id="<%= todo_list.id %>">
