@@ -4,7 +4,7 @@ class TodoList < ApplicationRecord
   belongs_to :project
   acts_as_list scope: :project
   has_many :todo_items, dependent: :destroy
-  has_one :schedules, dependent: :destroy
+  # has_one :schedules, dependent: :destroy
 
   def percent_complete
     return 0 if total_items.zero?

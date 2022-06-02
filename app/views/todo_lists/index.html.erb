@@ -22,6 +22,9 @@
                     <h5 class="mb-2 text-xl font-medium leading-tight text-yellow-600" status="todos" data-id="<%= todo_list.id %>">
                       <li class="px-4 py-4 overflow-hidden bg-white shadow sm:rounded-md">
                         <td><%= link_to todo_list.title, project_todo_list_path(@project ,todo_list),class:'text-gray-600 text-4xl handle' %></td>
+                        <%= link_to project_todo_list_path(@project, todo_list ) , method: "DELETE" ,class:"" do %>
+                        <i class="text-2xl far fa-trash-alt"></i>
+                        <% end %>
                         <% todo_list.todo_items.each do |todo_item| %>
                           <div>
                               <%= todo_item.description %>
@@ -36,7 +39,7 @@
         </div>
       </ul>
       <ul class="border-2 list doing">
-      <div class="w-auto px-4 py-4" >
+        <div class="w-auto px-4 py-4" >
         <div class="mb-4 text-4xl font-bold text-center">Doing</div>
         <div class="flex flex-col text-2xl text-center flex-col-3" data-controller="sortable" data-sortable-status-value="b">
         <% @todo_lists.each do |todo_list| %>
@@ -44,6 +47,9 @@
                     <h5 class="mb-2 text-xl font-medium leading-tight text-yellow-600" data-id="<%= todo_list.id %>">
                       <li class="px-4 py-4 overflow-hidden bg-white shadow sm:rounded-md">
                         <td><%= link_to todo_list.title, project_todo_list_path(@project ,todo_list),class:'text-gray-600 text-4xl handle' %></td>
+                        <%= link_to project_todo_list_path(@project, todo_list ) , method: "DELETE" ,class:"" do %>
+                        <i class="text-2xl far fa-trash-alt"></i>
+                        <% end %>
                         <% todo_list.todo_items.each do |todo_item| %>
                           <div>
                               <%= todo_item.description %>
@@ -53,9 +59,9 @@
                     </h5>
                   <% end %>  
                 <% end %>
+          </div>
         </div>
-      </div>
-          </ul>
+      </ul>
       <ul class="border-2 list done">
         <div class="w-auto px-4 py-4">
         <div class="mb-4 text-4xl font-bold text-center">Done</div>
@@ -65,6 +71,9 @@
                     <h5 class="mb-2 text-xl font-medium leading-tight text-yellow-600" data-id="<%= todo_list.id %>">
                       <li class="px-4 py-4 overflow-hidden bg-white shadow sm:rounded-md">
                         <td><%= link_to todo_list.title, project_todo_list_path(@project ,todo_list),class:'text-gray-600 text-4xl handle' %></td>
+                        <%= link_to project_todo_list_path(@project, todo_list ) , method: "DELETE" ,class:"" do %>
+                        <i class="text-2xl far fa-trash-alt"></i>
+                        <% end %>
                         <% todo_list.todo_items.each do |todo_item| %>
                           <div>
                               <%= todo_item.description %>
