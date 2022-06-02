@@ -28,10 +28,10 @@ export default class extends Controller {
     if (event.item.parentNode.firstChild.textContent === 'Finish') {
       status = ('c')    
     }
-    console.log(status);
+    // console.log(status);
     // let status = event.item.dataset.status
     let data = new FormData()
-    console.log(event);
+    // console.log(event);
 
     data.append("position", event.newIndex + 1)
     data.append("status", status)
