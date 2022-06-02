@@ -34,6 +34,7 @@ class TodoListsController < ApplicationController
 
   def update
     if @todo_list.update(todo_list_params)
+      
       redirect_to todo_list_url(@todo_list), alert: 'Todo list 更新成功'
     else
       render :edit
@@ -48,8 +49,8 @@ class TodoListsController < ApplicationController
 
   def move
     todo_list = @project.todo_lists.find(params[:id])
-    todo_list.insert_at(params[:position].to_i)
-
+    todo_list.update(position: params[:position].to_i)
+    todo_list.update(status: params[:status])
     render json: { message: "ok"}
   end
 
@@ -64,7 +65,7 @@ class TodoListsController < ApplicationController
   end
 
   def todo_list_params
-    params.require(:todo_list).permit(:title, :status, :position, :start , todo_items: [:todo_list])
+    params.require(:todo_list).permit(:title, :start, :position, :status , todo_items: [:todo_list])
   end
 
 end

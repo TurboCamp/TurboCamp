@@ -4,40 +4,51 @@ import Rails from '@rails/ujs'
 // import Sortable from 'stimulus-sortable'
 
 export default class extends Controller {
-  static targets = ['a','b','c'];
+  static values = {
+    status: String
+  }
   connect() {
+    console.log(this.statusValue);
     
     Sortable.create(this.element, {
       group: 'shared',
       // onEnd: this.end.bind(this),
-      onChange: this.end.bind(this)
+      onChange: this.end.bind(this),
+      // onMove: function (/**Event*/evt, /**Event*/originalEvent) {
+
+      //   // console.log(evt);
+      //   evt.dragged; // dragged HTMLElement
+      //   evt.draggedRect; // DOMRect {left, top, right, bottom}
+      //   evt.related; // HTMLElement on which have guided
+      //   evt.relatedRect; // DOMRect
+      //   evt.willInsertAfter; // Boolean that is true if Sortable will insert drag element after target by default
+      //   originalEvent.clientY; // mouse position
+      //   // return false; — for cancel
+      //   // return -1; — insert before target
+      //   // return 1; — insert after target
+      //   // return true; — keep default insertion point based on the direction
+      //   // return void; — keep default insertion point based on the direction
+      // },
     })
     
   }
   end(event) {
+
     let id = event.item.dataset.id
-    // let status = event.item.dataset.status
-    console.log(event.item.parentNode.firstChild.textContent);
-    console.log(event.item.previousSibling.textContent);
-    if (event.item.parentNode.firstChild.textContent === 'Todos') {
-      status = ('a')    
+    if (this.statusValue === 'a') {
+      status = 'todos'
+    } else if (this.statusValue === 'b') {
+      status = 'pending'
+    } else if (this.statusValue === 'c') {
+      status = 'finish'
     }
-    if (event.item.parentNode.firstChild.textContent === 'Pending') {
-      status = ('b')    
-    }
-    if (event.item.parentNode.firstChild.textContent === 'Finish') {
-      status = ('c')    
-    }
-    // console.log(status);
-    // let status = event.item.dataset.status
-    let data = new FormData()
-    // console.log(event);
+    console.log(this.statusValue);
+    console.log(status);
+    const data = new FormData()
 
     data.append("position", event.newIndex + 1)
     data.append("status", status)
 
-    // console.log(event.newIndex);
-    // console.log(data);
     Rails.ajax({
       url: `./todo_lists/${id}/move`,
       type: 'PATCH',
