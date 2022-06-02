@@ -13,13 +13,13 @@
     </div>
   <div class="container grid grid-cols-3 gap-4">
   
-      <ul class="divide-y divide-gray-200 todos">
+      <ul class="border-2 divide-y divide-gray-200 todos">
         <div class="w-auto px-4 py-4">
-            <div class="text-2xl text-center">Todos</div>
+            <div class="mb-4 text-4xl font-bold text-center">Todos</div>
             <div class="flex flex-col text-2xl text-center flex-col-3" data-controller="sortable" data-sortable-status-value="a">
                 <% @todo_lists.each do |todo_list| %>
-                  <% if todo_list.status === 'todos' %>
-                    <h5 class="mb-2 text-xl font-medium leading-tight text-yellow-600" data-id="<%= todo_list.id %>">
+                  <% if todo_list.status === 'todos'  %>
+                    <h5 class="mb-2 text-xl font-medium leading-tight text-yellow-600" status="todos" data-id="<%= todo_list.id %>">
                       <li class="px-4 py-4 overflow-hidden bg-white shadow sm:rounded-md">
                         <td><%= link_to todo_list.title, project_todo_list_path(@project ,todo_list),class:'text-gray-600 text-4xl handle' %></td>
                         <% todo_list.todo_items.each do |todo_item| %>
@@ -29,17 +29,18 @@
                         <% end %>
                       </li>
                     </h5>
+                    
                   <% end %>  
                 <% end %>
             </div>
         </div>
       </ul>
-      <ul id="list pending">
+      <ul class="border-2 list doing">
       <div class="w-auto px-4 py-4" >
-        <div class="text-2xl text-center text-blue-500">Pending</div>
+        <div class="mb-4 text-4xl font-bold text-center">Doing</div>
         <div class="flex flex-col text-2xl text-center flex-col-3" data-controller="sortable" data-sortable-status-value="b">
         <% @todo_lists.each do |todo_list| %>
-                  <% if todo_list.status === 'pending' %>
+                  <% if todo_list.status === 'doing' %>
                     <h5 class="mb-2 text-xl font-medium leading-tight text-yellow-600" data-id="<%= todo_list.id %>">
                       <li class="px-4 py-4 overflow-hidden bg-white shadow sm:rounded-md">
                         <td><%= link_to todo_list.title, project_todo_list_path(@project ,todo_list),class:'text-gray-600 text-4xl handle' %></td>
@@ -55,12 +56,12 @@
         </div>
       </div>
           </ul>
-      <ul id="list finish">
+      <ul class="border-2 list done">
         <div class="w-auto px-4 py-4">
-        <div class="text-2xl text-center text-red-500">Finish</div>
+        <div class="mb-4 text-4xl font-bold text-center">Done</div>
           <div class="flex flex-col text-2xl text-center flex-col-3" data-controller="sortable" data-sortable-status-value="c">
           <% @todo_lists.each do |todo_list| %>
-                  <% if todo_list.status === 'finish' %>
+                  <% if todo_list.status === 'done' %>
                     <h5 class="mb-2 text-xl font-medium leading-tight text-yellow-600" data-id="<%= todo_list.id %>">
                       <li class="px-4 py-4 overflow-hidden bg-white shadow sm:rounded-md">
                         <td><%= link_to todo_list.title, project_todo_list_path(@project ,todo_list),class:'text-gray-600 text-4xl handle' %></td>
