@@ -125,6 +125,13 @@ ActiveRecord::Schema.define(version: 2022_06_03_050918) do
     t.index ["project_id"], name: "index_messages_on_project_id"
   end
 
+  create_table "orders", force: :cascade do |t|
+    t.string "slug"
+    t.string "email"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "personals", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.bigint "project_id", null: false
@@ -182,9 +189,7 @@ ActiveRecord::Schema.define(version: 2022_06_03_050918) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "project_id"
-    t.string "status", default: "todos"
     t.integer "position"
-    t.datetime "start"
     t.index ["project_id"], name: "index_todo_lists_on_project_id"
   end
 
