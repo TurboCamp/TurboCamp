@@ -39,10 +39,10 @@ class ProjectPolicy < ApplicationPolicy
   private
 
   def owner
-    user.personals.where(project_id: @project.id).pluck('role')[0] == 'owner'
+    user.personals.find_by(project: @project).role == 'owner'
   end
 
   def teammate
-    user.personals.where(project_id: @project.id).pluck('role')[0] == 'teammate'
+    user.personals.find_by(project: @project).role == 'teammate'
   end
 end
