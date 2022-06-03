@@ -24,7 +24,7 @@
         </h1>
       </div>
       <div class="text-xl font-normal py-14 text-gray-600 trix-content">
-        <p><%= @message.content %></p>
+        <p><%= markdown(@message.content) %></p>
       </div>
     </div>
     <div class="relative px-4 py-4">
