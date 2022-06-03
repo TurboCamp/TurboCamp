@@ -10,7 +10,8 @@
       <%= markdown(comment.content) %> 
     </div>
   </div>
-  <div data-controller="dropdown">
+  <% if comment.user = current_user %>
+    <div data-controller="dropdown" >
       <button type="button" data-action="click->dropdown#toggle" class=" top-0 right-5 z-50 relative"><%= icons 'ellipsis-h', :fas, 'xs', 'dropdown-icon'%></button>
       <div data-dropdown-target="toggle" class="hidden dropdown-comment-content" 
            data-transition-enter-active="transition ease-in-out"
@@ -23,4 +24,5 @@
         <%= link_to '修改', edit_project_message_comment_path(@project, @message, comment.id) , class:"dropdown-comment" %>
       </div>
     </div>
+  <% end %>
 </div>
