@@ -36,11 +36,11 @@ body {
 }
 
 .dropdown_comment {
-  @apply absolute top-10 right-10 z-50 items-center hover:bg-theme-200 hover:text-white rounded-md text-sm font-mono
+  @apply relative z-50 items-center hover:bg-theme-200 hover:text-white rounded-md text-sm font-mono bg-theme-150 py-5 px-2
 }
 
 .dropdown_comment_content {
-  @apply  fixed top-24 right-20 z-50 rounded-md bg-theme-150 flex flex-wrap text-theme-0
+  @apply absolute top-10 right-10 z-50 rounded-md bg-theme-150 flex flex-wrap text-theme-0
 }
 
 .dropdown-icon {
