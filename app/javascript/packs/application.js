@@ -9,11 +9,6 @@ import * as ActiveStorage from "@rails/activestorage"
 import "channels"
 import "stylesheets";
 import "@fortawesome/fontawesome-free/css/all"
-import "/app/assets/stylesheets/actiontext.scss"
-import "./utilities/color_picker"
-require("trix")
-require("@rails/actiontext")
-
 Turbolinks.start()
 Rails.start()
 ActiveStorage.start()
