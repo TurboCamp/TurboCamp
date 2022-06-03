@@ -15,7 +15,7 @@
             <div class="sm:col-span-6">
                 <%= form.label :content, class:"block text-sm font-medium text-gray-700" %>
               <div class="mt-1">
-                <%= form.rich_text_area :content, class:"h-72 flex-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full min-w-0 rounded-none rounded-r-md sm:text-sm border-gray-300" %>
+                <%= form.text_area :content, class:"h-72 flex-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full min-w-0 rounded-none rounded-r-md sm:text-sm border-gray-300", data:{controller:"markdown-editor"}%>
               </div>
             </div>
             <div class="sm:col-span-6">
