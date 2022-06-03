@@ -22,7 +22,7 @@ class MessagesController < ApplicationController
   def create
     @message = @project.messages.new(message_params)
     if @message.save
-      redirect_to project_messages_path
+      redirect_to project_messages_path, success: 'Message successfully created!'
     else
       render :new
     end
@@ -32,15 +32,15 @@ class MessagesController < ApplicationController
 
   def update
     if @message.update(message_params)
-      redirect_to project_message_path(@project, @message), notice: '成功更新'
+      redirect_to project_message_path(@project, @message), success: 'Message successfully updated!'
     else
       render :edit
     end
   end
 
   def destroy
-    @message&.destroy
-    redirect_to project_messages_path(@project), notice: '成功刪除'
+    @message.destroy if @message
+    redirect_to project_messages_path(@project), alert: 'Message has been delete!'
   end
 
   private

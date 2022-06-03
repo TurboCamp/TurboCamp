@@ -25,7 +25,7 @@ class TodoListsController < ApplicationController
     @todo_list = @project.todo_lists.new(todo_list_params)
 
     if @todo_list.save
-      redirect_to [@project, @todo_list], notice: 'Todo list 建立成功'
+      redirect_to [@project, @todo_list], success: "Todo's group successfully created!"
     else
       render :new
     end
@@ -33,8 +33,7 @@ class TodoListsController < ApplicationController
 
   def update
     if @todo_list.update(todo_list_params)
-      
-      redirect_to [@project, @todo_list], alert: 'Todo list 更新成功'
+      redirect_to todo_list_url(@todo_list), success: "Todo's group successfully updated!"
     else
       render :edit
     end
@@ -42,8 +41,7 @@ class TodoListsController < ApplicationController
 
   def destroy
     @todo_list.destroy
-
-    redirect_to [@project, @todo_list]
+    redirect_to [@project, @todo_list], alert: "Todo's group has been deleted!"
   end
 
   def move

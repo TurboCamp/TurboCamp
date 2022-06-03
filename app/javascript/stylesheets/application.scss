@@ -28,11 +28,11 @@ body {
 }
 
 .dropdown {
-  @apply relative w-full pl-6 py-4 items-center hover:bg-theme-200 hover:text-white rounded-md text-xl font-mono;
+  @apply relative w-full pl-6 py-4 items-center text-gray-600 bg-theme-50 hover:bg-theme-150 hover:text-gray-700 text-xl font-medium;
 }
 
 .dropdown-content {
-  @apply fixed top-24 right-20 z-50 rounded-md bg-theme-150 flex flex-wrap text-theme-0;
+  @apply fixed top-24 right-20 z-50 rounded-md border border-gray-300 bg-theme-50 shadow-md flex flex-wrap text-theme-0;
 }
 
 .dropdown-comment {
