@@ -2,14 +2,14 @@
   <%- resource_class.omniauth_providers.each do |provider| %>
     <% if provider.to_s.titleize == "Google Oauth2" %>
       <div>
-        <%= link_to omniauth_authorize_path(resource_name, provider),  class:"auth-btn" , method: :post do %>
+        <%= link_to omniauth_authorize_path(resource_name, provider),  class:'devise-auth-btn' , method: :post do %>
           <i class="fab fa-google text-2xl pr-4"></i>
           <p>Continue With Google</p>
         <% end %>
       </div>
     <% else %>
       <div>
-        <%= link_to  omniauth_authorize_path(resource_name, provider), class:"auth-btn" , method: :post do%>
+        <%= link_to  omniauth_authorize_path(resource_name, provider), class:'devise-auth-btn' , method: :post do%>
           <i class="fab fa-github text-2xl pr-4"></i>
           <p>Continue With GitHub</p>
         <% end %>

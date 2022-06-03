@@ -8,7 +8,10 @@ import Turbolinks from "turbolinks"
 import * as ActiveStorage from "@rails/activestorage"
 import "channels"
 import "stylesheets";
-import "@fortawesome/fontawesome-free/css/all"
+import "@fortawesome/fontawesome-free/css/regular"
+import "@fortawesome/fontawesome-free/css/solid"
+import "@fortawesome/fontawesome-free/css/fontawesome"
+
 Turbolinks.start()
 Rails.start()
 ActiveStorage.start()

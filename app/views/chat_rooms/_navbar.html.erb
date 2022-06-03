@@ -4,9 +4,9 @@
       <h2 class="text-3xl font-semibold text-gray-700"><%= @project.title %>'s Chatroom</h2>
     </div>
     <div class="flex justify-end items-center">
-      <%= link_to icons('house-user', :fas, 'lg', 'pr-5'), project_path(@project) if @project%>
-      <%= link_to icons('th', :fas, 'lg', 'pr-5'), personal_path %>
-      <%= link_to icons('sign-out-alt', :fas, 'lg', 'pr-5'), destroy_user_session_path, method: :delete %>
+      <%= link_to icon_tag('fa-house-user fa-solid fa-lg pr-5 text-gray-600'), project_path(@project) if @project %>
+      <%= link_to icon_tag('fa-border-all fa-solid fa-lg pr-5 text-gray-600'), personal_path %>
+      <%= link_to icon_tag('fa-arrow-right-from-bracket fa-solid fa-lg pr-5 text-gray-600'), destroy_user_session_path, method: :delete %>
     </div>
   </div>
 </nav>
