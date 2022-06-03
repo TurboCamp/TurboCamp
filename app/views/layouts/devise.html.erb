@@ -5,20 +5,17 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
     <%= stylesheet_pack_tag 'application', media: 'all' %>
-    <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
     <%= favicon_link_tag 'logo_outline.ico' %>
   </head>
   <body>
-    <header>
-      <%= render "/projects/navbar" %>
-    </header>
-    <main class="p-20">
+    <main class="w-screen h-screen bg-theme-5">
+      <%= render 'navbar' %>
+      <%= render "/shared/flash" if flash %>
       <%= yield %>
     </main>
-
-    
   </body>
 </html>

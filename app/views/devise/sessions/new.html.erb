@@ -1,30 +1,35 @@
 <section class="bg-theme-5">
   <div class="flex overflow-hidden min-h-full py-32">
-    <div class="max-w-sm w-full m-auto align-middle ">
-      <h1 class="text-gray-700 text-center font-bold text-5xl items-center py-6">Log in</h1>
+    <div class="devise-container">
+      <h1 class="devise-title">Log in</h1>
       <div class="px-8 pt-6">
-        <%= render "devise/shared/auth"%>
+        <%= render 'devise/shared/auth'%>
       </div>
-      <%= form_for(resource, :as => resource_name, :url => session_path(resource_name), html: {class:"bg-theme-5 px-8 pt-1"}) do |f| %>
-        <div class="py-2 mb-4 border-b border-gray-300">
-        </div>
+      <%= form_for(resource, :as => resource_name, :url => session_path(resource_name), html: { class: 'bg-theme-5 px-8 pt-1' }) do |f| %>
+        <div class="py-2 mb-4 border-b border-gray-300"></div>
         <div class="devise-label">
-          <%= f.label 'Email', class:"font" %>
-          <%= f.email_field :email, placeholder: 'Enter your email address...', class:"field"%>
-          <%= f.label 'Password', class:"font" %>
-          <%= f.password_field :password, placeholder: 'Enter your password...', class:"field" %>
+          <%= f.label 'Email', class: 'font' %>
+          <%= f.email_field :email, placeholder: 'Enter your email address...', class: 'field' %>
+          <%= f.label 'Password', class: 'font' %>
+          <%= f.password_field :password, placeholder: 'Enter your password...', class: 'field' %>
         </div>
-        <div class="pb-1">
-          <% if devise_mapping.rememberable? -%>
-            <%= f.check_box :remember_me, class:'w-4 h-4 mr-1' %>
-            <%= f.label 'Remember me', class:"text-gray-500 font-medium mb-2"%>
-          <% end -%>
+        <div class="pb-7 flex justify-between items-center">
+          <div class="flex justify-start items-center" >
+            <% if devise_mapping.rememberable? -%>
+              <%= f.check_box :remember_me, class: 'w-4 h-4 mt-0.5 mr-1' %>
+              <%= f.label 'Remember me', class: 'text-gray-500 font-medium text-sm', for: 'user_remember_me' %>
+            <% end -%>
+          </div>
+          <div class="text-red-500 font-medium text-sm hover:underline">
+            <%= render 'devise/shared/links'%>
+          </div>
         </div>
-        <%= f.submit 'Sign in', class:"devise-fill-btn" %>
-        <div class="py-5 flex justify-center text-gray-500 font-medium hover:text-red-500">
-          <%= render "devise/shared/links"%>
-        </div>
+        <%= f.submit 'Sign in', class: 'devise-fill-btn' %>
       <% end %>
+      <div class="py-5 flex justify-center text-gray-500 text-sm">
+        <p>Not a member yet?</p>
+        <%= link_to 'Register a new account', new_user_registration_path, class: 'px-2 underline hover:text-theme-150' %>
+      </div>
     </div>
   </div>
 </section>

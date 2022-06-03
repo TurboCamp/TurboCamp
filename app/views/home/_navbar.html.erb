@@ -1,6 +1,8 @@
 <nav class="z-50 flex justify-between w-full h-16">
     <div class="flex items-center ml-7">
+      <%= link_to root_path do %>
         <%= image_tag("turbocamp_a" , class:"h-12 ") %>
+      <% end %>
     </div>
     <div class="flex items-center flex-nowrap">
         <%= link_to 'Sign in' , new_user_session_path , class:"text-ml bg-transparent hover:bg-theme-150 text-theme-150 font-semibold hover:text-white py-2 px-4 border border-theme-150 hover:border-transparent rounded mr-4"%>

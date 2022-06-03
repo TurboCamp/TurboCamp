@@ -1,4 +1,3 @@
-
 <div class="bg-theme-0 bg-opacity-60 overflow-y-auto overflow-x-hidden animated fadeIn fixed inset-0 flex items-center justify-center z-50 w-full md:inset-0 md:h-full">
   <div class="relative p-4 max-h-screen w-full max-w-lg h-full md:h-auto">
     <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
@@ -11,34 +10,33 @@
         </div>
       </div>
       <div class="border-gray-400 m-auto p-8 block w-auto" , data-controller="modal">
-  <%= form_with(model: project ,data:{remote:true},  class:"contents w-full max-w-lg" , method: :post) do |form| %>
-    <div>
-        <div class="flex flex-wrap justify-center mb-3">
-            <div class="rounded-full w-40 h-40 overflow-x-hidden overflow-y-hidden mb-2">
-              <%= form.label :image do %>
-                <%= image_tag( project.image_url || "logo_a_0" ,data:{ modal_target: "output" } , class:"hover:text-black hover:opacity-60 cursor-pointer")%>
-              <% end %>
+        <%= form_with(model: project ,data:{remote:true},  class:"contents w-full max-w-lg", method: :post) do |form| %>
+          <div>
+            <div class="flex flex-wrap justify-center mb-3">
+                <div class="rounded-full w-40 h-40 overflow-x-hidden overflow-y-hidden mb-2">
+                  <%= form.label :image  do%>
+                    <%= image_tag( @project.image_url || "logo_a_0" ,data: { modal_target: "output" } , class:"hover:text-black hover:opacity-60 cursor-pointer")%>
+                  <% end %>
+                </div>
+                <%= form.file_field :image ,class:'w-full hidden ',data: { modal_target: "input", action:"change->modal#readURL"}%>
             </div>
-            <%= form.file_field :image ,class:'w-full hidden ',data: {modal_target: "input", action:"change->modal#readURL"}%>
-    </div>
-    <div class="w-full px-3 mb-6 md:mb-0">
-        <div>
-            <%= form.label :title , "專案名稱"  , class:"block tracking-wide text-gray-700 text-xs font-bold mb-2 text-lg"%>
-            <%= form.text_field :title , class:"block w-full bg-gray-50 text-gray-700 border border-gray-100 rounded py-3 px-4 mb-3 leading-tight"%>
-        </div>
-    </div>
-    <div class="w-full px-3">
-        <div>
-            <%= form.label :description , "專案描述" , class:"block tracking-wide text-gray-700 text-xs font-bold mb-2 text-lg"%>
-            <%= form.text_area :description , class:"block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-100 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white ", placeholder: "Your content..." %>
-        </div>
-    </div>
-    <div class="flex justify-end mt-5 pl-1">
-        <%= form.submit "新增專案" ,class:"theme-fill-btn"%>
-    </div>
-  <% end %>
-</div>
-
+            <div class="w-full px-3 mb-6 md:mb-0">
+              <div>
+                  <%= form.label :title, "Project Name", class:"  tracking-wide text-gray-700 text-xs font-bold mb-2 text-lg normal-case "%>
+                  <%= form.text_field :title , class:" w-full bg-gray-50 text-gray-700 border border-gray-100 rounded py-3 px-4 mb-3 leading-tight"%>
+              </div>
+            </div>
+            <div class="w-full px-3">
+              <div>
+                  <%= form.label :description , "Description" , class:" tracking-wide text-gray-700 text-xs font-bold mb-2 text-lg normal-case"%>
+                  <%= form.text_area :description , class:"p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-100 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white ", placeholder: "Your content..." %>
+              </div>
+            </div>
+          <div class="flex justify-end mt-5 pl-1">
+            <%= form.submit "Create Project" ,class:"theme-fill-btn"%>
+          </div>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>

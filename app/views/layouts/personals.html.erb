@@ -12,8 +12,8 @@
   </head>
   <body>
     <main id ="personal" class="relative flex flex-col m-auto h-screen overflow-hidden">
-      <%= render "/shared/flash" if flash %>
       <%= render 'personals/navbar' %>
+      <%= render "/shared/flash" if flash %>
       <%= yield %>
     </main>
   </body> 
