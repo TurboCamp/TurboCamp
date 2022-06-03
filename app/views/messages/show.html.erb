@@ -1,7 +1,7 @@
 <div class="p-28 h-full min-w-0 overflow-x-hidden max-h-screen relative">
   <div class="w-4/5 max-w-screen-lg m-auto ">
     <div data-controller="dropdown">
-      <button type="button" data-action="click->dropdown#toggle" class="fixed top-28 right-24 z-10"><%= icons 'ellipsis-h', :fas, 'xl', 'dropdown-icon'%></button>
+      <button type="button" data-action="click->dropdown#toggle" class="fixed top-28 right-24 z-10"><%= icon_tag('fa-ellipsis fa-solid fa-xl dropdown-icon')%></button>
       <div data-dropdown-target="toggle" class="hidden dropdown-content" 
            data-transition-enter-active="transition ease-in-out"
            data-transition-enter-from="transform translate-x-32 opacity-0 scale-x-0"
@@ -10,11 +10,11 @@
            data-transition-leave-from="transform translate-x-0 opacity-100 scale-x-100"
            data-transition-leave-to="transform translate-x-32 opacity-0 scale-x-0">
         <div class="w-full flex justify-end items-center py-2 px-1">
-          <button type="submit" data-action="click->dropdown#close" class="p-3"><%= icons('times', :fas, 'lg', 'p-2') %></button>
+          <button type="submit" data-action="click->dropdown#close" class="p-3"><%= icon_tag('fa-times fa-solid fa-lg p-2') %></button>
         </div>
-        <%=link_to "編輯", edit_project_message_path(@project, @message), class: 'dropdown mt-2' %>
-        <%=link_to "刪除", project_message_path(@project ,@message), method: "delete", data: { confirm: "確定刪除?"}, class: 'dropdown' %>
-        <%=link_to "返回", project_messages_path(@project), class: 'dropdown' %>
+        <%=link_to "Edit", edit_project_message_path(@project, @message), class: 'dropdown mt-2' %>
+        <%=link_to "Delete", project_message_path(@project ,@message), method: "delete", data: { confirm: "Are you sure to delete?"}, class: 'dropdown' %>
+        <%=link_to "Return", project_messages_path(@project), class: 'dropdown' %>
       </div>
     </div>
     <div class="w-full relative px-4 py-5 mx-auto justify-items-center">

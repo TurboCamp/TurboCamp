@@ -14,7 +14,7 @@ class ProjectsController < ApplicationController
     @project = current_user.projects.create(project_clean)
     current_user.personals.where(project_id: @project.id).update(role: 'owner')
     if @project.save
-      redirect_to project_path(@project)
+      redirect_back fallback_location: root_path, success: 'Project successfully created!'
     else
       render :new, status: :unprocessable_entity
     end
@@ -27,7 +27,7 @@ class ProjectsController < ApplicationController
   def update
     authorize @project, policy_class: ProjectPolicy
     if @project.update(project_clean)
-      redirect_to project_path(@project), notice: '專案更新成功'
+      redirect_back fallback_location: root_path, success: 'Project successfully updated!'
     else
       render :edit, status: :unprocessable_entity
     end
@@ -36,7 +36,7 @@ class ProjectsController < ApplicationController
   def destroy
     authorize @project, policy_class: ProjectPolicy
     @project.destroy
-    redirect_to personal_path, notice: '已刪除專案'
+    redirect_to personal_path, alert: 'Project has been deleted!'
   end
 
   private

@@ -30,7 +30,7 @@ class TodoItemsController < ApplicationController
 
   def update
     if @todo_item.update(todo_item_params)
-      redirect_to([@todo_item.todo_list, @todo_item], notice: 'Todo 已更新')
+      redirect_to([@todo_item.todo_list, @todo_item])
     else
       render :edit
     end
@@ -38,7 +38,7 @@ class TodoItemsController < ApplicationController
 
   def destroy
     @todo_item.destroy
-    redirect_to [@project, @todo_item.todo_list], notice: 'Todo_item 已刪除'
+    redirect_to [@project, @todo_item.todo_list]
   end
 
   private

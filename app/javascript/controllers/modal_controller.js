@@ -1,6 +1,11 @@
 import { Controller } from "@hotwired/stimulus"
 
 export default class extends Controller {
+
+  hide() {
+    console.log(this.element)
+    this.element.setAttribute('hidden')
+  }
     
   static targets = [ "output", "input" ]
 

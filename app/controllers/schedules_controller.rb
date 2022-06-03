@@ -22,7 +22,7 @@ class SchedulesController < ApplicationController
 
     respond_to do |format|
       if @schedule.save
-        format.html { redirect_to [@project, @schedule], notice: '已新增' }
+        format.html { redirect_to [@project, @schedule], success: 'Schedule successfully created!' }
         format.json { render :show, status: :created, location: [@project, @schedule] }
       else
         format.html { render :new }
@@ -34,7 +34,7 @@ class SchedulesController < ApplicationController
   def update
     respond_to do |format|
       if @schedule.update(schedule_params)
-        format.html { redirect_to project_schedules_path [@project], notice: '已更新' }
+        format.html { redirect_to project_schedules_path [@project], success: 'Schedule successfully updated!' }
         format.json { render :show, status: :ok, location: [@project] }
       else
         format.html { render :edit }
@@ -47,9 +47,9 @@ class SchedulesController < ApplicationController
     @schedule.destroy
 
     respond_to do |format|
-      format.html do
-        redirect_to [@project, @schedule], notice: '已刪除'
-      end
+      format.html {
+        redirect_to [@project, @schedule], alert: 'Schedule has been delete!'
+      }
       format.json { head :no_content }
     end
   end
