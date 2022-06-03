@@ -53,3 +53,5 @@ gem 'omniauth-rails_csrf_protection', '~> 1.0', '>= 1.0.1'
 gem 'stimulus_reflex', '~> 3.4'
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 
+
+gem "local_time", "~> 2.1"

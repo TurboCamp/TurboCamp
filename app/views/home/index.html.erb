@@ -2,9 +2,9 @@
     <%# feature_section_start %>
     <div class="relative mx-auto bg-gradient-to-r from-home_gray-100 to-gray-300">
       <div class="relative max-w-xl px-4 py-12 mx-auto lg:max-w-7xl ">
-      <div class="relative flex px-4 py-16 sm:px-6 sm:py-24 lg:py-32 lg:px-8">
+      <div class="relative px-4 py-16 sm:px-6 sm:py-24 lg:py-32 lg:px-8 lg:flex lg:grid-cols-2 lg:items-center">
         <div class="container ">
-          <div class="w-4/5 row">
+          <div class="lg:w-4/5 row">
               <h1 class="text-4xl font-extrabold tracking-tight text-center sm:text-5xl lg:text-6xl">
                 <span class="block pb-10 text-gray-900">Turbo Camp</span>
                 <span class="block text-gray-300">一站式專案管理系統</span>
@@ -15,7 +15,7 @@
               </div>
             </div>
           </div>
-          <div class="w-3/4 row">
+          <div class="lg:w-3/4 row">
             <div class="mt-10" aria-hidden="true">
                 <%= image_tag("turbocamp001" , class:" mx-auto", width:"600") %>
             </div>
@@ -34,7 +34,7 @@
             <%= image_tag("turbocamp_a" , class:"relative mx-auto sm: max-w-full") %>
           </div>
           <div></div>
-          <div class="md:grid md:grid-cols-3 md:gap-8">
+          <div class="flex justify-evenly mb-10 space-x-20 xl:mr-20">
             <div>
               <h3 class="text-sm font-semibold tracking-wider text-gray-400 uppercase">Company</h3>
               <ul role="list" class="mt-4 space-y-4">
@@ -51,7 +51,7 @@
                 </li>
               </ul>
             </div>
-            <div class="mt-12 md:mt-0">
+            <div class=" md:mt-0">
               <h3 class="text-sm font-semibold tracking-wider text-gray-400 uppercase"> Product </h3>
               <ul role="list" class="mt-4 space-y-4">
                 <li>
@@ -64,7 +64,7 @@
 
               </ul>
             </div>
-            <div class="mt-12 md:mt-0">
+            <div class=" md:mt-0">
               <h3 class="text-sm font-semibold tracking-wider text-gray-400 uppercase">Legal</h3>
               <ul role="list" class="mt-4 space-y-4">
                 <li>
@@ -81,7 +81,7 @@
               </ul>
             </div>
           </div>
-          <div class="flex flex-col justify-evenly">
+          <div class="flex flex-col justify-evenly xl:ml-20">
 
             <button class="flex justify-center w-1/2 px-4 py-2 m-auto text-base font-medium text-white bg-yellow-400 border border-transparent rounded-md shadow-sm hover:bg-yellow-500"><%link_to "Register"%>Register</button>
             <button class="flex justify-center w-1/2 px-4 py-2 m-auto text-base font-medium text-yellow-500 bg-white border border-transparent border-yellow-100 rounded-md shadow-sm hover:bg-gray-50 hover:border-yellow-400">Log in</button>
