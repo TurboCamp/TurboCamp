@@ -6,12 +6,10 @@ import { definitionsFromContext } from "stimulus/webpack-helpers"
 import StimulusReflex from 'stimulus_reflex'
 import consumer from '../channels/consumer'
 import controller from '../controllers/application_controller'
-import Notification from 'stimulus-notification'
 
 const application = Application.start()
 const context = require.context("controllers", true, /_controller\.js$/)
 application.register('notification', Notification)
 application.load(definitionsFromContext(context))
-application.register('notification', Notification)
 StimulusReflex.initialize(application, { consumer, controller, isolate: true })
 StimulusReflex.debug = process.env.RAILS_ENV === 'development'
