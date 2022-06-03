@@ -19,7 +19,7 @@
         <div class="block text-left p-4 leading-normal">
           <div class="pt-6"></div>
           <h5 class="w-full mb-2 text-2xl text-left font-bold tracking-tight text-gray-900 dark:text-white"><%= message.title%></h5>
-          <p class="w-full mb-3 font-normal text-gray-700 dark:text-gray-400"><%= message.content %></p>
+          <p class="w-full mb-3 font-normal text-gray-700 dark:text-gray-400"><%= markdown(message.content) %></p>
         </div>
       <% end %>
     <% end %>

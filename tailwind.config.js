@@ -1,7 +1,6 @@
 const colors = require('tailwindcss/colors')
 
 module.exports = {
-  whitelistPatterns: [/trix-*/],
   purge: [
     "./app/**/*.html.erb",
     "./app/helpers/**/*.rb",
