@@ -19,9 +19,6 @@
            data-transition-leave-active="transition ease-in-out"
            data-transition-leave-from="transform translate-x-0 opacity-100 scale-x-100"
            data-transition-leave-to="transform translate-x-32 opacity-0 scale-x-0">
-        <div class="w-full flex justify-end items-center">
-          <button type="submit" data-action="click->dropdown#close" class="p-3"><%= icons('times', :fas, 'md', 'p-2') %></button>
-        </div>
         <%= link_to '刪除', project_message_comment_path(@project, @message, comment.id), method: 'delete' ,class:"dropdown_comment" ,data:{confirm: "Are you sure?"} %>
         <%= link_to '修改', edit_project_message_comment_path(@project, @message, comment.id) , class:"dropdown_comment" %>
       </div>

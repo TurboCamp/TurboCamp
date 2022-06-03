@@ -36,7 +36,7 @@ body {
 }
 
 .dropdown_comment {
-  @apply relative z-50 items-center hover:bg-theme-200 hover:text-white rounded-md text-sm font-mono bg-theme-150 py-5 px-2
+  @apply relative z-50 items-center hover:bg-theme-200 hover:text-white rounded-md text-sm font-mono bg-theme-150 py-3 px-1 bottom-16 right-10
 }
 
 .dropdown_comment_content {
