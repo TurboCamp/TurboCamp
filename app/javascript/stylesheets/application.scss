@@ -35,11 +35,11 @@ body {
   @apply fixed top-24 right-20 z-50 rounded-md bg-theme-150 flex flex-wrap text-theme-0;
 }
 
-.dropdown_comment {
+.dropdown-comment {
   @apply relative z-50 items-center hover:bg-theme-200 hover:text-white rounded-md text-sm font-mono bg-theme-150 py-3 px-1 bottom-16 right-10
 }
 
-.dropdown_comment_content {
+.dropdown-comment-content {
   @apply absolute top-10 right-10 z-50 rounded-md bg-theme-150 flex flex-wrap text-theme-0
 }
 

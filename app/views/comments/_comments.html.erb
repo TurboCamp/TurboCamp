@@ -12,15 +12,15 @@
   </div>
   <div data-controller="dropdown">
       <button type="button" data-action="click->dropdown#toggle" class=" top-0 right-5 z-50 relative"><%= icons 'ellipsis-h', :fas, 'xs', 'dropdown-icon'%></button>
-      <div data-dropdown-target="toggle" class="hidden dropdown__comment_content" 
+      <div data-dropdown-target="toggle" class="hidden dropdown-comment-content" 
            data-transition-enter-active="transition ease-in-out"
            data-transition-enter-from="transform translate-x-32 opacity-0 scale-x-0"
            data-transition-enter-to="transform translate-x-0 opacity-100 scale-x-100"
            data-transition-leave-active="transition ease-in-out"
            data-transition-leave-from="transform translate-x-0 opacity-100 scale-x-100"
            data-transition-leave-to="transform translate-x-32 opacity-0 scale-x-0">
-        <%= link_to '刪除', project_message_comment_path(@project, @message, comment.id), method: 'delete' ,class:"dropdown_comment" ,data:{confirm: "Are you sure?"} %>
-        <%= link_to '修改', edit_project_message_comment_path(@project, @message, comment.id) , class:"dropdown_comment" %>
+        <%= link_to '刪除', project_message_comment_path(@project, @message, comment.id), method: 'delete' ,class:"dropdown-comment" ,data:{confirm: "Are you sure?"} %>
+        <%= link_to '修改', edit_project_message_comment_path(@project, @message, comment.id) , class:"dropdown-comment" %>
       </div>
     </div>
 </div>
