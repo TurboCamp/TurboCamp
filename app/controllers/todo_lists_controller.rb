@@ -35,7 +35,7 @@ class TodoListsController < ApplicationController
   def update
     if @todo_list.update(todo_list_params)
       
-      redirect_to todo_list_url(@todo_list), alert: 'Todo list 更新成功'
+      redirect_to [@project, @todo_list], alert: 'Todo list 更新成功'
     else
       render :edit
     end

@@ -1,0 +1,31 @@
+<div>
+  <div class="md:grid md:grid-cols-3 md:gap-6">
+    <div class="mt-5 md:col-span-3">
+      <h3 class="text-lg font-medium leading-6 text-gray-900">Edit Todo List</h3>
+      <%= form_with(model:  [@project, todo_list]) do |form| %>
+        <% if todo_list.errors.any? %>
+          <ul>
+            <% todo_list.errors.each do |error| %>
+              <li><%= error.full_message %></li>
+            <% end %>
+          </ul>
+        <% end %>
+        <div class="shadow sm:rounded-md sm:overflow-hidden">
+          <div class="px-4 py-5 space-y-6 bg-white sm:p-6">
+            <div>
+              <%= form.label :title, class:"block text-sm font-medium text-gray-700"%>
+              <div class="mt-1">
+                <%= form.text_field :title, class:"shadow-sm focus:ring-yellow-500 focus:border-yellow-500 mt-1 block w-full h-10 sm:text-sm border border-gray-300 rounded-md pl-2"%>
+              </div>
+            </div>
+          </div>
+          <div class="px-4 py-3 text-right bg-gray-50 sm:px-6 ">
+            <%= form.submit 'Edit TodoList', class:"inline-flex justify-center py-2 px-4 border border-transparent shadow-sm rounded-md text-white bg-yellow-600 hover:bg-yellow-400" %>
+            <%= link_to 'Back', project_todo_list_path, class:"inline-flex justify-center py-2 px-4 border  rounded-md text-black hover:bg-yellow-400"  %>
+          </div>
+        </div>
+    <% end %>
+    </div>
+  </div>
+</div>
+
