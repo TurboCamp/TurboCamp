@@ -5,7 +5,7 @@
     </div>
     <div class="flex justify-end items-center">
       <%= link_to icon_tag('fa-house-user fa-solid fa-lg pr-5 text-gray-600'), project_path(@project) if @project %>
-      <%= link_to icon_tag('fa-border-all fa-solid fa-lg pr-5 text-gray-600'), personal_path %>
+      <%= link_to icon_tag('fa-border-all fa-solid fa-lg pr-5 text-gray-600'), personal_path, method: :get %>
       <%= link_to icon_tag('fa-arrow-right-from-bracket fa-solid fa-lg pr-5 text-gray-600'), destroy_user_session_path, method: :delete %>
     </div>
   </div>

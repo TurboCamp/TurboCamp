@@ -1,29 +1,28 @@
-import { Controller } from "@hotwired/stimulus"
+import { Controller } from '@hotwired/stimulus'
 
 export default class extends Controller {
-
-  hide() {
-    console.log(this.element)
-    this.element.setAttribute('hidden')
-  }
-    
-  static targets = [ "output", "input" ]
+  static targets = ['output', 'input']
 
   readURL() {
     var input = this.inputTarget
     var output = this.outputTarget
 
     if (input.files && input.files[0]) {
-      var reader = new FileReader();
+      var reader = new FileReader()
 
       reader.onload = function () {
-       output.src = reader.result
-     }
+        output.src = reader.result
+      }
 
-     reader.readAsDataURL(input.files[0]);
-   }
+      reader.readAsDataURL(input.files[0])
+    }
   }
-  cancel(){
+ 
+  hide() {
+    this.element.setAttribute('class', 'hidden')
+  }
+  
+  cancel() {
     this.element.remove()
   }
 }
