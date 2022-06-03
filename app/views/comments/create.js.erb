@@ -1,0 +1,4 @@
+var comment = "<%= j render "comments" , comment:@comment %>"
+var comment_area = document.querySelector("#comment_area")
+comment_area.insertAdjacentHTML("beforeend", comment)
+document.querySelector("#comment_content").value = ""

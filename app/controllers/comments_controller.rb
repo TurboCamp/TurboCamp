@@ -8,7 +8,6 @@ class CommentsController < ApplicationController
     @comment = @message.comments.new(comment_params)
     @comment.user = current_user
     @comment.save
-    redirect_back fallback_location: root_path
   end
 
   def edit; end
