@@ -10,7 +10,10 @@ class MessagesController < ApplicationController
     @messages = @project.messages
   end
 
-  def show; end
+  def show
+    @comment = Comment.new 
+    @comments = @message.comments
+  end
 
   def new
     @message = Message.new

@@ -18,19 +18,23 @@
       </div>
     </div>
     <div class="w-full relative px-4 py-5 mx-auto justify-items-center">
-      <div class="text-center pb-5">
-        <h1 class="text-7xl">
+      <div class="text-center pb-3">
+        <h1 class="text-5xl">
           <%= @message.title %>
         </h1>
       </div>
-      <div class="text-xl font-normal py-14 text-gray-600 trix-content">
+      <div class="text-xl font-normal py-10 text-gray-600 trix-content">
         <p><%= markdown(@message.content) %></p>
       </div>
     </div>
-    <div class="relative px-4 py-4">
-      <%= render partial: "comments/comments", locals:{commentable: @message }%>
-      <hr class="pb-8">
-      <%= render partial: "comments/form", locals:{commentable: @message } %>
+    <div class="relative px-4 py-4" id="comment_area">
+      <% @comments.each do |comment| %>
+        <%= render "comments/comments" , comment: %>
+      <% end %>
     </div>
+      <hr class="pb-8">
+      <div class="mb-5">
+        <%= render "comments/form" , comment:@comment%>
+      </div>
   </div>
 </div>

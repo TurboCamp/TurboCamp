@@ -1,4 +1,4 @@
-<%= form_for([commentable, Comment.new] , url:project_message_comments_path(@project , @message)) do |form| %>
+<%= form_with(model:comment , url:project_message_comments_path(@project , @message) ,data:{remote: true} ) do |form| %>
   <div class="border-2 border-theme-100 rounded-md p-2">
     <%= form.text_area :content, class: 'border-white h-48 m-2 hove:bg-theme-100' , data:{controller:"markdown-editor"}%>
   </div>
