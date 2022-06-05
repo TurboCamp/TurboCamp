@@ -33,7 +33,7 @@ class TodoListsController < ApplicationController
 
   def update
     if @todo_list.update(todo_list_params)
-      redirect_to todo_list_url(@todo_list), success: "Todo's group successfully updated!"
+      redirect_to todo_list_url(@todo_list), notice: "Todo's group successfully updated!"
     else
       render :edit
     end
