@@ -1,10 +1,10 @@
 <div class"flex flex-col border-gray-400 border-l ">
   <% (@project.users - [current_user]).each do |user| %>
-    <div class="relative">
+    <div class="relative" id="notice">
       <%= link_to project_private_chat_path(@project , user.id ) , user_id: user.id, private_chat_id: PrivateChat.find_or_create( [current_user , user] , @project.id).id , class:"m-0 p-0" do %>
         <%= image_tag(user.avatar_url || user.imageurl , size:"45x45" , class:'rounded-full my-2 mx-auto') %>
       <% end %>
-      <% if current_user.user_privates.find_by(private_chat_id: PrivateChat.find_or_create( [current_user , user] , @project.id).id).unread_count >0  %>
+      <% if current_user.user_privates.find_by(private_chat_id: PrivateChat.find_or_create( [current_user , user] , @project.id).id).unread_count >0 %>
         <span class="absolute bottom-0 left-3 px-1 py-0 bg-red-800 rounded-full text-xs text-white"><%= current_user.user_privates.find_by(private_chat_id: PrivateChat.find_or_create( [current_user , user] , @project.id).id).unread_count %></span>
       <% end %>
     </div>

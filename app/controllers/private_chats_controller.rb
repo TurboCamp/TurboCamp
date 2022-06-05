@@ -12,15 +12,7 @@ class PrivateChatsController < ApplicationController
     @content = Content.new
     @user_private_chat = current_user.user_privates.find_by(private_chat: @private_chat)
     @enter_at = @user_private_chat&.enter_at || @private_chat.created_at
-    @user_private_chat&.touch(:enter_at)
-   
-    
-    #更新他人的未讀量，因為其他人沒進房間不會執行程式碼，所以須更新他人而不是自己
-    @project.private_chats.each do |room|
-      user_id = (room.roomname.split('Room:').last.split('-') - ["#{current_user.id}"]).first
-      unread_count = room.contents.where("created_at > ? AND user_id != ?", room.user_privates.find_by(user_id: user_id).enter_at , user_id).count
-      User.find(user_id).user_privates.where(private_chat_id:room.id).update(unread_count:unread_count)
-    end
+    @user_private_chat&.touch(:enter_at) 
 
     #更新如果當前使用者進入聊天室內可以更新未讀數量
     current_user.private_chats.each do |room|
