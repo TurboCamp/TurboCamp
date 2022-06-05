@@ -15,7 +15,7 @@ module Users
 
     def setting
       @user = current_user
-      redirect_back fallback_location: root_path, success: 'Updated successfully' if @user.update(update_user_info)
+      redirect_back fallback_location: root_path, notice: 'Updated successfully' if @user.update(update_user_info)
     end
 
     private
