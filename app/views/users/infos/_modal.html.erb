@@ -1,6 +1,6 @@
-<div data-controller="modal" class=" bg-theme-0 bg-opacity-60 overflow-y-auto overflow-x-hidden animated fadeIn fixed inset-0 flex items-center justify-center z-50 w-full md:inset-0 md:h-full" id="usermodal">
+<div data-controller="modal" data-action="click->modal#close" class=" bg-theme-0 bg-opacity-60 overflow-y-auto overflow-x-hidden animated fadeIn fixed inset-0 flex items-center justify-center z-50 w-full md:inset-0 md:h-full" id="usermodal">
   <div class="relative p-4 max-h-screen w-full max-w-xl h-full md:h-auto">
-    <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
+    <div data-modal-target="container" class="relative bg-theme-5 rounded-lg shadow dark:bg-gray-700">
       <div class="flex justify-between items-center p-5 rounded-t border-b dark:border-gray-600">
         <h3 class="text-xl font-medium text-gray-900 dark:text-white">
           Accouont 
@@ -30,7 +30,7 @@
                 <%= f.label :nickname , 'Name' , class:"block tracking-wide text-gray-700 text-xs font-bold mb-2 text-lg"%>
                 <%= f.text_field :nickname , class:"border p-1 border-gray-300 rounded-md" %>
             </div>
-            <%= f.submit 'Update' ,class:"theme-fill-btn"%>
+            <%= f.submit 'Update', class:"theme-fill-btn" %>
           <% end %>
       </div>
     </div>

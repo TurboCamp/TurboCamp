@@ -1,11 +1,12 @@
 <section class="bg-theme-5">
-  <div class="flex overflow-hidden min-h-full py-32">
+  <div class="flex overflow-hidden min-h-full py-28">
     <div class="devise-container">
       <h1 class="devise-title">Sign up</h1>
       <div class="px-8 pt-6">
         <%= render 'devise/shared/auth'%>
       </div>
       <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), html: {class:'bg-theme-5 px-8 pt-1'}) do |f| %>
+        <%= devise_error_messages! %>
         <div class="py-2 mb-4 border-b border-gray-300"></div>
         <div class="devise-label">
           <%= f.label :nickname, 'Name', class:'font' %>
@@ -24,7 +25,4 @@
     </div>
   </div>
 </section>
-
-
-
 

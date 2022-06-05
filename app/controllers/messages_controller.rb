@@ -40,7 +40,7 @@ class MessagesController < ApplicationController
 
   def destroy
     @message.destroy if @message
-    redirect_to project_messages_path(@project), alert: 'Message has been delete!'
+    redirect_to project_messages_path(@project), alert: 'Message has been deleted!'
   end
 
   private

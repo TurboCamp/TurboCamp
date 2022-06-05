@@ -1,7 +1,7 @@
 import { Controller } from '@hotwired/stimulus'
 
 export default class extends Controller {
-  static targets = ['output', 'input']
+  static targets = ['output', 'input', 'container']
 
   readURL() {
     var input = this.inputTarget
@@ -17,12 +17,18 @@ export default class extends Controller {
       reader.readAsDataURL(input.files[0])
     }
   }
- 
+
+  cancel() {
+    this.element.remove()
+  }
+
   hide() {
     this.element.setAttribute('class', 'hidden')
   }
-  
-  cancel() {
-    this.element.remove()
+
+  close(e) {
+    if (!this.containerTarget.contains(e.target)) {
+      this.hide()
+    }
   }
 }
