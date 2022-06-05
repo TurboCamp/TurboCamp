@@ -32,7 +32,7 @@ class MessagesController < ApplicationController
 
   def update
     if @message.update(message_params)
-      redirect_to project_message_path(@project, @message), success: 'Message successfully updated!'
+      redirect_to project_message_path(@project, @message), notice: 'Message successfully updated!'
     else
       render :edit
     end
