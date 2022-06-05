@@ -5,6 +5,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '3.1.1'
 
+gem 'acts_as_list', '~> 1.0'
 gem 'aws-sdk-s3', '~> 1.114', require: false
 gem 'bootsnap', '>= 1.4.4', require: false
 gem 'font_awesome5_rails', '~> 1.5'
@@ -21,7 +22,6 @@ gem 'sass-rails', '>= 6'
 gem 'shrine', '~> 3.4'
 gem 'turbolinks', '~> 5'
 gem 'webpacker', '~> 5.0'
-gem "acts_as_list", "~> 1.0"
 
 group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
@@ -52,4 +52,3 @@ gem 'omniauth-google-oauth2', '~> 1.0', '>= 1.0.1'
 gem 'omniauth-rails_csrf_protection', '~> 1.0', '>= 1.0.1'
 gem 'stimulus_reflex', '~> 3.4'
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
-

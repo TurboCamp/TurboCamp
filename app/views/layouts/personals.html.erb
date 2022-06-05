@@ -11,10 +11,12 @@
     <%= favicon_link_tag 'logo_outline.ico' %>
   </head>
   <body>
-    <main id ="personal" class="bg-theme-5 relative flex flex-col m-auto h-screen overflow-hidden">
-      <%= render 'personals/navbar' %>
-      <%= render "/shared/flash" if flash %>
-      <%= yield %>
-    </main>
+    <section id="section">
+      <main id ="personal" class="bg-theme-5 relative flex flex-col m-auto h-screen overflow-hidden">
+        <%= render 'personals/navbar' %>
+        <%= render "/shared/flash" if flash %>
+        <%= yield %>
+      </main>
+    </section>
   </body> 
 </html>

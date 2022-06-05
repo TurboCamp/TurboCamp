@@ -18,19 +18,19 @@
     <div class="py-4 w-full">
       <hr>
     </div>
-    <li class="relative">
+    <li class="relative <%= 'sidebar-active' if current_page?(project_todo_lists_path(@project)) %>">
       <%= sidebar_link_with_icon project_todo_lists_path(@project), icon_tag('fa-regular fa-check-circle fa-lg pr-5','Todos') %>
     </li>
-    <li class="relative">
+    <li class="<%= 'sidebar-active' if current_page?(project_schedules_path(@project))%>">
       <%= sidebar_link_with_icon project_schedules_path(@project),  icon_tag('fa-regular fa-calendar-alt fa-lg pr-6', 'Schedule') %>
     </li>
-    <li class="relative">
+    <li class="<%= 'sidebar-active' if current_page?(project_chat_room_path(@project))%>">
       <%= sidebar_link_with_icon project_chat_room_path(@project), icon_tag('fa-regular fa-comment fa-lg pr-5', 'Chatroom') %>
     </li>
-    <li class="relative">
+    <li class="<%= 'sidebar-active' if current_page?(project_messages_path(@project))%>">
       <%= sidebar_link_with_icon project_messages_path(@project), icon_tag('fa-regular fa-chart-bar fa-lg pr-5', 'Message Boards') %>
     </li>
-    <li class="relative">
+    <li class="<%= 'sidebar-active' if current_page?(project_bucket_path(@project))%>">
       <%= sidebar_link_with_icon project_bucket_path(@project), icon_tag('fa-solid fa-cloud-arrow-up fa-lg pr-3.5', 'Upload') %>
     </li>
   </ul>
