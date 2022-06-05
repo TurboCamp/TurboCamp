@@ -4,7 +4,7 @@ class ProjectsController < ApplicationController
   include Pundit::Authorization
   before_action :authenticate_user!
   before_action :find_my_project, only: %i[show edit update destroy]
-
+  
   def new
     @project = Project.new
   end

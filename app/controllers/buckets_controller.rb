@@ -3,6 +3,7 @@
 class BucketsController < ApplicationController
   before_action :current_project, only: %i[show]
   before_action :authenticate_user!
+  
 
   def show
     @bucket = @project.bucket
