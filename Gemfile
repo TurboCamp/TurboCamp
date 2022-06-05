@@ -41,7 +41,7 @@ group :test do
   gem 'webdrivers'
 end
 
-gem 'devise', '~> 4.8', '>= 4.8.1'
+gem 'devise', '~> 4.2'
 gem 'devise-i18n-views', '~> 0.3.7'
 gem 'net-imap', '~> 0.2.1'
 gem 'net-pop', '~> 0.1.1'

@@ -7,7 +7,6 @@ class ProjectsController < ApplicationController
 
   def new
     @project = Project.new
-    render layout: 'personals'
   end
 
   def create
