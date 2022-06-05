@@ -5,7 +5,7 @@
         <h3 class="text-xl font-medium text-gray-900 dark:text-white">
           Accouont 
         </h3>
-        <div >
+        <div>
           <button type="submit" data-action="click->modal#hide">
             <%= icon_tag('fa-times fa-solid fa-lg pr-3 text-gray-500 hover:text-theme-200') %>
           </button>
@@ -13,14 +13,14 @@
       </div>
       <div class="py-12">
         <div class="flex justify-center m-auto">
-          <%= form_with(model: user ,url:users_info_path , method: :post, data: { remote:true } ) do |f| %>
+          <%= form_with(model: user ,url:users_info_path , method: :post, data: { remote: true } ) do |f| %>
             <div class="w-40 h-40 rounded-full overflow-hidden m-auto mb-6 mt-0">
-                <%= f.label :avatar , 'Upload your avatar' , class:"cursor-pointer relative block tracking-wide text-gray-700 text-xs font-bold mb-2 text-lg w-40 h-40" do %>
-                  <%= image_tag(user.avatar_url || "default_user" , data:{modal_target:"output"} , class:"w-full h-full")%>
-                <% end %>
+              <%= f.label :avatar , 'Upload your avatar' , class:"cursor-pointer relative block tracking-wide text-gray-700 text-xs font-bold mb-2 text-lg w-40 h-40" do %>
+                <%= image_tag(user.avatar_url || "default_user" , data: { modal_target:"output" } , class:"w-full h-full")%>
+              <% end %>
             </div>
             <div class="mb-3">
-                <%= f.file_field :avatar , data:{modal_target:"input", action:"change->modal#readURL"} , class:"hidden"%>
+                <%= f.file_field :avatar , data:{ modal_target:"input", action:"change->modal#readURL" } , class:"hidden"%>
             </div>
             <div class="mb-3">
                 <%= f.label :email , 'Email' , class:"block tracking-wide text-gray-700 text-xs font-bold mb-2 text-lg"%>
@@ -32,6 +32,7 @@
             </div>
             <%= f.submit 'Update', class:"theme-fill-btn" %>
           <% end %>
+        </div>
       </div>
     </div>
   </div>
