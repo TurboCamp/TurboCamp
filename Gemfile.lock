@@ -351,7 +351,7 @@ DEPENDENCIES
   bootsnap (>= 1.4.4)
   byebug
   capybara (>= 3.26)
-  devise (~> 4.8, >= 4.8.1)
+  devise (~> 4.2)
   devise-i18n-views (~> 0.3.7)
   dotenv-rails (~> 2.7)
   font_awesome5_rails (~> 1.5)

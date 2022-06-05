@@ -6,6 +6,6 @@ class PersonalsController < ApplicationController
 
   def show
     @user = current_user
-    @projects = @user.projects
+    @projects = @user.projects if @user.projects != nil
   end
 end
