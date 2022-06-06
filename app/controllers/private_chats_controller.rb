@@ -15,11 +15,6 @@ class PrivateChatsController < ApplicationController
     @user_private_chat&.touch(:enter_at) 
 
     #更新如果當前使用者進入聊天室內可以更新未讀數量
-    current_user.private_chats.each do |room|
-      user_id = (room.roomname.split('Room:').last.split('-') - ["#{current_user.id}"]).first
-      unread_count = room.contents.where("created_at > ? AND user_id != ?", room.user_privates.find_by(user_id: current_user.id).enter_at , current_user.id).count
-      current_user.user_privates.where(private_chat_id:room.id).update(unread_count:unread_count)
-    end
-
+    current_user.user_privates.find_by(private_chat:@private_chat).update(unread_count:0)
   end
 end

@@ -12,7 +12,7 @@ module Api
             message = '成員已存在'
           else
             project.users << user
-            project.chat_room.users << user
+            project.chat_room.users << user 
             message = '成功邀請成員'
           end
         end

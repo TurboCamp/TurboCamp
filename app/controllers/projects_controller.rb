@@ -13,7 +13,7 @@ class ProjectsController < ApplicationController
     @project = current_user.projects.create(project_clean)
     current_user.personals.where(project_id: @project.id).update(role: 'owner')
     if @project.save
-      @project.chat_room.users << current_user
+      @project.chat_room.users << current_user 
       redirect_to project_path(@project), success: 'Project successfully created!'
     else
       render :new, status: :unprocessable_entity
