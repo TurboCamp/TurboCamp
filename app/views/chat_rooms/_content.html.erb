@@ -8,7 +8,11 @@
       <div class="pl-2 text-gray-400"><%= content.created_at.to_s(:message_at) %></div>
     </div>
     <div class="content_text">
-      <%= content.text %>
+    <%if content.text.include?("https" || "http")%>
+      <a href="<%=content.text %>" class="text-md hover:underline hover:text-blue-700"><%= content.text %></a>
+    <% else%>
+      <%= content.text%>
+    <% end %>
       <% if content.image %>
       <div class="relative">
         <%= image_tag(url_for(content.image_url) , size:'150x150') if content.image %>
