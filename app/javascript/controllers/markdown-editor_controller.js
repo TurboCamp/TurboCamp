@@ -11,6 +11,8 @@ export default class extends Controller {
     this.editor = new EasyMDE({
       element: this.element,
       spellChecker: false,
+      uploadImage:true
+      
     })
   }
 
