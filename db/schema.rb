@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_06_05_111010) do
+ActiveRecord::Schema.define(version: 2022_06_06_132708) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -193,8 +193,8 @@ ActiveRecord::Schema.define(version: 2022_06_05_111010) do
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.datetime "enter_at"
     t.integer "unread_count", default: 0
+    t.datetime "enter_at"
     t.index ["private_chat_id"], name: "index_user_privates_on_private_chat_id"
     t.index ["user_id"], name: "index_user_privates_on_user_id"
   end
