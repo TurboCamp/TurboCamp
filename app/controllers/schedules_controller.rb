@@ -24,6 +24,7 @@ class SchedulesController < ApplicationController
       if @schedule.save
         format.html { redirect_to [@project, @schedule], success: 'Schedule successfully created!' }
         format.json { render :show, status: :created, location: [@project, @schedule] }
+        format.json { render :show, location: [@project, @schedule] }
       else
         format.html { render :new }
         format.json { render json: @schedule.errors, status: 503 }
@@ -65,6 +66,6 @@ class SchedulesController < ApplicationController
   end
 
   def schedule_params
-    params.require(:schedule).permit(:title, :calendar_id, :start, :end, :location)
+    params.require(:schedule).permit(:title, :calendar_id, :start, :end, :location, :name)
   end
 end

@@ -164,6 +164,7 @@ ActiveRecord::Schema.define(version: 2022_06_06_132708) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "project_id"
+    t.string "name"
     t.index ["project_id"], name: "index_schedules_on_project_id"
   end
 
