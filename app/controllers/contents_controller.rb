@@ -21,10 +21,17 @@ class ContentsController < ApplicationController
     if @content.save
       SendMessageJob.perform_later(@content, chat_room_id, private_or_not)
       #更新他人的未讀量，因為其他人沒進房間不會執行程式碼，所以須更新他人而不是自己
-      @project.private_chats.each do |room|
-        user_id = (room.roomname.split('Room:').last.split('-') - ["#{current_user.id}"]).first
-        unread_count = room.contents.where("created_at > ? AND user_id != ?", room.user_privates.find_by(user_id: user_id).enter_at , user_id).count
-        User.find(user_id).user_privates.where(private_chat_id:room.id).update(unread_count:unread_count)
+      if @content.contentable_type == "PrivateChat"
+        @project.private_chats.each do |room|
+          user_id = (room.roomname.split('Room:').last.split('-') - ["#{current_user.id}"]).first
+          unread_count = room.contents.where("created_at > ? AND user_id != ?", room.user_privates.find_by(user_id: user_id).enter_at , user_id).count
+          User.find(user_id).user_privates.where(private_chat_id:room.id).update(unread_count:unread_count)
+        end
+      elsif @content.contentable_type == "ChatRoom"
+        (@chat_room.users - [current_user]).each do |user|
+          unread_count = @chat_room.contents.where("created_at > ? AND user_id != ?", @chat_room.chat_users.find_by(user_id: user.id).enter_at , user.id).count
+          user.chat_users.where(chat_room_id:@chat_room.id).update(unread_count:unread_count)
+        end
       end
     end
   end
