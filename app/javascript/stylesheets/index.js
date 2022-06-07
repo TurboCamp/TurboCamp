@@ -4,5 +4,6 @@ import './project.scss'
 import './devise.scss'
 import './notification.scss'
 import './tailwind.css'
-import "./markdown.scss"
+import './markdown.scss'
+import './todo.scss'
 import 'easymde/dist/easymde.min.css'

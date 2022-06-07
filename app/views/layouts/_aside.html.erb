@@ -1,4 +1,4 @@
-<div class="w-72 max-h-full h-full bg-theme-50 px-1">
+<div class="w-full max-h-full h-full bg-theme-50 px-1">
   <div class="py-6 px-5">
     <div class="flex items-center">
       <div class="h-14 w-14 overflow-hidden rounded-full">
@@ -7,9 +7,14 @@
       <div class="flex-grow pl-5">
         <h2 class="self-center text-xl font-semibold whitespace-nowrap"><%= @project&.title %></h2>
       </div>
+      <div class="justify-end">
+        <button type="button" data-action="click->toggle#close">
+          <%= icon_tag('fa-solid fa-angles-left fa-lg text-gray-600 sm:invisible') %>
+        </button>
+      </div>
     </div>
   </div>
-  <ul class="relative h-full max-h-full ">
+  <ul class="relative">
     <li class="relative">
       <% if policy(@project).update? %>
         <%= link_to icon_tag('fa-solid fa-sliders fa-lg pr-5', 'Project Edit'), edit_project_path(@project), class: 'sidebar-link', data: { remote: true } %>
@@ -38,7 +43,7 @@
     </li>
   </ul>
 </div>
-<div class="w-72 h-18 px-5 py-3 bg-theme-100">
+<div class="w-full h-18 px-5 py-3 bg-theme-100">
   <div class="flex justify-between items-center">
     <div class="flex justify-start items-center">
       <div class="w-12 h-12 rounded-full overflow-hidden">

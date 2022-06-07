@@ -16,18 +16,23 @@
   </head>
   <body >
     <section id="section">
-      <div class="flex justify-start">
-        <div class="absolute top-0 left-0 z-50 w-80 flex flex-col h-screen overflow-hidden">
+      <div class="flex items-center" data-controller="toggle">
+        <div class="sidebar-close" data-toggle-target="sidebar">
           <%= render 'layouts/aside' %>
         </div>
-        <div class="ml-72 flex-col flex w-full h-screen overflow-hidden bg-theme-5">
+        <div class="sm:ml-72 flex flex-col w-full h-screen overflow-hidden bg-theme-5 relative">
           <%= render 'layouts/navbar' %>
           <%= render "/shared/flash" if flash %>
+          <div class="absolute top-0 left-0 p-5 z-20 sm:invisible">
+            <button type="button" data-action="click->toggle#open">
+              <%= icon_tag('fa-solid fa-bars fa-lg text-gray-600') %>
+            </button>
+          </div>
           <div class="flex">
             <section class="min-w-0 overflow-x-hidden max-h-screen flex-grow w-full">
               <%= yield %>
             </section>
-            <section class="w-20 border-l-2 border-gray-300 pl-1 h-screen">
+            <section class="w-18 border-l-2 border-gray-300 h-screen">
               <%= render 'layouts/friendbar' %>
             </section>
           </div>
