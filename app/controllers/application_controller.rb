@@ -5,6 +5,8 @@ class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
   rescue_from ActiveRecord::RecordNotFound, with: :not_found
   include Pundit::Authorization
+  rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
+
   add_flash_types :success
   def not_found
     render file: "#{Rails.root}/public/404.html",
@@ -13,6 +15,11 @@ class ApplicationController < ActionController::Base
   end
 
   private
+
+  def user_not_authorized
+    flash[:alert] = "You are not authorized to perform this action."
+    redirect_back(fallback_location: root_path)
+  end
 
   def configure_permitted_parameters
     devise_parameter_sanitizer.permit(:sign_up, keys: [:nickname])

@@ -1,5 +1,5 @@
 <div class="relative h-full max-h-screen min-w-0 py-10 overflow-x-hidden px-28">
-<div class="main-container">
+  <div class="main-container">
     <div class="w-full m-auto">
       <h1 class="mb-3 text-5xl font-semibold text-gray-700">Todos</h1>
       <div class="py-4 font-medium text-gray-400">
@@ -11,79 +11,77 @@
     </div>
     <div class="p-4 m-auto mb-4 border-t border-gray-300">
     </div>
-  <div class="container grid grid-cols-3 gap-4">
-  
+    <div class="container grid grid-cols-3 gap-4">
       <ul class="border-2 divide-y divide-gray-200 todos">
         <div class="w-auto px-4 py-4">
-            <div class="mb-4 text-4xl font-bold text-center">Todos</div>
+            <span class="todo-status-title bg-pink-200 rounded-lg p-2">Todos</span>
             <div class="flex flex-col text-2xl text-center flex-col-3" data-controller="sortable" data-sortable-status-value="a">
                 <% @todo_lists.each do |todo_list| %>
                   <% if todo_list.status === 'todos'  %>
-                    <h5 class="mb-2 text-xl font-medium leading-tight text-yellow-600" status="todos" data-id="<%= todo_list.id %>">
-                      <li class="px-4 py-4 overflow-hidden bg-white shadow sm:rounded-md">
-                        <td><%= link_to todo_list.title, project_todo_list_path(@project ,todo_list),class:'text-gray-600 text-4xl handle' %></td>
+                  <h5 class="mb-2 text-xl font-medium leading-tight text-yellow-600" status="todos" data-id="<%= todo_list.id %>">
+                    <li class="px-4 py-4 overflow-hidden bg-white shadow sm:rounded-md">
+                      <td><%= link_to todo_list.title, project_todo_list_path(@project ,todo_list),class:'text-gray-600 text-4xl handle' %></td>
                         <%= link_to project_todo_list_path(@project, todo_list ) , method: "DELETE" ,class:"" do %>
                         <i class="text-2xl far fa-trash-alt"></i>
                         <% end %>
                         <% todo_list.todo_items.each do |todo_item| %>
                           <div>
-                              <%= todo_item.description %>
+                            <%= todo_item.description %>
                           </div>
                         <% end %>
-                      </li>
-                    </h5>
-                    
-                  <% end %>  
-                <% end %>
+                    </li>
+                  </h5>
+                <% end %>  
+              <% end %>
             </div>
         </div>
       </ul>
       <ul class="border-2 list doing">
         <div class="w-auto px-4 py-4" >
-        <div class="mb-4 text-4xl font-bold text-center">Doing</div>
-        <div class="flex flex-col text-2xl text-center flex-col-3" data-controller="sortable" data-sortable-status-value="b">
-        <% @todo_lists.each do |todo_list| %>
-                  <% if todo_list.status === 'doing' %>
-                    <h5 class="mb-2 text-xl font-medium leading-tight text-yellow-600" data-id="<%= todo_list.id %>">
-                      <li class="px-4 py-4 overflow-hidden bg-white shadow sm:rounded-md">
-                        <td><%= link_to todo_list.title, project_todo_list_path(@project ,todo_list),class:'text-gray-600 text-4xl handle' %></td>
-                        <%= link_to project_todo_list_path(@project, todo_list ) , method: "DELETE" ,class:"" do %>
-                        <i class="text-2xl far fa-trash-alt"></i>
-                        <% end %>
-                        <% todo_list.todo_items.each do |todo_item| %>
-                          <div>
+          <span class="todo-status-title bg-yellow-200 rounded-lg p-2">Doing</span>
+          <div class="flex flex-col text-2xl text-center flex-col-3" data-controller="sortable" data-sortable-status-value="b">
+          <% @todo_lists.each do |todo_list| %>
+                    <% if todo_list.status === 'doing' %>
+                      <h5 class="mb-2 text-xl font-medium leading-tight text-yellow-600" data-id="<%= todo_list.id %>">
+                        <li class="px-4 py-4 overflow-hidden bg-white shadow sm:rounded-md">
+                          <td><%= link_to todo_list.title, project_todo_list_path(@project ,todo_list),class:'text-gray-600 text-4xl handle' %></td>
+                          <%= link_to project_todo_list_path(@project, todo_list ) , method: "DELETE" ,class:"" do %>
+                          <i class="text-2xl far fa-trash-alt"></i>
+                          <% end %>
+                          <% todo_list.todo_items.each do |todo_item| %>
+                            <div>
                               <%= todo_item.description %>
-                          </div>
-                        <% end %>
-                      </li>
-                    </h5>
-                  <% end %>  
-                <% end %>
-          </div>
+                            </div>
+                          <% end %>
+                        </li>
+                      </h5>
+                    <% end %>  
+                  <% end %>
+            </div>
         </div>
       </ul>
       <ul class="border-2 list done">
         <div class="w-auto px-4 py-4">
-        <div class="mb-4 text-4xl font-bold text-center">Done</div>
-          <div class="flex flex-col text-2xl text-center flex-col-3" data-controller="sortable" data-sortable-status-value="c">
-          <% @todo_lists.each do |todo_list| %>
-                  <% if todo_list.status === 'done' %>
-                    <h5 class="mb-2 text-xl font-medium leading-tight text-yellow-600" data-id="<%= todo_list.id %>">
-                      <li class="px-4 py-4 overflow-hidden bg-white shadow sm:rounded-md">
-                        <td><%= link_to todo_list.title, project_todo_list_path(@project ,todo_list),class:'text-gray-600 text-4xl handle' %></td>
-                        <%= link_to project_todo_list_path(@project, todo_list ) , method: "DELETE" ,class:"" do %>
-                        <i class="text-2xl far fa-trash-alt"></i>
-                        <% end %>
-                        <% todo_list.todo_items.each do |todo_item| %>
-                          <div>
-                              <%= todo_item.description %>
-                          </div>
-                        <% end %>
-                      </li>
-                    </h5>
-                  <% end %>  
-                <% end %>
-          </div>
+          <span class="todo-status-title bg-green-200 rounded-lg p-2">Finish</span>
+            <div class="flex flex-col text-2xl text-center flex-col-3" data-controller="sortable" data-sortable-status-value="c">
+            <% @todo_lists.each do |todo_list| %>
+                    <% if todo_list.status === 'done' %>
+                      <h5 class="mb-2 text-xl font-medium leading-tight text-yellow-600" data-id="<%= todo_list.id %>">
+                        <li class="px-4 py-4 overflow-hidden bg-white shadow sm:rounded-md">
+                          <td><%= link_to todo_list.title, project_todo_list_path(@project ,todo_list),class:'text-gray-600 text-4xl handle' %></td>
+                          <%= link_to project_todo_list_path(@project, todo_list ) , method: "DELETE" ,class:"" do %>
+                          <i class="text-2xl far fa-trash-alt"></i>
+                          <% end %>
+                          <% todo_list.todo_items.each do |todo_item| %>
+                            <div>
+                                <%= todo_item.description %>
+                            </div>
+                          <% end %>
+                        </li>
+                      </h5>
+                    <% end %>  
+                  <% end %>
+            </div>
         </div>
       </ul>
     </div>

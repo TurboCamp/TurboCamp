@@ -1,3 +1,22 @@
+section::-webkit-scrollbar {
+  display: none;
+}
+
+body {
+  -ms-overflow-style: none;
+}
+
+.sidebar-open {
+  @apply absolute top-0 left-0 z-30 w-full flex flex-col h-screen overflow-hidden;
+}
+
+.sidebar-close {
+  @apply absolute top-0 left-0 z-30 w-0 sm:w-72 flex flex-col h-screen overflow-hidden;
+}
+
+.sidebar-position {
+  transition: 0.5s;
+}
 
 .sidebar-link {
   @apply flex items-center text-sm py-6 pl-8 h-14 text-gray-700 hover:text-orange-700 hover:bg-theme-150 rounded transition overflow-hidden overflow-ellipsis whitespace-nowrap duration-300 ease-in-out;
@@ -36,7 +55,7 @@
 }
 
 .dropdown-comment-content {
-  @apply absolute bottom-10 right-20 z-50 rounded-md flex flex-wrap text-theme-0
+  @apply absolute top-10 right-10 z-50 rounded-md bg-theme-150 flex flex-wrap text-theme-0;
 }
 
 .dropdown-icon {

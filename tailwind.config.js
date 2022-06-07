@@ -11,6 +11,7 @@ module.exports = {
   darkMode: 'class', // or 'media' or 'class'
   theme: {
     screens: {
+      s: '240px',
       sm: '640px',
       md: '768px',
       lg: '1024px',
@@ -69,6 +70,7 @@ module.exports = {
       12: '3rem',
       14: '3.5rem',
       16: '4rem',
+      18: '4.5rem',
       20: '5rem',
       24: '6rem',
       28: '7rem',
@@ -83,6 +85,7 @@ module.exports = {
       64: '16rem',
       72: '18rem',
       80: '20rem',
+      82: '22rem',
       96: '24rem',
     },
     animation: {
