@@ -1,17 +1,20 @@
-<div class="w-full h-10 px-4 py-2 mb-4 flex justify-between items-center ">
-    <div class="w-full min-w-0 h-10 bg-theme-100 border-sky-500 border rounded-xl flex-grow-1 flex-shrink-1" >
-    <%= form_with(model: @content , url:project_private_chat_contents_path( @project , @private_chat), class:'flex' , method: :post ) do |f| %>
-      <%= f.text_field :text , placeholder: '請輸入訊息', class:'p-2 w-full h-10 bg-theme-100 border-sky-500 border rounded-xl' , data:{chat_room_channel_target:'message_input'}%>
+<div class="w-full h-10 px-4 mb-4 flex justify-start items-center ">
+    <div class="relative min-w-0 h-10 bg-theme-100 border-sky-500 border rounded-xl flex-grow flex-shrink" >
+      <%= form_with(model: @content , url:project_private_chat_contents_path( @project , @private_chat), class:'relative flex' , method: :post ) do |f| %>
+        <%= f.text_field :text , placeholder: 'Enter messages...', 
+                                 class:'w-full relative p-4 h-10 bg-theme-100 rounded-md focus:outline-none', 
+                                 data:{chat_room_channel_target:'message_input'}, 
+                                 autocomplete: 'off' %>
+        <div class="pr-4 pt-1">
+           <%= f.label :image , class:"align-middle" do  %>
+             <i class="fas fa-image text-3xl text-gray-800 hover:text-gray-500 cursor-pointer"></i>
+           <% end %>
+           <%= f.file_field :image  , data:{chat_room_channel_target:'file_upload'} ,class:'hidden' %> 
+        </div>
     </div>
-    <div class="p-2">
-       <%= f.label :image , class:"align-middle " do  %>
-        <i class="fas fa-image text-3xl hover:text-gray-500 cursor-pointer"></i>
-       <% end %>
-      <%#= f.hidden_field :image, value: @content.cached_image_data %>
-      <%= f.file_field :image  , data:{chat_room_channel_target:'file_upload'} ,class:'hidden' %> 
-    </div>
-    <div class="pr-4">
-      <%= f.submit '送出' , data:{chat_room_channel_target:"submit_btn" , action:"click->chat-room-channel#remove_value" } , class:'chat-fill-btn cursor-pointer' %>
+    <div class="pl-4">
+      <%= f.submit 'SEND' , data:{chat_room_channel_target:"submit_btn" , action:"click->chat-room-channel#remove_value" } , class:'chat-fill-btn cursor-pointer' %>
     </div>
   <% end %>
 </div>
+
