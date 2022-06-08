@@ -1,6 +1,6 @@
 <div class="px-4 pb-3 my-2 pt-8 w-full border-t border-gray-300 flex justify-start items-start relative">
   <div class="h-10 w-10 rounded-full overflow-hidden">
-      <%= image_tag(comment.user.avatar_url || comment.user.imageurl, size:'20x20' , class:'w-full h-full') %>
+      <%= image_tag(comment.user.avatar_url || comment.user.imageurl || "default_user", size:'20x20' , class:'w-full h-full') %>
   </div>
   <div class='pl-4 py-2 w-4/5'>
     <div class="text-xl font-semibold">

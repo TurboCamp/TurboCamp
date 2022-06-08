@@ -1,6 +1,6 @@
 <div class="chat_room " data-chat-room-channel-target="textarea">
   <div class="avatar">
-      <%= image_tag(content.user.avatar_url || content.user.imageurl , class:'w-full h-full') %>
+      <%= image_tag(content.user.avatar_url || content.user.imageurl || "default_user", class:'w-full h-full') %>
   </div>
   <div class="content_box">
     <div class="flex justify-start items-center">
