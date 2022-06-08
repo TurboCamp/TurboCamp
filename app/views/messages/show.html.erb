@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 <div class="relative h-full max-h-screen min-w-0 px-4 overflow-x-hidden md:p-28">
+=======
+<div class="relative h-full max-h-screen min-w-0 pt-16 overflow-x-hidden p-28">
+>>>>>>> message版面調整
   <div class="w-4/5 max-w-screen-lg m-auto ">
     <div data-controller="dropdown">
       <button type="button" data-action="click->dropdown#toggle" class="fixed z-10 top-28 right-24"><%= icon_tag('fa-ellipsis fa-solid fa-xl dropdown-icon')%></button>
@@ -23,7 +27,7 @@
           <%= @message.title %>
         </h1>
       </div>
-      <div class="py-10 text-xl font-normal text-gray-600 trix-content">
+      <div class="py-10 text-xl font-normal text-gray-800">
         <p><%= markdown(@message.content) %></p>
       </div>
     </div>
