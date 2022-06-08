@@ -11,7 +11,10 @@ export default class extends Controller {
     this.editor = new EasyMDE({
       element: this.element,
       spellChecker: false,
-      uploadImage:true
+      uploadImage:true,
+      maxHeight:"150px",
+      placeholder:"Type here . . .",
+      toolbar:["bold", "italic" , "strikethrough" ,"code" , "|" , "heading","heading-1","heading-2","heading-3","heading-smaller","heading-bigger","quote","|", "upload-image" ,"preview" , "|" , "undo" , "redo"]
       
     })
   }
