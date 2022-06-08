@@ -1,12 +1,12 @@
-<section class="m-auto px-12 md:px-28 lg:px-72 h-full w-full min-w-0 bg-theme-50 overflow-x-hidden">
+<section class="m-auto px-0 sm:px-12 md:px-18 lg:px-64 xl:px-72  h-full w-full min-w-0 bg-theme-50 overflow-x-hidden">
   <div class="main-container">
     <div class="w-full flex items-center pt-12 pb-4 px-12">
-      <div class="w-full flex flex-wrap justify-start items-center px-4">
+      <div class="w-full flex flex-wrap justify-center md:justify-start items-center px-4">
         <div class="h-32 w-32 border-4 border-gray-300 overflow-hidden rounded-full">
           <%= image_tag(@user.avatar_url || @user.imageurl || "default_user", size:'16x16' , class:'w-full h-full')%>
         </div>
-        <div class="flex">
-          <div class="font-semibold text-4xl pl-8">
+        <div class="flex pt-2 md:pt-0">
+          <div class="font-semibold text-4xl md:pl-8">
             <%= @user.nickname %>
           </div>
           <div class="text-gray-500 pt-2 pl-6 text-5xl font-medium">
@@ -16,18 +16,18 @@
       </div>
     </div>
   </div>
-  <div class="main-container m-auto min-h-full rounded-md pt-6 px-16 bg-theme-5 filter drop-shadow-xl ">
-    <div class="py-4 mb-8 flex flex-wrap justify-between items-center">
+  <div class="w-full m-auto min-h-full rounded-md pt-6 px-10 md:px-16 bg-theme-5 filter drop-shadow-xl ">
+    <div class="py-6 mb-4 flex flex-wrap justify-between items-center">
       <div class="pb-4">
         <h3 class="font-semibold text-5xl pb-4">Projects</h3>
         <span class="font-light text-gray-500 pl-0.5">Projects you're in <%= @projects.count %> projects.</span>
       </div>
-      <div class="pl-40 py-2 sm:py-0 sm:pl-0 pt-0.5 pr-0.5">
+      <div class="py-2 pt-4 sm:py-0 sm:pl-0 sm:pt-0.5 sm:pr-0.5">
         <%= link_to icon_tag('fa-plus fa-solid fa-xl dropdown-icon '), new_project_path, data:{ remote:true } %>
       </div>
     </div>
-    <div class="grid grid-cols-1   
-                lg:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 3xl:grid-cols-5 gap-5 grid-flow-row relative ">
+    <div class="grid grid-cols-1 md:grid-cols-2   
+                lg:grid-cols-3 xl:grid-cols-3 2xl:grid-cols-4 3xl:grid-cols-5 gap-5 grid-flow-row relative ">
     <% @projects.each do |project| %>
       <div class="flex flex-col items-center align-middle w-full pb-4">
         <%= link_to project_path(project), class: 'card bg-theme-5 border-0' do  %>

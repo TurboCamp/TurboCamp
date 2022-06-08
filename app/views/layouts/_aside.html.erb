@@ -9,7 +9,7 @@
       </div>
       <div class="justify-end">
         <button type="button" data-action="click->toggle#close">
-          <%= icon_tag('fa-solid fa-angles-left fa-lg text-gray-600 sm:invisible') %>
+          <%= icon_tag('fa-solid fa-angles-left fa-lg text-gray-600 sm:opacity-0 transition-opacity duration-100 ease-out') %>
         </button>
       </div>
     </div>
@@ -24,10 +24,12 @@
       <hr>
     </div>
     <li class="relative <%= 'sidebar-active' if current_page?(project_todo_lists_path(@project)) %>">
-      <%= sidebar_link_with_icon project_todo_lists_path(@project), icon_tag('fa-regular fa-check-circle fa-lg pr-5','Todos') %>
+      <%= sidebar_link_with_icon project_todo_lists_path(@project), 
+          icon_tag('fa-regular fa-check-circle fa-lg pr-5','Todos') %>
     </li>
     <li class="<%= 'sidebar-active' if current_page?(project_schedules_path(@project))%>">
-      <%= sidebar_link_with_icon project_schedules_path(@project),  icon_tag('fa-regular fa-calendar-alt fa-lg pr-6', 'Schedule') %>
+      <%= sidebar_link_with_icon project_schedules_path(@project),
+          icon_tag('fa-regular fa-calendar-alt fa-lg pr-6', 'Schedule') %>
     </li>
     <li class="relative<%= 'sidebar-active' if current_page?(project_chat_room_path(@project))%>">
       <%= sidebar_link_with_icon project_chat_room_path(@project), icon_tag('fa-regular fa-comment fa-lg pr-5', 'Chatroom') %>
@@ -36,10 +38,12 @@
       <% end %> 
     </li>
     <li class="<%= 'sidebar-active' if current_page?(project_messages_path(@project))%>">
-      <%= sidebar_link_with_icon project_messages_path(@project), icon_tag('fa-regular fa-chart-bar fa-lg pr-5', 'Message Boards') %>
+      <%= sidebar_link_with_icon project_messages_path(@project),
+          icon_tag('fa-regular fa-chart-bar fa-lg pr-5', 'Message Boards') %>
     </li>
     <li class="<%= 'sidebar-active' if current_page?(project_bucket_path(@project))%>">
-      <%= sidebar_link_with_icon project_bucket_path(@project), icon_tag('fa-solid fa-cloud-arrow-up fa-lg pr-3.5', 'Upload') %>
+      <%= sidebar_link_with_icon project_bucket_path(@project),
+          icon_tag('fa-solid fa-cloud-arrow-up fa-lg pr-3.5', 'Upload') %>
     </li>
   </ul>
 </div>

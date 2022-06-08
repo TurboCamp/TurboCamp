@@ -23,7 +23,7 @@ export default class extends Controller {
   }
 
   hide() {
-    this.element.setAttribute('class', 'hidden')
+    this.element.classList.toggle('hidden')
   }
 
   close(e) {

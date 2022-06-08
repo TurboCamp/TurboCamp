@@ -4,18 +4,15 @@ section::-webkit-scrollbar {
 
 body {
   -ms-overflow-style: none;
+  font-family: 'Noto Sans TC', sans-serif;
 }
 
 .sidebar-open {
-  @apply absolute top-0 left-0 z-30 w-full flex flex-col h-screen overflow-hidden;
+  @apply absolute top-0 left-0 z-30 w-full flex flex-col h-screen overflow-hidden transition-all duration-500 ease-in-out;
 }
 
 .sidebar-close {
-  @apply absolute top-0 left-0 z-30 w-0 sm:w-72 flex flex-col h-screen overflow-hidden;
-}
-
-.sidebar-position {
-  transition: 0.5s;
+  @apply absolute top-0 left-0 z-30 w-0 sm:w-72 flex flex-col h-screen overflow-hidden transition-all duration-500 ease-in-out;
 }
 
 .sidebar-link {
@@ -26,6 +23,23 @@ body {
   @apply text-black bg-theme-150 rounded;
 }
 
+.main-content-container {
+  @apply sm:ml-72 flex flex-col w-full h-screen overflow-hidden bg-theme-5 relative transition-all duration-500 ease-in-out;
+  
+  .sidebar-toggle-btn {
+    @apply absolute top-0 left-0 p-5 z-20 sm:opacity-0 transition-opacity duration-150 ease-linear;
+  }
+
+  .user-open {
+    @apply w-18 border-l-2 border-gray-300 h-screen transition-all duration-100 ease-out;
+  }
+
+  .user-close {
+    @apply w-0 border-l-2 border-gray-300 h-screen transition-all duration-100 ease-out;
+  }
+}
+
+
 .theme-fill-btn {
   @apply bg-theme-150 text-theme-0 border-theme-150 border hover:bg-theme-200 hover:text-white hover:border-theme-200 font-bold py-1 px-3 rounded-md;
 }
@@ -35,11 +49,11 @@ body {
 }
 
 .chat-fill-btn {
-  @apply bg-theme-150 hover:bg-theme-200 text-white font-bold py-1 px-3 rounded-xl;
+  @apply bg-theme-150 hover:bg-theme-200 text-gray-800 hover:text-white font-bold py-1 px-3 rounded-md;
 }
 
 .chat-outline-btn {
-  @apply bg-white text-theme-150 border-theme-150 border-2 hover:bg-theme-200 hover:text-white hover:border-theme-200 font-bold py-1 px-3 rounded-xl;
+  @apply bg-white text-theme-150 border-theme-150 border-2 hover:bg-theme-200 hover:text-white hover:border-theme-200 font-bold py-1 px-3 rounded-md;
 }
 
 .dropdown {

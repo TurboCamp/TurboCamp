@@ -74,7 +74,7 @@ ActiveRecord::Schema.define(version: 2022_06_06_174541) do
   create_table "chat_users", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.bigint "chat_room_id", null: false
-    t.datetime "enter_at", default: "2022-06-06 17:47:10"
+    t.datetime "enter_at", default: "2022-06-08 06:22:03"
     t.integer "unread_count", default: 0
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -206,7 +206,7 @@ ActiveRecord::Schema.define(version: 2022_06_06_174541) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "unread_count", default: 0
-    t.datetime "enter_at", default: "2022-06-06 17:47:10"
+    t.datetime "enter_at", default: "2022-06-08 06:22:03"
     t.index ["private_chat_id"], name: "index_user_privates_on_private_chat_id"
     t.index ["user_id"], name: "index_user_privates_on_user_id"
   end
