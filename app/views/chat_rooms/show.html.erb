@@ -1,18 +1,20 @@
-<div class="overflow-x-hidden flex flex-col-reverse overflow-y-auto  flex-grow max-h-full rounded-lg h-full" data-controller="chat-room-channel"  data-room-id="<%= @chat_room&.id || 0 %>"> 
-  <div id="content" class="flex flex-col justify-end min-h-full items-stretch" data-chat-room-channel-target="contentbox">
-    <div class="px-8 py-2">
-      <div class="h-14 w-14 overflow-hidden rounded-full">
-        <%= image_tag(@project.image_url || "logo_a_0" , class:"w-full h-full")%>
+<div class="flex flex-col w-full">
+  <div class="max-h-screen overflow-x-hidden flex flex-col-reverse flex-grow-0 rounded-lg h-4/5 mb-5 " data-controller="chat-room-channel"  data-room-id="<%= @chat_room&.id || 0 %>"> 
+    <div id="content" class="flex flex-col justify-end  items-stretch" data-chat-room-channel-target="contentbox">
+      <div class="px-8 py-2">
+        <div class="h-14 w-14 overflow-hidden rounded-full">
+          <%= image_tag(@project.image_url || "logo_a_0" , class:"w-full h-full")%>
+        </div>
+        <div class="text-gray-500 text-xl py-4 font-medium">
+          <h2>Welcome to <%= @project.title %>'s Chatroom</h2>
+        </div>
       </div>
-      <div class="text-gray-500 text-xl py-4 font-medium">
-        <h2>Welcome to <%= @project.title %>'s Chatroom</h2>
-      </div>
+        <% @contents.each do |content|%>
+          <%= render "chat_rooms/content" , content: %>
+        <% end %>
     </div>
-      <% @contents.each do |content|%>
-        <%= render "chat_rooms/content" , content: %>
-      <% end %>
   </div>
-</div>
-<div class="pt-2">
-  <%= render 'form' %>
+  <div class="h-14 flex-grow">
+    <%= render 'form' %>
+  </div>
 </div>

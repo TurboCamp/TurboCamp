@@ -1,11 +1,19 @@
 <nav class="flex border-theme-100 filter drop-shadow-sm border-b-2 h-15 p-1 bg-theme-5">
+  <div class="sidebar-toggle-btn">
+    <button type="button" data-action="click->toggle#open">
+      <%= icon_tag('fa-solid fa-bars fa-lg text-gray-600') %>
+    </button>
+  </div>
   <div class="w-full min-w-0 flex justify-between items-center h-7 my-4 ">
-    <div class="relative items-center pl-4">
-      <h2 class="text-3xl font-semibold text-gray-700"><%= @project.title %>'s Chatroom</h2>
+    <div class="relative items-center pl-14 md:pl-4 pb-1">
+      <h2 class="text-3xl font-semibold text-gray-700"># <%= @project.title %></h2>
     </div>
     <div class="flex justify-end items-center">
+      <button type="button" data-action="click->toggle#toggle">
+        <%= icon_tag('fa-user-group fa-solid fa-lg pr-5 text-gray-600') %>
+      </button>
       <%= link_to icon_tag('fa-house-user fa-solid fa-lg pr-5 text-gray-600'), project_path(@project) if @project %>
-      <%= link_to icon_tag('fa-border-all fa-solid fa-lg pr-5 text-gray-600'), personal_path, method: :get %>
+      <%= link_to icon_tag('fa-table-cells fa-solid fa-lg pr-5 text-gray-600'), personal_path, method: :get %>
       <%= link_to icon_tag('fa-arrow-right-from-bracket fa-solid fa-lg pr-5 text-gray-600'), destroy_user_session_path, method: :delete %>
     </div>
   </div>

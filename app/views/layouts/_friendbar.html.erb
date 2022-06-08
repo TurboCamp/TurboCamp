@@ -10,21 +10,24 @@
     </div>
   <% end %>
   <div data-controller="member" class="my-2 flex justify-center align-middle" data-id="<%= @project.slug%>"> 
-    <div class="h-11 w-11 rounded-full border border-gray-300 flex justify-center align-middle">
-      <button data-action="click->member#join" class="text-2xl text-gray-500 flex justify-center items-center "><i class="fas fa-plus"></i></button>
+    <div data-toggle-target="addBtn" class="h-11 w-11 rounded-full border border-gray-300 flex justify-center align-middle opacity-0">
+      <button data-action="click->member#join" class="text-2xl text-gray-500 flex justify-center items-center ">
+        <i class="fas fa-plus"></i>
+      </button>
     </div>
     <div id="inputbox" class=" bg-theme-0 bg-opacity-60 overflow-y-auto overflow-x-hidden animated fadeIn fixed inset-0 flex items-center justify-center z-50 w-full md:inset-0 md:h-full hidden">
     <div class="bg-white rounded-lg py-5 px-10">
         <div class="border-b border-gray-300 mb-5 flex justify-between">
-          <h3 class=" mb-2 text-xl font-medium text-gray-900 dark:text-white">新增成員
+          <h3 class=" mb-2 text-xl font-medium text-gray-900 dark:text-white">
+            Add member
           </h3>
           <div >
             <button data-action="click->member#cancel"><i class="fas fa-times text-2xl"></i></button>
           </div>
         </div>
         <div>
-          <input type="text" placeholder="請輸入信箱" class="input border border-gray-400 rounded-md p-1">
-          <button class="searchbtn theme-fill-btn" data-action="click->member#invite">加入成員</button>
+          <input type="text" placeholder="Enter the email address..." class="input border border-gray-400 rounded-md p-1">
+          <button class="searchbtn theme-fill-btn" data-action="click->member#invite">invite</button>
         </div>
     </div>
     </div>

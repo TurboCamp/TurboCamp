@@ -1,13 +1,13 @@
 <section class="bg-theme-5">
-  <div class="flex overflow-hidden min-h-full py-28">
+  <div class="flex overflow-hidden min-h-full py-2 sm:py-8 md:py-14">
     <div class="devise-container">
       <h1 class="devise-title">Log in</h1>
-      <div class="px-8 pt-6">
+      <div class="px-8 pt-2">
         <%= render 'devise/shared/auth'%>
       </div>
       <%= form_for(resource, :as => resource_name, :url => password_path(resource_name), html: { class: 'bg-theme-5 px-8 pt-1' }, method: :post) do |f| %>
         <%= devise_error_messages! %>
-        <div class="py-2 mb-4 border-b border-gray-300"></div>
+        <div class="py-1 mb-3 border-b border-gray-300"></div>
         <div class="devise-label">
           <%= f.label 'Email', class: 'font' %>
           <%= f.email_field :email, placeholder: 'Enter your email address...', class: 'field' %>

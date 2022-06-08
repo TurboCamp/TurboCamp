@@ -11,7 +11,7 @@ class Project < ApplicationRecord
   has_many :users, through: :personals, dependent: :destroy
 
   # 在project內部功能
-  has_many :private_chats , dependent: :destroy
+  has_many :private_chats, dependent: :destroy
   has_one :chat_room, dependent: :destroy
   has_one :bucket, dependent: :destroy
   has_many :messages, dependent: :destroy

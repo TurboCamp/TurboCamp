@@ -1,7 +1,7 @@
 .devise-container {
-  @apply max-w-md w-full m-auto;
+  @apply max-w-sm w-full m-auto;
   .devise-title {
-    @apply text-gray-700 text-center font-bold text-5xl items-center py-6;
+    @apply text-gray-700 text-center font-bold text-5xl items-center py-6 pr-2;
   }
 
   .devise-auth-btn {

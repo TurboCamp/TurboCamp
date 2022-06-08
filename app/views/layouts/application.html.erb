@@ -20,19 +20,19 @@
         <div class="sidebar-close" data-toggle-target="sidebar">
           <%= render 'layouts/aside' %>
         </div>
-        <div class="sm:ml-72 flex flex-col w-full h-screen overflow-hidden bg-theme-5 relative">
+        <div class="main-content-container">
           <%= render 'layouts/navbar' %>
           <%= render "/shared/flash" if flash %>
-          <div class="absolute top-0 left-0 p-5 z-20 sm:invisible">
+          <div class="sidebar-toggle-btn">
             <button type="button" data-action="click->toggle#open">
               <%= icon_tag('fa-solid fa-bars fa-lg text-gray-600') %>
             </button>
           </div>
           <div class="flex">
-            <section class="min-w-0 overflow-x-hidden max-h-screen flex-grow w-full">
+            <section class="min-w-0 overflow-x-hidden flex-grow w-full">
               <%= yield %>
             </section>
-            <section class="w-18 border-l-2 border-gray-300 h-screen">
+            <section class="user-close" data-toggle-target="friendbar">
               <%= render 'layouts/friendbar' %>
             </section>
           </div>
