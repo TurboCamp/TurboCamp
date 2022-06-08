@@ -3,7 +3,7 @@
     <div class="w-full flex items-center pt-12 pb-4 px-12 ">
       <div class="flex justify-start items-center px-4">
         <div class="h-32 w-32 border-4 border-gray-300 overflow-hidden rounded-full">
-          <%= image_tag(@user.avatar_url || @user.imageurl , size:'16x16' , class:'w-full h-full')%>
+          <%= image_tag(@user.avatar_url || @user.imageurl || "default_user", size:'16x16' , class:'w-full h-full')%>
         </div>
         <div class="font-semibold text-4xl pl-8">
           <%= @user.nickname %>
@@ -35,7 +35,7 @@
                 <div class="flex flex-wrap h-1/4">
                   <% project.users.each do |user| %>
                     <div class="w-10 h-10 rounded-full overflow-hidden">
-                      <%= image_tag(user.avatar_url || user.imageurl , size:'40x40' , class:'w-full h-full' )%>
+                      <%= image_tag(user.avatar_url || user.imageurl || "default_user", size:'40x40' , class:'w-full h-full' )%>
                     </div>
                   <% end %>
                 </div>

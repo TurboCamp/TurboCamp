@@ -42,7 +42,7 @@
   <div class="flex justify-between items-center">
     <div class="flex justify-start items-center">
       <div class="w-12 h-12 rounded-full overflow-hidden">
-        <%= image_tag(current_user.avatar_url || current_user.imageurl, size:'64x64') %>
+        <%= image_tag(current_user.avatar_url || current_user.imageurl || "default_user", size:'64x64') %>
       </div>
       <div class="pl-4 text-gray-500 text-xl font-medium">
         <%= current_user.nickname %>
