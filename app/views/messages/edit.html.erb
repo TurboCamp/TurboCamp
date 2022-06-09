@@ -33,8 +33,8 @@
 
       <div class="pt-5">
         <div class="flex justify-end items-center">
-         <%=link_to "返回", project_message_path(@project , @message)  , class:"theme-outline-btn mr-4"%>
-         <%= form.submit '更新', class:'theme-fill-btn' %>
+         <%= link_to "Back", project_message_path(@project , @message)  , class:"theme-outline-btn mr-4"%>
+         <%= form.submit 'Update', class:'theme-fill-btn' %>
         </div>
       </div>
     <% end %>

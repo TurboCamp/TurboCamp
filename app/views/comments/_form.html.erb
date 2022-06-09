@@ -3,6 +3,6 @@
     <%= form.text_area :content, class: 'border-white h-48 m-2 hove:bg-theme-100' , data:{controller:"markdown-editor"}%>
   </div>
   <div class="float-right py-4">
-    <%= form.submit '新增留言', class: 'theme-fill-btn' , data:{action:"click->comment#submit"}%>
+    <%= form.submit 'comment', class: 'theme-fill-btn' , data:{action:"click->comment#submit"}%>
   </div>
 <% end %>
