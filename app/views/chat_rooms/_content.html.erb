@@ -5,7 +5,13 @@
   <div class="content_box">
     <div class="flex justify-start items-center">
       <div class="speaker " data-chat-room-channel-target="nickname"><%= content.user.nickname %></div>
-      <div class="pl-2 text-gray-400"><%= content.created_at.to_s(:message_at) %></div>
+      <div class="pl-2 text-gray-400">
+      <% if content.created_at.to_s(:md_on_today_zh_tw) == Time.now.to_s(:md_on_today_zh_tw)%> 
+        <%= content.created_at.to_s(:message_at) %>
+      <% else %>
+        <%= content.created_at.to_s(:long_no_separator)%>
+      <% end %>
+      </div>
     </div>
     <div class="content_text">
     <%if content.text.include?("https" || "http")%>
