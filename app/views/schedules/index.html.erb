@@ -19,7 +19,9 @@
         <option value="day">Day</option>
       </select>
     </div>
-    <div data-controller="calendar" id="calendar" class="max-w-7xl overflow-x-auto" data-schedule="<%= @schedules.to_json %>">
+    <div class="h-1/2">
+      <div data-controller="calendar" id="calendar"  data-schedule="<%= @schedules.to_json %>">
+      </div>
     </div>
   </div>
 </div>
