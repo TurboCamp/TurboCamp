@@ -18,8 +18,8 @@
           <%=link_to "Return", project_todo_lists_path, class: 'dropdown', data: { action: 'dropdown#hide' }%>
         </div>
       </div>
-      <%= form_for([@project, @todo_list, @todo_item], class: 'w-full') do |form| %>
       <h1 id="dom_id" class="mb-2 text-5xl font-semibold text-gray-700"><%= @todo_list.title %></h1>
+      <%= form_for([@project, @todo_list, @todo_item], class: 'w-full') do |form| %>
       <div class="py-1 font-medium text-gray-400">
         <%= @todo_list.percent_complete %>%(<%= @todo_list.completed_items %>/<%= @todo_list.total_items %>)
       </div>
