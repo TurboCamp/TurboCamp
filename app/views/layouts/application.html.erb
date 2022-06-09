@@ -18,7 +18,7 @@
     <script src="https://uicdn.toast.com/tui.date-picker/latest/tui-date-picker.min.js"></script>
     <script src="https://uicdn.toast.com/tui-calendar/latest/tui-calendar.js"></script>
   </head>
-  <body >
+  <body>
     <section id="section">
       <div class="flex items-center" data-controller="toggle">
         <div class="sidebar-close" data-toggle-target="sidebar">
@@ -32,8 +32,8 @@
               <%= icon_tag('fa-solid fa-bars fa-lg text-gray-600') %>
             </button>
           </div>
-          <div class="flex">
-            <section class="min-w-0 overflow-x-hidden flex-grow w-full h-screen">
+          <div class="flex min-w-0 h-screen overflow-x-hidden">
+            <section class="flex-grow w-full">
               <%= yield %>
             </section>
             <section class="user-close" data-toggle-target="friendbar">
@@ -41,7 +41,7 @@
             </section>
           </div>
         </div>
-      </section>
+      </div>
     </section>
   </body> 
 </html>
