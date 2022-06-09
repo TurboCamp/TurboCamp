@@ -12,7 +12,7 @@ body {
 }
 
 .sidebar-close {
-  @apply absolute top-0 left-0 z-30 w-0 sm:w-72 flex flex-col h-screen overflow-hidden transition-all duration-500 ease-in-out;
+  @apply absolute top-0 left-0 z-30 w-0 md:w-72 flex flex-col h-screen overflow-hidden transition-all duration-500 ease-in-out;
 }
 
 .sidebar-link {
@@ -24,10 +24,10 @@ body {
 }
 
 .main-content-container {
-  @apply sm:ml-72 flex flex-col w-full h-screen overflow-hidden bg-theme-5 relative transition-all duration-500 ease-in-out;
+  @apply md:ml-72 flex flex-col w-full h-screen overflow-hidden bg-theme-5 relative transition-all duration-500 ease-in-out;
   
   .sidebar-toggle-btn {
-    @apply absolute top-0 left-0 p-5 z-20 sm:opacity-0 transition-opacity duration-150 ease-linear;
+    @apply absolute top-0 left-0 p-5 z-20 md:opacity-0 transition-opacity duration-150 ease-linear;
   }
 
   .user-open {
