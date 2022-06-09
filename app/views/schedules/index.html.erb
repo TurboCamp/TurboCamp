@@ -1,4 +1,4 @@
-<div class="relative h-full max-h-screen min-w-0 py-10 overflow-x-hidden px-4 md:px-28">
+<div class="relative h-full max-h-screen min-w-0 px-4 py-10 overflow-x-hidden md:px-28">
   <div class="main-container">
     <div class="w-full m-auto">
       <h1 class="mb-3 text-5xl font-semibold text-gray-700">Schedule</h1>
@@ -19,9 +19,8 @@
         <option value="day">Day</option>
       </select>
     </div>
-    <div class="h-1/2">
-      <div data-controller="calendar" id="calendar"  data-schedule="<%= @schedules.to_json %>">
-      </div>
+    <div data-controller="calendar" class="border border-gray-500 rounded-lg" data-schedule="<%= @schedules.to_json %>">
+      <div id="calendar"></div>
     </div>
   </div>
 </div>
