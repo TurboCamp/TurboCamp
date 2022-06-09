@@ -22,7 +22,7 @@ class SchedulesController < ApplicationController
 
     respond_to do |format|
       if @schedule.save
-        # format.html { redirect_to [@project, @schedule], success: 'Schedule successfully created!' }
+        format.html { index }
         format.json { render :show, status: :created, location: [@project, @schedule] }
         format.json { render :show, location: [@project, @schedule] }
       else

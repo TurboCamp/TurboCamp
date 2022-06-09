@@ -1,8 +1,11 @@
 import { Controller } from "@hotwired/stimulus"
 import Cal from 'tui-calendar';
 import Rails from '@rails/ujs'
+import 'tui-date-picker/dist/tui-date-picker.css';
+import 'tui-time-picker/dist/tui-time-picker.css';
 import TuiDatePicker from 'tui-date-picker'
 import TuiCodeSnippet from 'tui-code-snippet'
+import TuiTimePicker from 'tui-time-picker'
 
 const calendars =  [
   {
@@ -29,14 +32,6 @@ const calendars =  [
     dragBgColor: '#fa0',
     borderColor: '#fa0',
   },
-  {
-    id: '4',
-    name: 'Finish',
-    color: '#ffffff',
-    bgColor: '#00a',
-    dragBgColor: '#00a',
-    borderColor: '#00a',
-  },
 ]
 export default class extends Controller {
   
@@ -45,7 +40,6 @@ export default class extends Controller {
     fetch(url)
       .then(response => response.json())
       .then(response => response.forEach(schedule => {
-        console.log(schedule);
         
         this.calendar.createSchedules([
           {
@@ -110,12 +104,12 @@ export default class extends Controller {
       if (changes.calendarId) {
         formUpdate.append('[schedule]calendar_id', changes.calendarId)
       }
-      calendar.updateSchedule(schedule.id, schedule.calendarId, changes, {
+      calendar.updateSchedule(schedule.id, schedule.calendar_id, changes, {
         start: e.startTime,
         end: e.endTime,
         title: e.title,
         location: e.location,
-        calendar_id: e.calendarId
+        calendar_id: e.calendarId,
     });
       
       Rails.ajax({
@@ -150,26 +144,24 @@ export default class extends Controller {
       useDetailPopup: true,
       milestone: true,
       calendars: calendars,
-      milestone: true,    // Can be also ['milestone', 'task']
-        scheduleView: false,  // Can be also ['allday', 'time']
+      milestone: true,
+        scheduleView: false,
         useCreationPopup: true,
         useDetailPopup: true,
         template: {
-  
-          popupDetailRepeat: function(schedule) {
-            return 'Repeat : ' + schedule.recurrenceRule;
-          },
           popupIsAllDay: function() {
-            return 'Day';
+            return 'All Day';
           },
   
           popupStateFree: function() {
-            return ['Todos', 'Doing'] ;
+            return ['Todos'] ;
           },
-            milestone: function(schedule) {
-                return '<span style="color:red;"><i class="fa fa-flag"></i> ' + schedule.title + '</span>';
-            },  
+          allday: function(schedule) {
+              return schedule.title + ' <i class="fa-solid fa-calendar-check"></i>';
+          },
+          
         }  
+        
     })
 
     this.calendar.setCalendarColor('1', {
@@ -196,6 +188,9 @@ export default class extends Controller {
       dragBgColor: '#00a',
       borderColor: '#00a',
     })
+
+
+    
     this.getCalendarData()
     this.createCalendarSchedule()
     this.updatedCalendarSchedule()
