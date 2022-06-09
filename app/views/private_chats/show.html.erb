@@ -1,12 +1,12 @@
 <div class="flex flex-col w-full">
-  <div class="max-h-screen overflow-x-hidden flex flex-col-reverse flex-grow-0 rounded-lg h-4/5 mb-5 " data-controller="chat-room-channel"  data-room-id="<%= @private_chat&.id  %>"> 
+  <div class="max-h-screen overflow-x-hidden flex flex-col-reverse flex-grow-0 rounded-lg h-4/5 mb-8 " data-controller="chat-room-channel"  data-private-id="<%= @private_chat&.id  %>"> 
     <div id="content" class="flex flex-col justify-end  items-stretch" data-chat-room-channel-target="contentbox">
       <% @contents.each do |content|%>
         <%= render "private_chats/content" , content: %>
       <% end %>
     </div>
   </div>
-  <div class="h-14 flex-grow">
+  <div class="h-14 flex-grow -mb-4">
     <%= render 'form' %>
   </div>
 </div>

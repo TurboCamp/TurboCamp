@@ -1,17 +1,20 @@
-<nav class="flex bg-white border-theme-100 filter drop-shadow-sm border-b-2 h-14 p-1 ">
-  <div class="w-full min-w-0 flex justify-between items-center h-7 my-2 ">
-    <div class="relative items-center pl-4">
-      <h2 class="text-xl font-semibold"><%= @other_user.nickname%></h2>
+<nav class="flex border-theme-100 filter drop-shadow-sm border-b-2 h-15 p-1 bg-theme-5">
+  <div class="sidebar-toggle-btn">
+    <button type="button" data-action="click->toggle#open">
+      <%= icon_tag('fa-solid fa-bars fa-lg text-gray-600') %>
+    </button>
+  </div>
+  <div class="w-full min-w-0 flex justify-between items-center h-7 my-4 ">
+    <div class="relative items-center pl-14 md:pl-4 pb-1">
+      <h2 class="text-3xl font-semibold text-gray-700"><%= @other_user.nickname%></h2>
     </div>
     <div class="flex justify-end items-center">
-      <div class="mr-4 w-7 h-7 rounded-full overflow-x-hidden overflow-y-hidden">
-        <%= link_to users_info_path(current_user), data:{remote: true}, method: :get do %>
-          <%= image_tag(current_user.avatar_url || current_user.imageurl || "default_user", size:'32x32' , class:'w-full h-full') %>
-        <% end %>
-      </div>
-      <%= link_to icons('house-user', :fas, 'lg', 'pr-5'), project_path(@project) if @project%>
-      <%= link_to icons('th', :fas, 'lg', 'pr-5'), personal_path %>
-      <%= link_to icons('sign-out-alt', :fas, 'lg', 'pr-5'), destroy_user_session_path, method: :delete %>
+      <button type="button" data-action="click->toggle#toggle">
+        <%= icon_tag('fa-user-group fa-solid fa-lg pr-5 text-gray-600') %>
+      </button>
+      <%= link_to icon_tag('fa-house-user fa-solid fa-lg pr-5 text-gray-600'), project_path(@project) if @project %>
+      <%= link_to icon_tag('fa-table-cells fa-solid fa-lg pr-5 text-gray-600'), personal_path, method: :get %>
+      <%= link_to icon_tag('fa-arrow-right-from-bracket fa-solid fa-lg pr-5 text-gray-600'), destroy_user_session_path, method: :delete %>
     </div>
   </div>
 </nav>

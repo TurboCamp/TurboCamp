@@ -4,7 +4,12 @@
   </div>
   <div class="content_box ">
     <span class="speaker " data-chat-room-channel-target="nickname"><%= content.user.nickname %></span>
-    <span class="text-xs text-gray-400"><%= content.created_at.to_s(:message_at) %></span>
+    <span class="text-xs text-gray-400">
+     <% if content.created_at.to_s(:md_on_today_zh_tw) == Time.now.to_s(:md_on_today_zh_tw)%> 
+        <%= content.created_at.to_s(:message_at) %>
+      <% else %>
+        <%= content.created_at.to_s(:long_no_separator)%>
+      <% end %></span>
     <div class="content_text">
       <%= content.text %>
       <% if content.image %>
