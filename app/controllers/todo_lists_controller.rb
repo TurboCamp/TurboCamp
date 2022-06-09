@@ -25,7 +25,7 @@ class TodoListsController < ApplicationController
     @todo_list = @project.todo_lists.new(todo_list_params)
 
     if @todo_list.save
-      redirect_to [@project, @todo_list], success: "Todo's group successfully created!"
+      redirect_to project_todo_lists_path(@project), success: "Todo's group successfully created!"
     else
       render :new
     end
@@ -33,7 +33,7 @@ class TodoListsController < ApplicationController
 
   def update
     if @todo_list.update(todo_list_params)
-      redirect_to todo_list_url(@todo_list), notice: "Todo's group successfully updated!"
+      redirect_to project_todo_list_path(@project, @todo_list), notice: "Todo's group successfully updated!"
     else
       render :edit
     end

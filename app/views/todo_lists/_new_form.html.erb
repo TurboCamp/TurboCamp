@@ -1,0 +1,42 @@
+<div data-controller="modal" data-action="click->modal#close" class="bg-theme-0 bg-opacity-60 overflow-y-auto overflow-x-hidden animated fadeIn fixed inset-0 flex items-center justify-center z-50 w-full md:inset-0 md:h-full">
+  <div class="relative p-4 max-h-screen w-full max-w-lg h-full md:h-auto">
+    <div data-modal-target="container" class="relative bg-theme-5 rounded-lg shadow dark:bg-gray-700">
+      <div class="flex justify-between items-center p-5 rounded-t border-b dark:border-gray-600">
+        <h3 class="text-xl font-medium text-gray-900 dark:text-white">
+            New Todos 
+        </h3>
+        <div>
+          <button type="submit" data-action="click->modal#hide">
+            <%= icon_tag 'fa-times fa-solid fa-lg pr-3 text-gray-500 hover:text-theme-200' %>
+          </button>
+        </div>
+      </div>
+      <div class="m-auto p-8 block w-auto" , data-controller="modal">
+          <%= form_with(model:  [@project, todo_list], data:{remote:true}, class:"contents w-full max-w-lg", method: :post) do |form| %>
+            <% if todo_list.errors.any? %>
+              <ul>
+                <% todo_list.errors.each do |error| %>
+                  <li><%= error.full_message %></li>
+                <% end %>
+              </ul>
+            <% end %>
+            <div>
+              <div class="px-4 py-5 bg-white space-y-6 sm:p-6">
+                <div>
+                  <%= form.label :title, class:"block text-sm font-medium text-gray-700"%>
+                  <div class="mt-1">
+                    <%= form.text_field :title, class:"p-4 shadow-sm focus:border-theme-150 focus:outline-none mt-1 block w-full h-10 sm:text-sm border border-gray-300 bg-theme-50 rounded-md", placeholder: "Add New Todo Here"%>
+                  </div>
+                </div>
+              </div>
+              <div class="px-4 py-3 bg-gray-50 text-right sm:px-6 ">
+                <%= form.submit  class:"theme-fill-btn"  %>
+              </div>
+            </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
+

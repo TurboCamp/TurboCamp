@@ -1,74 +1,81 @@
-<div class="flex flex-col h-auto p-28">
-  <%# todo-item-card-head-start %>
-  <div class="p-4 border-2">
-  
-  <div class="flex justify-between px-4 py-5 align-middle sm:px-6">
-    <div>
-    <%# back icon %>
-      <%= link_to project_todo_lists_path, class: 'bg-gray-500 hover:bg-yellow-600 text-white font-bold py-2 px-4 pt-2 rounded' do %>
-        <i class="fas fa-chevron-circle-left"></i>
-      <% end %>
-    </div>
-    <div class="text-center">
-    <%# heading %>
-      <h2 class="text-lg font-medium leading-6 text-gray-900"><%= @todo_list.title %></h2>
-      <p class="max-w-2xl mt-1 text-sm text-gray-500">
-        <%= @todo_list.percent_complete %>%Todo完成(<%= @todo_list.completed_items %>/<%= @todo_list.total_items %>)
-      </p>
-    </div>
-    <div>
-    <%# revise BTN %>
-      <button class="inline-flex justify-center px-4 py-2 text-sm font-medium text-white bg-yellow-600 border border-transparent rounded-md shadow-sm hover:bg-yellow-400 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-300">
-        <%= link_to '修改', edit_project_todo_list_path(@project, @todo_list) %>
-      </button>
-    </div>
-  </div>
-  <%# todo-item-card-head-end %>
-  <%# todo-item-card-complete-percentage-start %>
-  <div class="flex h-2 mb-4 overflow-hidden text-xs rounded bg-amber-200">
-    <div style="width: <%= @todo_list.percent_complete %>%" class="flex flex-col justify-center text-center text-white bg-yellow-500 shadow-none whitespace-nowrap"></div>
-  </div>
-  <%# todo-item-card-complete-percentage-end %>
-  <%# todo-item-card-add-new-item-start %>
-  <%= form_for([@project, @todo_list, @todo_item]) do |form| %>
-    <div class="flex flex-row px-4 py-5 space-y-6 align-baseline bg-white sm:p-6">
-      <div class="flex-grow m-4">
-        <%= form.text_field :description, class:"shadow-sm focus:ring-yellow-500 focus:border-yellow-500 mt-1 block w-full h-10 sm:text-sm border border-gray-300 rounded-md pl-2",placeholder:"新增todo" %>
+<div class="relative h-full max-h-screen min-w-0 py-10 overflow-x-hidden px-1 md:px-28" >
+  <div class="main-container">
+    <div class="w-full m-auto">
+      <div data-controller="dropdown">
+        <button type="button" data-action="click->dropdown#toggle" class="fixed top-28 right-24 z-10"><%= icon_tag('fa-ellipsis fa-solid fa-xl dropdown-icon')%></button>
+        <div data-dropdown-target="toggle"  class="hidden dropdown-content" 
+             data-transition-enter-active="transition ease-in-out"
+             data-transition-enter-from="transform translate-x-32 opacity-0 scale-x-0"
+             data-transition-enter-to="transform translate-x-0 opacity-100 scale-x-100"
+             data-transition-leave-active="transition ease-in-out"
+             data-transition-leave-from="transform translate-x-0 opacity-100 scale-x-100"
+             data-transition-leave-to="transform translate-x-32 opacity-0 scale-x-0">
+          <div class="w-full flex justify-end items-center py-2 px-1">
+            <button type="submit" data-action="click->dropdown#hide" class="p-3"><%= icon_tag('fa-times fa-solid fa-lg p-2') %></button>
+          </div>
+          <%=link_to "Edit", edit_project_todo_list_path(@project, @todo_list), class: 'dropdown mt-2', data: { remote: true, action: 'dropdown#hide' } %>
+          <%=link_to "Delete", project_todo_list_path, method: "delete", data: { confirm: "Are you sure to delete?", action: 'dropdown#hide'}, class: 'dropdown' %>
+          <%=link_to "Return", project_todo_lists_path, class: 'dropdown', data: { action: 'dropdown#hide' }%>
+        </div>
       </div>
-      <div class="">
-        <%= form.submit '新增', class:'inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-yellow-600 hover:bg-yellow-400 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-300' %> 
+      <%= form_for([@project, @todo_list, @todo_item], class: 'w-full') do |form| %>
+      <h1 id="dom_id" class="mb-2 text-5xl font-semibold text-gray-700"><%= @todo_list.title %></h1>
+      <div class="py-1 font-medium text-gray-400">
+        <%= @todo_list.percent_complete %>%(<%= @todo_list.completed_items %>/<%= @todo_list.total_items %>)
       </div>
-    </div>
-  <% end %>
-  <%# todo-item-card-add-new-item-end %>
-  <%# todo-item-card-body-start %>
-      <div class="flex">
-      <ul class="w-full divide-y divide-gray-200 list-group">
-        <% @todo_list.todo_items.each do |todo_item| %>
-        <% if todo_item.completed? %>
-          <li class="w-full list-group-item ">
-            <div class="flex items-center justify-between w-full mb-2 border-2 border-gray-400 h-14 hover:bg-gray-50">
-                <span class="ml-4 cursor-default ">
-                <%= todo_item.description %></span>
-                <%= link_to '#', class:'bg-white mr-2 border-2 p-2 hover:bg-orange-700', data: { reflex: 'click->TodoItem#todo_incomplete', id: todo_item.id } do %>
-                  <i class="fas fa-undo"></i>
-                <% end %>
-            </div>
-          </li>
-          <% else %>
-          <li class="flex w-full list-group-item">
-            <div class="flex items-center justify-between w-full mb-2 border-2 border-gray-400 h-14 hover:bg-gray-50">
-                <span class="ml-4"><%= todo_item.description %></span>
-                <%= link_to '#', class: 'm-auto bg-white mr-2 border-2 p-2 hover:bg-orange-700', data: { reflex: 'click->TodoItem#todo_complete', id: todo_item.id } do %>
-                  <i class="fas fa-check"></i>
-                <% end %>
-                <%= link_to '刪除', project_todo_list_todo_item_path(@project, @todo_list, todo_item.id ), method: "delete", class:'mr-2 border-2 p-2 hover:bg-orange-700' %>
-            </div>
-          </li>
-          <% end %>
+      <div class="flex h-2 my-2 overflow-hidden text-xs rounded bg-amber-200">
+        <div style="width: <%= @todo_list.percent_complete %>%" class="flex flex-col justify-center text-center text-white bg-yellow-500 shadow-none whitespace-nowrap"></div>
+      </div>
+      <div class="py-2">
+          <div class="w-full flex justify-start items-center pb-4">
+              <div class="w-11/12 ">
+                <%= form.text_field :description, 
+                                    class:"w-full h-10 p-4 border border-gray-300 bg-theme-50 rounded-md focus:border-theme-150 focus:outline-none",
+                                    placeholder:"Add new task",
+                                    autocomplete: 'off' %>
+              </div>
+              <div class="w-1/12 pl-2 pb-0.5">
+                <%= form.submit 'NEW', class:'theme-fill-btn' %> 
+              </div>
+          </div>
         <% end %>
-      </ul>
+      </div>
+    </div>
+    <div class="max-h-96 pr-1 h-full overflow-x-hidden">
+      <div class="flex">
+        <ul class="w-full list-group">
+          <% @todo_list.todo_items.reverse.each do |todo_item| %>
+          <% if todo_item.completed? %>
+            <li class="w-full list-group-item ">
+              <div class="flex items-center justify-between bg-theme-200 text-theme-5 hover:text-gray-600 rounded-md shadow-md w-full mb-2 border border-gray-300 h-14 hover:bg-theme-180">
+                  <span class="ml-4 cursor-default ">
+                  <%= todo_item.description %></span>
+                  <%= link_to '#', class:' m-auto mr-2 p-2', data: { reflex: 'click->TodoItem#todo_incomplete', id: todo_item.id } do %>
+                    <i class="fas fa-undo hover:text-theme-200"></i>
+                  <% end %>
+                  <%= link_to project_todo_list_todo_item_path(@project, @todo_list, todo_item.id ), method: "delete", class:'mr-2 p-2' do %>
+                    <i class="text-lg far fa-trash-alt hover:text-theme-200"></i>
+                  <% end %>
+              </div>
+            </li>
+            <% else %>
+            <li class="flex w-full list-group-item">
+              <div class="flex items-center justify-between rounded-md shadow-md w-full mb-2 border border-gray-300  h-14 hover:bg-theme-180">
+                  <span class="ml-4"><%= todo_item.description %></span>
+                  <div class="flex justify-start">
+                    <%= link_to '#', class: 'm-auto mr-2 p-2', data: { reflex: 'click->TodoItem#todo_complete', id: todo_item.id } do %>
+                      <i class="fas fa-check hover:text-theme-200"></i>
+                    <% end %>
+                    <%= link_to project_todo_list_todo_item_path(@project, @todo_list, todo_item.id ), method: "delete", class:'mr-2 p-2' do %>
+                      <i class="text-lg far fa-trash-alt hover:text-theme-200"></i>
+                    <% end %>
+                  </div>
+              </div>
+            </li>
+            <% end %>
+          <% end %>
+        </ul>
+      </div>
     </div>
   </div>
-  <%# todo-item-card-body-end %>
 </div>

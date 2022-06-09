@@ -1,0 +1,4 @@
+<%= form_with(model:  [@project, todo_list]) do |form| %>
+  <%= form.text_field :title, class: 'focus:outline-none border border-gray-300 rounded-md p-4 h-8 bg-theme-50' %>
+  <%= form.submit 'Update', class: 'theme-fill-btn' %>
+<% end %>

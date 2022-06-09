@@ -1,3 +1,8 @@
-todo-status-title {
-  @apply text-xl font-semibold text-gray-500 p-2;
+.todo-status-title {
+  @apply text-xl font-normal text-gray-600 p-2;
 }
+
+.todo-content {
+  @apply flex justify-between items-center px-4 py-4 overflow-hidden bg-theme-5 hover:bg-theme-50 border border-gray-300 font-normal  shadow-md sm:rounded-md;
+}
+

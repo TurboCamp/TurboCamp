@@ -6,8 +6,10 @@
         <div>
           <div class="grid grid-cols-1 mt-6 gap-y-6 gap-x-4 sm:grid-cols-6">
             <div class="sm:col-span-4">
-              <h2 contenteditable placeholder="untitled" 
-                  class="w-full p-1 text-4xl focus:outline-none"></h2>
+                <%= form.label :title, class: "block text-sm font-medium text-gray-700" %>
+              <div class="flex mt-1 rounded-md shadow-sm">
+                <%= form.text_field :title, class:"flex-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full min-w-0 rounded-none rounded-r-md sm:text-sm border-gray-300" %>
+              </div>
             </div>
               
             <div class="sm:col-span-6">
@@ -16,9 +18,20 @@
                 <%= form.text_area :content, class:"h-72 flex-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full min-w-0 rounded-none rounded-r-md sm:text-sm border-gray-300", data:{controller:"markdown-editor"}%>
               </div>
             </div>
+            <div class="sm:col-span-6">
+              <%= form.label :status, class:"block text-sm font-medium text-gray-700" %>
+              <div class="mt-1">
+                <div class="flex">
+                  <div class="mb-3 xl:w-96">
+                    <%= form.select :status, ['public', 'draft'], selected: 'public' ,class: "flex-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full min-w-0 rounded-none rounded-r-md sm:text-sm border-gray-300"%>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
+
       <div class="pt-5">
         <div class="flex justify-end">
           <%=link_to "返回", project_messages_path , class: 'theme-outline-btn mr-4'%>
