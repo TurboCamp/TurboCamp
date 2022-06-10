@@ -18,14 +18,14 @@
     <section id="section">
       <div class="flex items-center" data-controller="toggle">
         <div class="sidebar-close" data-toggle-target="sidebar">
-          <%= render 'layouts/aside' %> </div>
+          <%= render '/shared/aside' %> </div>
         <div class="main-content-container">
           <%= render '/shared/flash' if flash %>
           <%= render 'navbar'%>
           <div class="flex h-screen">
             <%= yield %>
             <section class="user-close" data-toggle-target="friendbar">
-              <%= render 'layouts/friendbar' %>
+              <%= render '/shared/friendbar' %>
             </section>
           </div>
         </div>

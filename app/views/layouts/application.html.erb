@@ -22,10 +22,10 @@
     <section id="section">
       <div class="flex items-center" data-controller="toggle">
         <div class="sidebar-close" data-toggle-target="sidebar">
-          <%= render 'layouts/aside' %>
+          <%= render '/shared/aside' %>
         </div>
         <div class="main-content-container">
-          <%= render 'layouts/navbar' %>
+          <%= render '/shared/navbar' %>
           <%= render "/shared/flash" if flash %>
           <div class="sidebar-toggle-btn">
             <button type="button" data-action="click->toggle#open">
@@ -37,7 +37,7 @@
               <%= yield %>
             </section>
             <section class="user-close" data-toggle-target="friendbar">
-              <%= render 'layouts/friendbar' %>
+              <%= render '/shared/friendbar' %>
             </section>
           </div>
         </div>
