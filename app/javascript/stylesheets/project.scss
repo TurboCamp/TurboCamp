@@ -19,3 +19,14 @@
 }
 
 
+.markdown-preview {
+  p {
+    @apply pb-1 truncate;
+  }
+  code {
+    @apply text-xs;
+  }
+  pre {
+    @apply hidden;
+  }
+}
