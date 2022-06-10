@@ -85,7 +85,7 @@ body {
 }
 
 .mb-card {
-  @apply h-64 overflow-hidden flex items-start justify-center bg-white rounded-lg relative border-2 border-gray-400 drop-shadow-md md:flex-row md:max-w-xl hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700;
+  @apply h-32 overflow-hidden flex items-start justify-center bg-white rounded-lg relative border-2 border-gray-400 drop-shadow-md md:flex-row md:max-w-xl hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700;
 }
 
 @layer components {
