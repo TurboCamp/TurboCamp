@@ -28,6 +28,8 @@ group :development, :test do
   gem 'dotenv-rails', '~> 2.7'
   gem 'foreman', '~> 0.87.2'
   gem 'rspec-rails', '~> 5.1'
+  gem 'factory_bot_rails', '~> 6.2'
+  gem 'faker', '~> 1.6', '>= 1.6.6'
 end
 
 group :development do
